@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
 
   <meta
     name="description"
-    content="TA-14 Admissible Execution Architecture is the proof-bound governance architecture for determining whether consequence-bearing systems have enough evidence, continuity, authority, binding discipline, commit control, execution governance, and outcome accountability before they act."
+    content="TA-14 Admissible Execution Architecture is the proof-bound governance architecture for determining whether consequence-bearing systems, AI execution-governance entities, evidence processes, environmental integrity routes, partner architectures, and institutional decision pathways have enough evidence, continuity, authority, binding discipline, commit control, execution governance, and outcome accountability before they act."
   />
 
   <style>
@@ -105,7 +106,7 @@
       gap: 8px;
       align-items: center;
       justify-content: flex-end;
-      max-width: 850px;
+      max-width: 900px;
     }
 
     .nav-links a {
@@ -124,6 +125,12 @@
       color: var(--black);
       border-color: var(--black);
       background: #ffffff;
+    }
+
+    .nav-links .nav-feature {
+      color: var(--black);
+      border-color: rgba(37, 99, 235, 0.30);
+      background: rgba(37, 99, 235, 0.08);
     }
 
     .nav-links .nav-cta {
@@ -193,7 +200,10 @@
       text-transform: uppercase;
     }
 
-    .hero .eyebrow {
+    .hero .eyebrow,
+    .quote-panel .eyebrow,
+    .card.dark .eyebrow,
+    .cta-panel .eyebrow {
       color: #bae6fd;
     }
 
@@ -296,6 +306,13 @@
       box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
     }
 
+    .button-light-outline {
+      background: #ffffff;
+      color: var(--black);
+      border-color: var(--line);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+    }
+
     .direct {
       margin-top: 12px;
       color: #cbd5e1;
@@ -321,6 +338,10 @@
       color: #ffffff;
       font-size: clamp(2rem, 4vw, 3.2rem);
       letter-spacing: -0.06em;
+    }
+
+    .hero-orb p {
+      color: #e2e8f0;
     }
 
     .chain-line {
@@ -378,6 +399,12 @@
     .mini-nav a:hover {
       color: var(--black);
       border-color: var(--black);
+    }
+
+    .mini-nav a.featured {
+      color: var(--black);
+      border-color: rgba(37, 99, 235, 0.30);
+      background: rgba(37, 99, 235, 0.08);
     }
 
     .grid {
@@ -444,6 +471,7 @@
       background: var(--black);
       color: #ffffff;
       font-weight: 900;
+      font-size: 0.9rem;
     }
 
     .number.blue {
@@ -497,6 +525,17 @@
       box-shadow: var(--shadow);
     }
 
+    .feature-panel {
+      padding: 42px;
+      border: 1px solid var(--line);
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 8% 10%, rgba(124, 58, 237, 0.10), transparent 22rem),
+        radial-gradient(circle at 94% 12%, rgba(37, 99, 235, 0.12), transparent 24rem),
+        #ffffff;
+      box-shadow: var(--shadow);
+    }
+
     .chain-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -521,6 +560,34 @@
     }
 
     .chain-step span {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .review-step {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      background: #ffffff;
+      min-height: 175px;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
+    }
+
+    .review-step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--black);
+      font-size: 1.05rem;
+    }
+
+    .review-step span {
       color: var(--muted);
       font-size: 0.96rem;
     }
@@ -573,6 +640,31 @@
       font-size: 1.16rem;
     }
 
+    .micro {
+      color: var(--light-muted);
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 900;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       background: #ffffff;
@@ -614,7 +706,8 @@
       .grid.two,
       .grid.three,
       .grid.four,
-      .chain-grid {
+      .chain-grid,
+      .review-grid {
         grid-template-columns: 1fr;
       }
 
@@ -632,6 +725,7 @@
       .card,
       .quote-panel,
       .problem,
+      .feature-panel,
       .cta-panel {
         padding: 24px;
         border-radius: 28px;
@@ -664,6 +758,7 @@
       <div class="nav-links">
         <a href="/start-here">Start Here</a>
         <a href="/architecture">Architecture</a>
+        <a class="nav-feature" href="#governance-review">Governance Review</a>
         <a href="/services">Services</a>
         <a href="/use-cases">Use Cases</a>
         <a href="/resources">Resources</a>
@@ -689,14 +784,14 @@
             <h1>Proof-bound governance before consequence.</h1>
 
             <p class="lead">
-              TA-14 determines whether a system, workflow, evidence process, AI pathway,
-              environmental integrity route, partner architecture, or institutional decision
-              has enough admissible evidence before it is allowed to bind, commit, execute,
-              or create reliance.
+              TA-14 determines whether a system, workflow, evidence process, AI execution-governance entity,
+              environmental integrity route, partner architecture, or institutional decision has enough
+              admissible evidence before it is allowed to bind, commit, execute, or create reliance.
             </p>
 
             <div class="hero-actions">
               <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
+              <a class="button button-secondary" href="#governance-review">Explore Governance Review</a>
               <a class="button button-secondary" href="/start-here">Start Here</a>
             </div>
 
@@ -744,6 +839,7 @@
 
       <div class="mini-nav">
         <a href="#why">Why TA-14</a>
+        <a class="featured" href="#governance-review">Governance Review</a>
         <a href="#chain">The Chain</a>
         <a href="#pages">Site Map</a>
         <a href="#future-pages">Expanded Pages</a>
@@ -793,6 +889,205 @@
               needed to govern consequence.
             </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="governance-review">
+      <p class="eyebrow">Governance Review</p>
+
+      <div class="feature-panel">
+        <h2>TA-14 reviews other governance systems for admissible execution readiness.</h2>
+
+        <p class="lead">
+          Some systems do not merely execute. They govern execution. They claim to control AI agents,
+          authorize workflows, validate trust, enforce policy, route decisions, constrain runtime behavior,
+          verify evidence, or determine whether action should proceed.
+        </p>
+
+        <p class="lead">
+          TA-14 provides a review layer for those systems. It asks whether an AI execution-governance entity,
+          trust framework, runtime gate, policy engine, partner architecture, compliance workflow, or
+          admissibility-adjacent governance system can prove that consequence-bearing execution remains
+          admissible from reality through outcome.
+        </p>
+
+        <div class="quote-panel" style="margin-top: 28px;">
+          <p class="big">
+            The question is not only whether a governance system exists. The question is whether that governance system can prove admissible execution.
+          </p>
+
+          <div class="chain-line">
+            Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+          </div>
+        </div>
+
+        <div class="grid three">
+          <article class="card">
+            <div class="number blue">1</div>
+            <h3>Review the governance claim</h3>
+            <p>
+              TA-14 identifies what the reviewed governance system claims to control:
+              evidence, identity, policy, authority, runtime behavior, refusal, execution, outcome,
+              or another consequence-bearing layer.
+            </p>
+          </article>
+
+          <article class="card alt">
+            <div class="number violet">2</div>
+            <h3>Map it to the TA-14 chain</h3>
+            <p>
+              The system is mapped against Reality, Record, Continuity, Admissibility, Binding,
+              Commit, Execution, and Outcome to determine where its governance is strong,
+              partial, missing, or not reviewable.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number green">3</div>
+            <h3>Test admissible-execution readiness</h3>
+            <p>
+              TA-14 asks whether the governance system can prevent consequence-bearing action
+              outside the admissibility chain, especially under ambiguity, pressure, authority drift,
+              stale evidence, or incomplete outcome proof.
+            </p>
+          </article>
+        </div>
+
+        <div class="grid two" style="margin-top: 22px;">
+          <article class="card dark">
+            <p class="eyebrow">AI Execution Governance Entity Review</p>
+            <h2>What can be reviewed?</h2>
+
+            <ul>
+              <li>AI governance frameworks</li>
+              <li>agent runtime governance systems</li>
+              <li>execution-control architectures</li>
+              <li>trust, identity, verification, or policy layers</li>
+              <li>compliance and evidence workflows</li>
+              <li>human-in-the-loop decision systems</li>
+              <li>environmental or atmospheric evidence systems</li>
+              <li>partner architectures seeking TA-14 second-layer review</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <p class="eyebrow">Review posture</p>
+            <h2>Not absorption. Not endorsement. Review.</h2>
+
+            <p>
+              TA-14 does not erase the reviewed architecture or claim that every serious governance system
+              must become TA-14. The review preserves the system’s identity while asking whether its
+              consequence-bearing routes can satisfy admissible-execution requirements.
+            </p>
+
+            <p>
+              The result may be a strengths-plus-gaps review, evidence requirements list, admissibility-chain
+              map, partner-review pathway, or production-readiness evidence path.
+            </p>
+          </article>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-step">
+            <div class="number blue">E</div>
+            <strong>Evidence</strong>
+            <span>Does the governance system distinguish records, logs, outputs, and claims from admissible evidence?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number violet">C</div>
+            <strong>Continuity</strong>
+            <span>Can it preserve chronology, source, baseline, threshold, determination, handoff, and reviewability?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number green">R</div>
+            <strong>Reliance</strong>
+            <span>Does it govern when evidence may be relied upon, by whom, for what purpose, and under what limits?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number amber">A</div>
+            <strong>Authority</strong>
+            <span>Can it prove that authority remains valid, scoped, current, and bounded at the point of action?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number blue">B</div>
+            <strong>Binding</strong>
+            <span>Does it show when evidence, reliance, authority, and route begin to attach to consequence?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number violet">M</div>
+            <strong>Commit</strong>
+            <span>Is there a controlled commit boundary where the system receipts the basis for proceeding or refusing?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number green">X</div>
+            <strong>Execution</strong>
+            <span>Can it prevent consequence-bearing action outside the admissibility chain?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number amber">O</div>
+            <strong>Outcome</strong>
+            <span>Can it account for what happened, what changed, what was prevented, and whether the outcome matched the admissible basis?</span>
+          </article>
+        </div>
+
+        <div class="grid three" style="margin-top: 22px;">
+          <article class="card alt">
+            <h3>Review outputs</h3>
+            <ul>
+              <li>public-material governance review</li>
+              <li>TA-14 admissible-execution chain map</li>
+              <li>strengths-plus-gaps finding</li>
+              <li>missing evidence requirements</li>
+              <li>controlled PASS or readiness path</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Decision classes</h3>
+            <ul>
+              <li>Strong alignment</li>
+              <li>Partial admissibility</li>
+              <li>Controlled PASS path</li>
+              <li>Evidence gap</li>
+              <li>Route-complete evidence required</li>
+              <li>Not reviewable from public materials</li>
+            </ul>
+          </article>
+
+          <article class="card alt">
+            <h3>Non-claims</h3>
+            <ul>
+              <li>not legal certification</li>
+              <li>not endorsement</li>
+              <li>not security audit</li>
+              <li>not private implementation validation</li>
+              <li>not permission to use TA-14 status language without written approval</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">AI execution governance</span>
+          <span class="tag">admissibility review</span>
+          <span class="tag">runtime governance</span>
+          <span class="tag">policy engines</span>
+          <span class="tag">trust frameworks</span>
+          <span class="tag">partner architectures</span>
+          <span class="tag">route-complete evidence</span>
+        </div>
+
+        <div class="cta-row">
+          <a class="button button-dark" href="/request-evaluation">Request Governance Review</a>
+          <a class="button button-light-outline" href="/architecture">View TA-14 Architecture</a>
+          <a class="button button-light-outline" href="/evidence-integrity">Evidence Integrity</a>
         </div>
       </div>
     </section>
@@ -899,7 +1194,7 @@
             <div class="number green">03</div>
             <h3>Services</h3>
             <p>
-              Review lanes for public-material architecture review, evidence gap review,
+              Review lanes for public-material architecture review, governance review, evidence gap review,
               partner alignment, environmental integrity, and production-readiness review.
             </p>
           </div>
@@ -911,8 +1206,8 @@
             <div class="number amber">04</div>
             <h3>Use Cases</h3>
             <p>
-              AI workflows, environmental evidence, partner architectures, institutional decisions,
-              operational reliance, and consequence-bearing review scenarios.
+              AI workflows, AI execution-governance entities, environmental evidence, partner architectures,
+              institutional decisions, operational reliance, and consequence-bearing review scenarios.
             </p>
           </div>
           <span>See where TA-14 applies.</span>
@@ -935,8 +1230,8 @@
             <div class="number violet">06</div>
             <h3>Request Review</h3>
             <p>
-              Submit a system, workflow, evidence process, partner architecture, environmental pathway,
-              or institutional decision route for TA-14 review.
+              Submit a system, workflow, evidence process, governance framework, partner architecture,
+              environmental pathway, or institutional decision route for TA-14 review.
             </p>
           </div>
           <span>Move from interest to review.</span>
@@ -1071,6 +1366,15 @@
         </article>
 
         <article class="card alt">
+          <div class="number violet">GOV</div>
+          <h3>Governance Systems</h3>
+          <p>
+            AI execution-governance entities, trust frameworks, runtime gates, policy engines,
+            compliance workflows, and admissibility-adjacent systems.
+          </p>
+        </article>
+
+        <article class="card">
           <div class="number green">ENV</div>
           <h3>Environmental Evidence</h3>
           <p>
@@ -1079,21 +1383,12 @@
           </p>
         </article>
 
-        <article class="card">
-          <div class="number violet">NET</div>
+        <article class="card alt">
+          <div class="number amber">NET</div>
           <h3>Partner Architectures</h3>
           <p>
             Runtime gates, refusal layers, evidence tools, audit systems, trust layers,
             policy engines, and adjacent governance systems.
-          </p>
-        </article>
-
-        <article class="card alt">
-          <div class="number amber">ORG</div>
-          <h3>Institutional Decisions</h3>
-          <p>
-            Decision routes where records, authority, scope, binding, client reliance,
-            outcome proof, and accountability matter.
           </p>
         </article>
       </div>
@@ -1130,20 +1425,20 @@
     <section id="request">
       <div class="cta-panel">
         <p class="eyebrow">Request review</p>
-        <h2>Need to know whether a system is ready to act?</h2>
+        <h2>Need to know whether a system or governance framework is ready to act?</h2>
 
         <p>
-          Request a TA-14 review for an AI workflow, environmental evidence process, partner architecture,
-          institutional decision route, or other consequence-bearing execution pathway. Include what action
-          may occur, what evidence exists, who relies on it, where authority comes from, and where binding
-          or commit happens.
+          Request a TA-14 review for an AI workflow, AI execution-governance entity, environmental evidence process,
+          partner architecture, institutional decision route, or other consequence-bearing execution pathway.
+          Include what action may occur, what evidence exists, who relies on it, where authority comes from,
+          and where binding or commit happens.
         </p>
 
         <div class="cta-row">
           <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
           <a
             class="button button-secondary"
-            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0ASystem%20or%20workflow%20to%20be%20reviewed%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%20output%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhat%20authority%20allows%20the%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AWhat%20happens%20if%20the%20system%20is%20wrong%3A%0A%0ARequested%20review%20type%3A%0A%0AThank%20you."
+            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0ASystem%2C%20governance%20framework%2C%20or%20workflow%20to%20be%20reviewed%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%20output%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhat%20authority%20allows%20the%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AWhat%20happens%20if%20the%20system%20is%20wrong%3A%0A%0ARequested%20review%20type%3A%0A%0AThank%20you."
           >
             Email TA-14 Review Request
           </a>
@@ -1170,3 +1465,4 @@
   </footer>
 </body>
 </html>
+```
