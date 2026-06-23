@@ -80,7 +80,8 @@
       margin: 0;
     }
 
-    ul {
+    ul,
+    ol {
       margin: 0;
     }
 
@@ -939,11 +940,18 @@
       letter-spacing: -0.025em;
     }
 
-    .request-list ul {
-      padding-left: 20px;
+    .request-list ol {
+      padding-left: 24px;
       display: grid;
-      gap: 8px;
+      gap: 10px;
       color: #dbeafe;
+    }
+
+    .request-list li {
+      padding-left: 4px;
+      color: #dbeafe;
+      font-size: 1rem;
+      line-height: 1.65;
     }
 
     .request-panel .button.secondary {
@@ -1856,32 +1864,24 @@
       <div class="request-panel">
         <p class="eyebrow">Request review</p>
 
-        <h2>Need to know whether a system or governance framework is ready to act?</h2>
+        <h2>Request a TA-14 review.</h2>
 
         <p>
-          Request a TA-14 review for an AI workflow, AI execution-governance entity, environmental evidence process,
-          partner architecture, institutional decision route, runtime-gate pathway, or other consequence-bearing
-          execution pathway.
-        </p>
-
-        <p>
-          Include what action may occur, what evidence exists, who relies on it, where authority comes from,
-          and where binding or commit happens.
+          TA-14 reviews systems, workflows, evidence processes, partner architectures, runtime-gate pathways,
+          environmental integrity routes, and institutional decision routes where consequence-bearing action,
+          reliance, intervention, or outcome may occur.
         </p>
 
         <div class="request-list" aria-label="TA-14 review request checklist">
-          <h3>Include these review details</h3>
+          <h3>To request a TA-14 review, include:</h3>
 
-          <ul>
-            <li>The system, governance framework, workflow, or decision route to be reviewed</li>
-            <li>The consequence-bearing action that may occur</li>
-            <li>Who or what relies on the system output</li>
-            <li>What evidence exists before action</li>
-            <li>What authority allows the action</li>
-            <li>Where binding, commit, execution, or reliance occurs</li>
-            <li>What happens if the system is wrong</li>
-            <li>Whether the request involves governance review, evidence integrity, runtime-gate review, partner review, environmental integrity, or another TA-14 review lane</li>
-          </ul>
+          <ol>
+            <li>What system, workflow, evidence process, or architecture should be reviewed.</li>
+            <li>What consequence-bearing action, reliance, intervention, or decision may occur.</li>
+            <li>What evidence currently supports that action.</li>
+            <li>Who or what relies on the evidence.</li>
+            <li>Where authority, binding, commit, execution, and outcome records appear.</li>
+          </ol>
         </div>
 
         <div class="hero-actions">
@@ -1899,7 +1899,7 @@
 
           <a
             class="button secondary"
-            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0ASystem%2C%20governance%20framework%2C%20or%20workflow%20to%20be%20reviewed%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%20output%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhat%20authority%20allows%20the%20action%3A%0A%0AWhere%20binding%2C%20commit%2C%20execution%2C%20or%20reliance%20occurs%3A%0A%0AReview%20lane%20requested%20%28governance%20review%2C%20evidence%20integrity%2C%20runtime%20gate%2C%20partner%20review%2C%20environmental%20integrity%2C%20or%20other%29%3A%0A%0AWhat%20happens%20if%20the%20system%20is%20wrong%3A%0A%0AThank%20you."
+            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0A1.%20What%20system%2C%20workflow%2C%20evidence%20process%2C%20or%20architecture%20should%20be%20reviewed%3A%0A%0A2.%20What%20consequence-bearing%20action%2C%20reliance%2C%20intervention%2C%20or%20decision%20may%20occur%3A%0A%0A3.%20What%20evidence%20currently%20supports%20that%20action%3A%0A%0A4.%20Who%20or%20what%20relies%20on%20the%20evidence%3A%0A%0A5.%20Where%20authority%2C%20binding%2C%20commit%2C%20execution%2C%20and%20outcome%20records%20appear%3A%0A%0AThank%20you."
           >
             Email TA-14 Review Request
           </a>
