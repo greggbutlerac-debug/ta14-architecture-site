@@ -1,1463 +1,1068 @@
-# Evidence Integrity
-
-Evidence must remain trustworthy before a system is allowed to rely, bind, commit, execute, or create consequence.
-
-TA-14 does not begin at the moment of action.
-
-It begins earlier, with the evidence a system wants to rely on before consequence-bearing execution is allowed to proceed.
-
-Evidence Integrity is the upstream proof discipline inside **TA-14 Admissible Execution Architecture**. It asks whether records, signals, documents, logs, observations, measurements, outputs, claims, and determinations remain strong enough to become admissible evidence — and whether admissible evidence remains strong enough to support reliance.
-
-A record may exist.
-
-A log may exist.
-
-A dashboard may display a signal.
-
-A sensor may report a measurement.
-
-A model may produce an output.
-
-A workflow may preserve an event.
-
-A human may make a determination.
-
-But none of those things automatically prove that the material is trustworthy enough, continuous enough, authoritative enough, scoped enough, or admissible enough to support consequence.
-
-TA-14 separates the existence of information from the integrity of evidence.
-
-**No admissible evidence. No admissible reliance. No admissible execution.**
-
----
-
-## Core Doctrine
-
-## A record is not automatically admissible evidence.
-
-TA-14 separates:
-
-**Record → Evidence → Admissibility → Reliance → Authority → Binding → Commit → Execution → Outcome**
-
-That distinction matters because many systems collapse the chain.
-
-They assume that if something was logged, it is evidence.
-
-They assume that if something is evidence, it can be trusted.
-
-They assume that if evidence can be trusted, it can be relied upon.
-
-They assume that if reliance exists, execution may proceed.
-
-They assume that if execution is logged, governance happened.
-
-TA-14 does not accept that shortcut.
-
-A record must qualify as evidence.
-
-Evidence must preserve continuity.
-
-Admissibility must be earned.
-
-Reliance must be governed.
-
-Authority must be valid.
-
-Binding must be scoped.
-
-Commit must be controlled.
-
-Execution must be justified before consequence attaches.
-
-Outcome must be accountable after consequence occurs.
-
-Evidence Integrity is the discipline that protects the beginning of that chain.
-
----
-
-## The Core Question
-
-Evidence Integrity asks:
-
-**Can the evidence still be trusted enough to support the consequence being proposed?**
-
-That question sits inside the full TA-14 chain:
-
-**Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome**
-
-Evidence Integrity primarily protects the movement from:
-
-**Reality → Record → Continuity → Admissibility**
-
-It asks whether the system has preserved the trustworthiness of the evidence before moving into reliance, authority, binding, commit, execution, and outcome accountability.
-
-The question is not only:
-
-“Do we have a record?”
-
-The question is:
-
-**Can this record still carry consequence?**
-
----
-
-## Why Evidence Integrity Matters
-
-Execution failures often begin as evidence failures.
-
-A system can execute the intended instruction and still misexecute if the evidence behind that instruction was incomplete, stale, broken, out of scope, unauthoritative, contaminated, contradicted, or insufficient for reliance.
-
-That is one of TA-14’s central findings:
-
-**A system can technically execute correctly and still misexecute.**
-
-Misexecution does not only occur when software malfunctions.
-
-Misexecution can occur when the system acts on evidence that should not have been relied upon.
-
-Bad evidence creates bad reliance.
-
-Bad reliance creates bad authority.
-
-Bad authority creates bad binding.
-
-Bad binding creates bad commit.
-
-Bad commit creates bad execution.
-
-Bad execution creates bad outcome.
-
-Once consequence attaches, the problem is no longer only informational. It becomes operational, institutional, environmental, financial, legal, human, or atmospheric.
-
-Evidence Integrity exists to stop damaged proof before it becomes consequence.
-
----
-
-## Information, Record, Evidence, and Admissible Evidence
-
-TA-14 distinguishes several stages that are often treated as the same thing.
-
-### Information
-
-Information is material available to a system.
-
-It may be a signal, message, measurement, output, claim, observation, document, log, image, statement, or event.
-
-Information is not automatically evidence.
-
-### Record
-
-A record is preserved information.
-
-It may show that something was captured, stored, logged, written, measured, observed, or generated.
-
-A record is not automatically admissible evidence.
-
-### Evidence
-
-Evidence is a record that can be evaluated for relevance, source, continuity, scope, meaning, and usefulness to a claim, decision, determination, intervention, or execution route.
-
-Evidence is not automatically admissible.
-
-### Admissible Evidence
-
-Admissible evidence is evidence strong enough, continuous enough, scoped enough, authoritative enough, and reviewable enough to support a defined reliance condition.
-
-Admissible evidence is not automatic authority to execute.
-
-### Governed Reliance
-
-Governed reliance is the controlled point where admissible evidence may support a decision, route, boundary, permission, refusal, escalation, binding, commit, execution, or outcome claim.
-
-Reliance must be authorized and bounded.
-
-### Execution Authority
-
-Execution authority is not created merely because evidence exists.
-
-Execution authority requires the evidence chain, reliance condition, authority basis, scope, binding, commit, and execution boundary to remain admissible.
-
-This is why TA-14 does not allow systems to jump from record to execution.
-
----
-
-## The Dangerous Shortcut
-
-The dangerous shortcut is:
-
-**A record exists → therefore execution is allowed.**
-
-TA-14 rejects that shortcut.
-
-A record can exist and still fail as evidence.
-
-Evidence can exist and still fail admissibility.
-
-Admissible evidence can exist and still be insufficient for a specific reliance.
-
-Reliance can exist and still lack authority.
-
-Authority can exist and still be out of scope.
-
-Binding can occur too early.
-
-Commit can occur after evidence has degraded.
-
-Execution can proceed after the chain has already failed.
-
-Outcome can be claimed without proof that the consequence was admissibly produced.
-
-Evidence Integrity prevents systems from treating documentation as permission.
-
-The existence of data is not the same as admissible authority to create consequence.
-
----
-
-## Evidence Integrity and Evidence Governance
-
-Evidence Integrity is the public-facing proof condition.
-
-Evidence Governance Architecture is the deeper TA-14 architecture family that explains how evidence itself must be governed.
-
-The page is called **Evidence Integrity** because that is the condition a reader can immediately understand:
-
-Can the evidence still be trusted?
-
-But the deeper architecture question remains:
-
-**What must be true of evidence before admissibility can exist?**
-
-Evidence Governance Architecture addresses that upstream question.
-
-It does not rename TA-14.
-
-TA-14 remains **Admissible Execution Architecture**.
-
-Evidence Governance explains what must be true before admissible execution can exist.
-
-Evidence Integrity describes the condition that must be preserved so evidence can support admissibility, reliance, and execution.
-
-Together, they protect the proof layer before consequence-bearing action occurs.
-
----
-
-## Evidence Integrity Dimensions
-
-Evidence Integrity is not a single checkpoint.
-
-It is a set of connected integrity conditions that must survive across the chain.
-
----
-
-## Source Integrity
-
-Source Integrity asks where the record, signal, observation, measurement, log, output, claim, or determination originated.
-
-A system must be able to explain the origin of the evidence.
-
-Key questions include:
-
-- Who or what produced the evidence?
-- Was the source identifiable?
-- Was the source authorized?
-- Was the source competent for the condition being measured or described?
-- Was the source preserved in the record?
-- Is the source still valid at the time of reliance?
-- Has the source been altered, replaced, contradicted, or invalidated?
-
-Without source integrity, evidence may appear useful while lacking foundation.
-
-A system should not rely on evidence if it cannot explain where the evidence came from.
-
----
-
-## Chronology Integrity
-
-Chronology Integrity asks whether the order of events was preserved.
-
-TA-14 is chronology-first because consequence-bearing execution depends on what happened before what.
-
-The system must know whether observation happened before determination, whether determination happened before intervention, whether intervention happened before outcome, and whether outcome was recorded after action.
-
-Chronology failure occurs when records exist but sequence is unclear.
-
-This creates false admissibility.
-
-A system may know that several things happened, but not know the order in which they happened.
-
-When chronology breaks, admissibility weakens.
-
----
-
-## Record Integrity
-
-Record Integrity asks whether the preserved record is complete, attributable, time-situated, source-aware, and reviewable.
-
-A record must do more than exist.
-
-It must preserve enough context to support later review.
-
-Record Integrity asks:
-
-- What was recorded?
-- When was it recorded?
-- Who or what recorded it?
-- Was the method known?
-- Was the record altered?
-- Was the record preserved?
-- Is the record linked to the condition it claims to represent?
-- Can the record be reviewed later?
-
-A record without source, timing, sequence, scope, or method may be available information, but it may not have enough integrity to support consequence.
-
----
-
-## Baseline Integrity
-
-Baseline Integrity asks whether the system knows the starting condition.
-
-Without baseline, change is difficult to prove.
-
-In environmental systems, baseline may describe indoor air conditions, equipment performance, temperature, humidity, pressure, particulate levels, refrigerant behavior, ventilation state, or other atmospheric or mechanical conditions before intervention.
-
-In AI or institutional systems, baseline may describe the prior state of a record, authority condition, user scope, risk posture, workflow state, or operational condition before action.
-
-Baseline Integrity asks:
-
-- What was the prior condition?
-- Was it recorded?
-- Was it trustworthy?
-- Was it current?
-- Was it preserved?
-- Can later change be compared against it?
-
-Without baseline integrity, systems may claim improvement, degradation, compliance, risk, correction, or success without proof of what came before.
-
----
-
-## Threshold Integrity
-
-Threshold Integrity asks whether the system knows what level, condition, rule, or boundary matters.
-
-Evidence is not meaningful without interpretive thresholds.
-
-A temperature reading, particulate count, confidence score, risk level, authority state, or compliance signal does not speak for itself.
-
-The system must know what threshold turns information into a meaningful determination.
-
-Threshold Integrity asks:
-
-- What threshold applies?
-- Who set it?
-- Is it documented?
-- Is it appropriate for the context?
-- Is it current?
-- Is it tied to authority?
-- Is it tied to consequence?
-- Was the threshold crossed before action occurred?
-
-Without threshold integrity, systems may act on undefined or unstable standards.
-
----
-
-## Determination Integrity
-
-Determination Integrity asks whether the system’s interpretation of evidence is justified.
-
-Evidence does not automatically determine what should happen.
-
-Someone or something interprets it.
-
-That interpretation may be made by a human, an AI model, an automation rule, a diagnostic procedure, a policy engine, or a review process.
-
-Determination Integrity asks:
-
-- What was determined?
-- What evidence supported the determination?
-- Was the determination declared before action?
-- Was the determination within authority?
-- Was uncertainty preserved?
-- Were alternative explanations considered?
-- Was contradiction handled?
-- Was the determination strong enough for the proposed consequence?
-
-A declared determination is especially important in environmental, diagnostic, institutional, and AI-mediated contexts.
-
-A system should not move from reading to intervention without a reviewable determination.
-
----
-
-## Continuity Integrity
-
-Continuity Integrity asks whether the evidence remained connected from reality to record to review to reliance to execution to outcome.
-
-Continuity is not just storage.
-
-Continuity is the preservation of evidentiary meaning over time.
-
-Evidence can lose integrity when it moves between systems, people, formats, processes, interpretations, or decision stages.
-
-Continuity risks include:
-
-- missing timestamps
-- broken sequence
-- changed source
-- overwritten records
-- unexplained edits
-- partial logs
-- undocumented handoffs
-- stale conditions
-- conflicting evidence
-- separated baseline
-- missing threshold
-- authority drift
-- incomplete outcome records
-
-Continuity Integrity protects against the quiet collapse of the evidence chain.
-
-A record may still exist while the chain is no longer trustworthy.
-
----
-
-## Sufficiency Integrity
-
-Sufficiency Integrity asks whether the evidence is strong enough for the decision, route, intervention, reliance, or execution being considered.
-
-Not every consequence requires the same evidentiary strength.
-
-A low-risk internal routing step may require limited proof.
-
-A high-impact environmental, operational, financial, legal, institutional, or AI-mediated consequence may require stronger proof.
-
-Sufficiency Integrity asks:
-
-- What consequence is being proposed?
-- How much evidence is required?
-- Is the evidence complete enough?
-- Is the evidence continuous enough?
-- Is the evidence authoritative enough?
-- Is the evidence current enough?
-- Is the evidence pressure-survivable enough?
-- Can it carry this action?
-
-A system enters sufficiency risk when weak evidence is asked to carry heavy consequence.
-
-TA-14 treats that as a serious misexecution surface.
-
----
-
-## Authority Integrity
-
-Authority Integrity asks whether the evidence and its use are supported by valid authority.
-
-Evidence may be accurate but still not usable for a particular action.
-
-Authority Integrity asks:
-
-- Who is allowed to create the evidence?
-- Who is allowed to validate it?
-- Who is allowed to interpret it?
-- Who is allowed to rely on it?
-- Who is allowed to bind a decision to it?
-- Who is allowed to commit execution based on it?
-- Who is allowed to execute from it?
-- Has that authority changed?
-- Is the authority limited by scope?
-- Is the authority still valid at the time of action?
-
-Authority drift is a major risk.
-
-A system may rely on evidence that was valid under one authority condition but not under another.
-
-TA-14 treats authority as part of the admissibility chain.
-
----
-
-## Scope Integrity
-
-Scope Integrity asks whether evidence is being used only for the purpose it can support.
-
-Evidence valid for one claim may not be valid for another.
-
-A sensor reading may support a monitoring alert but not a diagnostic conclusion.
-
-A model output may support review but not autonomous action.
-
-A public architecture statement may support a public-material review but not a claim about private production implementation.
-
-A maintenance record may support historical context but not current operating condition.
-
-Scope Integrity asks:
-
-- What does this evidence actually prove?
-- What does it not prove?
-- What action is being justified?
-- Is the proposed use within the evidence’s scope?
-- Is the evidence being stretched beyond its capacity?
-
-Scope failure occurs when systems use limited evidence to justify broader consequence.
-
----
-
-## Survivability Integrity
-
-Survivability Integrity asks whether evidence can remain valid under pressure.
-
-Evidence must survive the conditions in which it will actually be used.
-
-Those conditions may include:
-
-- runtime urgency
-- automation speed
-- procedural momentum
-- downstream dependency
-- escalation delay
-- rollback cost
-- partial execution
-- conflicting inputs
-- authority drift
-- changed conditions
-- institutional pressure
-- environmental volatility
-- adversarial pressure
-- multi-system handoff
-
-Evidence that looks sufficient during calm review may fail under real operating pressure.
-
-TA-14 asks whether the evidence remains admissibly governable when consequence is approaching.
-
-If evidence cannot survive pressure, it cannot safely support execution.
-
----
-
-## Lifecycle Integrity
-
-Lifecycle Integrity asks what state the evidence currently occupies.
-
-Evidence has a state.
-
-That state can change.
-
-Evidence may be:
-
-- active
-- partial
-- degraded
-- conflicted
-- superseded
-- stale
-- insufficient
-- not reviewable
-
-Execution should not rely on evidence without knowing its current state.
-
-### Active
-
-Current enough, connected enough, and reviewable enough to participate in admissibility analysis.
-
-### Partial
-
-Useful but incomplete. May support investigation, but not consequence-bearing execution by itself.
-
-### Degraded
-
-Weakening due to age, missing continuity, uncertainty, pressure, source issues, ambiguity, or changed conditions.
-
-### Conflicted
-
-Competing records or interpretations prevent direct reliance without reconciliation or escalation.
-
-### Superseded
-
-Replaced by stronger, newer, corrected, or higher-authority evidence.
-
-### Stale
-
-Once useful but no longer current enough to support reliance for the proposed route.
-
-### Insufficient
-
-Not strong enough to support the claim, threshold, diagnosis, authority, or execution route.
-
-### Not Reviewable
-
-Lacks enough origin, continuity, source, context, or preservation to participate in admissibility review.
-
-If the system does not know whether evidence is active, partial, degraded, conflicted, superseded, stale, insufficient, or not reviewable, then the route is not ready for consequence-bearing execution.
-
----
-
-## Evidence-to-Admissibility Transition
-
-The key transition is not data to action.
-
-The key transition is evidence to admissibility.
-
-Many systems try to move from data directly to action.
-
-TA-14 inserts the missing governance sequence:
-
-**Record → Evidence → Admissible Evidence → Governed Reliance → Authority → Binding → Commit → Execution → Outcome**
-
-### Record
-
-A preserved trace, signal, document, observation, log, measurement, statement, image, output, or event record.
-
-### Evidence
-
-A record that can be evaluated for relevance, source, continuity, scope, meaning, and usefulness to a claim or decision.
-
-### Admissible Evidence
-
-Evidence strong enough, continuous enough, scoped enough, and authoritative enough to support a defined reliance condition.
-
-### Governed Reliance
-
-The controlled point where admissible evidence may support binding, commit, execution, or outcome claims within defined limits.
-
-If that transition is skipped, the system may bind, commit, or execute on material that was never admissible.
-
----
-
-## Evidence Outrun
-
-Evidence can outrun governance.
-
-Evidence Outrun occurs when evidence volume, speed, complexity, reliance pressure, downstream use, or procedural momentum exceeds the system’s ability to preserve continuity and determine admissibility.
-
-In an evidence outrun condition, the workflow keeps moving even though the evidentiary basis is incomplete, degraded, unresolved, or not yet admissible.
-
-Evidence outrun can occur when:
-
-- automation moves faster than review
-- alerts become actions before validation
-- model outputs become decisions before grounding
-- environmental readings trigger intervention before baseline proof
-- procedural momentum makes intervention difficult
-- downstream actors rely before evidence matures
-- partial records are treated as complete
-- stale evidence is treated as current
-- unresolved ambiguity is bypassed
-- authority drift is ignored
-- outcome proof is assumed rather than preserved
-
-Evidence outrun is dangerous because the system may appear efficient while its proof chain is collapsing.
-
-TA-14 treats evidence outrun as a serious pre-execution risk.
-
-The system is not ready to proceed merely because the workflow can proceed.
-
----
-
-## Evidence Integrity Supports the TA-14 Chain
-
-Evidence Integrity supports every part of the admissible-execution chain.
-
-### Reality
-
-The condition, event, state, action, or environment the evidence claims to represent.
-
-Evidence Integrity asks whether the evidence remains connected to actual reality or only to a representation, summary, dashboard, interpretation, assumption, or derivative output.
-
-### Record
-
-The preserved trace or source object that captures some aspect of reality.
-
-Evidence Integrity asks whether the record is attributable, time-situated, source-aware, and reviewable.
-
-### Continuity
-
-The proof that the record remained connected, ordered, preserved, and reviewable.
-
-Evidence Integrity asks whether the evidence survived time, handoff, pressure, contradiction, reinterpretation, and downstream use.
-
-### Admissibility
-
-The determination that evidence is sufficient, scoped, authoritative, and reliable enough for reliance.
-
-Evidence Integrity asks whether the evidence has actually crossed that threshold.
-
-### Binding
-
-The point where reliance begins to attach to obligation, permission, decision, routing, or consequence.
-
-Evidence Integrity asks whether the evidence can support the binding condition.
-
-### Commit
-
-The controlled boundary where a route becomes difficult to reverse and must be receipted.
-
-Evidence Integrity asks whether evidence remains admissible now, not merely earlier.
-
-### Execution
-
-The action that may proceed only if the evidence chain supports admissible execution.
-
-Evidence Integrity asks whether the system is acting from admissible proof or merely operational momentum.
-
-### Outcome
-
-The preserved proof of what execution created, changed, prevented, escalated, or refused.
-
-Evidence Integrity asks whether the outcome can be accounted for after consequence occurs.
-
----
-
-## Evidence Integrity and Reliance
-
-Evidence Integrity leads directly into Reliance Governance.
-
-Evidence Integrity asks:
-
-**Is the evidence still trustworthy?**
-
-Reliance Governance asks:
-
-**May the system now depend on it?**
-
-This distinction matters.
-
-Evidence may exist but not be reliable.
-
-Evidence may be reliable for one purpose but not another.
-
-Evidence may support a low-risk action but not a high-consequence one.
-
-Evidence may have been sufficient earlier but degraded before reliance occurred.
-
-TA-14 separates these questions because systems often fail by moving too quickly from “we have information” to “we can act.”
-
-Evidence Integrity prevents damaged evidence from becoming false confidence.
-
-Reliance Governance prevents premature use.
-
-Together, they protect the chain before consequence attaches.
-
----
-
-## Evidence Integrity and Binding
-
-Binding is the point where evidence, authority, scope, and decision basis begin to attach to a consequence-bearing path.
-
-Evidence Integrity matters because binding should not occur unless the evidence can support it.
-
-Before binding, TA-14 asks:
-
-- Is the evidence trustworthy?
-- Is the source known?
-- Is chronology preserved?
-- Is the record intact?
-- Is the baseline known?
-- Is the threshold defined?
-- Is the determination reviewable?
-- Is continuity intact?
-- Is authority valid?
-- Is scope constrained?
-- Is the evidence healthy?
-- Is the evidence sufficient for the proposed consequence?
-
-Binding without Evidence Integrity is premature binding.
-
-Premature binding creates downstream misexecution risk.
-
----
-
-## Evidence Integrity and Commit
-
-Commit is the point where the system moves from candidate consequence toward actual execution.
-
-Evidence Integrity matters because evidence may have changed before commit.
-
-Evidence may have been sufficient earlier but degraded later.
-
-Conditions may have shifted.
-
-Authority may have changed.
-
-A baseline may no longer hold.
-
-A threshold may have been crossed.
-
-Contradictory evidence may have appeared.
-
-Human escalation may still be unresolved.
-
-The workflow may be moving forward because of procedural momentum rather than admissible proof.
-
-Before commit, TA-14 asks whether evidence remains admissible now.
-
-Not earlier.
-
-Not in theory.
-
-Now.
-
----
-
-## Evidence Integrity and Execution
-
-Execution is where consequence begins to attach.
-
-At execution, evidence weakness becomes consequence risk.
-
-A system may execute exactly as designed and still misexecute if the evidence basis was not admissible.
-
-Execution is not admissible merely because it followed a workflow.
-
-Execution is admissible only if the chain that allowed it to proceed was admissible.
-
-Evidence Integrity supplies the upstream trust condition for that determination.
-
----
-
-## Evidence Integrity and Outcome Accountability
-
-Outcome is not just what happened after execution.
-
-Outcome is the final test of whether the evidence chain remained accountable.
-
-A system should be able to show:
-
-- what reality condition existed
-- what record was formed
-- how chronology was preserved
-- what baseline existed
-- what threshold applied
-- what determination was made
-- what evidence supported reliance
-- what authority allowed action
-- what scope limited action
-- what binding basis attached
-- what commit decision occurred
-- what execution followed
-- what outcome resulted
-- whether the outcome matched the admissible basis
-
-If the system cannot account for the outcome, it cannot prove that execution remained admissible.
-
-Evidence Integrity therefore reaches beyond record creation.
-
-It supports full outcome accountability.
-
----
-
-## Evidence Integrity in AI Systems
-
-AI systems often rely on evidence chains that are difficult to see.
-
-A model may generate an answer, classification, recommendation, risk score, summary, or decision-support output.
-
-But TA-14 asks what evidence supported that output and whether the evidence retained integrity.
-
-For AI systems, Evidence Integrity asks:
-
-- What sources grounded the output?
-- Were those sources authoritative?
-- Were they current?
-- Were they within scope?
-- Was the relevant reality condition captured?
-- Was the evidence continuous from source to output?
-- Were contradictions detected?
-- Was uncertainty preserved?
-- Was the output treated as information or as evidence?
-- Was a person or system allowed to rely on it?
-- Did reliance occur before admissibility was established?
-- Was action blocked when evidence was insufficient?
-
-Many AI governance approaches focus on alignment, monitoring, explainability, fairness, safety, or compliance.
-
-Those are important.
-
-TA-14 adds a prior execution question:
-
-**Was the evidence chain admissible enough to allow the consequence-bearing action at all?**
-
----
-
-## Evidence Integrity in Environmental Systems
-
-Environmental Integrity Governance is one of the clearest applied domains for Evidence Integrity.
-
-Air quality, HVAC performance, refrigeration behavior, ventilation, indoor environmental conditions, and atmospheric records all depend on trustworthy evidence.
-
-But ordinary monitoring is not enough.
-
-A dashboard reading is not automatically admissible environmental evidence.
-
-A sensor value is not automatically proof.
-
-A comfort complaint is not automatically a diagnostic determination.
-
-An intervention is not automatically justified because a system detected a condition.
-
-Environmental Integrity Governance requires a preserved environmental evidence chain.
-
-That chain may include:
-
-- observed environmental condition
-- sequence record
-- baseline
-- threshold
-- declared diagnostic determination
-- intervention authority
-- action record
-- post-intervention outcome
-- preserved atmospheric continuity
-
-This is where Evidence Integrity ties directly into the sequence, baseline, threshold, diagnostic determination, and post-intervention record structure.
-
-The issue is not simply whether a sensor detected something.
-
-The issue is whether the environmental evidence remained intact enough to justify reliance and intervention.
-
----
-
-## Atmospheric Integrity Records
-
-Atmospheric Integrity Records apply Evidence Integrity to indoor air and environmental conditions.
-
-They preserve atmospheric evidence as more than monitoring data.
-
-An Atmospheric Integrity Record should help answer:
-
-- What condition existed?
-- When did it exist?
-- What source observed it?
-- What baseline applied?
-- What threshold mattered?
-- What determination was made?
-- What intervention occurred?
-- What changed afterward?
-- Was the outcome preserved?
-- Can the chain be reviewed later?
-
-This matters because environmental reliance often happens over time.
-
-People may rely on indoor air claims, safety claims, performance claims, remediation claims, ventilation claims, comfort claims, or compliance claims.
-
-Without Evidence Integrity, atmospheric claims may become disconnected from proof.
-
-Atmospheric Integrity Records preserve the evidence chain so environmental consequence does not rest on dashboard memory alone.
-
----
-
-## The Observer, Actor, and Validator Problem
-
-Environmental systems face a special evidence-integrity risk.
-
-The same system may observe the condition, interpret the condition, intervene in the condition, and validate the outcome.
-
-That can be useful operationally.
-
-But it can also create evidentiary risk.
-
-If sensing, interpretation, intervention, and validation collapse into one uncontrolled loop, the evidence chain may become contaminated.
-
-The system may become observer, actor, and validator of its own claimed success.
-
-Evidence Integrity asks whether those roles remain reviewable.
-
-The goal is not to reject monitoring or automation.
-
-The goal is to preserve the distinction between operational action and admissible environmental proof.
-
-Monitoring can support evidence.
-
-Optimization can support performance.
-
-But admissible environmental reliance requires preserved integrity across observation, determination, intervention, and outcome.
-
----
-
-## Evidence Integrity in Partner Reviews
-
-TA-14 partner reviews also depend on Evidence Integrity.
-
-Partner architectures may specialize in runtime governance, evidence maturity, pressure routing, trust layers, identity, enforcement, deterministic execution, controlled execution, environmental review, or other domains.
-
-TA-14 does not erase those architectures.
-
-It reviews how their evidence, authority, scope, binding, commit, execution, and outcome claims map into the full admissible-execution chain.
-
-Evidence Integrity is often the first review surface.
-
-Before TA-14 can evaluate whether a partner architecture supports admissible execution, it must ask:
-
-- What evidence does the partner system produce?
-- What evidence does it rely on?
-- What evidence does it preserve?
-- What evidence does it treat as authoritative?
-- What evidence does it require before action?
-- What happens when evidence is incomplete?
-- What happens when evidence is contradicted?
-- What happens when evidence degrades under pressure?
-- What happens when evidence is outrun by workflow momentum?
-- What evidence remains after outcome?
-
-A serious partner system may have strong governance in one part of the chain.
-
-TA-14’s role is to evaluate whether the full consequence-bearing chain remains admissible.
-
-Evidence Integrity is the upstream trust test.
-
----
-
-## Evidence Integrity and Misexecution
-
-Misexecution occurs when a system allows consequence-bearing action that should not have been allowed under the admissible chain.
-
-A system can misexecute even when:
-
-- the software works
-- the workflow completes
-- the model returns an answer
-- the automation follows its rules
-- the human reviewer approves
-- the log records the event
-- the policy was technically followed
-
-TA-14 asks whether the execution should have been allowed.
-
-Evidence Integrity identifies misexecution risk before action occurs.
-
-Common evidence-integrity failure surfaces include:
-
-- incomplete evidence treated as sufficient
-- stale evidence treated as current
-- conflicting evidence ignored
-- authority-uncertain evidence used for binding
-- scope-limited evidence used beyond scope
-- degraded evidence used for commit
-- raw information treated as admissible proof
-- monitoring data treated as outcome evidence
-- model output treated as source evidence
-- procedural momentum outrunning evidence review
-- post-hoc documentation used to justify pre-action execution
-
-When Evidence Integrity fails, execution may become inadmissible even if the system performs as designed.
-
----
-
-## Evidence Integrity Under Runtime Pressure
-
-Evidence Integrity becomes most important under pressure.
-
-In calm conditions, evidence gaps may be visible.
-
-Under runtime pressure, systems often move forward anyway.
-
-Pressure can come from:
-
-- urgency
-- automation speed
-- downstream reliance
-- operational dependency
-- business deadlines
-- customer impact
-- environmental risk
-- safety concerns
-- incomplete human review
-- escalation delay
-- rollback cost
-- partial execution
-- procedural momentum
-
-TA-14 asks whether admissible intervention remains real under those conditions.
-
-Evidence Integrity asks whether the evidence itself remains trustworthy.
-
-If the evidence cannot be reviewed, challenged, refreshed, escalated, or used to block action before execution, then the system may be operating on theoretical admissibility rather than operational admissibility.
-
-That is not enough.
-
-A system must preserve Evidence Integrity when consequence pressure is highest.
-
----
-
-## Evidence Integrity Maturity Path
-
-Evidence Integrity can be understood as a maturity path.
-
-A system may move through stages such as:
-
-1. Raw information exists.
-2. Information is recorded.
-3. Record origin is known.
-4. Chronology is preserved.
-5. Baseline is established.
-6. Thresholds are defined.
-7. Determination is declared.
-8. Continuity is protected.
-9. Authority is validated.
-10. Scope is constrained.
-11. Contradictions are checked.
-12. Evidence health is assessed.
-13. Evidence sufficiency is matched to consequence.
-14. Evidence survives pressure.
-15. Evidence supports admissibility.
-16. Admissibility supports reliance.
-17. Reliance supports authority.
-18. Authority supports binding.
-19. Binding supports commit.
-20. Commit supports execution.
-21. Execution produces accountable outcome.
-22. Outcome feeds back into the evidence chain.
-
-This maturity path prevents systems from jumping from data to action.
-
-TA-14 requires the evidence chain to mature before consequence attaches.
-
----
-
-## Evidence Integrity Failure Modes
-
-Evidence Integrity identifies failure modes that ordinary governance may miss.
-
-### Source Failure
-
-The evidence origin is unknown, weak, unauthorized, or unsuitable for the claim.
-
-### Chronology Failure
-
-The system cannot prove the order of observation, determination, intervention, execution, and outcome.
-
-### Record Failure
-
-The record exists but lacks enough source, timing, method, preservation, or context to support review.
-
-### Baseline Failure
-
-The system cannot prove the starting condition.
-
-### Threshold Failure
-
-The system cannot identify the standard, boundary, or condition that made the evidence meaningful.
-
-### Determination Failure
-
-The system cannot show a clear, reviewable interpretation of the evidence before action.
-
-### Continuity Failure
-
-The evidence chain breaks between observation, record, review, reliance, and execution.
-
-### Sufficiency Failure
-
-The evidence is too weak to support the claim, threshold, diagnosis, authority, or execution route.
-
-### Authority Failure
-
-The evidence lacks valid authority or relies on authority that has drifted.
-
-### Scope Failure
-
-Evidence valid for one purpose is used for another.
-
-### Survivability Failure
-
-The evidence cannot withstand runtime pressure, handoff, escalation, or partial execution.
-
-### Outrun Failure
-
-The workflow advances faster than evidence can mature or be reviewed.
-
-### Outcome Failure
-
-The system cannot account for the consequence after execution.
-
-These failures are not merely documentation problems.
-
-They are admissible-execution problems.
-
----
-
-## Evidence Integrity and Public Materials
-
-TA-14 public reviews often begin from public materials.
-
-Public materials may include websites, documentation, publications, GitHub repositories, white papers, diagrams, product pages, standards claims, public posts, or published architecture descriptions.
-
-Evidence Integrity distinguishes between public signals and review evidence.
-
-Public materials can support a public-material architecture review.
-
-But TA-14 does not infer private capability from public claims.
-
-A public statement may be relevant evidence of positioning.
-
-It may not be sufficient evidence of implementation.
-
-A diagram may show architecture intent.
-
-It may not prove production behavior.
-
-A repository may show design artifacts.
-
-It may not prove route-complete runtime governance.
-
-A publication may support chronology.
-
-It may not prove current operational deployment.
-
-This distinction protects both the reviewer and the reviewed system.
-
-TA-14 can acknowledge strengths while identifying evidence gaps.
-
-That is the Evidence Integrity posture.
-
----
-
-## Evidence Integrity and Production Readiness
-
-Production readiness requires more than promising architecture.
-
-It requires route-complete evidence.
-
-For consequence-bearing systems, TA-14 looks for evidence that routes are:
-
-- registered
-- governed
-- tested
-- fail-closed
-- source-grounded
-- authority-validated
-- scope-constrained
-- bind/commit-receipted
-- execution-controlled
-- replayable
-- outcome-accounted
-
-Evidence Integrity asks whether the evidence supporting those claims actually exists and remains trustworthy.
-
-A system may describe production readiness.
-
-TA-14 asks whether the evidence proves it.
-
-The production-readiness question is:
-
-**Can anything consequential happen outside the admissibility chain?**
-
-Evidence Integrity supplies the proof needed to answer that question.
-
----
-
-## Evidence Integrity and Refusal
-
-Evidence Integrity is not only about allowing action.
-
-It is also about refusing action.
-
-A serious system must know when evidence is insufficient.
-
-TA-14 expects systems to refuse, block, escalate, or pause when Evidence Integrity is not strong enough.
-
-Evidence-based refusal may be required when:
-
-- evidence is missing
-- evidence is stale
-- evidence conflicts
-- authority is unclear
-- scope is exceeded
-- continuity is broken
-- baseline is absent
-- threshold is undefined
-- determination is unsupported
-- reliance would exceed evidence sufficiency
-- runtime pressure has degraded reviewability
-- outcome accountability cannot be preserved
-
-Refusal is not failure.
-
-In TA-14, refusal may be the correct admissible action.
-
-No admissible evidence.
-
-No admissible execution.
-
----
-
-## Evidence Integrity Review Questions
-
-A TA-14 Evidence Integrity review may ask:
-
-- What evidence does the system claim to possess?
-- What reality condition does the evidence represent?
-- How was the evidence formed?
-- What is the evidence source?
-- Is the source authoritative?
-- Is the evidence time-situated?
-- Is chronology preserved?
-- Is the record intact?
-- Is baseline established?
-- Are thresholds defined?
-- Was a determination declared?
-- Is continuity protected?
-- Is scope constrained?
-- Is authority validated?
-- Is evidence health assessed?
-- Is sufficiency matched to consequence?
-- Can the evidence survive runtime pressure?
-- Can the system detect evidence outrun?
-- Does the system refuse action when evidence is insufficient?
-- Does the evidence support admissibility?
-- Does admissibility support reliance?
-- Does reliance support authority?
-- Does authority support binding?
-- Does binding support commit?
-- Does commit support execution?
-- Can the outcome be accounted for?
-- Can the full chain be reviewed after consequence?
-
-These questions help determine whether a system’s evidence layer is ready to support admissible execution.
-
----
-
-## Evidence Integrity Decision Classes
-
-Evidence Integrity review can support practical TA-14-style findings.
-
-### Strong Evidence Integrity
-
-The system demonstrates source-grounded, chronology-preserved, baseline-aware, threshold-governed, authority-valid, scope-constrained, pressure-survivable evidence.
-
-### Partial Evidence Integrity
-
-The system preserves some evidence surfaces but lacks complete proof across continuity, authority, sufficiency, reliance, execution, or outcome.
-
-### Emerging Evidence Integrity
-
-The system shows serious design intent but lacks route-complete evidence objects or implementation proof.
-
-### Evidence Integrity Gap
-
-The system relies on information, logs, dashboards, outputs, or claims without proving that those materials retain evidentiary integrity.
-
-### Evidence Outrun Risk
-
-The system appears capable of advancing toward consequence faster than evidence can mature, be reviewed, or support admissible reliance.
-
-### Not Reviewable
-
-The available materials are insufficient to determine whether Evidence Integrity exists.
-
-These classes are not accusations.
-
-They are review findings.
-
-They help determine what evidence is present, what remains incomplete, and what would be required before consequence-bearing execution could be treated as admissible.
-
----
-
-## Public Record Anchors
-
-Evidence Integrity is supported by the broader TA-14 public record.
-
-The public record includes architecture pages, indexed publication records, DOI-backed materials, GitHub repositories, public preservation pages, Environmental Integrity Governance materials, Atmospheric Integrity Records, and related TA-14 resource anchors.
-
-Public records help establish chronology and architecture position.
-
-They do not automatically prove private production capability.
-
-TA-14 uses public records carefully:
-
-- to identify stated architecture
-- to preserve chronology
-- to review public claims
-- to map strengths and gaps
-- to avoid unsupported private-capability assumptions
-- to distinguish publication evidence from implementation evidence
-
-This is why Evidence Integrity matters to TA-14’s own public record.
-
-A governance architecture must also preserve the integrity of its own evidence chain.
-
----
-
-## Boundaries
-
-## Evidence Integrity is not a claim that every record is ready for execution.
-
-### Not all records are evidence
-
-A record can exist and still fail as evidence if source, context, continuity, or meaning cannot be established.
-
-### Not all evidence is admissible
-
-Evidence can be relevant but still insufficient, stale, conflicted, unauthorized, degraded, or out of scope.
-
-### Not all admissible evidence authorizes execution
-
-Even strong evidence must pass through reliance, authority, binding, commit, and execution control.
-
-### Not a legal evidence opinion
-
-TA-14 evidence review is architecture and admissibility-chain review, not legal advice or a legal evidentiary ruling.
-
-### Not a cybersecurity audit
-
-Evidence Integrity can surface integrity issues, but it does not replace cybersecurity, forensic, or compliance audits.
-
-### Not free implementation scope
-
-Custom schemas, route objects, implementation guidance, maturity roadmaps, production mapping, and third-party implementation design require written scope.
-
-### Correct positioning
-
-Evidence Integrity is the upstream proof discipline inside TA-14. It governs whether the evidence chain is strong enough before a system is allowed to rely, bind, commit, execute, or create outcome.
-
----
-
-## Request Evidence Gap Review
-
-Submit an AI workflow, environmental evidence process, institutional decision route, partner architecture, governance system, automation pathway, dashboard, or execution gate.
-
-TA-14 can review whether the record and evidence chain are strong enough to support:
-
-- admissibility
-- reliance
-- authority
-- binding
-- commit
-- execution
-- outcome accountability
-
-A TA-14 Evidence Gap Review can identify what is already strong, what remains incomplete, and what evidence would be required before consequence-bearing execution could be treated as admissible.
-
-Direct contact: ta14admissibleexecution@gmail.com
-
----
-
-## Closing Finding
-
-Evidence Integrity is not documentation.
-
-It is not logging.
-
-It is not monitoring.
-
-It is not a dashboard.
-
-It is not after-the-fact explanation.
-
-Evidence Integrity is the preserved trustworthiness of the proof chain before consequence-bearing execution is allowed to proceed.
-
-TA-14 governs the full admissible-execution chain:
-
-**Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome**
-
-Evidence Integrity protects the movement from reality into admissible proof.
-
-It prevents raw information from being mistaken for evidence.
-
-It prevents weak evidence from being mistaken for admissibility.
-
-It prevents premature reliance.
-
-It prevents execution from outrunning proof.
-
-It preserves the ability to account for consequence after action occurs.
-
-No admissible evidence.
-
-No admissible reliance.
-
-No admissible execution.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Evidence | TA-14 Admissible Execution Architecture</title>
+
+  <meta
+    name="description"
+    content="TA-14 Evidence Governance: records, admissible evidence, evidence health, evidence capacity, evidence-to-admissibility transition, reliance governance, and proof-bound execution."
+  />
+
+  <style>
+    :root {
+      --black: #020617;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --soft: #f8fafc;
+      --white: #ffffff;
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --violet: #7c3aed;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --red: #dc2626;
+      --max: 1200px;
+      --shadow: 0 30px 90px rgba(15, 23, 42, 0.18);
+      --soft-shadow: 0 18px 55px rgba(15, 23, 42, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.16), transparent 35rem),
+        radial-gradient(circle at 90% 5%, rgba(124, 58, 237, 0.14), transparent 35rem),
+        radial-gradient(circle at 55% 45%, rgba(6, 182, 212, 0.08), transparent 40rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 45%, #ffffff 100%);
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+      min-width: 245px;
+      padding-top: 4px;
+    }
+
+    .brand strong {
+      color: var(--black);
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      max-width: 850px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      line-height: 1;
+      font-weight: 900;
+      padding: 9px 10px;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .nav-links a:hover {
+      color: var(--black);
+      border-color: var(--black);
+      background: #ffffff;
+    }
+
+    .nav-links .nav-cta {
+      color: #ffffff;
+      background: var(--black);
+      border-color: var(--black);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    section { margin-top: 88px; }
+
+    .hero {
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 44px;
+      padding: clamp(34px, 6vw, 66px);
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(37, 99, 235, 0.52), transparent 30rem),
+        radial-gradient(circle at 88% 12%, rgba(124, 58, 237, 0.46), transparent 30rem),
+        radial-gradient(circle at 55% 100%, rgba(6, 182, 212, 0.24), transparent 28rem),
+        linear-gradient(135deg, #020617 0%, #0f172a 52%, #111827 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.95), rgba(0,0,0,0.16));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow { color: #bae6fd; }
+
+    h1 {
+      margin: 0 0 24px;
+      color: var(--black);
+      font-size: clamp(3.1rem, 8vw, 7rem);
+      line-height: 0.88;
+      letter-spacing: -0.085em;
+    }
+
+    .hero h1 { color: #ffffff; }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--black);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      color: var(--black);
+      font-size: 1.35rem;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    p { margin: 0 0 18px; }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 22px;
+    }
+
+    li { margin-bottom: 8px; }
+
+    .lead {
+      max-width: 920px;
+      color: #334155;
+      font-size: clamp(1.15rem, 2vw, 1.42rem);
+      line-height: 1.72;
+    }
+
+    .hero .lead { color: #dbeafe; }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 900;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.38);
+      transition: transform 160ms ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button.primary {
+      color: var(--black);
+      background: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .button.secondary {
+      color: #ffffff;
+      background: transparent;
+    }
+
+    .hero-panel {
+      border-radius: 34px;
+      padding: 28px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-panel h2 {
+      color: #ffffff;
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+    }
+
+    .state-box {
+      margin-top: 22px;
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(2, 6, 23, 0.72);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.30);
+    }
+
+    .state-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      color: #cbd5e1;
+      font-weight: 800;
+    }
+
+    .state-row:last-child { border-bottom: 0; }
+
+    .state-row strong { color: #ffffff; }
+
+    .pill {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .pill.green { background: var(--emerald); }
+    .pill.blue { background: var(--blue); }
+    .pill.violet { background: var(--violet); }
+    .pill.amber { background: var(--amber); }
+    .pill.red { background: var(--red); }
+
+    .mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .mini-nav a {
+      color: var(--muted);
+      background: #ffffff;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 28px;
+      background: rgba(255,255,255,0.94);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .card.alt { background: #f8fafc; }
+
+    .card.dark {
+      color: #ffffff;
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.24), transparent 20rem),
+        var(--black);
+      border-color: var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .card.dark h2,
+    .card.dark h3,
+    .card.dark p,
+    .card.dark li { color: #ffffff; }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+    }
+
+    .quote-panel {
+      margin-top: 32px;
+      padding: 42px;
+      border-radius: 36px;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.24), transparent 24rem),
+        radial-gradient(circle at 95% 15%, rgba(124, 58, 237, 0.22), transparent 24rem),
+        var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .quote-panel p.big {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(1.65rem, 3.2vw, 2.85rem);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .layer-map {
+      display: grid;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .layer {
+      display: grid;
+      grid-template-columns: 245px 1fr;
+      gap: 22px;
+      align-items: start;
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
+    }
+
+    .layer strong {
+      color: var(--black);
+      font-size: 1.12rem;
+    }
+
+    .layer span { color: var(--muted); }
+
+    .record-card {
+      display: block;
+      min-height: 190px;
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.06);
+      text-decoration: none;
+    }
+
+    .record-card strong {
+      display: block;
+      color: var(--black);
+      font-size: 1.08rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .record-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .record-card .meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .warning {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 24px;
+      color: #7c2d12;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+    }
+
+    .green-box {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 24px;
+      color: #064e3b;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+    }
+
+    .blue-box {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 24px;
+      color: #1e3a8a;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .red-box {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 24px;
+      color: #7f1d1d;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+
+    .cta-panel {
+      padding: 42px;
+      border-radius: 38px;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.24), transparent 24rem),
+        radial-gradient(circle at 90% 10%, rgba(124, 58, 237, 0.20), transparent 24rem),
+        var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-panel h2,
+    .cta-panel p { color: #ffffff; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--muted);
+      padding: 34px 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    footer strong { color: var(--black); }
+
+    footer a {
+      color: var(--black);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        max-width: none;
+      }
+
+      .hero-inner,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .layer {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { letter-spacing: -0.06em; }
+    }
+
+    @media (max-width: 760px) {
+      main { padding-top: 48px; }
+
+      .hero,
+      .card,
+      .quote-panel,
+      .cta-panel {
+        padding: 24px;
+        border-radius: 28px;
+      }
+
+      .state-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .brand { min-width: 0; }
+
+      .nav-links a {
+        font-size: 0.8rem;
+        padding: 8px 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <strong>TA-14 Admissible Execution Architecture</strong>
+        <span>Proof-bound governance before consequence</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/services">Services</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/resources">Resources</a>
+        <a href="/founder">Founder</a>
+        <a href="/gate">Gate</a>
+        <a href="/positioning">Positioning</a>
+        <a href="/public-record">Public Record</a>
+        <a href="/environmental-integrity">Environmental</a>
+        <a href="/evidence">Evidence</a>
+        <a href="/partners">Partners</a>
+        <a class="nav-cta" href="/request-evaluation">Request</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">TA-14 Evidence Governance</p>
+
+          <h1>Evidence must be governed before execution.</h1>
+
+          <p class="lead">
+            TA-14 does not begin at the moment of action. It begins earlier, with the evidence a system wants
+            to rely on before it binds, commits, executes, or creates consequence.
+          </p>
+
+          <p class="lead">
+            Evidence Governance asks whether records, signals, logs, observations, measurements, outputs,
+            claims, and determinations are strong enough to become admissible evidence — and whether admissible
+            evidence is strong enough to support reliance.
+          </p>
+
+          <div class="button-row">
+            <a class="button primary" href="/request-evaluation">Request Evidence Gap Review</a>
+            <a class="button secondary" href="/resources">Open Public Records</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <p class="eyebrow">Core Doctrine</p>
+          <h2>A record is not automatically admissible evidence.</h2>
+
+          <p>
+            TA-14 separates record, evidence, admissible evidence, reliance, authority, binding, commit,
+            execution, and outcome.
+          </p>
+
+          <div class="state-box">
+            <div class="state-row">
+              <strong>Record</strong>
+              <span class="pill amber">exists</span>
+            </div>
+            <div class="state-row">
+              <strong>Evidence</strong>
+              <span class="pill violet">must qualify</span>
+            </div>
+            <div class="state-row">
+              <strong>Admissibility</strong>
+              <span class="pill green">must be earned</span>
+            </div>
+            <div class="state-row">
+              <strong>Reliance</strong>
+              <span class="pill blue">must be governed</span>
+            </div>
+            <div class="state-row">
+              <strong>Execution</strong>
+              <span class="pill red">not automatic</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="mini-nav">
+      <a href="#distinction">Distinction</a>
+      <a href="#why">Why It Matters</a>
+      <a href="#governance">Evidence Governance</a>
+      <a href="#transition">Transition</a>
+      <a href="#states">Evidence States</a>
+      <a href="#chain">TA-14 Chain</a>
+      <a href="#records">Public Records</a>
+      <a href="#request">Request Review</a>
+    </div>
+
+    <section id="distinction">
+      <p class="eyebrow">The distinction</p>
+
+      <div class="quote-panel">
+        <p class="big">
+          Evidence does not become admissible just because it exists.
+        </p>
+      </div>
+
+      <div class="grid two">
+        <article class="card">
+          <h3>What many systems assume</h3>
+          <ul>
+            <li>If it is logged, it is evidence.</li>
+            <li>If it is evidence, it can be trusted.</li>
+            <li>If it can be trusted, it can be relied upon.</li>
+            <li>If it can be relied upon, execution may proceed.</li>
+            <li>If execution is logged, governance happened.</li>
+          </ul>
+        </article>
+
+        <article class="card alt">
+          <h3>What TA-14 requires</h3>
+          <ul>
+            <li>A record must qualify as evidence.</li>
+            <li>Evidence must prove continuity and sufficiency.</li>
+            <li>Admissible evidence must be scoped to the decision.</li>
+            <li>Reliance must be authorized and bounded.</li>
+            <li>Execution must be controlled before consequence attaches.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="red-box">
+        <h3>The dangerous shortcut</h3>
+        <p>
+          When systems skip from “a record exists” to “execution is allowed,” they collapse the evidence chain.
+          TA-14 exists to prevent that shortcut. The existence of data is not the same as admissible authority
+          to create consequence.
+        </p>
+      </div>
+    </section>
+
+    <section id="why">
+      <p class="eyebrow">Why it matters</p>
+      <h2>Execution failures often begin as evidence failures.</h2>
+
+      <p class="lead">
+        A system can execute the intended instruction and still misexecute if the evidence behind that instruction
+        was incomplete, stale, broken, out of scope, unauthoritative, contaminated, or insufficient for reliance.
+      </p>
+
+      <div class="grid three">
+        <article class="card">
+          <div class="number">01</div>
+          <h3>Bad evidence creates bad reliance</h3>
+          <p>
+            If the evidence is weak, stale, incomplete, conflicted, or detached from reality, reliance built on it
+            becomes unstable.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number">02</div>
+          <h3>Bad reliance creates bad execution</h3>
+          <p>
+            When a system relies on evidence that has not become admissible, it may bind, commit, or execute
+            without a legitimate basis.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">03</div>
+          <h3>Bad execution creates bad outcome</h3>
+          <p>
+            Once consequence attaches, the problem is no longer only informational. It becomes operational,
+            institutional, environmental, financial, legal, or human.
+          </p>
+        </article>
+      </div>
+
+      <div class="green-box">
+        <h3>The TA-14 evidence rule</h3>
+        <p>
+          No admissible evidence. No admissible reliance. No admissible execution.
+        </p>
+      </div>
+    </section>
+
+    <section id="governance">
+      <p class="eyebrow">Evidence Governance Architecture</p>
+      <h2>Evidence itself requires governance.</h2>
+
+      <p class="lead">
+        Evidence Governance Architecture answers the upstream question:
+        what must be true of evidence before admissibility can exist?
+      </p>
+
+      <div class="layer-map">
+        <article class="layer">
+          <strong>Source integrity</strong>
+          <span>Where did the record, signal, observation, output, claim, or determination originate?</span>
+        </article>
+
+        <article class="layer">
+          <strong>Chronology</strong>
+          <span>Was the sequence preserved from reality to record to evidence to determination?</span>
+        </article>
+
+        <article class="layer">
+          <strong>Continuity</strong>
+          <span>Can the evidence prove it remained connected to the reality or system state it represents?</span>
+        </article>
+
+        <article class="layer">
+          <strong>Sufficiency</strong>
+          <span>Is the evidence strong enough for the decision, route, intervention, reliance, or execution?</span>
+        </article>
+
+        <article class="layer">
+          <strong>Authority</strong>
+          <span>Who or what is authorized to generate, validate, interpret, rely, bind, commit, or execute?</span>
+        </article>
+
+        <article class="layer">
+          <strong>Scope</strong>
+          <span>What is the evidence allowed to prove, and what is outside its evidentiary reach?</span>
+        </article>
+
+        <article class="layer">
+          <strong>Survivability</strong>
+          <span>Can the evidence remain valid under runtime pressure, ambiguity, missing data, or downstream reliance?</span>
+        </article>
+
+        <article class="layer">
+          <strong>Lifecycle</strong>
+          <span>Is the evidence active, stale, superseded, degraded, conflicted, retired, or no longer reviewable?</span>
+        </article>
+      </div>
+
+      <div class="blue-box">
+        <h3>Evidence Governance is upstream of execution</h3>
+        <p>
+          TA-14 remains Admissible Execution Architecture. Evidence Governance does not rename the parent.
+          It explains what must be true before admissible execution can exist.
+        </p>
+      </div>
+    </section>
+
+    <section id="transition">
+      <p class="eyebrow">Evidence-to-admissibility transition</p>
+      <h2>The key transition is not data to action. It is evidence to admissibility.</h2>
+
+      <p class="lead">
+        Many systems try to move from data directly to action. TA-14 inserts the missing governance sequence:
+        record, evidence, admissible evidence, reliance, authority, binding, commit, execution, and outcome.
+      </p>
+
+      <div class="grid four">
+        <article class="card">
+          <div class="number">1</div>
+          <h3>Record</h3>
+          <p>
+            A preserved trace, signal, document, observation, log, measurement, output, or event record.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number">2</div>
+          <h3>Evidence</h3>
+          <p>
+            A record that can be evaluated for relevance, source, continuity, scope, meaning, and usefulness.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">3</div>
+          <h3>Admissible evidence</h3>
+          <p>
+            Evidence strong enough, continuous enough, scoped enough, and authoritative enough to support reliance.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number">4</div>
+          <h3>Governed reliance</h3>
+          <p>
+            The controlled point where admissible evidence may support binding, commit, execution, or outcome claims.
+          </p>
+        </article>
+      </div>
+
+      <div class="card dark" style="margin-top: 30px;">
+        <h2>Evidence can outrun governance.</h2>
+        <p class="lead" style="color:#e2e8f0;">
+          When evidence volume, speed, complexity, reliance pressure, or downstream use exceeds the system’s
+          ability to preserve continuity and determine admissibility, the evidence chain can outrun governance.
+        </p>
+      </div>
+    </section>
+
+    <section id="states">
+      <p class="eyebrow">Evidence states</p>
+      <h2>Evidence has a state. That state can change.</h2>
+
+      <p class="lead">
+        TA-14 treats evidence as something that can be active, incomplete, degraded, conflicted, superseded,
+        stale, or not reviewable. Execution should not rely on evidence without knowing its current state.
+      </p>
+
+      <div class="grid four">
+        <article class="card">
+          <h3>Active</h3>
+          <p>Current enough, connected enough, and reviewable enough to participate in admissibility analysis.</p>
+        </article>
+
+        <article class="card alt">
+          <h3>Partial</h3>
+          <p>Useful but incomplete. May support investigation, not consequence-bearing execution by itself.</p>
+        </article>
+
+        <article class="card">
+          <h3>Degraded</h3>
+          <p>Weakening due to age, missing continuity, uncertainty, source issues, or ambiguity.</p>
+        </article>
+
+        <article class="card alt">
+          <h3>Conflicted</h3>
+          <p>Competing records or interpretations prevent direct reliance without reconciliation.</p>
+        </article>
+
+        <article class="card">
+          <h3>Superseded</h3>
+          <p>Replaced by stronger, newer, corrected, or higher-authority evidence.</p>
+        </article>
+
+        <article class="card alt">
+          <h3>Stale</h3>
+          <p>Once useful but no longer current enough to support reliance for the proposed route.</p>
+        </article>
+
+        <article class="card">
+          <h3>Insufficient</h3>
+          <p>Not strong enough to support the claim, threshold, diagnosis, authority, or execution route.</p>
+        </article>
+
+        <article class="card alt">
+          <h3>Not reviewable</h3>
+          <p>Lacks enough origin, continuity, source, context, or preservation to participate in review.</p>
+        </article>
+      </div>
+
+      <div class="warning">
+        <h3>Execution should not rely on unknown-state evidence</h3>
+        <p>
+          If the system does not know whether evidence is active, partial, degraded, conflicted, stale,
+          superseded, insufficient, or not reviewable, the route is not ready for consequence-bearing execution.
+        </p>
+      </div>
+    </section>
+
+    <section id="chain">
+      <p class="eyebrow">TA-14 chain mapping</p>
+      <h2>Evidence Governance supports every part of the admissible-execution chain.</h2>
+
+      <div class="layer-map">
+        <article class="layer">
+          <strong>Reality</strong>
+          <span>The condition, event, state, action, or environment the evidence claims to represent.</span>
+        </article>
+
+        <article class="layer">
+          <strong>Record</strong>
+          <span>The preserved trace or source object that captures some aspect of reality.</span>
+        </article>
+
+        <article class="layer">
+          <strong>Continuity</strong>
+          <span>The proof that the record remained connected, ordered, preserved, and reviewable.</span>
+        </article>
+
+        <article class="layer">
+          <strong>Admissibility</strong>
+          <span>The determination that evidence is sufficient, scoped, authoritative, and reliable enough for reliance.</span>
+        </article>
+
+        <article class="layer">
+          <strong>Binding</strong>
+          <span>The point where reliance begins to attach to obligation, permission, decision, routing, or consequence.</span>
+        </article>
+
+        <article class="layer">
+          <strong>Commit</strong>
+          <span>The controlled boundary where a route becomes difficult to reverse and must be receipted.</span>
+        </article>
+
+        <article class="layer">
+          <strong>Execution</strong>
+          <span>The action that may proceed only if the evidence chain supports admissible execution.</span>
+        </article>
+
+        <article class="layer">
+          <strong>Outcome</strong>
+          <span>The preserved proof of what execution created, changed, prevented, escalated, or refused.</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="records">
+      <p class="eyebrow">Public record anchors</p>
+      <h2>Evidence Governance is preserved in the TA-14 public record.</h2>
+
+      <div class="grid three">
+        <a class="record-card" href="https://www.scilynk.com/paper/W7162878775" target="_blank" rel="noopener noreferrer">
+          <strong>TA-14 Evidence Governance Architecture</strong>
+          <span>Indexed publication record for the upstream Evidence Governance architecture family.</span>
+          <span class="meta">Scilynk / indexed record</span>
+        </a>
+
+        <a class="record-card" href="https://www.scilynk.com/paper/W7162861600" target="_blank" rel="noopener noreferrer">
+          <strong>TA-14 Admissible Evidence Architecture</strong>
+          <span>Indexed publication record for the architecture explaining when evidence becomes admissible.</span>
+          <span class="meta">Scilynk / indexed record</span>
+        </a>
+
+        <a class="record-card" href="https://www.scilynk.com/paper/W7162875915" target="_blank" rel="noopener noreferrer">
+          <strong>TA-14 Reliance Governance Architecture</strong>
+          <span>Indexed publication record for the bridge from admissible evidence to governed reliance.</span>
+          <span class="meta">Scilynk / indexed record</span>
+        </a>
+
+        <a class="record-card" href="https://sites.google.com/view/ta-14-admissible-execution-arc/home" target="_blank" rel="noopener noreferrer">
+          <strong>TA-14 Admissible Execution Architecture</strong>
+          <span>Canonical public Google Sites entry point for the parent architecture.</span>
+          <span class="meta">Primary public site</span>
+        </a>
+
+        <a class="record-card" href="https://sites.google.com/view/ta-14-volume-1-preservation-ed/home" target="_blank" rel="noopener noreferrer">
+          <strong>TA-14 Volume 1 Preservation</strong>
+          <span>Public preservation anchor for Volume 1, institutional memory, and admissibility-state architecture.</span>
+          <span class="meta">Volume 1 preservation</span>
+        </a>
+
+        <a class="record-card" href="/resources">
+          <strong>TA-14 Resource Hub</strong>
+          <span>Expanded DOI, GitHub, article, public site, and indexed-record library.</span>
+          <span class="meta">Local resource hub</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="request">
+      <div class="cta-panel">
+        <p class="eyebrow">Request review</p>
+        <h2>Need an Evidence Gap Review?</h2>
+
+        <p>
+          Submit an AI workflow, environmental evidence process, institutional decision route, partner architecture,
+          governance system, automation pathway, dashboard, or execution gate. TA-14 can review whether the
+          record and evidence chain is strong enough to support admissibility, reliance, binding, commit, execution,
+          and outcome.
+        </p>
+
+        <div class="button-row">
+          <a class="button primary" href="/request-evaluation">Request Evidence Gap Review</a>
+          <a class="button secondary" href="/public-record">View Public Record</a>
+        </div>
+
+        <p style="margin-top: 18px;">
+          Direct contact: ta14admissibleexecution@gmail.com
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>TA-14 Admissible Execution Architecture</strong><br />
+        Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+      </div>
+
+      <div>
+        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
