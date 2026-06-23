@@ -106,7 +106,7 @@
       gap: 8px;
       align-items: center;
       justify-content: flex-end;
-      max-width: 900px;
+      max-width: 920px;
     }
 
     .nav-links a {
@@ -536,34 +536,7 @@
       box-shadow: var(--shadow);
     }
 
-    .chain-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    .chain-step {
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 22px;
-      background: #ffffff;
-      min-height: 185px;
-      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
-    }
-
-    .chain-step strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--black);
-      font-size: 1.1rem;
-    }
-
-    .chain-step span {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
+    .chain-grid,
     .review-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -571,22 +544,25 @@
       margin-top: 28px;
     }
 
+    .chain-step,
     .review-step {
       border: 1px solid var(--line);
       border-radius: 22px;
       padding: 22px;
       background: #ffffff;
-      min-height: 175px;
+      min-height: 178px;
       box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
     }
 
+    .chain-step strong,
     .review-step strong {
       display: block;
       margin-bottom: 8px;
       color: var(--black);
-      font-size: 1.05rem;
+      font-size: 1.07rem;
     }
 
+    .chain-step span,
     .review-step span {
       color: var(--muted);
       font-size: 0.96rem;
@@ -635,15 +611,9 @@
     }
 
     .cta-panel p {
-      max-width: 860px;
+      max-width: 900px;
       color: #e2e8f0;
       font-size: 1.16rem;
-    }
-
-    .micro {
-      color: var(--light-muted);
-      font-size: 0.95rem;
-      font-weight: 800;
     }
 
     .tag-row {
@@ -758,7 +728,7 @@
       <div class="nav-links">
         <a href="/start-here">Start Here</a>
         <a href="/architecture">Architecture</a>
-        <a class="nav-feature" href="#governance-review">Governance Review</a>
+        <a class="nav-feature" href="/governance-review">Governance Review</a>
         <a href="/services">Services</a>
         <a href="/use-cases">Use Cases</a>
         <a href="/resources">Resources</a>
@@ -791,7 +761,7 @@
 
             <div class="hero-actions">
               <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
-              <a class="button button-secondary" href="#governance-review">Explore Governance Review</a>
+              <a class="button button-secondary" href="/governance-review">Explore Governance Review</a>
               <a class="button button-secondary" href="/start-here">Start Here</a>
             </div>
 
@@ -839,7 +809,7 @@
 
       <div class="mini-nav">
         <a href="#why">Why TA-14</a>
-        <a class="featured" href="#governance-review">Governance Review</a>
+        <a class="featured" href="/governance-review">Governance Review</a>
         <a href="#chain">The Chain</a>
         <a href="#pages">Site Map</a>
         <a href="#future-pages">Expanded Pages</a>
@@ -893,11 +863,11 @@
       </div>
     </section>
 
-    <section id="governance-review">
+    <section id="governance-preview">
       <p class="eyebrow">Governance Review</p>
 
       <div class="feature-panel">
-        <h2>TA-14 reviews other governance systems for admissible execution readiness.</h2>
+        <h2>TA-14 now reviews other governance systems for admissible execution readiness.</h2>
 
         <p class="lead">
           Some systems do not merely execute. They govern execution. They claim to control AI agents,
@@ -1038,42 +1008,6 @@
           </article>
         </div>
 
-        <div class="grid three" style="margin-top: 22px;">
-          <article class="card alt">
-            <h3>Review outputs</h3>
-            <ul>
-              <li>public-material governance review</li>
-              <li>TA-14 admissible-execution chain map</li>
-              <li>strengths-plus-gaps finding</li>
-              <li>missing evidence requirements</li>
-              <li>controlled PASS or readiness path</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Decision classes</h3>
-            <ul>
-              <li>Strong alignment</li>
-              <li>Partial admissibility</li>
-              <li>Controlled PASS path</li>
-              <li>Evidence gap</li>
-              <li>Route-complete evidence required</li>
-              <li>Not reviewable from public materials</li>
-            </ul>
-          </article>
-
-          <article class="card alt">
-            <h3>Non-claims</h3>
-            <ul>
-              <li>not legal certification</li>
-              <li>not endorsement</li>
-              <li>not security audit</li>
-              <li>not private implementation validation</li>
-              <li>not permission to use TA-14 status language without written approval</li>
-            </ul>
-          </article>
-        </div>
-
         <div class="tag-row">
           <span class="tag">AI execution governance</span>
           <span class="tag">admissibility review</span>
@@ -1085,9 +1019,9 @@
         </div>
 
         <div class="cta-row">
-          <a class="button button-dark" href="/request-evaluation">Request Governance Review</a>
+          <a class="button button-dark" href="/governance-review">Open Governance Review Page</a>
+          <a class="button button-light-outline" href="/request-evaluation">Request Governance Review</a>
           <a class="button button-light-outline" href="/architecture">View TA-14 Architecture</a>
-          <a class="button button-light-outline" href="/evidence-integrity">Evidence Integrity</a>
         </div>
       </div>
     </section>
@@ -1189,9 +1123,21 @@
           <span>Read the technical architecture foundation.</span>
         </a>
 
-        <a class="card page-card" href="/services">
+        <a class="card page-card" href="/governance-review">
           <div>
             <div class="number green">03</div>
+            <h3>Governance Review</h3>
+            <p>
+              Review lane for AI execution-governance entities, runtime control systems, trust frameworks,
+              policy engines, partner architectures, and admissibility-adjacent governance systems.
+            </p>
+          </div>
+          <span>Review the governance that claims to govern execution.</span>
+        </a>
+
+        <a class="card page-card alt" href="/services">
+          <div>
+            <div class="number amber">04</div>
             <h3>Services</h3>
             <p>
               Review lanes for public-material architecture review, governance review, evidence gap review,
@@ -1201,9 +1147,9 @@
           <span>Choose the right review path.</span>
         </a>
 
-        <a class="card page-card alt" href="/use-cases">
+        <a class="card page-card" href="/use-cases">
           <div>
-            <div class="number amber">04</div>
+            <div class="number blue">05</div>
             <h3>Use Cases</h3>
             <p>
               AI workflows, AI execution-governance entities, environmental evidence, partner architectures,
@@ -1211,18 +1157,6 @@
             </p>
           </div>
           <span>See where TA-14 applies.</span>
-        </a>
-
-        <a class="card page-card" href="/resources">
-          <div>
-            <div class="number blue">05</div>
-            <h3>Resources</h3>
-            <p>
-              Public records, DOI anchors, GitHub repository links, Google Sites pages,
-              preservation records, environmental integrity pages, and reference material.
-            </p>
-          </div>
-          <span>Access the public record.</span>
         </a>
 
         <a class="card page-card alt" href="/request-evaluation">
@@ -1436,6 +1370,7 @@
 
         <div class="cta-row">
           <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
+          <a class="button button-secondary" href="/governance-review">Open Governance Review</a>
           <a
             class="button button-secondary"
             href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0ASystem%2C%20governance%20framework%2C%20or%20workflow%20to%20be%20reviewed%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%20output%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhat%20authority%20allows%20the%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AWhat%20happens%20if%20the%20system%20is%20wrong%3A%0A%0ARequested%20review%20type%3A%0A%0AThank%20you."
@@ -1459,6 +1394,9 @@
       </div>
 
       <div>
+        <a href="/">Home</a> ·
+        <a href="/governance-review">Governance Review</a> ·
+        <a href="/architecture">Architecture</a> ·
         <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
       </div>
     </div>
