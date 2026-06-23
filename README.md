@@ -22,6 +22,8 @@ https://doi.org/10.5281/zenodo.20814817
 - Services
 - Founder
 - Resources
+- Gate
+- Positioning
 - Request Evaluation
 
 ## Notes
