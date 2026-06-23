@@ -1,0 +1,14 @@
+/request /request-evaluation.html 200
+/request/ /request-evaluation.html 200
+/request.html /request-evaluation.html 200
+/request-evaluation /request-evaluation.html 200
+/request-evaluation/ /request-evaluation.html 200
+/architecture/ /architecture.html 200
+/services/ /services.html 200
+/resources/ /resources.html 200
+/start-here/ /start-here.html 200
+/use-cases/ /use-cases.html 200
+/evidence/ /evidence.html 200
+/environmental/ /environmental-integrity.html 200
+/environmental-integrity/ /environmental-integrity.html 200
+/* /404.html 404

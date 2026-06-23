@@ -1,15 +1,7 @@
-# Commit Messages
+# Suggested Commit Messages
 
-Recommended:
-
-```text
-Upgrade TA-14 public portal static site
-```
-
-Alternatives:
-
-```text
-Add premium TA-14 static website pack
-Add request form and review offer pages
-Add TA-14 public portal conversion pages
-```
+Upgrade TA-14 public site authority portal
+Fix TA-14 request review routing
+Add TA-14 use cases page
+Strengthen TA-14 architecture and services pages
+Improve TA-14 resources and conversion flow
