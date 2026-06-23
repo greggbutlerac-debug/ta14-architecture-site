@@ -1,38 +1,39 @@
-# TA-14 Architecture Site
+# TA-14 Public Portal Expansion Pack
 
-Public website for TA-14 Admissible Execution Architecture.
+This package adds standalone public HTML pages for the TA-14 Netlify/GitHub site.
 
-Live site: https://ta14-architecture.netlify.app
+## Intended use
 
-Latest Version DOI: https://doi.org/10.5281/zenodo.20816627
+Copy the contents of the `public/` folder into the site's `public/` directory, then commit and deploy.
 
-Concept DOI: https://doi.org/10.5281/zenodo.20814817
+These pages are designed as standalone static HTML pages. They should work even if the rest of the site is built with a modern frontend framework, as long as the deployment serves files from `public/`.
 
-## Pages
+## Included pages
 
-- Home
-- Architecture
-- Environmental Integrity Governance
-- Evidence Integrity Governance
-- Services
-- Gate
-- Positioning
-- Founder
-- Resources
-- Request Evaluation
+- `public/start-here.html` — plain-English public entry point for TA-14.
+- `public/what-ta14-is-not.html` — boundary-protection page that prevents misframing TA-14 as monitoring, audit logging, a dashboard, or only a gate.
+- `public/request-evaluation.html` — structured intake page for review requests.
+- `public/review-offers.html` — simple commercial offer page with three review lanes.
+- `public/public-record.html` — preservation and public-anchor page.
+- `public/partner-review-network.html` — partner-review positioning and use restrictions.
+- `public/no-build-before-boundary.html` — scope and value-exchange boundary page.
+- `public/environmental-integrity.html` — applied Environmental Integrity Governance page.
+
+## Recommended navigation labels
+
+- Start Here → `/start-here.html`
+- What TA-14 Is Not → `/what-ta14-is-not.html`
+- Review Offers → `/review-offers.html`
+- Request Evaluation → `/request-evaluation.html`
+- Public Record → `/public-record.html`
+- Partner Review Network → `/partner-review-network.html`
+- No Build Before Boundary → `/no-build-before-boundary.html`
+- Environmental Integrity → `/environmental-integrity.html`
+
+## Suggested commit message
+
+`Add TA-14 public portal expansion pages`
 
 ## Notes
 
-TA-14 reviews do not automatically certify, endorse, or validate a system. They identify evidence strength, admissibility gaps, boundary conditions, and readiness requirements.
-
-## Unified navigation update
-
-This version standardizes the top navigation across all public site pages so Gate and Positioning remain visible from every page.
-
-## Resources link fix
-
-Resources page cards distinguish clickable resources from reference notes to avoid confusing non-clickable cards or stale page-path links.
-
-## Founder page expansion
-
-The Founder page expands the Greggory Don Butler founder story and includes the founder portrait image at `greggory-don-butler-founder.jpg`.
+These pages do not automatically change the site's navigation. Add links manually wherever your site controls navigation, homepage calls-to-action, footer links, or resource menus.
