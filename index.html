@@ -2,58 +2,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>TA-14 Admissible Execution Architecture | Proof-Bound Governance Before Consequence</title>
+  <title>TA-14 Admissible Execution Architecture</title>
 
   <meta
     name="description"
-    content="TA-14 Admissible Execution Architecture is a full-chain governance architecture for determining whether evidence, authority, continuity, binding, commit, execution, and outcome conditions are admissible enough before consequence-bearing action occurs."
-  />
-
-  <meta
-    name="keywords"
-    content="TA-14, admissible execution, AI governance, evidence governance, execution governance, consequence governance, environmental integrity governance, atmospheric integrity records, admissible evidence, authority governance"
+    content="TA-14 Admissible Execution Architecture provides proof-bound governance before consequence. No admissible evidence. No admissible execution."
   />
 
   <meta name="author" content="Greggory Don Butler" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://ta14-architecture.netlify.app/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="TA-14 Admissible Execution Architecture" />
-  <meta
-    property="og:description"
-    content="Proof-bound governance before consequence. TA-14 asks whether execution is admissible enough to bind, commit, execute, create reliance, or produce outcome accountability."
-  />
-  <meta property="og:url" content="https://ta14-architecture.netlify.app/" />
-  <meta property="og:site_name" content="TA-14 Admissible Execution Architecture" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TA-14 Admissible Execution Architecture" />
-  <meta
-    name="twitter:description"
-    content="A full-chain admissible-execution governance architecture for evidence, authority, binding, commit, execution, reliance, and outcome accountability."
-  />
 
   <style>
     :root {
-      --bg: #020617;
-      --bg-soft: #0f172a;
+      --ink: #050816;
+      --navy: #07183d;
+      --navy-deep: #050b22;
+      --purple: #382968;
+      --blue: #7dd3fc;
+      --soft-blue: #eaf4ff;
+      --soft: #f7f9fd;
       --panel: #ffffff;
-      --panel-soft: #f8fafc;
-      --text: #0f172a;
-      --muted: #475569;
-      --muted-light: #cbd5e1;
-      --line: #e2e8f0;
-      --line-dark: rgba(255, 255, 255, 0.14);
-      --accent: #38bdf8;
-      --accent-strong: #0ea5e9;
-      --gold: #facc15;
-      --max: 1180px;
-      --radius: 24px;
-      --shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+      --muted: #64748b;
+      --muted-dark: #475569;
+      --line: #dbe4f0;
+      --line-soft: rgba(148, 163, 184, 0.28);
+      --white: #ffffff;
+      --shadow: 0 34px 90px rgba(15, 23, 42, 0.16);
+      --shadow-soft: 0 18px 48px rgba(15, 23, 42, 0.08);
+      --max: 1480px;
+      --radius-xl: 46px;
+      --radius-lg: 30px;
+      --radius-md: 22px;
     }
 
     * {
@@ -67,10 +49,18 @@
     body {
       margin: 0;
       font-family:
-        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      color: var(--text);
-      background: #ffffff;
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 6% 7%, rgba(186, 230, 253, 0.56), transparent 30%),
+        radial-gradient(circle at 94% 17%, rgba(233, 213, 255, 0.55), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 40%, #ffffff 100%);
       line-height: 1.6;
     }
 
@@ -79,251 +69,348 @@
       text-decoration: none;
     }
 
-    a:focus-visible,
-    button:focus-visible {
-      outline: 3px solid var(--accent);
+    a:focus-visible {
+      outline: 3px solid #38bdf8;
       outline-offset: 4px;
-      border-radius: 10px;
+      border-radius: 999px;
     }
 
+    h1,
+    h2,
+    h3,
+    h4,
     p {
+      margin: 0;
+    }
+
+    ul {
       margin: 0;
     }
 
     .skip-link {
       position: absolute;
       left: -999px;
-      top: 12px;
+      top: 16px;
       z-index: 999;
       padding: 10px 14px;
-      background: #ffffff;
-      color: #0f172a;
-      border-radius: 10px;
-      font-weight: 700;
-    }
-
-    .skip-link:focus {
-      left: 12px;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(2, 6, 23, 0.92);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .nav {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      color: #ffffff;
-      min-width: 220px;
-    }
-
-    .brand strong {
-      font-size: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .brand span {
-      color: var(--muted-light);
-      font-size: 0.82rem;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 16px;
-    }
-
-    nav a {
-      color: #e2e8f0;
-      font-size: 0.92rem;
-      font-weight: 650;
-      opacity: 0.92;
-    }
-
-    nav a:hover {
-      color: #ffffff;
-    }
-
-    .nav-cta {
-      padding: 9px 14px;
       border-radius: 999px;
-      background: #ffffff;
-      color: #020617;
-      font-weight: 800;
-    }
-
-    .hero {
-      background:
-        radial-gradient(circle at 12% 0%, rgba(56, 189, 248, 0.35), transparent 36%),
-        radial-gradient(circle at 85% 10%, rgba(250, 204, 21, 0.16), transparent 32%),
-        linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
+      background: #020617;
       color: #ffffff;
-      padding: 88px 24px 72px;
-      overflow: hidden;
-    }
-
-    .hero-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-      gap: 42px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      margin: 0 0 14px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.76rem;
       font-weight: 900;
     }
 
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      line-height: 1.08;
-      letter-spacing: -0.045em;
+    .skip-link:focus {
+      left: 16px;
     }
 
-    h1 {
-      font-size: clamp(3rem, 7vw, 6.2rem);
-      max-width: 980px;
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+    }
+
+    .nav-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 34px 24px;
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .brand {
+      display: block;
+      color: var(--ink);
+    }
+
+    .brand-title {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1.35;
+      letter-spacing: -0.04em;
+      font-weight: 950;
+    }
+
+    .brand-subtitle {
+      display: block;
+      max-width: 285px;
+      margin-top: 5px;
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.6;
+      font-weight: 760;
+    }
+
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .nav-pills a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: #44546a;
+      font-size: 1rem;
+      line-height: 1;
+      font-weight: 870;
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
+      transition:
+        transform 150ms ease,
+        background 150ms ease,
+        border-color 150ms ease,
+        color 150ms ease,
+        box-shadow 150ms ease;
+    }
+
+    .nav-pills a:hover {
+      transform: translateY(-1px);
+      border-color: #bfdbfe;
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .nav-pills a.active {
+      border-color: #bfdbfe;
+      color: #030712;
+      background: #eff6ff;
+      box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.08);
+    }
+
+    .nav-pills a.request {
+      background: #020617;
+      color: #ffffff;
+      border-color: #020617;
+      box-shadow: 0 12px 28px rgba(2, 6, 23, 0.18);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero-section {
+      padding: 124px 34px 82px;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      max-width: var(--max);
+      min-height: 650px;
+      margin: 0 auto;
+      padding: 86px 88px;
+      border-radius: var(--radius-xl);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 430px;
+      gap: 56px;
+      align-items: center;
+      color: #ffffff;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        radial-gradient(circle at 13% 52%, rgba(29, 78, 216, 0.36), transparent 42%),
+        radial-gradient(circle at 86% 18%, rgba(124, 58, 237, 0.34), transparent 38%),
+        linear-gradient(115deg, #081a43 0%, #071028 46%, #2d235c 100%);
+      background-size:
+        72px 72px,
+        72px 72px,
+        auto,
+        auto,
+        auto;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(125, 211, 252, 0.13), transparent 36%),
+        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.06), transparent 30%);
+    }
+
+    .hero-copy,
+    .doctrine-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      font-weight: 950;
+    }
+
+    .hero-panel .eyebrow {
+      color: #b7f2ff;
+      letter-spacing: 0.24em;
+      font-size: 0.98rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      max-width: 850px;
+      color: #ffffff;
+      font-size: clamp(4.75rem, 7.3vw, 8.7rem);
+      line-height: 0.87;
+      letter-spacing: -0.085em;
+      font-weight: 950;
+    }
+
+    .hero-title span {
+      display: block;
     }
 
     .hero-lede {
-      margin-top: 22px;
-      max-width: 820px;
+      max-width: 770px;
+      margin-top: 30px;
       color: #dbeafe;
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      line-height: 1.65;
+      font-size: clamp(1.12rem, 1.5vw, 1.38rem);
+      line-height: 1.7;
+      font-weight: 570;
     }
 
-    .hero-proof {
-      margin-top: 26px;
-      padding: 22px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.22);
-    }
-
-    .hero-proof strong {
-      display: block;
-      font-size: 1.15rem;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .hero-proof p {
-      color: #dbeafe;
-      font-size: 1.02rem;
-    }
-
-    .button-row,
-    .cta-row {
+    .hero-actions {
+      margin-top: 34px;
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 28px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 12px 18px;
+      min-height: 50px;
+      padding: 0 20px;
       border-radius: 999px;
-      font-weight: 850;
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      font-size: 1rem;
+      font-weight: 920;
+      transition:
+        transform 150ms ease,
+        box-shadow 150ms ease,
+        background 150ms ease,
+        border-color 150ms ease;
     }
 
     .button:hover {
       transform: translateY(-1px);
     }
 
-    .button-primary {
+    .button.primary {
       background: #ffffff;
       color: #020617;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
     }
 
-    .button-secondary {
-      background: rgba(255, 255, 255, 0.1);
+    .button.secondary {
       color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.09);
     }
 
-    .button-dark {
+    .button.dark {
       background: #020617;
       color: #ffffff;
+      box-shadow: 0 16px 36px rgba(2, 6, 23, 0.16);
     }
 
-    .button-light {
+    .button.light {
       background: #ffffff;
       color: #020617;
       border: 1px solid var(--line);
     }
 
-    .chain-card {
-      border-radius: 32px;
-      padding: 26px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+    .doctrine-card {
+      width: 100%;
+      min-height: 430px;
+      padding: 38px 38px 34px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 38px;
+      background: rgba(93, 72, 142, 0.64);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 30px 70px rgba(2, 6, 23, 0.28);
     }
 
-    .chain-card h2 {
-      font-size: 1.5rem;
+    .doctrine-label {
+      margin-bottom: 26px;
+      color: #c7f5ff;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 0.95rem;
+      font-weight: 950;
+    }
+
+    .doctrine-text {
       color: #ffffff;
-      margin-bottom: 18px;
+      font-size: clamp(3rem, 4vw, 4.2rem);
+      line-height: 1.03;
+      letter-spacing: -0.07em;
+      font-weight: 950;
     }
 
-    .chain-list {
+    .doctrine-small {
+      margin-top: 28px;
+      color: #dbeafe;
+      font-size: 1.08rem;
+      line-height: 1.65;
+      font-weight: 640;
+    }
+
+    .hero-metrics {
+      max-width: var(--max);
+      margin: 26px auto 0;
       display: grid;
-      gap: 10px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
     }
 
-    .chain-step {
-      padding: 13px 14px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #e2e8f0;
-      font-weight: 750;
+    .metric {
+      padding: 22px;
+      border: 1px solid rgba(219, 228, 240, 0.88);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 34px rgba(15, 23, 42, 0.06);
     }
 
-    .chain-step span {
-      color: var(--accent);
-      margin-right: 8px;
+    .metric strong {
+      display: block;
+      color: #07111f;
+      font-size: 1.08rem;
+      font-weight: 950;
+      letter-spacing: -0.03em;
     }
 
-    main section {
-      padding: 76px 24px;
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: #64748b;
+      font-weight: 720;
+    }
+
+    section:not(.hero-section) {
+      padding: 76px 34px;
     }
 
     .section-inner {
@@ -332,19 +419,31 @@
     }
 
     .section-head {
-      max-width: 860px;
+      max-width: 960px;
       margin-bottom: 34px;
     }
 
+    .section-head.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
     .section-head h2 {
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      color: var(--text);
+      margin-top: 12px;
+      color: #07111f;
+      font-size: clamp(2.2rem, 4vw, 4.1rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      font-weight: 950;
     }
 
     .section-head p {
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: 1.08rem;
+      margin-top: 18px;
+      color: #475569;
+      font-size: 1.14rem;
+      line-height: 1.75;
+      font-weight: 520;
     }
 
     .grid {
@@ -365,33 +464,83 @@
     }
 
     .card {
+      position: relative;
+      overflow: hidden;
+      padding: 26px;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--panel);
-      padding: 24px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+      border-radius: 28px;
+      background: #ffffff;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.055);
     }
 
     .card h3 {
-      font-size: 1.2rem;
       margin-bottom: 10px;
-      color: #0f172a;
+      color: #07111f;
+      font-size: 1.24rem;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      font-weight: 950;
     }
 
     .card p,
     .card li {
-      color: var(--muted);
-      font-size: 0.98rem;
+      color: #52637a;
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
     .card ul {
-      padding-left: 19px;
-      margin: 12px 0 0;
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .number-card {
+      min-height: 240px;
+    }
+
+    .number {
+      display: inline-flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      border-radius: 999px;
+      background: #eef6ff;
+      color: #1d4ed8;
+      font-weight: 950;
+      box-shadow: inset 0 0 0 1px #dbeafe;
+    }
+
+    .chain-band {
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 28px;
+      background: #07111f;
+      color: #ffffff;
+      text-align: center;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      letter-spacing: -0.02em;
+      font-weight: 950;
+    }
+
+    .soft-section {
+      background: rgba(248, 250, 252, 0.86);
+      border-top: 1px solid rgba(226, 232, 240, 0.75);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
     }
 
     .dark-section {
-      background: #020617;
       color: #ffffff;
+      background:
+        radial-gradient(circle at 10% 5%, rgba(56, 189, 248, 0.22), transparent 32%),
+        radial-gradient(circle at 92% 24%, rgba(124, 58, 237, 0.25), transparent 34%),
+        linear-gradient(135deg, #020617, #0f172a);
+    }
+
+    .dark-section .section-kicker,
+    .dark-section .eyebrow {
+      color: #7dd3fc;
     }
 
     .dark-section .section-head h2,
@@ -402,91 +551,162 @@
     .dark-section .section-head p,
     .dark-section .card p,
     .dark-section .card li {
-      color: var(--muted-light);
+      color: #cbd5e1;
     }
 
-    .dark-card {
-      background: rgba(255, 255, 255, 0.08);
+    .dark-section .card {
+      background: rgba(255, 255, 255, 0.075);
       border-color: rgba(255, 255, 255, 0.14);
       box-shadow: none;
     }
 
-    .chain-line {
-      margin-top: 24px;
-      padding: 22px;
-      border-radius: var(--radius);
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      color: #0f172a;
-      font-weight: 850;
-      text-align: center;
-      font-size: clamp(1rem, 2vw, 1.25rem);
+    .split-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 24px;
+      align-items: stretch;
     }
 
-    .proof-banner {
-      background: linear-gradient(135deg, #f8fafc, #eff6ff);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .proof-panel {
-      max-width: var(--max);
-      margin: 0 auto;
-      border: 1px solid var(--line);
-      border-radius: 32px;
-      background: #ffffff;
+    .feature-panel {
       padding: 34px;
-      box-shadow: var(--shadow);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 12% 5%, rgba(125, 211, 252, 0.24), transparent 30%),
+        linear-gradient(135deg, #07183d, #111827);
+      color: #ffffff;
+      box-shadow: var(--shadow-soft);
     }
 
-    .proof-panel h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
+    .feature-panel h3 {
+      max-width: 720px;
+      color: #ffffff;
+      font-size: clamp(1.9rem, 3vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      font-weight: 950;
     }
 
-    .proof-panel p {
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 920px;
+    .feature-panel p {
+      margin-top: 18px;
+      color: #dbeafe;
+      font-size: 1.08rem;
+      line-height: 1.75;
     }
 
-    .pill-row {
+    .mini-chain {
+      display: grid;
+      gap: 10px;
+    }
+
+    .chain-step {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #ffffff;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.045);
+    }
+
+    .chain-step strong {
+      display: block;
+      color: #07111f;
+      font-size: 1rem;
+      font-weight: 950;
+    }
+
+    .chain-step span {
+      display: block;
+      margin-top: 4px;
+      color: #64748b;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    .tag-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 24px;
+      margin-top: 26px;
     }
 
-    .pill {
+    .tag {
       display: inline-flex;
-      padding: 8px 12px;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 13px;
       border-radius: 999px;
-      background: #e0f2fe;
+      background: #eaf4ff;
       color: #075985;
+      font-size: 0.9rem;
       font-weight: 850;
-      font-size: 0.88rem;
     }
 
-    .service-card {
+    .page-card {
+      min-height: 255px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      justify-content: space-between;
+      gap: 18px;
     }
 
-    .service-card .label {
+    .page-card .code,
+    .review-card .code {
+      display: inline-flex;
       width: fit-content;
-      padding: 6px 10px;
+      min-width: 42px;
+      height: 42px;
+      padding: 0 12px;
+      align-items: center;
+      justify-content: center;
       border-radius: 999px;
-      background: #f1f5f9;
-      color: #334155;
-      font-size: 0.78rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      background: #07111f;
+      color: #ffffff;
+      font-weight: 950;
+      font-size: 0.9rem;
+      letter-spacing: -0.02em;
     }
 
-    .public-record {
-      background: #f8fafc;
+    .page-card a,
+    .record-item a {
+      color: #075985;
+      font-weight: 900;
+      overflow-wrap: anywhere;
+    }
+
+    .review-card {
+      min-height: 235px;
+    }
+
+    .distinction-panel {
+      padding: 44px;
+      border-radius: 42px;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(135deg, #081a43, #071028 50%, #2d235c);
+      background-size: 70px 70px, 70px 70px, auto;
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .distinction-panel h2 {
+      color: #ffffff;
+      max-width: 1020px;
+      font-size: clamp(2.35rem, 4.4vw, 4.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      font-weight: 950;
+    }
+
+    .distinction-panel p {
+      margin-top: 20px;
+      max-width: 1060px;
+      color: #dbeafe;
+      font-size: 1.14rem;
+      line-height: 1.8;
+    }
+
+    .distinction-grid {
+      margin-top: 30px;
     }
 
     .record-list {
@@ -495,523 +715,774 @@
     }
 
     .record-item {
-      padding: 18px;
-      background: #ffffff;
+      padding: 20px;
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 24px;
+      background: #ffffff;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.045);
     }
 
     .record-item strong {
       display: block;
       margin-bottom: 5px;
+      color: #07111f;
+      font-weight: 950;
     }
 
-    .record-item a {
-      color: #0369a1;
-      font-weight: 800;
-      overflow-wrap: anywhere;
+    .request-section {
+      padding-top: 88px !important;
+      padding-bottom: 88px !important;
     }
 
-    .cta-section {
-      background:
-        radial-gradient(circle at 20% 10%, rgba(56, 189, 248, 0.25), transparent 35%),
-        linear-gradient(135deg, #020617, #0f172a);
-      color: #ffffff;
-    }
-
-    .cta-panel {
+    .request-panel {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 38px;
-      border-radius: 34px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.26);
+      padding: 46px;
+      border-radius: 42px;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(125, 211, 252, 0.18), transparent 34%),
+        linear-gradient(135deg, #07183d, #120f2b 64%, #302155);
+      box-shadow: var(--shadow);
     }
 
-    .cta-panel h2 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      max-width: 900px;
+    .request-panel h2 {
+      max-width: 980px;
+      margin-top: 12px;
+      color: #ffffff;
+      font-size: clamp(2.4rem, 4.4vw, 4.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+      font-weight: 950;
     }
 
-    .cta-panel p {
-      margin-top: 16px;
+    .request-panel p {
+      max-width: 1000px;
+      margin-top: 18px;
       color: #dbeafe;
-      max-width: 930px;
-      font-size: 1.06rem;
+      font-size: 1.12rem;
+      line-height: 1.75;
     }
 
-    .request-checklist {
-      margin-top: 24px;
+    .request-list {
+      margin-top: 26px;
       padding: 24px;
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.08);
     }
 
-    .request-checklist h3 {
+    .request-list h3 {
+      margin-bottom: 12px;
       color: #ffffff;
       font-size: 1.25rem;
-      margin-bottom: 12px;
+      letter-spacing: -0.025em;
     }
 
-    .request-checklist ul {
-      margin: 0;
+    .request-list ul {
       padding-left: 20px;
       display: grid;
       gap: 8px;
       color: #dbeafe;
     }
 
+    .request-panel .button.secondary {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
     .direct-contact {
-      margin-top: 20px !important;
+      margin-top: 22px !important;
       color: #e2e8f0 !important;
     }
 
     .direct-contact a {
       color: #ffffff;
-      font-weight: 850;
+      font-weight: 900;
       text-decoration: underline;
       text-underline-offset: 4px;
     }
 
     footer {
-      background: #020617;
-      color: #cbd5e1;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 32px 34px;
+      background: #ffffff;
+      border-top: 1px solid var(--line);
+      color: #64748b;
     }
 
     .footer-inner {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 28px 24px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      flex-wrap: wrap;
-      font-size: 0.92rem;
+      font-size: 0.96rem;
     }
 
     footer strong {
-      color: #ffffff;
+      color: #07111f;
+      font-weight: 950;
     }
 
     footer a {
-      color: #e2e8f0;
-      font-weight: 700;
+      color: #334155;
+      font-weight: 850;
     }
 
-    footer a:hover {
-      color: #ffffff;
-    }
-
-    @media (max-width: 980px) {
-      .hero-inner {
+    @media (max-width: 1180px) {
+      .nav-wrap {
         grid-template-columns: 1fr;
       }
 
-      .grid.three,
+      .nav-pills {
+        justify-content: flex-start;
+      }
+
+      .hero-panel {
+        grid-template-columns: 1fr;
+        padding: 62px 48px;
+      }
+
+      .doctrine-card {
+        max-width: 560px;
+      }
+
+      .hero-metrics,
       .grid.four {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      nav ul {
-        display: none;
+      .split-panel {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 680px) {
-      .hero {
-        padding-top: 62px;
+    @media (max-width: 760px) {
+      .nav-wrap {
+        padding: 20px;
       }
 
-      .nav {
-        padding: 14px 18px;
+      .brand-title {
+        font-size: 1.18rem;
       }
 
-      main section {
-        padding: 56px 18px;
+      .brand-subtitle {
+        font-size: 0.92rem;
       }
 
+      .nav-pills {
+        gap: 8px;
+      }
+
+      .nav-pills a {
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 0.88rem;
+      }
+
+      .hero-section {
+        padding: 44px 18px 48px;
+      }
+
+      .hero-panel {
+        min-height: auto;
+        padding: 46px 26px;
+        border-radius: 32px;
+      }
+
+      .hero-title {
+        font-size: clamp(3.35rem, 18vw, 5.2rem);
+      }
+
+      .doctrine-card {
+        min-height: auto;
+        padding: 28px;
+        border-radius: 28px;
+      }
+
+      .doctrine-text {
+        font-size: clamp(2.45rem, 13vw, 3.45rem);
+      }
+
+      .hero-metrics,
       .grid.two,
       .grid.three,
       .grid.four {
         grid-template-columns: 1fr;
       }
 
-      .proof-panel,
-      .cta-panel {
-        padding: 24px;
-        border-radius: 24px;
+      section:not(.hero-section) {
+        padding: 54px 18px;
+      }
+
+      .feature-panel,
+      .distinction-panel,
+      .request-panel {
+        padding: 30px 24px;
+        border-radius: 32px;
+      }
+
+      .hero-actions,
+      .request-panel .hero-actions {
+        flex-direction: column;
       }
 
       .button {
         width: 100%;
       }
-
-      .button-row,
-      .cta-row {
-        flex-direction: column;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-      }
     }
   </style>
-
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "TA-14 Admissible Execution Architecture",
-      "url": "https://ta14-architecture.netlify.app/",
-      "founder": {
-        "@type": "Person",
-        "name": "Greggory Don Butler"
-      },
-      "description": "TA-14 is a full-chain admissible-execution governance architecture for determining whether evidence, authority, continuity, binding, commit, execution, and outcome conditions are admissible enough before consequence-bearing action occurs.",
-      "email": "ta14admissibleexecution@gmail.com"
-    }
-  </script>
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header>
-    <div class="nav" aria-label="Primary navigation">
+  <header class="site-header">
+    <div class="nav-wrap">
       <a class="brand" href="/" aria-label="TA-14 homepage">
-        <strong>TA-14 Architecture</strong>
-        <span>Admissible Execution Governance</span>
+        <span class="brand-title">TA-14 Admissible Execution Architecture</span>
+        <span class="brand-subtitle">Proof-bound governance before consequence</span>
       </a>
 
-      <nav aria-label="Site navigation">
-        <ul>
-          <li><a href="#architecture">Architecture</a></li>
-          <li><a href="#services">Reviews</a></li>
-          <li><a href="#domains">Domains</a></li>
-          <li><a href="#public-record">Public Record</a></li>
-          <li><a href="#request" class="nav-cta">Request Review</a></li>
-        </ul>
+      <nav class="nav-pills" aria-label="Primary navigation">
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a class="active" href="/governance-review">Governance Review</a>
+        <a href="/services">Services</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/resources">Resources</a>
+        <a href="/founder">Founder</a>
+        <a href="/gate">Gate</a>
+        <a href="/positioning">Positioning</a>
+        <a href="/public-record">Public Record</a>
+        <a href="/environmental">Environmental</a>
+        <a href="/evidence">Evidence</a>
+        <a href="/partners">Partners</a>
+        <a class="request" href="/request-evaluation">Request</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" id="home">
-      <div class="hero-inner">
-        <div>
+    <section class="hero-section">
+      <div class="hero-panel">
+        <div class="hero-copy">
           <p class="eyebrow">TA-14 Admissible Execution Architecture</p>
 
-          <h1>Proof-bound governance before consequence.</h1>
+          <h1 class="hero-title">
+            <span>Proof-bound</span>
+            <span>governance</span>
+            <span>before</span>
+            <span>consequence.</span>
+          </h1>
 
           <p class="hero-lede">
             TA-14 determines whether a system, workflow, evidence process, AI execution-governance entity,
-            environmental integrity route, partner architecture, or institutional decision has enough
-            admissible evidence before it is allowed to bind, commit, execute, create reliance, or produce outcome accountability.
+            environmental integrity route, partner architecture, or institutional decision has enough admissible
+            evidence before it is allowed to bind, commit, execute, or create reliance.
           </p>
 
-          <div class="hero-proof">
-            <strong>TA-14 does not ask only whether a system can execute.</strong>
-            <p>
-              TA-14 asks whether the evidence chain is admissible enough for execution to create consequence.
-              No admissible evidence. No admissible execution.
-            </p>
-          </div>
-
-          <div class="button-row">
-            <a class="button button-primary" href="#request">Request a TA-14 Review</a>
-            <a class="button button-secondary" href="#architecture">Explore the Architecture</a>
-            <a class="button button-secondary" href="#services">Review Services</a>
+          <div class="hero-actions">
+            <a class="button primary" href="/request-evaluation">Request a TA-14 Review</a>
+            <a class="button secondary" href="/governance-review">Explore Governance Review</a>
+            <a class="button secondary" href="/start-here">Start Here</a>
           </div>
         </div>
 
-        <aside class="chain-card" aria-label="TA-14 admissible execution chain">
-          <h2>The admissible-execution chain</h2>
+        <aside class="doctrine-card" aria-label="TA-14 core doctrine">
+          <p class="doctrine-label">Core Doctrine</p>
 
-          <div class="chain-list">
-            <div class="chain-step"><span>01</span>Reality</div>
-            <div class="chain-step"><span>02</span>Record</div>
-            <div class="chain-step"><span>03</span>Continuity</div>
-            <div class="chain-step"><span>04</span>Admissibility</div>
-            <div class="chain-step"><span>05</span>Binding</div>
-            <div class="chain-step"><span>06</span>Commit</div>
-            <div class="chain-step"><span>07</span>Execution</div>
-            <div class="chain-step"><span>08</span>Outcome</div>
-          </div>
+          <p class="doctrine-text">
+            No admissible evidence.<br />
+            No admissible execution.
+          </p>
+
+          <p class="doctrine-small">
+            TA-14 governs the full route from real-world condition to outcome accountability.
+          </p>
         </aside>
       </div>
-    </section>
 
-    <section class="proof-banner" aria-label="TA-14 category statement">
-      <div class="proof-panel">
-        <p class="eyebrow">Category position</p>
+      <div class="hero-metrics" aria-label="TA-14 review checkpoints">
+        <div class="metric">
+          <strong>Reality → Record</strong>
+          <span>Is the record strong enough?</span>
+        </div>
 
-        <h2>Most governance asks whether a system is monitored, compliant, aligned, explained, or constrained.</h2>
+        <div class="metric">
+          <strong>Authority</strong>
+          <span>Who may allow action?</span>
+        </div>
 
-        <p>
-          TA-14 asks a more operational question: was the proposed execution admissible enough to become consequence?
-          That means the record, evidence, authority, continuity, reliance, binding, commit, execution route, and outcome
-          must survive review before consequence-bearing action is treated as valid.
-        </p>
+        <div class="metric">
+          <strong>Commit</strong>
+          <span>Where does consequence lock in?</span>
+        </div>
 
-        <div class="pill-row" aria-label="TA-14 proof requirements">
-          <span class="pill">Evidence</span>
-          <span class="pill">Authority</span>
-          <span class="pill">Continuity</span>
-          <span class="pill">Admissibility</span>
-          <span class="pill">Reliance</span>
-          <span class="pill">Binding</span>
-          <span class="pill">Commit</span>
-          <span class="pill">Execution</span>
-          <span class="pill">Outcome</span>
+        <div class="metric">
+          <strong>Outcome</strong>
+          <span>What proof remains after action?</span>
         </div>
       </div>
     </section>
 
-    <section id="architecture">
+    <section id="why-ta14">
       <div class="section-inner">
         <div class="section-head">
-          <p class="eyebrow">Architecture</p>
+          <p class="section-kicker">Why TA-14 exists</p>
 
-          <h2>A parent architecture for consequence-bearing execution.</h2>
+          <h2>The problem is not whether systems can act. The problem is whether they should be allowed to create consequence.</h2>
 
           <p>
-            TA-14 is not a dashboard, checklist, compliance label, or after-the-fact audit layer.
-            It is a full-chain admissible-execution architecture for determining whether action should be allowed
-            to bind, commit, execute, create reliance, or generate a consequence-bearing outcome.
+            Modern systems can generate outputs, route decisions, trigger interventions, recommend actions,
+            create client reliance, or move institutional processes forward faster than organizations can prove
+            that the evidence behind action is still valid. Monitoring may show activity. Logging may preserve a trace.
+            Compliance may define a rule. TA-14 asks the harder question: did the evidence chain justify consequence
+            before execution occurred?
           </p>
         </div>
 
-        <div class="grid four">
-          <article class="card">
-            <h3>Reality → Record</h3>
+        <div class="grid three">
+          <article class="card number-card">
+            <span class="number">1</span>
+            <h3>Monitoring is not governance</h3>
             <p>
-              TA-14 begins with what is actually true, what was observed, and whether the system has a preserved record
-              strong enough to support later reliance.
+              Monitoring can show conditions. TA-14 asks whether records are preserved, continuous, thresholded,
+              admissible, authorized, and accountable before reliance occurs.
             </p>
           </article>
 
-          <article class="card">
-            <h3>Record → Continuity</h3>
+          <article class="card number-card">
+            <span class="number">2</span>
+            <h3>Logging is not admissibility</h3>
             <p>
-              Evidence must remain connected, traceable, preserved, and reviewable across time, state changes,
-              handoffs, and operational pressure.
+              Logs may explain what happened. TA-14 asks whether what happened should have been allowed based on
+              the evidence available before action.
             </p>
           </article>
 
-          <article class="card">
-            <h3>Continuity → Admissibility</h3>
+          <article class="card number-card">
+            <span class="number">3</span>
+            <h3>Speed is not readiness</h3>
             <p>
-              Evidence is not enough because it exists. It must satisfy the conditions required to justify reliance,
-              authority, escalation, refusal, or action.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Binding → Outcome</h3>
-            <p>
-              Before consequence attaches, the binding basis, commit decision, execution route, and outcome record
-              must remain governable and accountable.
+              A system can be fast, automated, technically functional, and still outrun the evidence needed to
+              govern consequence.
             </p>
           </article>
         </div>
+      </div>
+    </section>
 
-        <div class="chain-line">
+    <section class="dark-section" id="governance-review">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-kicker">Governance Review</p>
+
+          <h2>TA-14 reviews other governance systems for admissible execution readiness.</h2>
+
+          <p>
+            Some systems do not merely execute. They govern execution. They claim to control AI agents,
+            authorize workflows, validate trust, enforce policy, route decisions, constrain runtime behavior,
+            verify evidence, or determine whether action should proceed.
+          </p>
+
+          <p>
+            TA-14 provides a review layer for those systems. It asks whether an AI execution-governance entity,
+            trust framework, runtime gate, policy engine, partner architecture, compliance workflow, or
+            admissibility-adjacent governance system can prove that consequence-bearing execution remains
+            admissible from reality through outcome.
+          </p>
+        </div>
+
+        <div class="chain-band">
           Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
         </div>
+
+        <div class="grid three" style="margin-top: 24px;">
+          <article class="card">
+            <span class="number">1</span>
+            <h3>Review the governance claim</h3>
+            <p>
+              TA-14 identifies what the reviewed governance system claims to control: evidence, identity,
+              policy, authority, runtime behavior, refusal, execution, outcome, or another consequence-bearing layer.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">2</span>
+            <h3>Map it to the TA-14 chain</h3>
+            <p>
+              The system is mapped against Reality, Record, Continuity, Admissibility, Binding, Commit,
+              Execution, and Outcome to determine where governance is strong, partial, missing, or not reviewable.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">3</span>
+            <h3>Test admissible-execution readiness</h3>
+            <p>
+              TA-14 asks whether the governance system can prevent consequence-bearing action outside the
+              admissibility chain, especially under ambiguity, pressure, authority drift, stale evidence,
+              or incomplete outcome proof.
+            </p>
+          </article>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">AI execution governance</span>
+          <span class="tag">admissibility review</span>
+          <span class="tag">runtime governance</span>
+          <span class="tag">policy engines</span>
+          <span class="tag">trust frameworks</span>
+          <span class="tag">partner architectures</span>
+          <span class="tag">route-complete evidence</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button primary" href="/governance-review">Open Governance Review Page</a>
+          <a class="button secondary" href="/request-evaluation">Request Governance Review</a>
+          <a class="button secondary" href="/architecture">View TA-14 Architecture</a>
+        </div>
       </div>
     </section>
 
-    <section class="dark-section" id="principles">
+    <section id="chain">
       <div class="section-inner">
         <div class="section-head">
-          <p class="eyebrow">Core principles</p>
+          <p class="section-kicker">The full admissible-execution stream</p>
 
-          <h2>Execution is not valid merely because it is technically possible.</h2>
+          <h2>TA-14 governs the route by which evidence becomes reliance, reliance becomes binding, binding becomes commit, and commit becomes consequence.</h2>
+        </div>
+
+        <div class="split-panel">
+          <div class="feature-panel">
+            <h3>Every consequence-bearing route needs a preserved chain.</h3>
+
+            <p>
+              TA-14 does not stop at whether a system produced an output. It asks whether the route from real-world
+              condition through evidence, continuity, admissibility, binding, commit, execution, and outcome can
+              survive review.
+            </p>
+
+            <p>
+              A system can be monitored, logged, automated, and technically functional while still failing the
+              admissibility conditions required for consequence.
+            </p>
+          </div>
+
+          <div class="mini-chain">
+            <div class="chain-step">
+              <strong>1. Reality</strong>
+              <span>The real-world condition, event, environment, obligation, or operational fact being represented.</span>
+            </div>
+
+            <div class="chain-step">
+              <strong>2. Record</strong>
+              <span>The captured evidence, source document, log, sensor reading, diagnostic, output, or determination.</span>
+            </div>
+
+            <div class="chain-step">
+              <strong>3. Continuity</strong>
+              <span>The preserved connection between reality and record across time, transfer, review, and use.</span>
+            </div>
+
+            <div class="chain-step">
+              <strong>4. Admissibility</strong>
+              <span>The threshold finding that evidence is strong enough to support reliance.</span>
+            </div>
+
+            <div class="chain-step">
+              <strong>5. Binding</strong>
+              <span>The point where information becomes reliance, obligation, or constrained decision.</span>
+            </div>
+
+            <div class="chain-step">
+              <strong>6. Commit</strong>
+              <span>The controlled boundary where the system commits to a consequence-bearing route.</span>
+            </div>
+
+            <div class="chain-step">
+              <strong>7. Execution</strong>
+              <span>The action, refusal, escalation, intervention, routing, release, or decision that creates consequence.</span>
+            </div>
+
+            <div class="chain-step">
+              <strong>8. Outcome</strong>
+              <span>The resulting condition, accountability object, verification record, or new reality after execution.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="site-map">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-kicker">Main portal pages</p>
+
+          <h2>The public TA-14 site now has a real top-level structure.</h2>
 
           <p>
-            TA-14 separates technical capability from admissible authority, monitored activity from governed evidence,
-            and completed action from admissible outcome accountability.
+            These are the core pages already being rebuilt into the main public portal.
           </p>
         </div>
 
         <div class="grid three">
-          <article class="card dark-card">
-            <h3>Evidence before reliance</h3>
-            <p>
-              Information must become governed evidence before it can support reliance, action, escalation,
-              refusal, or consequence.
-            </p>
+          <article class="card page-card">
+            <div>
+              <span class="code">01</span>
+              <h3>Start Here</h3>
+              <p>
+                A plain-language orientation to TA-14: what it is, why it matters, who needs it,
+                and how to understand the admissible-execution chain.
+              </p>
+            </div>
+            <a href="/start-here">Begin with the clearest explanation.</a>
           </article>
 
-          <article class="card dark-card">
-            <h3>Authority before action</h3>
-            <p>
-              Technical ability to act is not the same as admissible authority to bind, commit, execute,
-              or create consequence.
-            </p>
+          <article class="card page-card">
+            <div>
+              <span class="code">02</span>
+              <h3>Architecture</h3>
+              <p>
+                The full-chain architecture page covering Reality, Record, Continuity, Admissibility,
+                Binding, Commit, Execution, Outcome, Evidence Governance, and Reliance Governance.
+              </p>
+            </div>
+            <a href="/architecture">Read the technical architecture foundation.</a>
           </article>
 
-          <article class="card dark-card">
-            <h3>Outcome after execution</h3>
-            <p>
-              The result must be recorded, reviewable, replayable, and accountable after action occurs.
-            </p>
+          <article class="card page-card">
+            <div>
+              <span class="code">03</span>
+              <h3>Governance Review</h3>
+              <p>
+                Review lane for AI execution-governance entities, runtime control systems, trust frameworks,
+                policy engines, partner architectures, and admissibility-adjacent governance systems.
+              </p>
+            </div>
+            <a href="/governance-review">Review the governance that claims to govern execution.</a>
+          </article>
+
+          <article class="card page-card">
+            <div>
+              <span class="code">04</span>
+              <h3>Services</h3>
+              <p>
+                Review lanes for public-material architecture review, governance review, evidence gap review,
+                partner alignment, environmental integrity, and production-readiness review.
+              </p>
+            </div>
+            <a href="/services">Choose the right review path.</a>
+          </article>
+
+          <article class="card page-card">
+            <div>
+              <span class="code">05</span>
+              <h3>Use Cases</h3>
+              <p>
+                AI workflows, AI execution-governance entities, environmental evidence, partner architectures,
+                institutional decisions, operational reliance, and consequence-bearing review scenarios.
+              </p>
+            </div>
+            <a href="/use-cases">See where TA-14 applies.</a>
+          </article>
+
+          <article class="card page-card">
+            <div>
+              <span class="code">06</span>
+              <h3>Request Review</h3>
+              <p>
+                Submit a system, workflow, evidence process, governance framework, partner architecture,
+                environmental pathway, or institutional decision route for TA-14 review.
+              </p>
+            </div>
+            <a href="/request-evaluation">Move from interest to review.</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="services">
+    <section id="expanded-pages">
       <div class="section-inner">
         <div class="section-head">
-          <p class="eyebrow">Review services</p>
+          <p class="section-kicker">Expanded public architecture pages</p>
 
-          <h2>Structured TA-14 reviews for systems that may create consequence.</h2>
-
-          <p>
-            TA-14 reviews are designed to clarify what is proven, what is incomplete, where admissibility weakens,
-            and what evidence would be required before a system can credibly claim readiness for consequence-bearing execution.
-          </p>
-        </div>
-
-        <div class="grid three">
-          <article class="card service-card">
-            <span class="label">Public-material review</span>
-            <h3>Architecture Gap Review</h3>
-            <p>
-              A review based on public materials, documentation, claims, demos, websites, or published system descriptions.
-              Best for early positioning, partner evaluation, and boundary clarification.
-            </p>
-          </article>
-
-          <article class="card service-card">
-            <span class="label">Evidence review</span>
-            <h3>Evidence Gap Review</h3>
-            <p>
-              A review of available proof artifacts against the TA-14 chain, identifying what is demonstrated,
-              what is assumed, and what remains unproven before reliance or execution.
-            </p>
-          </article>
-
-          <article class="card service-card">
-            <span class="label">Route-complete review</span>
-            <h3>Readiness Review</h3>
-            <p>
-              A deeper readiness review for consequence-bearing pathways that must show governed evidence,
-              authority, scope, binding, commit, execution control, and outcome accountability.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="public-record" id="domains">
-      <div class="section-inner">
-        <div class="section-head">
-          <p class="eyebrow">Domains</p>
-
-          <h2>TA-14 applies wherever execution, reliance, authority, or consequence must be governed.</h2>
+          <h2>The next pages are already linked in the top navigation.</h2>
 
           <p>
-            The architecture can review AI workflows, environmental evidence processes, partner governance systems,
-            institutional decision routes, operational interventions, and other consequence-bearing execution pathways.
+            As each page is built, the navigation is already ready. The links are visible now, and each new page
+            becomes active as soon as its file is created.
           </p>
         </div>
 
         <div class="grid four">
-          <article class="card">
-            <h3>AI Execution Governance</h3>
+          <article class="card page-card">
+            <div>
+              <span class="code">F</span>
+              <h3>Founder</h3>
+              <p>Greggory Don Butler authorship, origin, public chronology, publication record, and founder authority.</p>
+            </div>
+            <a href="/founder">Founder / author page.</a>
+          </article>
+
+          <article class="card page-card">
+            <div>
+              <span class="code">G</span>
+              <h3>Gate</h3>
+              <p>The TA-14 Admissible Execution Gate and the reference system for proof-bound execution control.</p>
+            </div>
+            <a href="/gate">Gate and system page.</a>
+          </article>
+
+          <article class="card page-card">
+            <div>
+              <span class="code">P</span>
+              <h3>Positioning</h3>
+              <p>TA-14 category position, architecture distinctions, adjacent system boundaries, and public posture.</p>
+            </div>
+            <a href="/positioning">Positioning page.</a>
+          </article>
+
+          <article class="card page-card">
+            <div>
+              <span class="code">PR</span>
+              <h3>Public Record</h3>
+              <p>Public chronology, publication records, DOI index, sites, repositories, and evidence anchors.</p>
+            </div>
+            <a href="/public-record">Public record page.</a>
+          </article>
+
+          <article class="card page-card">
+            <div>
+              <span class="code">EI</span>
+              <h3>Environmental Integrity</h3>
+              <p>Environmental Integrity Governance, Atmospheric Integrity Records, IAQ, HVACDR, and atmospheric evidence.</p>
+            </div>
+            <a href="/environmental">Environmental page.</a>
+          </article>
+
+          <article class="card page-card">
+            <div>
+              <span class="code">EV</span>
+              <h3>Evidence Integrity</h3>
+              <p>Evidence Governance, Admissible Evidence Architecture, evidence continuity, and reliance governance.</p>
+            </div>
+            <a href="/evidence">Evidence page.</a>
+          </article>
+
+          <article class="card page-card">
+            <div>
+              <span class="code">PN</span>
+              <h3>Partner Review Network</h3>
+              <p>Independent partner architectures plus TA-14 second-layer admissible-execution review.</p>
+            </div>
+            <a href="/partners">Partner page.</a>
+          </article>
+
+          <article class="card page-card">
+            <div>
+              <span class="code">NO</span>
+              <h3>What TA-14 Is Not</h3>
+              <p>Boundaries separating TA-14 from dashboards, ordinary logging, security audits, legal advice, compliance checklists, and unsupported certification claims.</p>
+            </div>
+            <a href="/positioning">Boundary page.</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="review-focus">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-kicker">Review focus</p>
+
+          <h2>TA-14 reviews systems that can create reliance, intervention, obligation, or outcome.</h2>
+        </div>
+
+        <div class="grid four">
+          <article class="card review-card">
+            <span class="code">AI</span>
+            <h3>AI Workflows</h3>
             <p>
-              Reviews AI workflows, agentic systems, decision routes, execution boundaries, refusal paths,
-              and outcome accountability.
+              Agents, model-assisted decisions, automated recommendations, AI governance workflows,
+              and operational decision support.
             </p>
           </article>
 
-          <article class="card">
-            <h3>Evidence Governance</h3>
+          <article class="card review-card">
+            <span class="code">GOV</span>
+            <h3>Governance Systems</h3>
             <p>
-              Reviews whether information becomes sufficient, preserved, continuous, governed evidence before
-              reliance or admissibility is claimed.
+              AI execution-governance entities, trust frameworks, runtime gates, policy engines,
+              compliance workflows, and admissibility-adjacent systems.
             </p>
           </article>
 
-          <article class="card">
-            <h3>Environmental Integrity</h3>
+          <article class="card review-card">
+            <span class="code">ENV</span>
+            <h3>Environmental Evidence</h3>
             <p>
-              Reviews atmospheric, refrigerant, environmental, and facility evidence routes where intervention
-              must be justified before action.
+              IAQ, HVACDR, atmospheric evidence, filtration, refrigeration, diagnostics,
+              intervention thresholds, and post-intervention proof.
             </p>
           </article>
 
-          <article class="card">
-            <h3>Partner Review Network</h3>
+          <article class="card review-card">
+            <span class="code">NET</span>
+            <h3>Partner Architectures</h3>
             <p>
-              Supports independent partner architectures through bounded, written review pathways while preserving
-              TA-14 as the second-layer admissible-execution review authority.
+              Runtime gates, refusal layers, evidence tools, audit systems, trust layers,
+              policy engines, and adjacent governance systems.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="what-review-asks">
+    <section id="distinction">
       <div class="section-inner">
-        <div class="section-head">
-          <p class="eyebrow">What TA-14 asks</p>
+        <div class="distinction-panel">
+          <p class="eyebrow">The core distinction</p>
 
-          <h2>The review question is not whether the system looks serious. It is whether consequence should be allowed.</h2>
+          <h2>TA-14 is not a dashboard. It is not just a gate. It is not an after-the-fact audit trail.</h2>
 
           <p>
-            TA-14 evaluates whether a proposed execution path remains admissibly governable before consequence attaches.
-            A system can be technically functional, monitored, logged, or explained and still fail admissible execution
-            if the chain is incomplete.
+            TA-14 is the parent admissible-execution architecture. It asks whether the entire chain that produced
+            a proposed consequence is admissible enough to allow that consequence to happen.
           </p>
-        </div>
 
-        <div class="grid two">
-          <article class="card">
-            <h3>TA-14 looks for proof of:</h3>
-            <ul>
-              <li>Source-grounded evidence</li>
-              <li>Continuity across time, state, and handoff</li>
-              <li>Authority separated from technical capability</li>
-              <li>Scope boundaries and refusal conditions</li>
-              <li>Binding and commit receipts</li>
-              <li>Execution control before consequence</li>
-              <li>Outcome records and accountability</li>
-            </ul>
-          </article>
+          <div class="grid three distinction-grid">
+            <article class="card">
+              <h3>Evidence before reliance</h3>
+              <p>Information must become governed evidence before it can support reliance.</p>
+            </article>
 
-          <article class="card">
-            <h3>TA-14 identifies risk when:</h3>
-            <ul>
-              <li>Information is treated as evidence without governance</li>
-              <li>Authority is assumed rather than proven</li>
-              <li>Commit occurs before admissibility is established</li>
-              <li>Execution can happen outside the governed route</li>
-              <li>Refusal or escalation is unavailable under pressure</li>
-              <li>Outcomes cannot be replayed, reviewed, or accounted for</li>
-              <li>Reliance forms faster than evidence can support it</li>
-            </ul>
-          </article>
+            <article class="card">
+              <h3>Authority before action</h3>
+              <p>Technical ability to act is not the same as admissible authority to create consequence.</p>
+            </article>
+
+            <article class="card">
+              <h3>Outcome after execution</h3>
+              <p>The result must be recorded, reviewable, and accountable after action occurs.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="public-record" id="public-record">
+    <section class="soft-section" id="public-record">
       <div class="section-inner">
         <div class="section-head">
-          <p class="eyebrow">Public record</p>
+          <p class="section-kicker">Public record</p>
 
           <h2>TA-14 is grounded in a preserved public architecture record.</h2>
 
           <p>
-            TA-14’s public materials preserve the architecture, doctrine, applied domains, evidence-governance branch,
-            partner-review direction, and environmental integrity work as public reference points.
+            The public record supports TA-14 as a declared admissible-execution architecture with a visible corpus,
+            applied domains, public sites, and review pathways.
           </p>
         </div>
 
@@ -1047,25 +1518,23 @@
       </div>
     </section>
 
-    <section class="cta-section" id="request">
-      <div class="cta-panel">
+    <section class="request-section" id="request">
+      <div class="request-panel">
         <p class="eyebrow">Request review</p>
 
         <h2>Need to know whether a system or governance framework is ready to act?</h2>
 
         <p>
           Request a TA-14 review for an AI workflow, AI execution-governance entity, environmental evidence process,
-          partner architecture, institutional decision route, operational intervention, or other consequence-bearing
-          execution pathway.
+          partner architecture, institutional decision route, or other consequence-bearing execution pathway.
         </p>
 
         <p>
-          A strong request should identify the proposed action, the evidence available before action,
-          who or what relies on the output, where authority comes from, where binding or commit occurs,
-          and what happens if the system is wrong.
+          Include what action may occur, what evidence exists, who relies on it, where authority comes from,
+          and where binding or commit happens.
         </p>
 
-        <div class="request-checklist" aria-label="TA-14 review request checklist">
+        <div class="request-list" aria-label="TA-14 review request checklist">
           <h3>Include these review details</h3>
 
           <ul>
@@ -1080,17 +1549,17 @@
           </ul>
         </div>
 
-        <div class="cta-row">
-          <a class="button button-primary" href="/request-evaluation">
+        <div class="hero-actions">
+          <a class="button primary" href="/request-evaluation">
             Request a TA-14 Review
           </a>
 
-          <a class="button button-secondary" href="/governance-review">
+          <a class="button secondary" href="/governance-review">
             Open Governance Review
           </a>
 
           <a
-            class="button button-secondary"
+            class="button secondary"
             href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0ASystem%2C%20governance%20framework%2C%20or%20workflow%20to%20be%20reviewed%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%20output%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhat%20authority%20allows%20the%20action%3A%0A%0AWhere%20binding%2C%20commit%2C%20execution%2C%20or%20reliance%20occurs%3A%0A%0AWhat%20happens%20if%20the%20system%20is%20wrong%3A%0A%0ARequested%20review%20type%3A%0A%0AThank%20you."
           >
             Email TA-14 Review Request
@@ -1116,11 +1585,9 @@
 
       <div>
         <a href="/">Home</a> ·
-        <a href="#architecture">Architecture</a> ·
-        <a href="#services">Reviews</a> ·
-        <a href="#public-record">Public Record</a> ·
-        <a href="#request">Request Review</a> ·
-        <a href="mailto:ta14admissibleexecution@gmail.com">Contact</a>
+        <a href="/governance-review">Governance Review</a> ·
+        <a href="/architecture">Architecture</a> ·
+        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
       </div>
     </div>
   </footer>
