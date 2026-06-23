@@ -3,23 +3,1277 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Partner Review Network | TA-14</title>
-  <meta name="description" content="TA-14 Partner Review Network positioning for adjacent governance architectures, specialized review partners, and second-layer admissible-execution review." />
+
+  <title>Partner Review Network | TA-14 Admissible Execution Architecture</title>
+
+  <meta
+    name="description"
+    content="TA-14 Partner Review Network: independent architecture partners, specialized first-layer review, TA-14 second-layer admissible-execution review, active partner-review lanes, approved language, boundaries, and no self-certification rules."
+  />
+
+  <style>
+    :root {
+      --black: #020617;
+      --ink: #0f172a;
+      --muted: #475569;
+      --light-muted: #64748b;
+      --line: #e2e8f0;
+      --soft: #f8fafc;
+      --white: #ffffff;
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --violet: #7c3aed;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --red: #dc2626;
+      --max: 1200px;
+      --radius: 30px;
+      --shadow: 0 30px 90px rgba(15, 23, 42, 0.18);
+      --soft-shadow: 0 18px 55px rgba(15, 23, 42, 0.10);
+      --warning-bg: #fff7ed;
+      --warning: #7c2d12;
+      --green-bg: #ecfdf5;
+      --green: #064e3b;
+      --blue-bg: #eff6ff;
+      --blue-text: #1e3a8a;
+      --violet-bg: #f5f3ff;
+      --violet-text: #4c1d95;
+      --red-bg: #fef2f2;
+      --red-text: #7f1d1d;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(124, 58, 237, 0.16), transparent 34rem),
+        radial-gradient(circle at 85% 5%, rgba(37, 99, 235, 0.14), transparent 34rem),
+        radial-gradient(circle at 50% 45%, rgba(6, 182, 212, 0.08), transparent 42rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.88);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+      min-width: 245px;
+      padding-top: 4px;
+    }
+
+    .brand strong {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      color: var(--black);
+    }
+
+    .brand span {
+      font-size: 0.84rem;
+      color: var(--light-muted);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+      max-width: 850px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      line-height: 1;
+      font-weight: 900;
+      padding: 9px 10px;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .nav-links a:hover {
+      color: var(--black);
+      border-color: var(--black);
+      background: #ffffff;
+    }
+
+    .nav-links .nav-cta {
+      color: #ffffff;
+      background: var(--black);
+      border-color: var(--black);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px 92px;
+    }
+
+    section { margin-top: 88px; }
+
+    .hero {
+      margin-top: 0;
+      padding: 22px 0 30px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 44px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(124, 58, 237, 0.46), transparent 28rem),
+        radial-gradient(circle at 88% 16%, rgba(37, 99, 235, 0.42), transparent 28rem),
+        radial-gradient(circle at 54% 92%, rgba(16, 185, 129, 0.20), transparent 28rem),
+        linear-gradient(135deg, #020617 0%, #0f172a 48%, #111827 100%);
+      color: #ffffff;
+      padding: clamp(32px, 6vw, 64px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.18));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 18px;
+      color: var(--light-muted);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow { color: #ddd6fe; }
+
+    h1 {
+      max-width: 1080px;
+      margin: 0 0 26px;
+      color: var(--black);
+      font-size: clamp(3.35rem, 8vw, 7.15rem);
+      line-height: 0.88;
+      letter-spacing: -0.085em;
+    }
+
+    .hero h1 {
+      color: #ffffff;
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--black);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      color: var(--black);
+      font-size: 1.35rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    p { margin: 0 0 18px; }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    li { margin-bottom: 8px; }
+
+    .lead {
+      max-width: 930px;
+      color: #334155;
+      font-size: clamp(1.16rem, 2vw, 1.42rem);
+      line-height: 1.72;
+    }
+
+    .hero .lead { color: #e0e7ff; }
+
+    .hero-actions,
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 32px 0 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border: 1px solid var(--black);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      background: #ffffff;
+      color: var(--black);
+      border-color: #ffffff;
+      box-shadow: 0 16px 40px rgba(255, 255, 255, 0.14);
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.38);
+    }
+
+    .button-dark {
+      background: var(--black);
+      color: #ffffff;
+      border-color: var(--black);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
+    }
+
+    .direct {
+      margin-top: 12px;
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+
+    .direct a {
+      color: #ffffff;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .partner-panel {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 36px;
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .partner-panel h2 {
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3.05rem);
+      letter-spacing: -0.06em;
+    }
+
+    .network-box {
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 26px;
+      background: rgba(2, 6, 23, 0.72);
+      padding: 22px;
+      margin-top: 22px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.30);
+    }
+
+    .network-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      color: #cbd5e1;
+      font-weight: 800;
+    }
+
+    .network-row:last-child { border-bottom: 0; }
+
+    .network-row strong { color: #ffffff; }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status.pass { background: var(--emerald); }
+    .status.hold { background: var(--amber); }
+    .status.refuse { background: var(--red); }
+    .status.escalate { background: var(--violet); }
+
+    .chain-line {
+      margin-top: 20px;
+      color: #e0f2fe;
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      font-weight: 900;
+    }
+
+    .mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .mini-nav a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 13px;
+      color: var(--muted);
+      background: #ffffff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+    }
+
+    .mini-nav a:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--soft-shadow);
+      text-decoration: none;
+      display: block;
+    }
+
+    .card.alt { background: rgba(248, 250, 252, 0.96); }
+
+    .card.dark {
+      background:
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.20), transparent 18rem),
+        var(--black);
+      color: #ffffff;
+      border-color: var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .card.dark h2,
+    .card.dark h3,
+    .card.dark p,
+    .card.dark li { color: #ffffff; }
+
+    .card:hover {
+      transform: translateY(-2px);
+      transition: transform 160ms ease;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: var(--black);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.92rem;
+    }
+
+    .number.blue { background: linear-gradient(135deg, var(--blue), var(--cyan)); }
+    .number.violet { background: linear-gradient(135deg, var(--violet), var(--rose)); }
+    .number.green { background: linear-gradient(135deg, var(--emerald), var(--cyan)); }
+    .number.amber { background: linear-gradient(135deg, var(--amber), var(--rose)); }
+    .number.red { background: linear-gradient(135deg, var(--red), var(--rose)); }
+
+    .quote-panel {
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.24), transparent 24rem),
+        radial-gradient(circle at 95% 15%, rgba(37, 99, 235, 0.22), transparent 24rem),
+        var(--black);
+      color: #ffffff;
+      padding: 42px;
+      margin-top: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-panel h2,
+    .quote-panel p { color: #ffffff; }
+
+    .quote-panel p.big {
+      margin: 0;
+      font-size: clamp(1.65rem, 3.2vw, 2.85rem);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .partner-showcase {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .partner-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: 32px;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(37, 99, 235, 0.16), transparent 18rem),
+        radial-gradient(circle at 90% 0%, rgba(124, 58, 237, 0.14), transparent 18rem),
+        #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      min-height: 390px;
+    }
+
+    .partner-card::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      bottom: -70px;
+      width: 190px;
+      height: 190px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .partner-card h3 {
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      letter-spacing: -0.055em;
+      margin-bottom: 12px;
+    }
+
+    .partner-card .tag {
+      display: inline-flex;
+      margin: 0 8px 10px 0;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--blue-text);
+      background: var(--blue-bg);
+      border: 1px solid #bfdbfe;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .partner-card .tag.green {
+      color: var(--green);
+      background: var(--green-bg);
+      border-color: #a7f3d0;
+    }
+
+    .partner-card .tag.violet {
+      color: var(--violet-text);
+      background: var(--violet-bg);
+      border-color: #ddd6fe;
+    }
+
+    .partner-card .lane-title {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--black);
+      font-weight: 900;
+    }
+
+    .partner-card p {
+      color: var(--muted);
+    }
+
+    .partner-card strong {
+      color: var(--black);
+    }
+
+    .active-note {
+      border-radius: 24px;
+      padding: 22px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      margin-top: 22px;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .compare-box {
+      border-radius: 30px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+      background: #ffffff;
+    }
+
+    .compare-box.old { background: #f8fafc; }
+
+    .compare-box.new {
+      background:
+        radial-gradient(circle at top right, rgba(16,185,129,0.12), transparent 16rem),
+        #ffffff;
+      border-color: #a7f3d0;
+    }
+
+    .lane-map {
+      display: grid;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .lane {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      background: #ffffff;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
+      display: grid;
+      grid-template-columns: 245px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .lane strong {
+      color: var(--black);
+      font-size: 1.12rem;
+    }
+
+    .lane span {
+      color: var(--muted);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .flow-step {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      background: #ffffff;
+      min-height: 190px;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
+    }
+
+    .flow-step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--black);
+      font-size: 1.08rem;
+    }
+
+    .flow-step span {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .warning {
+      border: 1px solid #fed7aa;
+      border-radius: 22px;
+      background: var(--warning-bg);
+      color: var(--warning);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .warning h3,
+    .warning p,
+    .warning li { color: var(--warning); }
+
+    .green-box {
+      border: 1px solid #a7f3d0;
+      border-radius: 22px;
+      background: var(--green-bg);
+      color: var(--green);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .green-box h3,
+    .green-box p,
+    .green-box li { color: var(--green); }
+
+    .blue-box {
+      border: 1px solid #bfdbfe;
+      border-radius: 22px;
+      background: var(--blue-bg);
+      color: var(--blue-text);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .blue-box h3,
+    .blue-box p,
+    .blue-box li { color: var(--blue-text); }
+
+    .violet-box {
+      border: 1px solid #ddd6fe;
+      border-radius: 22px;
+      background: var(--violet-bg);
+      color: var(--violet-text);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .violet-box h3,
+    .violet-box p,
+    .violet-box li { color: var(--violet-text); }
+
+    .red-box {
+      border: 1px solid #fecaca;
+      border-radius: 22px;
+      background: var(--red-bg);
+      color: var(--red-text);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .red-box h3,
+    .red-box p,
+    .red-box li { color: var(--red-text); }
+
+    .cta-panel {
+      padding: 42px;
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.24), transparent 24rem),
+        radial-gradient(circle at 90% 10%, rgba(37, 99, 235, 0.20), transparent 24rem),
+        var(--black);
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-panel h2,
+    .cta-panel p { color: #ffffff; }
+
+    .cta-panel p {
+      max-width: 860px;
+      color: #e2e8f0;
+      font-size: 1.16rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--muted);
+      padding: 34px 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    footer strong { color: var(--black); }
+
+    footer a {
+      color: var(--black);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        max-width: none;
+      }
+
+      .hero-inner,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .comparison,
+      .lane,
+      .flow,
+      .partner-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { letter-spacing: -0.06em; }
+    }
+
+    @media (max-width: 760px) {
+      main { padding-top: 48px; }
+
+      .hero-shell,
+      .card,
+      .quote-panel,
+      .cta-panel,
+      .partner-card {
+        padding: 24px;
+        border-radius: 28px;
+      }
+
+      .brand { min-width: 0; }
+
+      .nav-links a {
+        font-size: 0.8rem;
+        padding: 8px 9px;
+      }
+
+      .network-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <main style="max-width: 980px; margin: 0 auto; padding: 48px 24px; font-family: Arial, Helvetica, sans-serif; line-height: 1.65; color: #111827;">
-    <p style="font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7280; margin-bottom: 12px;">TA-14 Admissible Execution Architecture</p>
-    <h1 style="font-size: 2.7rem; line-height: 1.1; margin: 0 0 24px;">TA-14 Partner Review Network</h1>
-    <p style="font-size:1.22rem; color:#374151; margin-bottom:32px;">TA-14 can work with serious adjacent governance builders, review specialists, and implementation partners while preserving each architecture's independent role.</p>
-    <section style="border-left:5px solid #111827; padding:24px 28px; background:#f3f4f6; border-radius:12px; margin:32px 0;"><h2 style="margin-top:0;">Partner principle</h2><p style="font-size:1.25rem; font-weight:700; margin-bottom:0;">Partners keep their system. TA-14 provides the parent admissible-execution review layer across Reality -> Record -> Continuity -> Admissibility -> Binding -> Commit -> Execution -> Outcome.</p></section>
-    <section style="margin-top:44px;"><h2>How partner review works</h2><div style="display:grid; gap:18px; margin-top:24px;">
-      <div style="border:1px solid #e5e7eb; border-radius:14px; padding:22px;"><h3>First-layer specialized review</h3><p>The partner evaluates the domain they know best, such as runtime control, evidence collection, implementation, compliance support, domain workflow, or specialized operational review.</p></div>
-      <div style="border:1px solid #e5e7eb; border-radius:14px; padding:22px; background:#f9fafb;"><h3>Second-layer TA-14 review</h3><p>TA-14 reviews whether the consequence-bearing pathway is admissibly governed across the full chain from reality through outcome.</p></div>
-      <div style="border:1px solid #e5e7eb; border-radius:14px; padding:22px;"><h3>Separated claims</h3><p>Partner claims remain partner claims. TA-14 findings remain TA-14 findings. Alignment language, certification-readiness language, or TA-14-backed positioning requires written approval.</p></div>
-      <div style="border:1px solid #e5e7eb; border-radius:14px; padding:22px; background:#f9fafb;"><h3>Shared client value</h3><p>When TA-14 review authority, language, credibility, or chain mapping helps create client value, TA-14 should participate in the engagement through a written scope, fee, revenue share, referral agreement, or other reciprocal exchange.</p></div>
-    </div></section>
-    <section style="margin-top:48px;"><h2>Use restrictions</h2><p>No partner may self-certify as TA-14 reviewed, TA-14 aligned, TA-14 backed, TA-14 approved, or TA-14 certification-ready without written authorization. No partner may privately deliver the TA-14 layer while representing it as TA-14 review.</p><p>TA-14 may provide high-level fit assessment before a written scope, but deeper architecture shaping, evidence packet design, route definitions, test matrices, maturity roadmaps, or implementation guidance require paid or reciprocal engagement.</p></section>
-    <section style="border-left:5px solid #111827; padding:24px 28px; background:#f3f4f6; border-radius:12px; margin-top:48px;"><h2>Network posture</h2><p style="font-size:1.25rem; font-weight:700; margin-bottom:0;">TA-14 is not trying to absorb adjacent systems. It provides the admissible-execution review layer that helps determine whether consequence-bearing action should be allowed at all.</p></section>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <strong>TA-14 Admissible Execution Architecture</strong>
+        <span>Proof-bound governance before consequence</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/services">Services</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/resources">Resources</a>
+        <a href="/founder">Founder</a>
+        <a href="/gate">Gate</a>
+        <a href="/positioning">Positioning</a>
+        <a href="/public-record">Public Record</a>
+        <a href="/environmental-integrity">Environmental</a>
+        <a href="/evidence-integrity">Evidence</a>
+        <a href="/partner-review-network">Partners</a>
+        <a class="nav-cta" href="/request-evaluation">Request</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-shell">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">Partner Review Network</p>
+
+            <h1>Independent architectures. TA-14 review authority.</h1>
+
+            <p class="lead">
+              The TA-14 Partner Review Network creates a clean, written-boundary pathway for serious adjacent
+              governance architectures to retain their identity while adding TA-14’s second-layer
+              admissible-execution review.
+            </p>
+
+            <p class="lead">
+              Partners bring specialized first-layer review. TA-14 reviews the full consequence-bearing route:
+              Reality, Record, Continuity, Admissibility, Binding, Commit, Execution, and Outcome.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#active-partners">View Active Partner Lanes</a>
+              <a class="button button-secondary" href="/request-evaluation">Request Partner Review Discussion</a>
+            </div>
+
+            <p class="direct">
+              Direct contact:
+              <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
+            </p>
+          </div>
+
+          <aside class="partner-panel">
+            <p class="eyebrow">Network Rule</p>
+            <h2>No self-certification. No implied TA-14 backing.</h2>
+
+            <p>
+              Partner language, review language, alignment language, certification-readiness language,
+              and use of TA-14 credibility require written approval.
+            </p>
+
+            <div class="network-box">
+              <div class="network-row">
+                <strong>Partner identity</strong>
+                <span class="status pass">preserved</span>
+              </div>
+              <div class="network-row">
+                <strong>Specialized layer</strong>
+                <span class="status hold">partner scope</span>
+              </div>
+              <div class="network-row">
+                <strong>TA-14 layer</strong>
+                <span class="status pass">second review</span>
+              </div>
+              <div class="network-row">
+                <strong>Public claims</strong>
+                <span class="status refuse">approved only</span>
+              </div>
+              <div class="network-row">
+                <strong>Implementation</strong>
+                <span class="status escalate">written scope</span>
+              </div>
+            </div>
+
+            <div class="chain-line">
+              Partner expertise → TA-14 review → client evidence package → approved public language
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="mini-nav">
+        <a href="#why">Why Network Exists</a>
+        <a href="#active-partners">Active Partners</a>
+        <a href="#model">Network Model</a>
+        <a href="#ta14-role">TA-14 Role</a>
+        <a href="#claims">Approved Language</a>
+        <a href="#boundaries">Non-Claims</a>
+        <a href="#request">Request Discussion</a>
+      </div>
+    </section>
+
+    <section id="why">
+      <p class="eyebrow">Why the network exists</p>
+
+      <div class="quote-panel">
+        <p class="big">
+          Serious adjacent systems should not be erased. They should be reviewed through clear admissible-execution boundaries.
+        </p>
+
+        <div class="chain-line">
+          Independent architecture → specialized review → TA-14 admissible-execution review → client value
+        </div>
+      </div>
+
+      <p class="lead" style="margin-top: 32px;">
+        The strongest governance ecosystem is not one where every serious system is forced into a single name.
+        The strongest ecosystem is one where specialized architectures keep their strengths, clients receive
+        layered review, and TA-14 evaluates whether consequence-bearing execution is admissible across the full chain.
+      </p>
+
+      <div class="grid three">
+        <article class="card">
+          <div class="number blue">01</div>
+          <h3>Partners keep their identity</h3>
+          <p>
+            A partner’s architecture remains its own architecture. TA-14 does not absorb, rename, merge, or
+            subordinate it merely because a partner-review lane exists.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number violet">02</div>
+          <h3>TA-14 reviews consequence</h3>
+          <p>
+            TA-14 asks whether the route is admissible enough before it binds, commits, executes, or creates
+            outcome.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number green">03</div>
+          <h3>Clients get layered proof</h3>
+          <p>
+            A client can receive the partner’s specialized assessment plus TA-14’s second-layer
+            admissible-execution boundary / gap review.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="active-partners">
+      <p class="eyebrow">Active partner-review lanes</p>
+      <h2>Current TA-14 partner-review pathways.</h2>
+
+      <p class="lead">
+        These are the active partner-review lanes currently recognized for TA-14 partner-review work.
+        Each lane preserves the partner’s independent architecture while defining where TA-14 provides the
+        second-layer admissible-execution review.
+      </p>
+
+      <div class="partner-showcase">
+        <article class="partner-card">
+          <span class="tag green">Active Partner-Review Lane</span>
+          <span class="tag violet">Runtime Governance</span>
+
+          <h3>Elias / LOVE-OS</h3>
+
+          <p>
+            Elias / LOVE-OS is recognized as an active TA-14 partner-review pathway focused on runtime governance,
+            misexecution pressure, refusal / escalation conditions, and consequence control within its own
+            independent architecture.
+          </p>
+
+          <p class="lane-title">Partner layer</p>
+          <p>
+            <strong>Elias / LOVE-OS Runtime Misexecution Pressure / Runtime Governance Assessment.</strong>
+          </p>
+
+          <p class="lane-title">TA-14 layer</p>
+          <p>
+            <strong>TA-14 Admissible Execution Boundary / Gap Review</strong> across Reality → Record → Continuity
+            → Admissibility → Binding → Commit → Execution → Outcome.
+          </p>
+
+          <div class="active-note">
+            <p>
+              Public language should remain bounded to approved partner-review framing. This is not a merger,
+              blanket certification, universal endorsement, or claim that either architecture becomes the other.
+            </p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <span class="tag green">Active Partner-Review Lane</span>
+          <span class="tag">Evidence Maturity</span>
+
+          <h3>AnchorStack</h3>
+
+          <p>
+            AnchorStack is recognized as an active TA-14 partner-review pathway focused on evidence maturity,
+            pressure-route assessment, operational readiness surfaces, and client-facing review value within
+            its own independent architecture.
+          </p>
+
+          <p class="lane-title">Partner layer</p>
+          <p>
+            <strong>AnchorStack Evidence Maturity / Pressure-Route Assessment.</strong>
+          </p>
+
+          <p class="lane-title">TA-14 layer</p>
+          <p>
+            <strong>TA-14 Admissible Execution Boundary / Gap Review</strong> evaluating whether the route is
+            sufficiently governed before consequence-bearing execution.
+          </p>
+
+          <div class="active-note">
+            <p>
+              AnchorStack retains its own architecture and client-facing layer. TA-14 retains the admissible-execution
+              review role. Multi-partner network participation remains separately scoped and agreed in writing.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="green-box">
+        <h3>What active partner-review lane means</h3>
+        <p>
+          An active partner-review lane means there is a recognized pathway for scoped work where the partner
+          contributes its specialized review layer and TA-14 contributes the second-layer admissible-execution
+          review. It does not mean automatic certification, public endorsement, merger, shared ownership, or
+          permission to self-use TA-14 status language outside approved wording.
+        </p>
+      </div>
+    </section>
+
+    <section id="model">
+      <p class="eyebrow">Network model</p>
+      <h2>The Partner Review Network has two main paths.</h2>
+
+      <div class="comparison">
+        <article class="compare-box old">
+          <h3>Bilateral partner-review lane</h3>
+          <p>
+            One partner plus TA-14 define a written lane for client work.
+          </p>
+
+          <ul>
+            <li>Partner performs its specialized assessment.</li>
+            <li>TA-14 performs admissible-execution boundary / gap review.</li>
+            <li>Public language is controlled.</li>
+            <li>Revenue and role are agreed before work begins.</li>
+            <li>No implied certification or endorsement exists.</li>
+          </ul>
+        </article>
+
+        <article class="compare-box new">
+          <h3>Multi-partner review-network lane</h3>
+          <p>
+            TA-14 may coordinate more than one specialized partner layer when a client’s risk profile requires it.
+          </p>
+
+          <ul>
+            <li>Each partner keeps its own review layer.</li>
+            <li>Only scoped layers participate.</li>
+            <li>TA-14 reviews the full admissible-execution route.</li>
+            <li>Participation and economics are written in advance.</li>
+            <li>No partner is paid merely for being listed in the network.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="blue-box">
+        <h3>Simple rule</h3>
+        <p>
+          Partners are paid and named when their review layer is included in the written client scope. TA-14 is
+          included when TA-14 language, credibility, review authority, alignment language, certification-readiness
+          positioning, or admissible-execution review creates client value.
+        </p>
+      </div>
+    </section>
+
+    <section id="ta14-role">
+      <p class="eyebrow">TA-14 role</p>
+      <h2>TA-14 remains the parent admissible-execution review layer.</h2>
+
+      <p class="lead">
+        A partner may specialize in identity, runtime control, evidence maturity, pressure-route assessment,
+        environmental integrity, trust architecture, policy controls, refusal logic, audit readiness, or another
+        domain. TA-14 reviews whether the full route remains admissible from Reality through Outcome.
+      </p>
+
+      <div class="flow">
+        <article class="flow-step">
+          <div class="number blue">1</div>
+          <strong>Partner review layer</strong>
+          <span>The partner reviews its specialized domain under its own method and written scope.</span>
+        </article>
+
+        <article class="flow-step">
+          <div class="number violet">2</div>
+          <strong>TA-14 boundary review</strong>
+          <span>TA-14 evaluates whether consequence-bearing execution is governed across the full chain.</span>
+        </article>
+
+        <article class="flow-step">
+          <div class="number green">3</div>
+          <strong>Evidence package</strong>
+          <span>The client receives scoped findings, gaps, boundaries, and readiness conditions.</span>
+        </article>
+
+        <article class="flow-step">
+          <div class="number amber">4</div>
+          <strong>Approved claims</strong>
+          <span>Only written, approved language may describe relationship, review status, or public posture.</span>
+        </article>
+      </div>
+
+      <div class="card dark" style="margin-top: 30px;">
+        <h2>TA-14 review question</h2>
+        <p class="lead" style="color:#e2e8f0;">
+          Can anything consequential happen outside the admissibility chain?
+        </p>
+        <p style="color:#cbd5e1;">
+          The Partner Review Network exists because many systems are serious in one part of the route.
+          TA-14 reviews whether the entire consequence-bearing route is admissible enough for execution.
+        </p>
+      </div>
+    </section>
+
+    <section id="claims">
+      <p class="eyebrow">Approved language and non-claims</p>
+      <h2>TA-14 language is controlled because TA-14 credibility has value.</h2>
+
+      <div class="grid two">
+        <article class="card">
+          <h3>Language that may be approved by written scope</h3>
+          <ul>
+            <li>TA-14 reviewed</li>
+            <li>TA-14 boundary-reviewed</li>
+            <li>TA-14 admissible-execution gap review</li>
+            <li>TA-14 partner-review pathway</li>
+            <li>TA-14 second-layer review</li>
+            <li>Certification-readiness language, if specifically approved</li>
+          </ul>
+        </article>
+
+        <article class="card alt">
+          <h3>Language that cannot be self-used</h3>
+          <ul>
+            <li>TA-14 certified</li>
+            <li>TA-14 backed</li>
+            <li>TA-14 endorsed</li>
+            <li>TA-14 approved</li>
+            <li>TA-14 aligned</li>
+            <li>TA-14 partner, unless agreement is active and public-use language is approved</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="red-box">
+        <h3>No self-certification</h3>
+        <p>
+          No partner, adjacent system, client, vendor, reviewer, consultant, or collaborator may self-certify as
+          TA-14-aligned, TA-14-backed, TA-14-reviewed, TA-14-approved, TA-14-certified, or TA-14 partner without
+          written approval from TA-14.
+        </p>
+      </div>
+    </section>
+
+    <section id="boundaries">
+      <p class="eyebrow">Boundaries</p>
+      <h2>The network is strong because the boundary is strong.</h2>
+
+      <div class="grid three">
+        <article class="card">
+          <h3>No merger</h3>
+          <p>
+            A partner-review pathway does not merge TA-14 with the partner architecture or make either system a
+            subsystem of the other.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>No endorsement by default</h3>
+          <p>
+            Review interest, partner discussion, or scoped review does not automatically endorse the partner,
+            client, tool, system, or implementation.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>No certification by default</h3>
+          <p>
+            Partner-review activity does not create certification unless a certification-readiness or certification
+            scope is separately written and approved.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>No private TA-14 layer delivery</h3>
+          <p>
+            Partners may not privately deliver the TA-14 layer, TA-14 review status, or TA-14 admissible-execution
+            authority without TA-14 participation and written approval.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>No uncontrolled public use</h3>
+          <p>
+            Public use of TA-14 name, chain, review authority, logo, partner framing, or status language requires
+            approved wording.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>No build before boundary</h3>
+          <p>
+            Templates, operating model, implementation guidance, evidence-object design, route mapping, and
+            maturity roadmaps require defined scope.
+          </p>
+        </article>
+      </div>
+
+      <div class="warning">
+        <h3>Boundary rule</h3>
+        <p>
+          Do not share partner-review templates, enablement materials, implementation roadmaps, claim-boundary
+          structures, or architecture-shaping guidance before written acceptance and scope. The network exists
+          to create client value, not to give away TA-14’s operating model.
+        </p>
+      </div>
+    </section>
+
+    <section id="request">
+      <div class="cta-panel">
+        <p class="eyebrow">Request discussion</p>
+        <h2>Interested in a TA-14 partner-review pathway?</h2>
+
+        <p>
+          Send the architecture, review layer, client use case, public materials, and proposed scope. TA-14 can
+          determine whether the relationship is boundary-only, referral-only, a scoped review candidate, a
+          partner-track candidate, or a possible strategic ecosystem partner.
+        </p>
+
+        <div class="cta-row">
+          <a class="button button-primary" href="/request-evaluation">Request Partner Review Discussion</a>
+          <a class="button button-secondary" href="/no-build-before-boundary">Read No-Build Boundary</a>
+        </div>
+
+        <p style="margin-top: 18px;">
+          Direct contact: ta14admissibleexecution@gmail.com
+        </p>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>TA-14 Admissible Execution Architecture</strong><br />
+        Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+      </div>
+
+      <div>
+        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
