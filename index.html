@@ -13,16 +13,18 @@
 
   <style>
     :root {
-      --ink: #0f172a;
       --black: #020617;
+      --ink: #0f172a;
       --muted: #475569;
-      --soft: #f8fafc;
-      --soft2: #f1f5f9;
+      --light-muted: #64748b;
       --line: #e2e8f0;
+      --soft: #f8fafc;
+      --soft-2: #f1f5f9;
       --white: #ffffff;
       --max: 1180px;
-      --radius: 26px;
-      --shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+      --radius: 28px;
+      --shadow: 0 26px 80px rgba(15, 23, 42, 0.14);
+      --soft-shadow: 0 16px 50px rgba(15, 23, 42, 0.08);
     }
 
     * {
@@ -35,12 +37,13 @@
 
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.65;
       color: var(--ink);
       background:
         radial-gradient(circle at top left, rgba(15, 23, 42, 0.10), transparent 34rem),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 45%, #ffffff 100%);
+        radial-gradient(circle at top right, rgba(15, 23, 42, 0.06), transparent 30rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 44%, #ffffff 100%);
     }
 
     a {
@@ -51,9 +54,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.92);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
     }
 
     .nav {
@@ -74,15 +77,15 @@
     }
 
     .brand strong {
-      font-size: 1.02rem;
-      font-weight: 950;
-      letter-spacing: -0.04em;
+      font-size: 1.04rem;
+      font-weight: 900;
+      letter-spacing: -0.035em;
       color: var(--black);
     }
 
     .brand span {
       font-size: 0.9rem;
-      color: #64748b;
+      color: var(--light-muted);
       font-weight: 700;
     }
 
@@ -98,7 +101,7 @@
       color: var(--muted);
       text-decoration: none;
       font-size: 0.95rem;
-      font-weight: 850;
+      font-weight: 800;
     }
 
     .nav-links a:hover {
@@ -116,26 +119,35 @@
     main {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 72px 24px 88px;
+      padding: 72px 24px 92px;
+    }
+
+    section {
+      margin-top: 84px;
+    }
+
+    .hero {
+      margin-top: 0;
+      padding: 28px 0 22px;
     }
 
     .eyebrow {
       display: inline-flex;
       margin: 0 0 18px;
-      color: #64748b;
+      color: var(--light-muted);
       font-size: 0.82rem;
-      font-weight: 950;
-      letter-spacing: 0.16em;
+      font-weight: 900;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
     }
 
     h1 {
-      max-width: 1060px;
+      max-width: 1080px;
       margin: 0 0 26px;
       color: var(--black);
-      font-size: clamp(3.2rem, 8vw, 7.2rem);
+      font-size: clamp(3.2rem, 8vw, 7.25rem);
       line-height: 0.9;
-      letter-spacing: -0.085em;
+      letter-spacing: -0.082em;
     }
 
     h2 {
@@ -143,7 +155,7 @@
       color: var(--black);
       font-size: clamp(2rem, 4vw, 3.35rem);
       line-height: 1.02;
-      letter-spacing: -0.065em;
+      letter-spacing: -0.06em;
     }
 
     h3 {
@@ -151,7 +163,7 @@
       color: var(--black);
       font-size: 1.35rem;
       line-height: 1.2;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
     }
 
     p {
@@ -159,7 +171,7 @@
     }
 
     .lead {
-      max-width: 920px;
+      max-width: 930px;
       color: #334155;
       font-size: clamp(1.16rem, 2vw, 1.42rem);
       line-height: 1.72;
@@ -182,7 +194,7 @@
       border: 1px solid var(--black);
       border-radius: 999px;
       text-decoration: none;
-      font-weight: 950;
+      font-weight: 900;
       transition: transform 160ms ease, box-shadow 160ms ease;
     }
 
@@ -209,41 +221,59 @@
 
     .direct a {
       color: var(--black);
-      font-weight: 950;
+      font-weight: 900;
       text-decoration: none;
     }
 
-    section {
-      margin-top: 78px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 26px;
+      align-items: stretch;
+      margin-top: 44px;
     }
 
-    .hero {
-      margin-top: 0;
-      padding: 20px 0 18px;
+    .hero-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.94);
+      padding: 30px;
+      box-shadow: var(--soft-shadow);
     }
 
-    .quote-panel {
-      margin-top: 38px;
-      padding: 36px;
-      border-radius: 32px;
+    .hero-card.dark {
       background: var(--black);
       color: #ffffff;
       box-shadow: var(--shadow);
     }
 
-    .quote-panel p {
-      margin: 0;
-      font-size: clamp(1.55rem, 3vw, 2.7rem);
-      line-height: 1.12;
-      letter-spacing: -0.055em;
-      font-weight: 950;
+    .hero-card.dark h2,
+    .hero-card.dark h3,
+    .hero-card.dark p {
+      color: #ffffff;
     }
 
     .chain-line {
-      margin-top: 20px;
+      margin-top: 18px;
       color: #e2e8f0;
-      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      font-size: clamp(1.05rem, 1.9vw, 1.34rem);
       font-weight: 900;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      padding: 8px 11px;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      font-weight: 800;
     }
 
     .grid {
@@ -269,13 +299,18 @@
       border-radius: var(--radius);
       padding: 28px;
       background: rgba(255, 255, 255, 0.94);
-      box-shadow: 0 14px 45px rgba(15, 23, 42, 0.06);
+      box-shadow: var(--soft-shadow);
       text-decoration: none;
       display: block;
     }
 
     .card.alt {
       background: rgba(248, 250, 252, 0.96);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      transition: transform 160ms ease;
     }
 
     .number {
@@ -288,26 +323,82 @@
       border-radius: 50%;
       background: var(--black);
       color: #ffffff;
-      font-weight: 950;
+      font-weight: 900;
     }
 
     .problem {
-      padding: 34px;
+      padding: 36px;
       border: 1px solid var(--line);
-      border-radius: 32px;
+      border-radius: 34px;
       background:
         radial-gradient(circle at top right, rgba(15, 23, 42, 0.08), transparent 18rem),
         #ffffff;
       box-shadow: var(--shadow);
     }
 
-    .domains .card {
-      min-height: 220px;
+    .chain-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .chain-step {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      background: #ffffff;
+      min-height: 170px;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
+    }
+
+    .chain-step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--black);
+      font-size: 1.1rem;
+    }
+
+    .chain-step span {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .proof-panel {
+      border-radius: 34px;
+      background: var(--black);
+      color: #ffffff;
+      padding: 38px;
+      box-shadow: var(--shadow);
+    }
+
+    .proof-panel h2,
+    .proof-panel h3,
+    .proof-panel p {
+      color: #ffffff;
+    }
+
+    .proof-panel p {
+      color: #e2e8f0;
+    }
+
+    .proof-panel .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: none;
+    }
+
+    .proof-panel .card h3 {
+      color: #ffffff;
+    }
+
+    .proof-panel .card p {
+      color: #cbd5e1;
     }
 
     .cta-panel {
-      padding: 38px;
-      border-radius: 34px;
+      padding: 40px;
+      border-radius: 36px;
       background: var(--black);
       color: #ffffff;
       box-shadow: var(--shadow);
@@ -319,7 +410,7 @@
     }
 
     .cta-panel p {
-      max-width: 840px;
+      max-width: 860px;
       color: #e2e8f0;
       font-size: 1.16rem;
     }
@@ -351,14 +442,16 @@
     }
 
     @media (max-width: 980px) {
+      .hero-grid,
       .grid.two,
       .grid.three,
-      .grid.four {
+      .grid.four,
+      .chain-grid {
         grid-template-columns: 1fr;
       }
 
       h1 {
-        letter-spacing: -0.065em;
+        letter-spacing: -0.06em;
       }
     }
 
@@ -378,7 +471,8 @@
 
       .card,
       .problem,
-      .quote-panel,
+      .hero-card,
+      .proof-panel,
       .cta-panel {
         padding: 24px;
       }
@@ -412,9 +506,9 @@
       <h1>Govern execution before consequence happens.</h1>
 
       <p class="lead">
-        TA-14 helps determine whether a system has enough evidence, continuity, authority, scope,
-        binding discipline, commit control, execution governance, and outcome accountability before
-        it is allowed to create consequence.
+        TA-14 Admissible Execution Architecture helps determine whether a system has enough
+        evidence, continuity, authority, scope, binding discipline, commit control, execution
+        governance, and outcome accountability before it is allowed to create consequence.
       </p>
 
       <div class="hero-actions">
@@ -426,16 +520,34 @@
         Direct contact:
         <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
       </p>
-    </section>
 
-    <section>
-      <p class="eyebrow">TA-14 Chain</p>
+      <div class="hero-grid">
+        <article class="hero-card dark">
+          <p class="eyebrow">TA-14 Chain</p>
+          <h2>No admissible evidence. No admissible execution.</h2>
+          <p>
+            TA-14 governs the full admissible-execution stream from real-world condition
+            through record, continuity, admissibility, binding, commit, execution, and outcome.
+          </p>
+          <div class="chain-line">
+            Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+          </div>
+        </article>
 
-      <div class="quote-panel">
-        <p>No admissible evidence. No admissible execution.</p>
-        <div class="chain-line">
-          Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
-        </div>
+        <article class="hero-card">
+          <p class="eyebrow">Core Question</p>
+          <h3>Should this system be allowed to act?</h3>
+          <p>
+            Not merely whether it can act. Not merely whether it logged what happened.
+            TA-14 asks whether the chain behind action is admissible enough to allow consequence.
+          </p>
+          <div class="pill-row">
+            <span class="pill" style="color:#334155;border-color:#cbd5e1;">Evidence</span>
+            <span class="pill" style="color:#334155;border-color:#cbd5e1;">Authority</span>
+            <span class="pill" style="color:#334155;border-color:#cbd5e1;">Binding</span>
+            <span class="pill" style="color:#334155;border-color:#cbd5e1;">Outcome</span>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -478,6 +590,62 @@
     </section>
 
     <section>
+      <p class="eyebrow">The governing stream</p>
+      <h2>The TA-14 chain</h2>
+
+      <div class="chain-grid">
+        <article class="chain-step">
+          <div class="number">1</div>
+          <strong>Reality</strong>
+          <span>The real-world condition, state, event, environment, or obligation the system claims to represent.</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">2</div>
+          <strong>Record</strong>
+          <span>The captured evidence, source document, log, sensor reading, diagnostic, or determination.</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">3</div>
+          <strong>Continuity</strong>
+          <span>The preserved connection between reality and record across time, transfer, review, and use.</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">4</div>
+          <strong>Admissibility</strong>
+          <span>The determination that evidence is strong enough to support consequence-bearing reliance.</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">5</div>
+          <strong>Binding</strong>
+          <span>The point where evidence becomes reliance, reliance becomes obligation, or decision begins to constrain action.</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">6</div>
+          <strong>Commit</strong>
+          <span>The controlled boundary where the system commits to a consequence-bearing route.</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">7</div>
+          <strong>Execution</strong>
+          <span>The action, intervention, release, refusal, escalation, routing, or decision that creates consequence.</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">8</div>
+          <strong>Outcome</strong>
+          <span>The resulting condition, proof, record, accountability object, or new reality created by execution.</span>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Review domains</p>
       <h2>What TA-14 reviews</h2>
 
       <div class="grid four">
@@ -515,35 +683,65 @@
       </div>
     </section>
 
-    <section class="domains">
-      <h2>Architecture domains</h2>
+    <section>
+      <div class="proof-panel">
+        <p class="eyebrow">Why TA-14 is different</p>
+        <h2>TA-14 is not just a gate, dashboard, monitor, or audit trail.</h2>
+
+        <p>
+          TA-14 is the parent admissible-execution architecture. It asks whether the whole route
+          that produced a proposed consequence is admissible enough to allow that consequence to happen.
+        </p>
+
+        <div class="grid three">
+          <article class="card">
+            <h3>Evidence before reliance</h3>
+            <p>Information must become governed evidence before it can support reliance.</p>
+          </article>
+
+          <article class="card">
+            <h3>Authority before action</h3>
+            <p>Technical ability to act is not the same as admissible authority to create consequence.</p>
+          </article>
+
+          <article class="card">
+            <h3>Outcome after execution</h3>
+            <p>The result of action must be recorded, reviewable, and accountable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Architecture domains</p>
+      <h2>Explore the TA-14 public site</h2>
 
       <div class="grid four">
         <a class="card" href="/architecture">
-          <h3>Admissible Execution Architecture</h3>
+          <h3>Architecture</h3>
           <p>
-            Parent architecture governing whether consequence-bearing systems are ready to act.
-          </p>
-        </a>
-
-        <a class="card alt" href="/evidence">
-          <h3>Evidence Governance</h3>
-          <p>
-            Turning information into reliable, reviewable, admissible evidence before reliance.
-          </p>
-        </a>
-
-        <a class="card" href="/environmental-integrity">
-          <h3>Environmental Integrity Governance</h3>
-          <p>
-            Creating governed atmospheric evidence records for air, buildings, filtration, HVACDR, and environmental protection.
+            The full-chain explanation of TA-14: Reality, Record, Continuity, Admissibility, Binding, Commit, Execution, Outcome.
           </p>
         </a>
 
         <a class="card alt" href="/services">
-          <h3>Review Services</h3>
+          <h3>Services</h3>
           <p>
             Structured review lanes for public-material review, evidence gaps, partner alignment, and production readiness.
+          </p>
+        </a>
+
+        <a class="card" href="/use-cases">
+          <h3>Use Cases</h3>
+          <p>
+            AI workflows, environmental integrity, institutional decisions, and partner governance pathways.
+          </p>
+        </a>
+
+        <a class="card alt" href="/resources">
+          <h3>Resources</h3>
+          <p>
+            Public records, preservation anchors, DOI links, GitHub, and TA-14 evidence references.
           </p>
         </a>
       </div>
