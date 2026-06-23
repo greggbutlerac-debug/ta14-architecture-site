@@ -1,16 +1,15 @@
-# Suggested Commit Messages
+# Commit Messages
 
-Use one commit for the whole bundle:
+Recommended:
 
 ```text
-Add TA-14 public portal expansion pages
+Upgrade TA-14 public portal static site
 ```
 
-Or use smaller commits:
+Alternatives:
 
 ```text
-Add TA-14 Start Here and boundary pages
-Add TA-14 review offer and request evaluation pages
-Add TA-14 public record and partner network pages
-Add TA-14 environmental integrity and scope boundary pages
+Add premium TA-14 static website pack
+Add request form and review offer pages
+Add TA-14 public portal conversion pages
 ```

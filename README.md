@@ -1,39 +1,30 @@
-# TA-14 Public Portal Expansion Pack
+# TA-14 Premium Static Website Pack
 
-This package adds standalone public HTML pages for the TA-14 Netlify/GitHub site.
+This bundle is a complete static-site upgrade for the TA-14 public portal. It is zero-dependency: plain HTML and CSS.
 
-## Intended use
+## Upload
 
-Copy the contents of the `public/` folder into the site's `public/` directory, then commit and deploy.
+Copy the contents of `public/` into the site repository public/static folder, or replace the existing static pages after backing up the current repo.
 
-These pages are designed as standalone static HTML pages. They should work even if the rest of the site is built with a modern frontend framework, as long as the deployment serves files from `public/`.
+## Primary pages
 
-## Included pages
+- `index.html` - upgraded homepage
+- `start-here.html` - plain-English entry point
+- `architecture.html` - full TA-14 chain and architecture domains
+- `what-ta14-is-not.html` - boundary-protection page
+- `services.html` - review offer lanes
+- `request.html` - Netlify form and mailto request path
+- `thank-you.html` - Netlify form success page
+- `evidence.html` - Evidence Integrity Governance
+- `environmental-integrity.html` - Environmental Integrity Governance
+- `partners.html` - Partner Review Network
+- `resources.html` - public records and anchors
+- `no-build-before-boundary.html` - commercial boundary page
 
-- `public/start-here.html` — plain-English public entry point for TA-14.
-- `public/what-ta14-is-not.html` — boundary-protection page that prevents misframing TA-14 as monitoring, audit logging, a dashboard, or only a gate.
-- `public/request-evaluation.html` — structured intake page for review requests.
-- `public/review-offers.html` — simple commercial offer page with three review lanes.
-- `public/public-record.html` — preservation and public-anchor page.
-- `public/partner-review-network.html` — partner-review positioning and use restrictions.
-- `public/no-build-before-boundary.html` — scope and value-exchange boundary page.
-- `public/environmental-integrity.html` — applied Environmental Integrity Governance page.
+## Form note
 
-## Recommended navigation labels
-
-- Start Here → `/start-here.html`
-- What TA-14 Is Not → `/what-ta14-is-not.html`
-- Review Offers → `/review-offers.html`
-- Request Evaluation → `/request-evaluation.html`
-- Public Record → `/public-record.html`
-- Partner Review Network → `/partner-review-network.html`
-- No Build Before Boundary → `/no-build-before-boundary.html`
-- Environmental Integrity → `/environmental-integrity.html`
+`request.html` includes both a Netlify Forms-compatible form and an email CTA to `greggbutlerac@gmail.com`. Netlify Forms will only work when the page is deployed through Netlify and form detection is enabled.
 
 ## Suggested commit message
 
-`Add TA-14 public portal expansion pages`
-
-## Notes
-
-These pages do not automatically change the site's navigation. Add links manually wherever your site controls navigation, homepage calls-to-action, footer links, or resource menus.
+`Upgrade TA-14 public portal static site`
