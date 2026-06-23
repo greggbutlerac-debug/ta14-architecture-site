@@ -3,130 +3,1112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Founder | Greggory Don Butler | TA-14</title>
-  <meta name="description" content="Founder page for Greggory Don Butler, architect of TA-14 Admissible Execution Architecture, Environmental Integrity Governance, Atmospheric Integrity Records, and evidence-before-execution doctrine." />
-  <link rel="stylesheet" href="style.css" />
+
+  <title>Founder | Greggory Don Butler | TA-14 Admissible Execution Architecture</title>
+
+  <meta
+    name="description"
+    content="Founder and author page for Greggory Don Butler, originator of TA-14 Admissible Execution Architecture, Environmental Integrity Governance, Atmospheric Integrity Records, and related admissible-execution governance work."
+  />
+
+  <style>
+    :root {
+      --black: #020617;
+      --ink: #0f172a;
+      --muted: #475569;
+      --light-muted: #64748b;
+      --line: #e2e8f0;
+      --soft: #f8fafc;
+      --white: #ffffff;
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --violet: #7c3aed;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --max: 1200px;
+      --radius: 30px;
+      --shadow: 0 30px 90px rgba(15, 23, 42, 0.18);
+      --soft-shadow: 0 18px 55px rgba(15, 23, 42, 0.10);
+      --warning-bg: #fff7ed;
+      --warning: #7c2d12;
+      --green-bg: #ecfdf5;
+      --green: #064e3b;
+      --blue-bg: #eff6ff;
+      --blue-text: #1e3a8a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(37, 99, 235, 0.16), transparent 34rem),
+        radial-gradient(circle at 85% 5%, rgba(124, 58, 237, 0.13), transparent 34rem),
+        radial-gradient(circle at 50% 45%, rgba(6, 182, 212, 0.08), transparent 42rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.88);
+      background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 15px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+      min-width: 260px;
+    }
+
+    .brand strong {
+      font-size: 1.02rem;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      color: var(--black);
+    }
+
+    .brand span {
+      font-size: 0.88rem;
+      color: var(--light-muted);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    .nav-links .nav-cta {
+      color: #ffffff;
+      background: var(--black);
+      padding: 10px 15px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px 92px;
+    }
+
+    section { margin-top: 88px; }
+
+    .hero {
+      margin-top: 0;
+      padding: 22px 0 30px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 44px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.42), transparent 28rem),
+        radial-gradient(circle at 85% 18%, rgba(124, 58, 237, 0.35), transparent 28rem),
+        radial-gradient(circle at 50% 90%, rgba(6, 182, 212, 0.22), transparent 28rem),
+        linear-gradient(135deg, #020617 0%, #0f172a 48%, #111827 100%);
+      color: #ffffff;
+      padding: clamp(32px, 6vw, 64px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.18));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 18px;
+      color: var(--light-muted);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow { color: #bae6fd; }
+
+    h1 {
+      max-width: 1080px;
+      margin: 0 0 26px;
+      color: var(--black);
+      font-size: clamp(3.2rem, 8vw, 7.15rem);
+      line-height: 0.88;
+      letter-spacing: -0.085em;
+    }
+
+    .hero h1 {
+      color: #ffffff;
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--black);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      color: var(--black);
+      font-size: 1.35rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    p { margin: 0 0 18px; }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    li { margin-bottom: 8px; }
+
+    .lead {
+      max-width: 930px;
+      color: #334155;
+      font-size: clamp(1.16rem, 2vw, 1.42rem);
+      line-height: 1.72;
+    }
+
+    .hero .lead { color: #dbeafe; }
+
+    .hero-actions,
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 32px 0 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border: 1px solid var(--black);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      background: #ffffff;
+      color: var(--black);
+      border-color: #ffffff;
+      box-shadow: 0 16px 40px rgba(255, 255, 255, 0.14);
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.38);
+    }
+
+    .button-dark {
+      background: var(--black);
+      color: #ffffff;
+      border-color: var(--black);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
+    }
+
+    .direct {
+      margin-top: 12px;
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+
+    .direct a {
+      color: #ffffff;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .portrait-card {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 36px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .portrait-wrap {
+      overflow: hidden;
+      border-radius: 28px;
+      min-height: 440px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.28), transparent 16rem),
+        linear-gradient(135deg, rgba(37,99,235,0.55), rgba(124,58,237,0.35)),
+        #0f172a;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .portrait-wrap img {
+      width: 100%;
+      height: 100%;
+      min-height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portrait-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 26px;
+    }
+
+    .portrait-fallback strong {
+      display: block;
+      color: #ffffff;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 0.9;
+      letter-spacing: -0.08em;
+    }
+
+    .portrait-fallback span {
+      display: block;
+      margin-top: 16px;
+      color: #dbeafe;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .portrait-caption {
+      padding: 18px 6px 0;
+      color: #dbeafe;
+      font-weight: 800;
+    }
+
+    .portrait-caption strong {
+      display: block;
+      color: #ffffff;
+      margin-bottom: 4px;
+      font-size: 1.2rem;
+    }
+
+    .chain-line {
+      margin-top: 20px;
+      color: #e0f2fe;
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      font-weight: 900;
+    }
+
+    .mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .mini-nav a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 13px;
+      color: var(--muted);
+      background: #ffffff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+    }
+
+    .mini-nav a:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--soft-shadow);
+      text-decoration: none;
+      display: block;
+    }
+
+    .card.alt { background: rgba(248, 250, 252, 0.96); }
+
+    .card.dark {
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.20), transparent 18rem),
+        var(--black);
+      color: #ffffff;
+      border-color: var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .card.dark h2,
+    .card.dark h3,
+    .card.dark p,
+    .card.dark li { color: #ffffff; }
+
+    .card:hover {
+      transform: translateY(-2px);
+      transition: transform 160ms ease;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: var(--black);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.92rem;
+    }
+
+    .number.blue { background: linear-gradient(135deg, var(--blue), var(--cyan)); }
+    .number.violet { background: linear-gradient(135deg, var(--violet), var(--rose)); }
+    .number.green { background: linear-gradient(135deg, var(--emerald), var(--cyan)); }
+    .number.amber { background: linear-gradient(135deg, var(--amber), var(--rose)); }
+
+    .quote-panel {
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.22), transparent 24rem),
+        radial-gradient(circle at 95% 15%, rgba(124, 58, 237, 0.22), transparent 24rem),
+        var(--black);
+      color: #ffffff;
+      padding: 42px;
+      margin-top: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-panel h2,
+    .quote-panel p { color: #ffffff; }
+
+    .quote-panel p.big {
+      margin: 0;
+      font-size: clamp(1.65rem, 3.2vw, 2.85rem);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .timeline {
+      counter-reset: timeline;
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .timeline-item {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      background: #ffffff;
+      box-shadow: var(--soft-shadow);
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .timeline-item::before {
+      counter-increment: timeline;
+      content: counter(timeline);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--black);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .record-card {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      background: #ffffff;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.06);
+      text-decoration: none;
+      display: block;
+      min-height: 190px;
+    }
+
+    .record-card:hover {
+      transform: translateY(-2px);
+      transition: transform 160ms ease;
+    }
+
+    .record-card strong {
+      display: block;
+      color: var(--black);
+      font-size: 1.08rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .record-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .record-card .meta {
+      margin-top: 14px;
+      color: var(--light-muted);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .warning {
+      border: 1px solid #fed7aa;
+      border-radius: 22px;
+      background: var(--warning-bg);
+      color: var(--warning);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .warning h3,
+    .warning p,
+    .warning li { color: var(--warning); }
+
+    .green-box {
+      border: 1px solid #a7f3d0;
+      border-radius: 22px;
+      background: var(--green-bg);
+      color: var(--green);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .green-box h3,
+    .green-box p,
+    .green-box li { color: var(--green); }
+
+    .blue-box {
+      border: 1px solid #bfdbfe;
+      border-radius: 22px;
+      background: var(--blue-bg);
+      color: var(--blue-text);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .blue-box h3,
+    .blue-box p,
+    .blue-box li { color: var(--blue-text); }
+
+    .cta-panel {
+      padding: 42px;
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.24), transparent 24rem),
+        radial-gradient(circle at 90% 10%, rgba(244, 63, 94, 0.18), transparent 24rem),
+        var(--black);
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-panel h2,
+    .cta-panel p { color: #ffffff; }
+
+    .cta-panel p {
+      max-width: 860px;
+      color: #e2e8f0;
+      font-size: 1.16rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--muted);
+      padding: 34px 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    footer strong { color: var(--black); }
+
+    footer a {
+      color: var(--black);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { letter-spacing: -0.06em; }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links { justify-content: flex-start; }
+
+      main { padding-top: 48px; }
+
+      .hero-shell,
+      .card,
+      .quote-panel,
+      .cta-panel {
+        padding: 24px;
+        border-radius: 28px;
+      }
+
+      .portrait-wrap,
+      .portrait-wrap img {
+        min-height: 320px;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">TA-14</span>
-      <span class="brand-subtitle">Admissible Execution Architecture</span>
-    </a>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="environmental-integrity-governance.html">Environmental</a>
-      <a href="evidence-integrity.html">Evidence</a>
-      <a href="services.html">Services</a>
-      <a href="gate.html">Gate</a>
-      <a href="positioning.html">Positioning</a>
-      <a href="founder.html" class="active">Founder</a>
-      <a href="resources.html">Resources</a>
-      <a href="request-evaluation.html">Request</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <strong>TA-14 Admissible Execution Architecture</strong>
+        <span>Proof-bound governance before consequence</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/services">Services</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/resources">Resources</a>
+        <a href="/founder">Founder</a>
+        <a class="nav-cta" href="/request-evaluation">Request Review</a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <section class="founder-hero">
-      <div class="founder-copy">
-        <p class="eyebrow">Founder · Architect · Author</p>
-        <h1>Greggory Don Butler</h1>
-        <p class="lead">Founder of TA-14 Admissible Execution Architecture, creator of Environmental Integrity Governance, and author of a field-born evidence discipline built around one governing principle: no admissible evidence, no admissible execution.</p>
-        <div class="hero-actions">
-          <a href="architecture.html" class="button primary">Explore TA-14</a>
-          <a href="resources.html" class="button secondary">View Public Records</a>
+    <section class="hero">
+      <div class="hero-shell">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">Founder / Author</p>
+
+            <h1>Greggory Don Butler.</h1>
+
+            <p class="lead">
+              Founder, author, and originator of TA-14 Admissible Execution Architecture,
+              Environmental Integrity Governance, Atmospheric Integrity Records, and related
+              proof-bound governance work for consequence-bearing systems.
+            </p>
+
+            <p class="lead">
+              The work begins from a practical question: before a system acts, intervenes,
+              binds, commits, recommends, routes, or creates reliance, what evidence makes that
+              execution admissible enough to happen?
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="/resources">View Public Record</a>
+              <a class="button button-secondary" href="/request-evaluation">Request TA-14 Review</a>
+            </div>
+
+            <p class="direct">
+              Direct contact:
+              <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
+            </p>
+          </div>
+
+          <aside class="portrait-card">
+            <div class="portrait-wrap">
+              <img
+                src="/greggory-don-butler.jpg"
+                alt="Greggory Don Butler, founder and author of TA-14 Admissible Execution Architecture"
+                onerror="this.style.display='none';"
+              />
+              <div class="portrait-fallback">
+                <div>
+                  <strong>Greggory<br />Don Butler</strong>
+                  <span>Founder / Author / Originator</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="portrait-caption">
+              <strong>Greggory Don Butler</strong>
+              Originator of TA-14 Admissible Execution Architecture and Environmental Integrity Governance.
+            </div>
+          </aside>
         </div>
       </div>
-      <div class="portrait-wrap">
-        <img src="greggory-don-butler-founder.jpg" alt="Greggory Don Butler, founder of TA-14 Admissible Execution Architecture" class="founder-portrait" />
+
+      <div class="mini-nav">
+        <a href="#identity">Identity</a>
+        <a href="#origin">Origin</a>
+        <a href="#ta14">TA-14</a>
+        <a href="#environmental">Environmental Integrity</a>
+        <a href="#public-record">Public Record</a>
+        <a href="#boundaries">Boundaries</a>
+        <a href="#request">Request Review</a>
       </div>
     </section>
 
-    <section class="founder-story">
-      <p class="section-label">Origin</p>
-      <h2>A framework born from the field, not a boardroom.</h2>
-      <p>Greggory Don Butler did not begin TA-14 as an abstract governance theory. The work began in the field, inside real HVAC systems, homes, buildings, service calls, disputed diagnoses, and consequence-bearing decisions where people were often asked to trust conclusions they could not see.</p>
-      <p>After years of residential air-conditioning work, he recognized a recurring failure pattern: systems, technicians, organizations, and institutions often move toward action before the underlying reality has been properly observed, recorded, preserved, tested, authorized, and made accountable. The problem was not only bad decisions. The deeper problem was action without admissible proof.</p>
-      <blockquote>“Speed without admissibility is not capability — it is exposure.”</blockquote>
+    <section id="identity">
+      <p class="eyebrow">Identity</p>
+
+      <div class="quote-panel">
+        <p class="big">
+          The core of the work is simple: no admissible evidence, no admissible execution.
+        </p>
+
+        <div class="chain-line">
+          Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+        </div>
+      </div>
+
+      <div class="grid three">
+        <article class="card">
+          <div class="number blue">01</div>
+          <h3>Author</h3>
+          <p>
+            Greggory Don Butler is the named author behind TA-14 public materials, public chronology,
+            publication records, environmental integrity materials, and admissible-execution governance writing.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number green">02</div>
+          <h3>Founder</h3>
+          <p>
+            The founder posture is tied to the public architecture record: TA-14 Admissible Execution Architecture,
+            Environmental Integrity Governance, Atmospheric Integrity Records, and related proof-bound governance work.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number violet">03</div>
+          <h3>Reviewer</h3>
+          <p>
+            The work now supports TA-14 public-material architecture reviews, evidence gap reviews,
+            environmental integrity reviews, partner-review pathways, and admissible-execution readiness work.
+          </p>
+        </article>
+      </div>
+
+      <div class="blue-box">
+        <h3>Founder page purpose</h3>
+        <p>
+          This page preserves authorship, origin, public record, and review posture. It is not a claim that
+          every adjacent governance concept, third-party system, AI control, environmental platform, or execution
+          framework belongs to TA-14. It identifies the public TA-14 architecture line and its related domains.
+        </p>
+      </div>
     </section>
 
-    <section class="founder-story">
-      <p class="section-label">The First Question</p>
-      <h2>How can the person affected by a system see the truth of its condition?</h2>
-      <p>The earliest TA-14 discipline came from a practical HVAC question: how can a homeowner understand the real state of a system without being forced to rely on unsupported technician opinion?</p>
-      <p>That question led to a structured field method: bring the owner into the evidence, show the readings, explain the conditions, establish the baseline, identify thresholds, make diagnostic determinations visible, and verify what changed after intervention. Over time, that became more than a service method. It became an admissibility discipline.</p>
-      <p>The HVAC origin matters because it preserved TA-14’s core character: evidence must be shared, reviewable, sequenced, and tied to consequence before action is allowed to proceed.</p>
+    <section id="origin">
+      <p class="eyebrow">Origin and chronology</p>
+      <h2>TA-14 began from operational evidence discipline, not abstract governance theory.</h2>
+
+      <p class="lead">
+        TA-14 developed from the practical problem of whether a consequence-bearing action is supported by
+        enough evidence before it happens. That question first appeared in applied form through HVACDR and
+        environmental evidence discipline: sequence, baseline, threshold, declared diagnostic determination,
+        and post-intervention performance record.
+      </p>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div>
+            <h3>Operational evidence before action</h3>
+            <p>
+              The early architecture problem was not merely whether an action could be performed. It was whether
+              the evidence chain justified intervention before invasive or consequence-bearing action occurred.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div>
+            <h3>Sequence, baseline, threshold, determination, record</h3>
+            <p>
+              The HVACDR evidence structure centered on ordered procedure, baseline conditions, thresholds,
+              diagnostic determinations, and post-intervention records. This became a public provenance anchor
+              for TA-14 admissible execution.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div>
+            <h3>Admissible execution</h3>
+            <p>
+              The architecture matured into a full-chain governance question: was the route from reality to outcome
+              admissible enough to allow consequence-bearing execution at all?
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div>
+            <h3>Public corpus and review discipline</h3>
+            <p>
+              TA-14 now exists as a public architecture corpus with DOI records, Google Sites anchors,
+              GitHub repositories, Medium chronology articles, AutomatedBuildings publications, and review pathways.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="green-box">
+        <h3>Public provenance anchor</h3>
+        <p>
+          The Amazon-listed book <strong>Transparent Air’s S.O.P. of Residential Air Conditioning</strong>
+          by Greggory Don Butler is treated as a public origin anchor for sequence, baseline, threshold,
+          diagnostic determination, and post-intervention performance record concepts that later matured into
+          TA-14 Admissible Execution Architecture.
+        </p>
+      </div>
     </section>
 
-    <section class="domains">
-      <p class="section-label">What He Built</p>
-      <h2>From HVAC sequence to full-chain admissible execution.</h2>
-      <div class="card-grid">
+    <section id="ta14">
+      <p class="eyebrow">TA-14 architecture</p>
+      <h2>TA-14 governs the stream before consequence attaches.</h2>
+
+      <p class="lead">
+        TA-14 is not merely a gate, dashboard, audit trail, safety slogan, or compliance checklist. It is the
+        parent admissible-execution architecture that evaluates whether the chain behind consequence-bearing
+        action is strong enough to allow that action to proceed.
+      </p>
+
+      <div class="grid four">
         <article class="card">
-          <h3>TA-14 Admissible Execution Architecture</h3>
-          <p>The parent architecture governing the chain from Reality to Record, Continuity, Admissibility, Binding, Commit, Execution, and Outcome.</p>
+          <div class="number blue">R</div>
+          <h3>Reality</h3>
+          <p>What condition, event, environment, or fact is being represented before action?</p>
         </article>
+
+        <article class="card alt">
+          <div class="number green">E</div>
+          <h3>Evidence</h3>
+          <p>What record, log, document, diagnostic, sensor reading, or source supports reliance?</p>
+        </article>
+
         <article class="card">
-          <h3>Evidence Integrity Governance</h3>
-          <p>A discipline for determining when information becomes reliable, preserved, continuous, and sufficient enough to support reliance.</p>
+          <div class="number violet">C</div>
+          <h3>Commit</h3>
+          <p>Where does the system enter a hard-to-reverse consequence-bearing route?</p>
         </article>
+
+        <article class="card alt">
+          <div class="number amber">O</div>
+          <h3>Outcome</h3>
+          <p>What proof remains after execution and what new reality now exists?</p>
+        </article>
+      </div>
+
+      <div class="card dark" style="margin-top: 30px;">
+        <h2>TA-14’s category position</h2>
+        <p class="lead" style="color:#e2e8f0;">
+          Most AI governance asks whether a system is compliant, monitored, explainable, aligned, constrained,
+          or audited. TA-14 asks whether execution itself was admissible enough to become consequence.
+        </p>
+      </div>
+    </section>
+
+    <section id="environmental">
+      <p class="eyebrow">Environmental integrity</p>
+      <h2>Environmental Integrity Governance extends the evidence problem into atmospheric reality.</h2>
+
+      <p class="lead">
+        Greggory Don Butler’s related environmental work treats air, atmosphere, IAQ, HVACDR diagnostics,
+        refrigeration, filtration, and environmental intervention as evidence-governed domains. Monitoring
+        alone is not enough. Optimization alone is not enough. Atmospheric conditions that support reliance
+        need preserved records, chronology, thresholds, admissibility, authority, intervention discipline,
+        and post-intervention proof.
+      </p>
+
+      <div class="grid three">
         <article class="card">
           <h3>Environmental Integrity Governance</h3>
-          <p>An applied architecture for air, buildings, HVAC, filtration, atmospheric evidence, and environmental accountability.</p>
+          <p>
+            A governance frame for separating atmospheric evidence from ordinary dashboards, optimization loops,
+            and intervention claims.
+          </p>
         </article>
-        <article class="card">
+
+        <article class="card alt">
           <h3>Atmospheric Integrity Records</h3>
-          <p>A record model for preserving building and community atmospheric history so environmental conditions can be reviewed over time.</p>
+          <p>
+            Append-only or continuity-preserved atmospheric evidence records for environmental reliance,
+            institutional proof, and outcome accountability.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Evidence before intervention</h3>
+          <p>
+            A disciplined requirement that invasive, expensive, or environmentally consequential intervention
+            be supported by admissible evidence before action.
+          </p>
         </article>
       </div>
-    </section>
 
-    <section class="founder-story">
-      <p class="section-label">The Larger Mission</p>
-      <h2>Turning invisible consequence into accountable evidence.</h2>
-      <p>Greggory’s work now extends beyond HVAC into AI governance, environmental evidence, institutional decision systems, financial execution integrity, smart buildings, filtration accountability, and public-interest atmospheric visibility. The unifying question remains the same across every domain: should this system be allowed to create consequence yet?</p>
-      <p>TA-14 exists for systems whose actions matter. It asks whether reality has been observed, whether the record is preserved, whether continuity survived, whether evidence is admissible, whether authority is valid, whether the action is properly bound, whether commit is justified, whether execution is controlled, and whether the outcome can be verified.</p>
-      <p>The goal is not to slow the world down for its own sake. The goal is to prevent systems from confusing speed, automation, monitoring, or confidence with legitimacy. TA-14 moves the burden of proof in front of consequence.</p>
-    </section>
-
-    <section class="distinction">
-      <p class="section-label">Environmental Integrity</p>
-      <h2>Monitoring is not governance.</h2>
-      <p>One of Greggory’s central contributions is the distinction between environmental monitoring and environmental governance. Sensors can measure air. Dashboards can display conditions. But governance must preserve evidence, establish chronology, define baselines, set thresholds, support diagnostic determinations, authorize intervention, and verify post-intervention outcomes.</p>
-      <p>Environmental Integrity Governance and Atmospheric Integrity Records were created to help buildings, communities, and institutions develop trustworthy atmospheric evidence, especially where people depend on indoor air, filtration, ventilation, HVAC performance, and environmental protection.</p>
-    </section>
-
-    <section class="domains">
-      <p class="section-label">Current Work</p>
-      <h2>What TA-14 is working toward.</h2>
-      <div class="review-list">
-        <div><strong>AI governance before action</strong><span>Helping consequential AI systems prove evidence, continuity, authority, and execution boundaries before they act.</span></div>
-        <div><strong>Atmospheric accountability</strong><span>Building a governance language for indoor air, filtration, HVAC, environmental records, and community air-quality visibility.</span></div>
-        <div><strong>Evidence-before-intervention</strong><span>Advancing field disciplines where intervention itself creates consequence and must be justified before contact or action.</span></div>
-        <div><strong>Partner review architecture</strong><span>Creating a second-layer review model where adjacent governance systems retain their identity while TA-14 reviews admissible-execution readiness.</span></div>
-        <div><strong>Public preservation</strong><span>Preserving TA-14 doctrine through public pages, GitHub repositories, DOI-backed releases, books, and public chronology anchors.</span></div>
+      <div class="warning">
+        <h3>Key distinction</h3>
+        <p>
+          Sensors, dashboards, and AI optimization can be valuable. But monitoring and optimization are not the
+          same as Environmental Integrity Governance. Governance requires evidentiary separation, preserved
+          chronology, admissible records, intervention authority, and post-action proof.
+        </p>
       </div>
     </section>
 
-    <section class="founder-story">
-      <p class="section-label">Why It Matters</p>
-      <h2>A world that acts faster needs proof that survives.</h2>
-      <p>Modern systems increasingly make decisions, trigger actions, shape environments, influence finance, govern infrastructure, and affect human life at speeds that exceed ordinary review. Without admissible evidence, those systems may appear capable while becoming unaccountable.</p>
-      <p>Greggory’s work is aimed at a world where people, buildings, institutions, and communities are not forced to accept invisible decisions, unsupported diagnoses, unverified air, unreviewable automation, or post-hoc explanations after consequence has already attached.</p>
-      <p>TA-14’s purpose is simple and demanding: make systems prove they are ready before they act.</p>
+    <section id="public-record">
+      <p class="eyebrow">Public record anchors</p>
+      <h2>Founder authority is supported by public records, not private assertion.</h2>
+
+      <p class="lead">
+        The public record includes DOI and publication records, Google Sites pages, GitHub repositories,
+        public chronology pages, Medium articles, and AutomatedBuildings publications. These references
+        help establish the public development path of TA-14 and related architecture families.
+      </p>
+
+      <div class="grid three">
+        <a class="record-card" href="https://sites.google.com/view/ta-14-admissible-execution-arc/home" target="_blank" rel="noopener noreferrer">
+          <strong>TA-14 Admissible Execution Architecture</strong>
+          <span>Canonical public Google Sites entry point for the original proof-bound Admissible Execution Architecture.</span>
+          <span class="meta">Primary TA-14 site</span>
+        </a>
+
+        <a class="record-card" href="https://sites.google.com/view/ta-14-admissible-execution-arc/ta-14-public-chronology" target="_blank" rel="noopener noreferrer">
+          <strong>TA-14 Public Chronology</strong>
+          <span>Public chronology page preserving origin, sequence, public architecture development, and priority posture.</span>
+          <span class="meta">Chronology anchor</span>
+        </a>
+
+        <a class="record-card" href="https://sites.google.com/view/ta-14-admissible-execution-arc/about-the-inventor-greggory-don-butler" target="_blank" rel="noopener noreferrer">
+          <strong>About the Inventor — Greggory Don Butler</strong>
+          <span>Authorship and inventor page connected to the TA-14 public architecture site.</span>
+          <span class="meta">Authorship anchor</span>
+        </a>
+
+        <a class="record-card" href="https://doi.org/10.5281/zenodo.20463927" target="_blank" rel="noopener noreferrer">
+          <strong>TA-14 Volume 1 Foundational Monograph v1.2</strong>
+          <span>Foundational parent publication for TA-14 Admissible Execution Architecture.</span>
+          <span class="meta">DOI: 10.5281/zenodo.20463927</span>
+        </a>
+
+        <a class="record-card" href="https://github.com/greggbutlerac-debug/ta14-admissible-execution-gate" target="_blank" rel="noopener noreferrer">
+          <strong>TA-14 Admissible Execution Gate</strong>
+          <span>Public reference MVP demonstrating admissibility-gated execution.</span>
+          <span class="meta">GitHub</span>
+        </a>
+
+        <a class="record-card" href="https://www.automatedbuildings.com/author/butler/" target="_blank" rel="noopener noreferrer">
+          <strong>AutomatedBuildings Author Archive</strong>
+          <span>Author archive for Greggory Don Butler’s building automation and environmental integrity publications.</span>
+          <span class="meta">AutomatedBuildings</span>
+        </a>
+
+        <a class="record-card" href="https://sites.google.com/view/environmental-integrity-gover/home" target="_blank" rel="noopener noreferrer">
+          <strong>Environmental Integrity Governance</strong>
+          <span>Public entry point for atmospheric and environmental evidence governance.</span>
+          <span class="meta">Environmental integrity</span>
+        </a>
+
+        <a class="record-card" href="https://sites.google.com/view/atmosphericintegrityrecordairc/home" target="_blank" rel="noopener noreferrer">
+          <strong>Atmospheric Integrity Records / AIRC</strong>
+          <span>Public entry point for atmospheric evidence and environmental record continuity.</span>
+          <span class="meta">AIRC / AIR</span>
+        </a>
+
+        <a class="record-card" href="/resources">
+          <strong>Full Resource Hub</strong>
+          <span>DOIs, Google Sites, GitHub, Medium articles, AutomatedBuildings publications, and public record links.</span>
+          <span class="meta">Internal resources</span>
+        </a>
+      </div>
     </section>
 
-    <section class="contact founder-closing">
-      <p class="section-label">Closing Principle</p>
-      <h2>No admissible evidence. No admissible execution.</h2>
-      <p>That principle began in the field. It now defines a full-chain architecture for consequential systems, environmental integrity, and evidence-governed action.</p>
-      <a class="email-link" href="request-evaluation.html">Request a TA-14 evaluation</a>
+    <section id="boundaries">
+      <p class="eyebrow">Boundary language</p>
+      <h2>Founder record is not the same as unsupported ownership over unrelated systems.</h2>
+
+      <p class="lead">
+        TA-14 uses chronology-first, evidence-first positioning. Founder and author records identify the public
+        development of TA-14, Environmental Integrity Governance, Atmospheric Integrity Records, and related
+        admissible-execution architecture families. Adjacent systems may be serious, valuable, and independently
+        developed while still being reviewable through TA-14.
+      </p>
+
+      <div class="grid three">
+        <article class="card">
+          <h3>Authorship</h3>
+          <p>
+            This page preserves Greggory Don Butler’s authorship and founder role for the TA-14 public corpus
+            and related published architecture materials.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Review authority</h3>
+          <p>
+            TA-14 can review adjacent architectures without collapsing those systems into TA-14 or claiming
+            ownership of them.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Claim control</h3>
+          <p>
+            Partnership, alignment, certification-readiness, certification, endorsement, and review status are
+            separate claim categories requiring written scope.
+          </p>
+        </article>
+      </div>
+
+      <div class="green-box">
+        <h3>Preferred posture</h3>
+        <p>
+          TA-14 should be presented through public chronology, evidence, preserved records, and review discipline.
+          The strongest posture is not accusation. The strongest posture is a clear public architecture record and
+          a repeatable admissible-execution review method.
+        </p>
+      </div>
+    </section>
+
+    <section id="request">
+      <div class="cta-panel">
+        <p class="eyebrow">Request review</p>
+        <h2>Need TA-14 review of a system, workflow, or evidence pathway?</h2>
+
+        <p>
+          Request a TA-14 review for an AI workflow, environmental evidence process, partner architecture,
+          institutional decision route, or other consequence-bearing execution pathway.
+        </p>
+
+        <div class="cta-row">
+          <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
+          <a
+            class="button button-secondary"
+            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Founder%20Page%20Inquiry"
+          >
+            Email TA-14
+          </a>
+        </div>
+
+        <p style="margin-top: 18px;">
+          Direct contact: ta14admissibleexecution@gmail.com
+        </p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 TA-14 Admissible Execution Architecture. All rights reserved.</p>
+    <div class="footer-inner">
+      <div>
+        <strong>TA-14 Admissible Execution Architecture</strong><br />
+        Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+      </div>
+
+      <div>
+        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
