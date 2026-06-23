@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="TA-14 Partner Review Network page explaining independent architecture partners, specialized first-layer review, TA-14 second-layer admissible-execution review, approved language, boundaries, non-claims, and written-scope requirements."
+    content="TA-14 Partner Review Network: independent architecture partners, specialized first-layer review, TA-14 second-layer admissible-execution review, active partner-review lanes, approved language, boundaries, and no self-certification rules."
   />
 
   <style>
@@ -471,6 +471,95 @@
       font-weight: 900;
     }
 
+    .partner-showcase {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .partner-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: 32px;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(37, 99, 235, 0.16), transparent 18rem),
+        radial-gradient(circle at 90% 0%, rgba(124, 58, 237, 0.14), transparent 18rem),
+        #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      min-height: 390px;
+    }
+
+    .partner-card::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      bottom: -70px;
+      width: 190px;
+      height: 190px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .partner-card h3 {
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      letter-spacing: -0.055em;
+      margin-bottom: 12px;
+    }
+
+    .partner-card .tag {
+      display: inline-flex;
+      margin: 0 8px 10px 0;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--blue-text);
+      background: var(--blue-bg);
+      border: 1px solid #bfdbfe;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .partner-card .tag.green {
+      color: var(--green);
+      background: var(--green-bg);
+      border-color: #a7f3d0;
+    }
+
+    .partner-card .tag.violet {
+      color: var(--violet-text);
+      background: var(--violet-bg);
+      border-color: #ddd6fe;
+    }
+
+    .partner-card .lane-title {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--black);
+      font-weight: 900;
+    }
+
+    .partner-card p {
+      color: var(--muted);
+    }
+
+    .partner-card strong {
+      color: var(--black);
+    }
+
+    .active-note {
+      border-radius: 24px;
+      padding: 22px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      margin-top: 22px;
+    }
+
     .comparison {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -549,45 +638,6 @@
     .flow-step span {
       color: var(--muted);
       font-size: 0.96rem;
-    }
-
-    .record-card {
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 22px;
-      background: #ffffff;
-      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.06);
-      text-decoration: none;
-      display: block;
-      min-height: 190px;
-    }
-
-    .record-card:hover {
-      transform: translateY(-2px);
-      transition: transform 160ms ease;
-    }
-
-    .record-card strong {
-      display: block;
-      color: var(--black);
-      font-size: 1.08rem;
-      line-height: 1.25;
-      margin-bottom: 8px;
-    }
-
-    .record-card span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .record-card .meta {
-      margin-top: 14px;
-      color: var(--light-muted);
-      font-size: 0.86rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
     }
 
     .warning {
@@ -716,7 +766,8 @@
       .grid.four,
       .comparison,
       .lane,
-      .flow {
+      .flow,
+      .partner-showcase {
         grid-template-columns: 1fr;
       }
 
@@ -729,7 +780,8 @@
       .hero-shell,
       .card,
       .quote-panel,
-      .cta-panel {
+      .cta-panel,
+      .partner-card {
         padding: 24px;
         border-radius: 28px;
       }
@@ -782,23 +834,22 @@
           <div>
             <p class="eyebrow">Partner Review Network</p>
 
-            <h1>Independent architectures. TA-14 review boundary.</h1>
+            <h1>Independent architectures. TA-14 review authority.</h1>
 
             <p class="lead">
-              The TA-14 Partner Review Network is a written-boundary pathway for serious adjacent governance
-              architectures that want to preserve their own identity while adding a second-layer TA-14
-              admissible-execution review surface.
+              The TA-14 Partner Review Network creates a clean, written-boundary pathway for serious adjacent
+              governance architectures to retain their identity while adding TA-14’s second-layer
+              admissible-execution review.
             </p>
 
             <p class="lead">
-              Partners may perform specialized first-layer assessment. TA-14 remains the parent
-              admissible-execution review architecture evaluating whether the consequence-bearing route is
-              admissible enough to bind, commit, execute, and create outcome.
+              Partners bring specialized first-layer review. TA-14 reviews the full consequence-bearing route:
+              Reality, Record, Continuity, Admissibility, Binding, Commit, Execution, and Outcome.
             </p>
 
             <div class="hero-actions">
-              <a class="button button-primary" href="/request-evaluation">Request Partner Review Discussion</a>
-              <a class="button button-secondary" href="/no-build-before-boundary">Read Boundary Rule</a>
+              <a class="button button-primary" href="#active-partners">View Active Partner Lanes</a>
+              <a class="button button-secondary" href="/request-evaluation">Request Partner Review Discussion</a>
             </div>
 
             <p class="direct">
@@ -822,25 +873,25 @@
                 <span class="status pass">preserved</span>
               </div>
               <div class="network-row">
-                <strong>First-layer review</strong>
+                <strong>Specialized layer</strong>
                 <span class="status hold">partner scope</span>
               </div>
               <div class="network-row">
-                <strong>TA-14 review</strong>
-                <span class="status pass">second layer</span>
+                <strong>TA-14 layer</strong>
+                <span class="status pass">second review</span>
               </div>
               <div class="network-row">
                 <strong>Public claims</strong>
-                <span class="status refuse">written approval</span>
+                <span class="status refuse">approved only</span>
               </div>
               <div class="network-row">
-                <strong>Implementation support</strong>
-                <span class="status escalate">defined scope</span>
+                <strong>Implementation</strong>
+                <span class="status escalate">written scope</span>
               </div>
             </div>
 
             <div class="chain-line">
-              Partner layer → TA-14 boundary review → client evidence package → written claim control
+              Partner expertise → TA-14 review → client evidence package → approved public language
             </div>
           </aside>
         </div>
@@ -848,11 +899,10 @@
 
       <div class="mini-nav">
         <a href="#why">Why Network Exists</a>
+        <a href="#active-partners">Active Partners</a>
         <a href="#model">Network Model</a>
-        <a href="#lanes">Review Lanes</a>
         <a href="#ta14-role">TA-14 Role</a>
         <a href="#claims">Approved Language</a>
-        <a href="#economics">Scope & Economics</a>
         <a href="#boundaries">Non-Claims</a>
         <a href="#request">Request Discussion</a>
       </div>
@@ -872,40 +922,123 @@
       </div>
 
       <p class="lead" style="margin-top: 32px;">
-        TA-14 encounters serious adjacent systems: identity systems, runtime governance tools, evidence layers,
-        trust frameworks, policy engines, environmental systems, execution gates, safety controls, assurance
-        platforms, and specialized review methods. The strongest model is not to collapse all of them into TA-14.
-        The strongest model is to preserve their specialization and add a controlled TA-14 review layer where
-        consequence-bearing execution is at stake.
+        The strongest governance ecosystem is not one where every serious system is forced into a single name.
+        The strongest ecosystem is one where specialized architectures keep their strengths, clients receive
+        layered review, and TA-14 evaluates whether consequence-bearing execution is admissible across the full chain.
       </p>
 
       <div class="grid three">
         <article class="card">
           <div class="number blue">01</div>
-          <h3>Partners keep their architecture</h3>
+          <h3>Partners keep their identity</h3>
           <p>
-            A partner’s system remains its own system. TA-14 does not absorb, rename, certify, or subordinate it
-            merely because a review conversation exists.
+            A partner’s architecture remains its own architecture. TA-14 does not absorb, rename, merge, or
+            subordinate it merely because a partner-review lane exists.
           </p>
         </article>
 
         <article class="card alt">
           <div class="number violet">02</div>
-          <h3>TA-14 reviews admissibility</h3>
+          <h3>TA-14 reviews consequence</h3>
           <p>
-            TA-14 asks whether the consequence-bearing route has enough reality, evidence, continuity, authority,
-            scope, binding, commit, execution control, and outcome proof.
+            TA-14 asks whether the route is admissible enough before it binds, commits, executes, or creates
+            outcome.
           </p>
         </article>
 
         <article class="card">
           <div class="number green">03</div>
-          <h3>Clients get layered review</h3>
+          <h3>Clients get layered proof</h3>
           <p>
-            A client may benefit from a partner’s specialized layer plus TA-14’s second-layer admissible-execution
-            boundary / gap review.
+            A client can receive the partner’s specialized assessment plus TA-14’s second-layer
+            admissible-execution boundary / gap review.
           </p>
         </article>
+      </div>
+    </section>
+
+    <section id="active-partners">
+      <p class="eyebrow">Active partner-review lanes</p>
+      <h2>Current TA-14 partner-review pathways.</h2>
+
+      <p class="lead">
+        These are the active partner-review lanes currently recognized for TA-14 partner-review work.
+        Each lane preserves the partner’s independent architecture while defining where TA-14 provides the
+        second-layer admissible-execution review.
+      </p>
+
+      <div class="partner-showcase">
+        <article class="partner-card">
+          <span class="tag green">Active Partner-Review Lane</span>
+          <span class="tag violet">Runtime Governance</span>
+
+          <h3>Elias / LOVE-OS</h3>
+
+          <p>
+            Elias / LOVE-OS is recognized as an active TA-14 partner-review pathway focused on runtime governance,
+            misexecution pressure, refusal / escalation conditions, and consequence control within its own
+            independent architecture.
+          </p>
+
+          <p class="lane-title">Partner layer</p>
+          <p>
+            <strong>Elias / LOVE-OS Runtime Misexecution Pressure / Runtime Governance Assessment.</strong>
+          </p>
+
+          <p class="lane-title">TA-14 layer</p>
+          <p>
+            <strong>TA-14 Admissible Execution Boundary / Gap Review</strong> across Reality → Record → Continuity
+            → Admissibility → Binding → Commit → Execution → Outcome.
+          </p>
+
+          <div class="active-note">
+            <p>
+              Public language should remain bounded to approved partner-review framing. This is not a merger,
+              blanket certification, universal endorsement, or claim that either architecture becomes the other.
+            </p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <span class="tag green">Active Partner-Review Lane</span>
+          <span class="tag">Evidence Maturity</span>
+
+          <h3>AnchorStack</h3>
+
+          <p>
+            AnchorStack is recognized as an active TA-14 partner-review pathway focused on evidence maturity,
+            pressure-route assessment, operational readiness surfaces, and client-facing review value within
+            its own independent architecture.
+          </p>
+
+          <p class="lane-title">Partner layer</p>
+          <p>
+            <strong>AnchorStack Evidence Maturity / Pressure-Route Assessment.</strong>
+          </p>
+
+          <p class="lane-title">TA-14 layer</p>
+          <p>
+            <strong>TA-14 Admissible Execution Boundary / Gap Review</strong> evaluating whether the route is
+            sufficiently governed before consequence-bearing execution.
+          </p>
+
+          <div class="active-note">
+            <p>
+              AnchorStack retains its own architecture and client-facing layer. TA-14 retains the admissible-execution
+              review role. Multi-partner network participation remains separately scoped and agreed in writing.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="green-box">
+        <h3>What active partner-review lane means</h3>
+        <p>
+          An active partner-review lane means there is a recognized pathway for scoped work where the partner
+          contributes its specialized review layer and TA-14 contributes the second-layer admissible-execution
+          review. It does not mean automatic certification, public endorsement, merger, shared ownership, or
+          permission to self-use TA-14 status language outside approved wording.
+        </p>
       </div>
     </section>
 
@@ -955,82 +1088,21 @@
       </div>
     </section>
 
-    <section id="lanes">
-      <p class="eyebrow">Review lanes</p>
-      <h2>Potential partner lanes are classified before they are offered.</h2>
-
-      <p class="lead">
-        Not every conversation becomes a partner lane. TA-14 classifies adjacent systems according to the actual
-        value, evidence, boundaries, risk, and client fit.
-      </p>
-
-      <div class="lane-map">
-        <article class="lane">
-          <strong>Boundary-only</strong>
-          <span>
-            TA-14 clarifies distinction, overlap, or public posture, but no active partner lane is formed.
-          </span>
-        </article>
-
-        <article class="lane">
-          <strong>Referral-only</strong>
-          <span>
-            A relationship may support referrals, but no shared review package, name-use right, or TA-14 review
-            claim exists unless separately written.
-          </span>
-        </article>
-
-        <article class="lane">
-          <strong>Scoped review candidate</strong>
-          <span>
-            The adjacent system may be appropriate for a defined TA-14 review, gap review, or public-material
-            architecture review.
-          </span>
-        </article>
-
-        <article class="lane">
-          <strong>Partner-track candidate</strong>
-          <span>
-            The adjacent system appears strong enough to consider a written partner-review pathway with approved
-            language, scope, and non-claims.
-          </span>
-        </article>
-
-        <article class="lane">
-          <strong>Strategic ecosystem partner</strong>
-          <span>
-            A serious specialized architecture may become a recurring layer in client work when written scope,
-            contribution, claim control, and revenue terms are clear.
-          </span>
-        </article>
-      </div>
-
-      <div class="warning">
-        <h3>No partnership by conversation</h3>
-        <p>
-          Discussion, review interest, conceptual overlap, architectural similarity, public praise, private
-          conversation, or draft exchange does not create a TA-14 partnership. Partnership exists only through
-          written agreement and approved scope.
-        </p>
-      </div>
-    </section>
-
     <section id="ta14-role">
       <p class="eyebrow">TA-14 role</p>
       <h2>TA-14 remains the parent admissible-execution review layer.</h2>
 
       <p class="lead">
-        A partner may specialize in a particular layer: identity, runtime control, evidence maturity,
-        pressure-route assessment, environmental integrity, trust architecture, policy controls, refusal logic,
-        audit readiness, or another domain. TA-14 reviews whether the full route remains admissible from Reality
-        through Outcome.
+        A partner may specialize in identity, runtime control, evidence maturity, pressure-route assessment,
+        environmental integrity, trust architecture, policy controls, refusal logic, audit readiness, or another
+        domain. TA-14 reviews whether the full route remains admissible from Reality through Outcome.
       </p>
 
       <div class="flow">
         <article class="flow-step">
           <div class="number blue">1</div>
           <strong>Partner review layer</strong>
-          <span>The partner reviews its specialized domain under its own method and scope.</span>
+          <span>The partner reviews its specialized domain under its own method and written scope.</span>
         </article>
 
         <article class="flow-step">
@@ -1048,7 +1120,7 @@
         <article class="flow-step">
           <div class="number amber">4</div>
           <strong>Approved claims</strong>
-          <span>Only written, approved language may describe the relationship, review status, or public posture.</span>
+          <span>Only written, approved language may describe relationship, review status, or public posture.</span>
         </article>
       </div>
 
@@ -1100,55 +1172,6 @@
           No partner, adjacent system, client, vendor, reviewer, consultant, or collaborator may self-certify as
           TA-14-aligned, TA-14-backed, TA-14-reviewed, TA-14-approved, TA-14-certified, or TA-14 partner without
           written approval from TA-14.
-        </p>
-      </div>
-    </section>
-
-    <section id="economics">
-      <p class="eyebrow">Scope and economics</p>
-      <h2>Revenue follows contribution, scope, and written agreement.</h2>
-
-      <p class="lead">
-        The Partner Review Network is designed to be practical. It should be easy for serious partners to route
-        appropriate client work through TA-14 without creating confusion, free architecture transfer, or uncontrolled
-        use of TA-14 credibility.
-      </p>
-
-      <div class="grid three">
-        <article class="card">
-          <div class="number green">01</div>
-          <h3>Origination matters</h3>
-          <p>
-            Whoever brings the client or lead relationship generally retains the lead commercial position unless
-            a different written agreement applies.
-          </p>
-        </article>
-
-        <article class="card alt">
-          <div class="number blue">02</div>
-          <h3>Contribution matters</h3>
-          <p>
-            Partners are compensated when their review layer is included in the written client scope or when a
-            separately agreed referral term applies.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="number violet">03</div>
-          <h3>TA-14 value matters</h3>
-          <p>
-            When TA-14 review authority, language, credibility, architecture, or admissible-execution positioning
-            helps create client value, TA-14 participates in the engagement.
-          </p>
-        </article>
-      </div>
-
-      <div class="blue-box">
-        <h3>Network pool concept</h3>
-        <p>
-          In multi-partner engagements, the originating or lead partner may retain the majority of covered revenue,
-          while a review-network pool may be allocated among TA-14 and any included partner-review layers. Final
-          allocations are flexible and agreed in writing before work begins.
         </p>
       </div>
     </section>
@@ -1213,45 +1236,6 @@
           Do not share partner-review templates, enablement materials, implementation roadmaps, claim-boundary
           structures, or architecture-shaping guidance before written acceptance and scope. The network exists
           to create client value, not to give away TA-14’s operating model.
-        </p>
-      </div>
-    </section>
-
-    <section id="value">
-      <p class="eyebrow">Client value</p>
-      <h2>Clients get stronger review without forcing every system into one box.</h2>
-
-      <div class="grid three">
-        <article class="card">
-          <h3>Specialized depth</h3>
-          <p>
-            Partners bring domain depth in their own architecture layer, such as evidence maturity, runtime
-            pressure, identity, environmental integrity, trust, controls, or system assurance.
-          </p>
-        </article>
-
-        <article class="card alt">
-          <h3>TA-14 breadth</h3>
-          <p>
-            TA-14 checks whether the whole consequence-bearing route is admissible from Reality through Outcome.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Clearer readiness</h3>
-          <p>
-            Clients receive stronger language around proven strengths, incomplete evidence, route gaps,
-            boundary conditions, and next-step readiness evidence.
-          </p>
-        </article>
-      </div>
-
-      <div class="green-box">
-        <h3>Best use case</h3>
-        <p>
-          The Partner Review Network is strongest when a client needs a specialized architecture review plus a
-          TA-14 second-layer admissible-execution review that identifies whether consequence-bearing execution
-          is properly governed.
         </p>
       </div>
     </section>
