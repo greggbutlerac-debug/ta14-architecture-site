@@ -4,7 +4,7 @@ Public website for TA-14 Admissible Execution Architecture.
 
 Live site: https://ta14-architecture.netlify.app
 
-Version DOI: https://doi.org/10.5281/zenodo.20816627
+Latest Version DOI: https://doi.org/10.5281/zenodo.20816627
 
 Concept DOI: https://doi.org/10.5281/zenodo.20814817
 
