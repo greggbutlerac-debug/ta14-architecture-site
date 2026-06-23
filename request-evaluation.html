@@ -1,535 +1,363 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+export default function RequestEvaluation() {
+  return (
+    <main className="min-h-screen bg-white text-gray-950">
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-gray-500">
+          TA-14 Review Intake
+        </p>
 
-  <title>Request a TA-14 Review | TA-14 Admissible Execution Architecture</title>
+        <h1 className="mb-6 text-5xl font-black leading-none tracking-tight md:text-7xl">
+          Request a TA-14 Review
+        </h1>
 
-  <meta
-    name="description"
-    content="Request a TA-14 admissible-execution review for AI workflows, environmental evidence processes, partner architectures, institutional decisions, and other consequence-bearing systems."
-  />
+        <p className="mb-8 max-w-3xl text-xl leading-8 text-gray-700">
+          Request a TA-14 admissible-execution review for a system, workflow,
+          evidence process, AI pathway, environmental integrity process, partner
+          architecture, institutional decision route, or other consequence-bearing
+          operation.
+        </p>
 
-  <style>
-    :root {
-      --ink: #111827;
-      --muted: #4b5563;
-      --soft: #f3f4f6;
-      --softer: #f9fafb;
-      --line: #e5e7eb;
-      --white: #ffffff;
-    }
+        <div className="mb-8 flex flex-wrap gap-4">
+          <a
+            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0ASystem%20or%20workflow%20to%20be%20reviewed%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%20output%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhat%20authority%20allows%20the%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AWhat%20happens%20if%20the%20system%20is%20wrong%3A%0A%0ARequested%20review%20type%3A%0A%0AThank%20you."
+            className="rounded-full bg-gray-950 px-6 py-4 text-base font-black text-white no-underline shadow-sm transition hover:-translate-y-0.5 hover:bg-gray-800"
+          >
+            Email TA-14 Review Request
+          </a>
 
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.65;
-      color: var(--ink);
-      background: var(--white);
-    }
-
-    a { color: inherit; }
-
-    .site-header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.96);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(8px);
-    }
-
-    .nav {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      font-weight: 900;
-      text-decoration: none;
-      letter-spacing: -0.03em;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-      justify-content: flex-end;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .nav-links a:hover { color: var(--ink); }
-
-    .nav-links .button-small {
-      color: var(--white);
-      background: var(--ink);
-      padding: 9px 14px;
-      border-radius: 999px;
-    }
-
-    main {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 56px 24px 72px;
-    }
-
-    .eyebrow {
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 12px;
-      font-weight: 800;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 4.4rem);
-      line-height: 1.02;
-      letter-spacing: -0.06em;
-      margin: 0 0 24px;
-    }
-
-    h2 {
-      font-size: clamp(1.55rem, 3vw, 2.1rem);
-      line-height: 1.15;
-      letter-spacing: -0.04em;
-      margin: 0 0 16px;
-    }
-
-    h3 {
-      font-size: 1.2rem;
-      margin: 0 0 8px;
-    }
-
-    p { margin: 0 0 18px; }
-
-    .lead {
-      font-size: 1.22rem;
-      color: #374151;
-      max-width: 860px;
-      margin-bottom: 32px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin: 28px 0 12px;
-    }
-
-    .button {
-      display: inline-block;
-      text-decoration: none;
-      font-weight: 900;
-      border-radius: 999px;
-      padding: 14px 20px;
-      border: 1px solid var(--ink);
-    }
-
-    .button-primary {
-      background: var(--ink);
-      color: var(--white);
-    }
-
-    .button-secondary {
-      background: var(--white);
-      color: var(--ink);
-    }
-
-    .note {
-      font-size: 0.96rem;
-      color: var(--muted);
-    }
-
-    .callout {
-      border-left: 6px solid var(--ink);
-      padding: 24px 28px;
-      background: var(--soft);
-      border-radius: 14px;
-      margin: 36px 0;
-    }
-
-    .callout strong { font-size: 1.2rem; }
-
-    .grid {
-      display: grid;
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 24px;
-      background: var(--white);
-    }
-
-    .card.alt { background: var(--softer); }
-
-    .section { margin-top: 52px; }
-
-    .form-panel {
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 28px;
-      background: var(--softer);
-      margin-top: 24px;
-    }
-
-    label {
-      display: block;
-      font-weight: 800;
-      margin: 18px 0 8px;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      font: inherit;
-      padding: 12px 14px;
-      border: 1px solid #d1d5db;
-      border-radius: 12px;
-      background: var(--white);
-      color: var(--ink);
-    }
-
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    .form-row {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .submit-button {
-      margin-top: 22px;
-      cursor: pointer;
-      background: var(--ink);
-      color: var(--white);
-      border: 0;
-      border-radius: 999px;
-      padding: 14px 20px;
-      font-weight: 900;
-      font-size: 1rem;
-    }
-
-    .footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 24px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .footer a {
-      color: var(--ink);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links { justify-content: flex-start; }
-
-      .form-row { grid-template-columns: 1fr; }
-
-      main { padding-top: 40px; }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="/">TA-14 Admissible Execution Architecture</a>
-
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/architecture">Architecture</a>
-        <a href="/services">Services</a>
-        <a href="/resources">Resources</a>
-        <a class="button-small" href="/request-evaluation">Request Review</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <p class="eyebrow">TA-14 Review Intake</p>
-
-    <h1>Request a TA-14 Review</h1>
-
-    <p class="lead">
-      Request a TA-14 admissible-execution review for a system, workflow, evidence process,
-      AI pathway, environmental integrity process, partner architecture, institutional decision route,
-      or other consequence-bearing operation.
-    </p>
-
-    <div class="hero-actions">
-      <a
-        class="button button-primary"
-        href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0ASystem%20or%20workflow%20to%20be%20reviewed%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%20output%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhat%20authority%20allows%20the%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AWhat%20happens%20if%20the%20system%20is%20wrong%3A%0A%0ARequested%20review%20type%3A%0A%0AThank%20you."
-      >
-        Email TA-14 Review Request
-      </a>
-
-      <a class="button button-secondary" href="#review-form">
-        Use Intake Form
-      </a>
-    </div>
-
-    <p class="note">
-      Direct contact:
-      <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
-    </p>
-
-    <section class="callout">
-      <h2>Core evaluation question</h2>
-
-      <p>
-        <strong>
-          Should this system be allowed to bind, commit, execute, or create reliance
-          based on the evidence available right now?
-        </strong>
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>What TA-14 reviews look for</h2>
-
-      <p>
-        TA-14 reviews focus on whether a system has enough admissible evidence,
-        continuity, authority, scope, binding discipline, commit control, execution governance,
-        and outcome accountability before consequence-bearing reliance occurs.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Evidence before action</h3>
-          <p>
-            What records, logs, sensor data, model outputs, source documents, baselines,
-            thresholds, observations, or determinations support the action?
-          </p>
+          <a
+            href="#review-form"
+            className="rounded-full border border-gray-950 bg-white px-6 py-4 text-base font-black text-gray-950 no-underline transition hover:-translate-y-0.5"
+          >
+            Use Intake Form
+          </a>
         </div>
 
-        <div class="card alt">
-          <h3>Continuity and chronology</h3>
-          <p>
-            Has the evidence remained connected, current, preserved, and traceable from reality
-            through the proposed action?
+        <p className="mb-12 text-gray-600">
+          Direct contact:{" "}
+          <a
+            className="font-bold text-gray-950 underline"
+            href="mailto:ta14admissibleexecution@gmail.com"
+          >
+            ta14admissibleexecution@gmail.com
+          </a>
+        </p>
+
+        <section className="mb-14 rounded-2xl border-l-8 border-gray-950 bg-gray-100 p-8">
+          <h2 className="mb-4 text-3xl font-black tracking-tight">
+            Core evaluation question
+          </h2>
+
+          <p className="text-2xl font-black leading-snug">
+            Should this system be allowed to bind, commit, execute, or create
+            reliance based on the evidence available right now?
           </p>
-        </div>
+        </section>
 
-        <div class="card">
-          <h3>Authority and scope</h3>
-          <p>
-            Who or what is authorized to act, bind, commit, intervene, refuse, or create reliance?
-            Is that authority current and bounded?
+        <section className="mb-16">
+          <h2 className="mb-5 text-4xl font-black tracking-tight">
+            What TA-14 reviews look for
+          </h2>
+
+          <p className="mb-8 max-w-3xl text-lg leading-8 text-gray-700">
+            TA-14 reviews focus on whether a system has enough admissible
+            evidence, continuity, authority, scope, binding discipline, commit
+            control, execution governance, and outcome accountability before
+            consequence-bearing reliance occurs.
           </p>
-        </div>
 
-        <div class="card alt">
-          <h3>Binding, commit, execution, and outcome</h3>
-          <p>
-            Where does reliance become binding? Where does binding become commit? What controls execution?
-            What record proves the outcome?
-          </p>
-        </div>
-      </div>
-    </section>
+          <div className="grid gap-5 md:grid-cols-2">
+            <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <h3 className="mb-2 text-xl font-black">Evidence before action</h3>
+              <p className="text-gray-700">
+                What records, logs, sensor data, model outputs, source documents,
+                baselines, thresholds, observations, or determinations support
+                the action?
+              </p>
+            </article>
 
-    <section class="section">
-      <h2>Requested review types</h2>
+            <article className="rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+              <h3 className="mb-2 text-xl font-black">
+                Continuity and chronology
+              </h3>
+              <p className="text-gray-700">
+                Has the evidence remained connected, current, preserved, and
+                traceable from reality through the proposed action?
+              </p>
+            </article>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Public-Material Architecture Review</h3>
-          <p>
-            A review based on websites, repositories, documentation, papers, demos, public claims,
-            and other externally observable material.
-          </p>
-        </div>
+            <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <h3 className="mb-2 text-xl font-black">Authority and scope</h3>
+              <p className="text-gray-700">
+                Who or what is authorized to act, bind, commit, intervene,
+                refuse, or create reliance? Is that authority current and
+                bounded?
+              </p>
+            </article>
 
-        <div class="card alt">
-          <h3>Evidence Gap Review</h3>
-          <p>
-            A review of whether records, logs, sensor data, baselines, thresholds, determinations,
-            and outcome records are sufficient to support admissible reliance.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Partner Alignment Review</h3>
-          <p>
-            A review for adjacent architectures or governance systems seeking to map their role
-            against TA-14 while preserving their independent architecture.
-          </p>
-        </div>
-
-        <div class="card alt">
-          <h3>Environmental Integrity Review</h3>
-          <p>
-            A review of atmospheric, HVACDR, IAQ, refrigeration, sensor, diagnostic, intervention,
-            or post-intervention evidence pathways.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Production-Readiness Review</h3>
-          <p>
-            A deeper review for consequence-bearing workflows that need route-complete evidence
-            from reality through outcome before deployment, scaling, certification-readiness,
-            or institutional reliance.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="review-form" class="section">
-      <h2>TA-14 review intake form</h2>
-
-      <p>
-        You may use the form below or email the same information directly to
-        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>.
-      </p>
-
-      <div class="form-panel">
-        <form
-          name="ta14-review-request"
-          method="POST"
-          data-netlify="true"
-          action="/thank-you"
-        >
-          <input type="hidden" name="form-name" value="ta14-review-request" />
-
-          <div class="form-row">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
-            </div>
-
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
-            </div>
+            <article className="rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+              <h3 className="mb-2 text-xl font-black">
+                Binding, commit, execution, and outcome
+              </h3>
+              <p className="text-gray-700">
+                Where does reliance become binding? Where does binding become
+                commit? What controls execution? What record proves the outcome?
+              </p>
+            </article>
           </div>
+        </section>
 
-          <label for="organization">Organization / project</label>
-          <input id="organization" name="organization" type="text" />
+        <section className="mb-16">
+          <h2 className="mb-5 text-4xl font-black tracking-tight">
+            Requested review types
+          </h2>
 
-          <label for="review-type">Requested review type</label>
-          <select id="review-type" name="review-type" required>
-            <option value="">Select one</option>
-            <option>Public-Material Architecture Review</option>
-            <option>Evidence Gap Review</option>
-            <option>Partner Alignment Review</option>
-            <option>Environmental Integrity Review</option>
-            <option>Production-Readiness Review</option>
-            <option>Not sure yet</option>
-          </select>
+          <div className="grid gap-5">
+            <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <h3 className="mb-2 text-xl font-black">
+                Public-Material Architecture Review
+              </h3>
+              <p className="text-gray-700">
+                A review based on websites, repositories, documentation, papers,
+                demos, public claims, and other externally observable material.
+              </p>
+            </article>
 
-          <label for="system">System / workflow to be reviewed</label>
-          <textarea id="system" name="system" required></textarea>
+            <article className="rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+              <h3 className="mb-2 text-xl font-black">Evidence Gap Review</h3>
+              <p className="text-gray-700">
+                A review of whether records, logs, sensor data, baselines,
+                thresholds, determinations, and outcome records are sufficient
+                to support admissible reliance.
+              </p>
+            </article>
 
-          <label for="consequence">Consequence-bearing action involved</label>
-          <textarea id="consequence" name="consequence" required></textarea>
+            <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <h3 className="mb-2 text-xl font-black">
+                Partner Alignment Review
+              </h3>
+              <p className="text-gray-700">
+                A review for adjacent architectures or governance systems seeking
+                to map their role against TA-14 while preserving independent
+                architecture.
+              </p>
+            </article>
 
-          <label for="reliance">Who or what relies on the system output?</label>
-          <textarea id="reliance" name="reliance"></textarea>
+            <article className="rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+              <h3 className="mb-2 text-xl font-black">
+                Environmental Integrity Review
+              </h3>
+              <p className="text-gray-700">
+                A review of atmospheric, HVACDR, IAQ, refrigeration, sensor,
+                diagnostic, intervention, or post-intervention evidence pathways.
+              </p>
+            </article>
 
-          <label for="evidence">What evidence exists before action?</label>
-          <textarea id="evidence" name="evidence"></textarea>
+            <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <h3 className="mb-2 text-xl font-black">
+                Production-Readiness Review
+              </h3>
+              <p className="text-gray-700">
+                A deeper review for consequence-bearing workflows that need
+                route-complete evidence from reality through outcome before
+                deployment, scaling, certification-readiness, or institutional
+                reliance.
+              </p>
+            </article>
+          </div>
+        </section>
 
-          <label for="authority">What authority allows the action?</label>
-          <textarea id="authority" name="authority"></textarea>
+        <section id="review-form" className="mb-16">
+          <h2 className="mb-5 text-4xl font-black tracking-tight">
+            TA-14 review intake form
+          </h2>
 
-          <label for="binding">Where does binding or commit occur?</label>
-          <textarea id="binding" name="binding"></textarea>
+          <p className="mb-6 max-w-3xl text-lg leading-8 text-gray-700">
+            You may use the form below or email the same information directly to{" "}
+            <a
+              className="font-bold text-gray-950 underline"
+              href="mailto:ta14admissibleexecution@gmail.com"
+            >
+              ta14admissibleexecution@gmail.com
+            </a>
+            .
+          </p>
 
-          <label for="wrong">What happens if the system is wrong?</label>
-          <textarea id="wrong" name="wrong"></textarea>
+          <form
+            name="ta14-review-request"
+            method="POST"
+            data-netlify="true"
+            action="/thank-you"
+            className="rounded-3xl border border-gray-200 bg-gray-50 p-6 md:p-8"
+          >
+            <input type="hidden" name="form-name" value="ta14-review-request" />
 
-          <button class="submit-button" type="submit">
-            Submit TA-14 Review Request
-          </button>
-        </form>
-      </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              <div>
+                <label className="mb-2 block font-black" htmlFor="name">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  className="w-full rounded-xl border border-gray-300 bg-white p-3"
+                />
+              </div>
 
-      <p class="note" style="margin-top: 18px;">
-        If the form does not submit in your deployment environment, use the direct email button above.
-      </p>
-    </section>
+              <div>
+                <label className="mb-2 block font-black" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  className="w-full rounded-xl border border-gray-300 bg-white p-3"
+                />
+              </div>
+            </div>
 
-    <section class="section">
-      <h2>Review boundary</h2>
+            <label className="mb-2 mt-5 block font-black" htmlFor="organization">
+              Organization / project
+            </label>
+            <input
+              id="organization"
+              name="organization"
+              type="text"
+              className="w-full rounded-xl border border-gray-300 bg-white p-3"
+            />
 
-      <p>
-        A TA-14 review is an architecture and admissible-execution review. Unless expressly stated
-        in a written scope, it is not a legal opinion, security audit, compliance certification,
-        endorsement, production validation, or guarantee of system safety.
-      </p>
+            <label className="mb-2 mt-5 block font-black" htmlFor="reviewType">
+              Requested review type
+            </label>
+            <select
+              id="reviewType"
+              name="review-type"
+              required
+              className="w-full rounded-xl border border-gray-300 bg-white p-3"
+            >
+              <option value="">Select one</option>
+              <option>Public-Material Architecture Review</option>
+              <option>Evidence Gap Review</option>
+              <option>Partner Alignment Review</option>
+              <option>Environmental Integrity Review</option>
+              <option>Production-Readiness Review</option>
+              <option>Not sure yet</option>
+            </select>
 
-      <p>
-        TA-14 reviews identify strengths, gaps, architectural posture, evidence requirements,
-        admissibility conditions, and possible readiness pathways based on the materials and evidence
-        made available for review.
-      </p>
-    </section>
+            <label className="mb-2 mt-5 block font-black" htmlFor="system">
+              System / workflow to be reviewed
+            </label>
+            <textarea
+              id="system"
+              name="system"
+              required
+              className="min-h-28 w-full rounded-xl border border-gray-300 bg-white p-3"
+            />
 
-    <section class="callout">
-      <h2>Submission principle</h2>
+            <label className="mb-2 mt-5 block font-black" htmlFor="consequence">
+              Consequence-bearing action involved
+            </label>
+            <textarea
+              id="consequence"
+              name="consequence"
+              required
+              className="min-h-28 w-full rounded-xl border border-gray-300 bg-white p-3"
+            />
 
-      <p>
-        <strong>
-          The stronger the evidence package, the stronger the admissibility review can be.
-        </strong>
-      </p>
-    </section>
-  </main>
+            <label className="mb-2 mt-5 block font-black" htmlFor="reliance">
+              Who or what relies on the system output?
+            </label>
+            <textarea
+              id="reliance"
+              name="reliance"
+              className="min-h-28 w-full rounded-xl border border-gray-300 bg-white p-3"
+            />
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div>
-        <strong>TA-14 Admissible Execution Architecture</strong><br />
-        No admissible evidence. No admissible execution.
-      </div>
+            <label className="mb-2 mt-5 block font-black" htmlFor="evidence">
+              What evidence exists before action?
+            </label>
+            <textarea
+              id="evidence"
+              name="evidence"
+              className="min-h-28 w-full rounded-xl border border-gray-300 bg-white p-3"
+            />
 
-      <div>
-        <a href="mailto:ta14admissibleexecution@gmail.com">
-          ta14admissibleexecution@gmail.com
-        </a>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
+            <label className="mb-2 mt-5 block font-black" htmlFor="authority">
+              What authority allows the action?
+            </label>
+            <textarea
+              id="authority"
+              name="authority"
+              className="min-h-28 w-full rounded-xl border border-gray-300 bg-white p-3"
+            />
+
+            <label className="mb-2 mt-5 block font-black" htmlFor="binding">
+              Where does binding or commit occur?
+            </label>
+            <textarea
+              id="binding"
+              name="binding"
+              className="min-h-28 w-full rounded-xl border border-gray-300 bg-white p-3"
+            />
+
+            <label className="mb-2 mt-5 block font-black" htmlFor="wrong">
+              What happens if the system is wrong?
+            </label>
+            <textarea
+              id="wrong"
+              name="wrong"
+              className="min-h-28 w-full rounded-xl border border-gray-300 bg-white p-3"
+            />
+
+            <button
+              type="submit"
+              className="mt-6 rounded-full bg-gray-950 px-6 py-4 font-black text-white transition hover:bg-gray-800"
+            >
+              Submit TA-14 Review Request
+            </button>
+          </form>
+
+          <p className="mt-4 text-gray-600">
+            If the form does not submit in your deployment environment, use the
+            direct email button at the top of this page.
+          </p>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="mb-5 text-4xl font-black tracking-tight">
+            Review boundary
+          </h2>
+
+          <p className="text-lg leading-8 text-gray-700">
+            A TA-14 review is an architecture and admissible-execution review.
+            Unless expressly stated in a written scope, it is not a legal
+            opinion, security audit, compliance certification, endorsement,
+            production validation, or guarantee of system safety.
+          </p>
+
+          <p className="text-lg leading-8 text-gray-700">
+            TA-14 reviews identify strengths, gaps, architectural posture,
+            evidence requirements, admissibility conditions, and possible
+            readiness pathways based on the materials and evidence made available
+            for review.
+          </p>
+        </section>
+
+        <section className="rounded-2xl border-l-8 border-gray-950 bg-gray-100 p-8">
+          <h2 className="mb-4 text-3xl font-black tracking-tight">
+            Submission principle
+          </h2>
+
+          <p className="text-2xl font-black leading-snug">
+            The stronger the evidence package, the stronger the admissibility
+            review can be.
+          </p>
+        </section>
+      </section>
+    </main>
+  );
+}
