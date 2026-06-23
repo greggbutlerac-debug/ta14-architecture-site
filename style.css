@@ -260,3 +260,29 @@ footer {
   .chain-grid, .card-grid { grid-template-columns: 1fr; }
   h1 { font-size: clamp(2.8rem, 16vw, 4.5rem); }
 }
+
+
+.resource-action,
+.resource-note {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: .82rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+
+.resource-action {
+  color: var(--accent-strong);
+}
+
+.resource-note {
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: .25rem .55rem;
+  border-radius: 999px;
+}
+
+.note-card {
+  text-decoration: none;
+  opacity: .92;
+}

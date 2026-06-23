@@ -27,3 +27,7 @@ https://doi.org/10.5281/zenodo.20814817
 ## Notes
 
 TA-14 reviews do not automatically certify, endorse, or validate a system. They identify evidence strength, admissibility gaps, boundary conditions, and readiness requirements.
+
+## Resources link fix
+
+Resources page cards now distinguish clickable resources from reference notes to avoid confusing non-clickable cards or stale page-path links.
