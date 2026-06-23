@@ -1,1 +1,950 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>No Build Before Boundary | TA-14</title><meta name="description" content="TA-14 commercial and architecture boundary standard."/><link rel="stylesheet" href="assets/styles.css"/></head><body><header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="brand" href="index.html">TA-14 Admissible Execution Architecture<span>Proof-bound governance before consequence</span></a><div class="nav-links"><a href="start-here.html">Start Here</a><a href="architecture.html">Architecture</a><a href="services.html">Services</a><a href="use-cases.html">Use Cases</a><a href="resources.html">Resources</a><a class="button-small" href="request-evaluation.html">Request Review</a></div></nav></header><main class="page"><p class="eyebrow">Boundary Standard</p><h1>No build-before-boundary.</h1><p class="lead">TA-14 protects its architecture by separating public education and fit assessment from solution shaping, implementation guidance, roadmaps, evidence packet design, test matrices, and maturity models.</p><div class="grid two"><div class="success"><h3>Free/public lane</h3><ul><li>High-level fit assessment</li><li>Public-material gap identification</li><li>Short threshold comments</li><li>Review-scope discussion</li></ul></div><div class="warning"><h3>Paid or reciprocal lane</h3><ul><li>Evidence packet design</li><li>Route definitions</li><li>Implementation guidance</li><li>Test matrices</li><li>Maturity roadmaps</li><li>TA-14 language approval</li></ul></div></div><section class="site-cta"><h2>Need to know whether a system is ready to act?</h2><p>Request a TA-14 review for an AI workflow, environmental evidence process, partner architecture, institutional decision route, or other consequence-bearing execution pathway.</p><div class="hero-actions"><a class="button button-light" href="request-evaluation.html">Request a TA-14 Review</a><a class="button button-secondary" href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Inquiry">Email TA-14</a></div></section></main><footer class="footer"><div class="footer-inner"><div><strong>TA-14 Admissible Execution Architecture</strong><br/>Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome</div><div><a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a></div></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>No Build Before Boundary | TA-14 Admissible Execution Architecture</title>
+
+  <meta
+    name="description"
+    content="TA-14 No Build Before Boundary rule: high-level fit assessment may occur before scope, but templates, route design, evidence packets, implementation guidance, maturity roadmaps, and partner-review enablement require written agreement."
+  />
+
+  <style>
+    :root {
+      --black: #020617;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --soft: #f8fafc;
+      --white: #ffffff;
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --violet: #7c3aed;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --red: #dc2626;
+      --max: 1200px;
+      --shadow: 0 30px 90px rgba(15, 23, 42, 0.18);
+      --soft-shadow: 0 18px 55px rgba(15, 23, 42, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(220, 38, 38, 0.12), transparent 35rem),
+        radial-gradient(circle at 90% 5%, rgba(245, 158, 11, 0.14), transparent 35rem),
+        radial-gradient(circle at 55% 45%, rgba(124, 58, 237, 0.08), transparent 40rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 45%, #ffffff 100%);
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+      min-width: 245px;
+      padding-top: 4px;
+    }
+
+    .brand strong {
+      color: var(--black);
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      max-width: 850px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      line-height: 1;
+      font-weight: 900;
+      padding: 9px 10px;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .nav-links a:hover {
+      color: var(--black);
+      border-color: var(--black);
+      background: #ffffff;
+    }
+
+    .nav-links .nav-cta {
+      color: #ffffff;
+      background: var(--black);
+      border-color: var(--black);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    section { margin-top: 88px; }
+
+    .hero {
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 44px;
+      padding: clamp(34px, 6vw, 66px);
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(220, 38, 38, 0.50), transparent 30rem),
+        radial-gradient(circle at 88% 12%, rgba(245, 158, 11, 0.42), transparent 30rem),
+        radial-gradient(circle at 55% 100%, rgba(124, 58, 237, 0.24), transparent 28rem),
+        linear-gradient(135deg, #020617 0%, #111827 52%, #1f1008 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.95), rgba(0,0,0,0.16));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow { color: #fed7aa; }
+
+    h1 {
+      margin: 0 0 24px;
+      color: var(--black);
+      font-size: clamp(3.1rem, 8vw, 7rem);
+      line-height: 0.88;
+      letter-spacing: -0.085em;
+    }
+
+    .hero h1 { color: #ffffff; }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--black);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      color: var(--black);
+      font-size: 1.35rem;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    p { margin: 0 0 18px; }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 22px;
+    }
+
+    li { margin-bottom: 8px; }
+
+    .lead {
+      max-width: 920px;
+      color: #334155;
+      font-size: clamp(1.15rem, 2vw, 1.42rem);
+      line-height: 1.72;
+    }
+
+    .hero .lead { color: #ffedd5; }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 900;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.38);
+      transition: transform 160ms ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button.primary {
+      color: var(--black);
+      background: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .button.secondary {
+      color: #ffffff;
+      background: transparent;
+    }
+
+    .hero-panel {
+      border-radius: 34px;
+      padding: 28px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-panel h2 {
+      color: #ffffff;
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+    }
+
+    .signal-box {
+      margin-top: 22px;
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(2, 6, 23, 0.72);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.30);
+    }
+
+    .signal-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      color: #cbd5e1;
+      font-weight: 800;
+    }
+
+    .signal-row:last-child { border-bottom: 0; }
+
+    .signal-row strong { color: #ffffff; }
+
+    .pill {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .pill.green { background: var(--emerald); }
+    .pill.blue { background: var(--blue); }
+    .pill.violet { background: var(--violet); }
+    .pill.amber { background: var(--amber); }
+    .pill.red { background: var(--red); }
+
+    .mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .mini-nav a {
+      color: var(--muted);
+      background: #ffffff;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 28px;
+      background: rgba(255,255,255,0.94);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .card.alt { background: #f8fafc; }
+
+    .card.dark {
+      color: #ffffff;
+      background:
+        radial-gradient(circle at top right, rgba(220, 38, 38, 0.22), transparent 20rem),
+        var(--black);
+      border-color: var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .card.dark h2,
+    .card.dark h3,
+    .card.dark p,
+    .card.dark li { color: #ffffff; }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--red), var(--amber));
+    }
+
+    .quote-panel {
+      margin-top: 32px;
+      padding: 42px;
+      border-radius: 36px;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(220, 38, 38, 0.24), transparent 24rem),
+        radial-gradient(circle at 95% 15%, rgba(245, 158, 11, 0.22), transparent 24rem),
+        var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .quote-panel p.big {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(1.65rem, 3.2vw, 2.85rem);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .rule-map {
+      display: grid;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .rule {
+      display: grid;
+      grid-template-columns: 245px 1fr;
+      gap: 22px;
+      align-items: start;
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
+    }
+
+    .rule strong {
+      color: var(--black);
+      font-size: 1.12rem;
+    }
+
+    .rule span { color: var(--muted); }
+
+    .warning {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 24px;
+      color: #7c2d12;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+    }
+
+    .green-box {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 24px;
+      color: #064e3b;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+    }
+
+    .blue-box {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 24px;
+      color: #1e3a8a;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .red-box {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 24px;
+      color: #7f1d1d;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+
+    .cta-panel {
+      padding: 42px;
+      border-radius: 38px;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(220, 38, 38, 0.24), transparent 24rem),
+        radial-gradient(circle at 90% 10%, rgba(245, 158, 11, 0.20), transparent 24rem),
+        var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-panel h2,
+    .cta-panel p { color: #ffffff; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--muted);
+      padding: 34px 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    footer strong { color: var(--black); }
+
+    footer a {
+      color: var(--black);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        max-width: none;
+      }
+
+      .hero-inner,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .rule {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { letter-spacing: -0.06em; }
+    }
+
+    @media (max-width: 760px) {
+      main { padding-top: 48px; }
+
+      .hero,
+      .card,
+      .quote-panel,
+      .cta-panel {
+        padding: 24px;
+        border-radius: 28px;
+      }
+
+      .signal-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .brand { min-width: 0; }
+
+      .nav-links a {
+        font-size: 0.8rem;
+        padding: 8px 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <strong>TA-14 Admissible Execution Architecture</strong>
+        <span>Proof-bound governance before consequence</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/services">Services</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/resources">Resources</a>
+        <a href="/founder">Founder</a>
+        <a href="/gate">Gate</a>
+        <a href="/positioning">Positioning</a>
+        <a href="/public-record">Public Record</a>
+        <a href="/environmental-integrity">Environmental</a>
+        <a href="/evidence-integrity">Evidence</a>
+        <a href="/partners">Partners</a>
+        <a class="nav-cta" href="/request-evaluation">Request</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">No Build Before Boundary</p>
+
+          <h1>Do not build the route before the boundary is written.</h1>
+
+          <p class="lead">
+            TA-14 can provide high-level fit assessment before formal scope. But deeper architecture shaping,
+            partner-review enablement, evidence packet design, route definitions, test matrices, maturity
+            roadmaps, claim-boundary structures, and implementation guidance require written scope, payment,
+            reciprocity, or a defined engagement.
+          </p>
+
+          <p class="lead">
+            This rule protects TA-14 from being converted into free architecture labor, protects partners from
+            ambiguous claims, and protects clients from confusing review language before a legitimate review
+            boundary exists.
+          </p>
+
+          <div class="button-row">
+            <a class="button primary" href="/request-evaluation">Request Written Scope</a>
+            <a class="button secondary" href="/partners">View Partner Network</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <p class="eyebrow">Boundary Rule</p>
+          <h2>Fit assessment is allowed. Build work is scoped.</h2>
+
+          <p>
+            The difference is simple: TA-14 can help determine whether a review pathway may exist. TA-14 should
+            not design the pathway for free.
+          </p>
+
+          <div class="signal-box">
+            <div class="signal-row">
+              <strong>High-level fit</strong>
+              <span class="pill green">allowed</span>
+            </div>
+            <div class="signal-row">
+              <strong>Evidence packet design</strong>
+              <span class="pill red">scope required</span>
+            </div>
+            <div class="signal-row">
+              <strong>Route mapping</strong>
+              <span class="pill red">scope required</span>
+            </div>
+            <div class="signal-row">
+              <strong>Partner enablement</strong>
+              <span class="pill amber">written boundary</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="mini-nav">
+      <a href="#principle">Principle</a>
+      <a href="#allowed">Allowed Before Scope</a>
+      <a href="#restricted">Requires Scope</a>
+      <a href="#partners">Partner Rule</a>
+      <a href="#claims">Claim Boundary</a>
+      <a href="#why">Why It Matters</a>
+      <a href="#request">Request Scope</a>
+    </div>
+
+    <section id="principle">
+      <p class="eyebrow">Core principle</p>
+
+      <div class="quote-panel">
+        <p class="big">
+          No build before boundary.
+        </p>
+      </div>
+
+      <p class="lead" style="margin-top: 32px;">
+        TA-14 is an admissible-execution review architecture. Its chain, language, evidence standards, partner
+        review pathways, and public credibility have value. They should not be converted into unpaid implementation
+        design for another system before a written boundary exists.
+      </p>
+
+      <div class="green-box">
+        <h3>Safe posture</h3>
+        <p>
+          TA-14 may review whether a conversation, architecture, partner lane, or client pathway appears to fit.
+          But if the next step creates reusable architecture, client-facing delivery structure, implementation
+          material, route-complete evidence objects, test standards, or partner-review operating logic, the work
+          must move into written scope.
+        </p>
+      </div>
+    </section>
+
+    <section id="allowed">
+      <p class="eyebrow">Allowed before written scope</p>
+      <h2>High-level fit assessment can happen before engagement.</h2>
+
+      <div class="grid three">
+        <article class="card">
+          <div class="number">1</div>
+          <h3>Basic orientation</h3>
+          <p>
+            Explaining what TA-14 is, what it is not, and whether a system appears adjacent to admissible-execution review.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number">2</div>
+          <h3>Initial boundary discussion</h3>
+          <p>
+            Clarifying whether the other system is independent, overlapping, partner-track, referral-only, or review-candidate.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">3</div>
+          <h3>Public-material review interest</h3>
+          <p>
+            Determining whether public materials are enough to support a scoped TA-14 architecture or evidence gap review.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number">4</div>
+          <h3>Non-claim clarification</h3>
+          <p>
+            Stating that no certification, endorsement, merger, partnership, alignment, or TA-14 status exists without writing.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">5</div>
+          <h3>Review lane classification</h3>
+          <p>
+            Classifying a possible lane as boundary-only, referral-only, scoped review candidate, partner-track candidate, or strategic partner.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number">6</div>
+          <h3>Next-step offer</h3>
+          <p>
+            Offering a paid review, reciprocal exchange, partner discussion, or written scope as the next step.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="restricted">
+      <p class="eyebrow">Requires written scope</p>
+      <h2>Anything reusable, operational, or client-facing must be scoped.</h2>
+
+      <div class="rule-map">
+        <article class="rule">
+          <strong>Evidence packet design</strong>
+          <span>
+            Custom intake structures, evidence object schemas, proof-object design, review packet construction,
+            admissibility checklists, or route-complete evidence requirements.
+          </span>
+        </article>
+
+        <article class="rule">
+          <strong>Route definitions</strong>
+          <span>
+            Mapping another system’s execution routes, authority routes, refusal routes, partner routes, environmental
+            routes, or client delivery pathways.
+          </span>
+        </article>
+
+        <article class="rule">
+          <strong>Test matrices</strong>
+          <span>
+            Misexecution tests, pressure tests, failure-mode scenarios, admissibility thresholds, escalation tests,
+            refusal tests, or production-readiness test suites.
+          </span>
+        </article>
+
+        <article class="rule">
+          <strong>Maturity roadmaps</strong>
+          <span>
+            Readiness ladders, certification-readiness plans, implementation maturity models, evidence maturity scoring,
+            or route-complete advancement roadmaps.
+          </span>
+        </article>
+
+        <article class="rule">
+          <strong>Partner-review templates</strong>
+          <span>
+            Reusable partner offer sheets, client scopes, operating models, revenue structures, approved-language
+            templates, network positioning, or partner enablement materials.
+          </span>
+        </article>
+
+        <article class="rule">
+          <strong>Implementation guidance</strong>
+          <span>
+            Technical build direction, workflow design, proof-system design, automation structures, governance operations,
+            or production-deployment guidance.
+          </span>
+        </article>
+      </div>
+
+      <div class="red-box">
+        <h3>Hard stop</h3>
+        <p>
+          If the discussion starts producing assets the other party can reuse to build, sell, position, certify,
+          claim readiness, win a client, or operate a governance layer, TA-14 must stop and move to written scope.
+        </p>
+      </div>
+    </section>
+
+    <section id="partners">
+      <p class="eyebrow">Partner-review boundary</p>
+      <h2>Partner-track conversations need the strongest boundary.</h2>
+
+      <p class="lead">
+        Partner-review discussions are valuable because TA-14 can create real credibility, structure, and client
+        value. That is exactly why the boundary must be explicit before TA-14 gives away the operating model.
+      </p>
+
+      <div class="grid two">
+        <article class="card">
+          <h3>Before written partner scope</h3>
+          <ul>
+            <li>Discuss fit.</li>
+            <li>Classify the lane.</li>
+            <li>Clarify non-claims.</li>
+            <li>Identify possible client value.</li>
+            <li>Offer written scope.</li>
+          </ul>
+        </article>
+
+        <article class="card alt">
+          <h3>After written partner scope</h3>
+          <ul>
+            <li>Define review lane.</li>
+            <li>Approve language.</li>
+            <li>Set revenue or reciprocity terms.</li>
+            <li>Map evidence requirements.</li>
+            <li>Deliver client-facing review structure.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="warning">
+        <h3>Partner network protection</h3>
+        <p>
+          No partner may privately deliver the TA-14 layer, use TA-14 status language, claim TA-14 backing,
+          represent certification-readiness, or build client-facing TA-14 review materials without written approval.
+        </p>
+      </div>
+    </section>
+
+    <section id="claims">
+      <p class="eyebrow">Claim boundary</p>
+      <h2>TA-14 language creates reliance. Reliance requires authorization.</h2>
+
+      <div class="grid two">
+        <article class="card">
+          <h3>Restricted without written approval</h3>
+          <ul>
+            <li>TA-14 certified</li>
+            <li>TA-14 aligned</li>
+            <li>TA-14 approved</li>
+            <li>TA-14 backed</li>
+            <li>TA-14 reviewed</li>
+            <li>TA-14 certification-ready</li>
+            <li>TA-14 partner-review pathway</li>
+          </ul>
+        </article>
+
+        <article class="card alt">
+          <h3>Usually safe before scope</h3>
+          <ul>
+            <li>Interested in TA-14 review</li>
+            <li>Potential TA-14 review candidate</li>
+            <li>Discussing review fit</li>
+            <li>Public-material review interest</li>
+            <li>No TA-14 status claimed</li>
+            <li>No certification or endorsement implied</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="blue-box">
+        <h3>Why claim control matters</h3>
+        <p>
+          TA-14 status language can influence trust, credibility, market positioning, partner claims, client
+          confidence, and perceived readiness. That language must not be used before the evidence, review scope,
+          and authorization exist.
+        </p>
+      </div>
+    </section>
+
+    <section id="why">
+      <p class="eyebrow">Why it matters</p>
+      <h2>Without the boundary, the architecture can be extracted without the review.</h2>
+
+      <p class="lead">
+        TA-14’s value is not only in its words. Its value is in the sequence, evidence discipline, route-complete
+        review logic, admissibility chain, decision classes, partner language, and public authority that make the
+        review credible. If those are transferred before scope, another party can receive the architecture value
+        without the accountability, evidence, reciprocity, or TA-14 participation.
+      </p>
+
+      <div class="grid three">
+        <article class="card">
+          <h3>Protect TA-14</h3>
+          <p>
+            Prevents the operating model from being copied into another party’s framework before compensation,
+            reciprocity, or written scope exists.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Protect partners</h3>
+          <p>
+            Prevents confusion about what the partner may claim, deliver, reuse, or present as TA-14-related work.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Protect clients</h3>
+          <p>
+            Prevents clients from relying on review language that has not been authorized, scoped, tested, or delivered.
+          </p>
+        </article>
+      </div>
+
+      <div class="card dark" style="margin-top: 30px;">
+        <h2>Clean rule</h2>
+        <p class="lead" style="color:#e2e8f0;">
+          If it helps someone build, sell, claim, certify, implement, package, route, or deliver a governance layer,
+          it requires written scope.
+        </p>
+      </div>
+    </section>
+
+    <section id="request">
+      <div class="cta-panel">
+        <p class="eyebrow">Request scope</p>
+        <h2>Ready to move from fit discussion to scoped TA-14 work?</h2>
+
+        <p>
+          Send the architecture, entity, review question, client use case, public materials, and desired outcome.
+          TA-14 can define whether the next step is an evidence gap review, partner-review pathway, environmental
+          integrity review, public-material architecture review, or production-readiness review.
+        </p>
+
+        <div class="button-row">
+          <a class="button primary" href="/request-evaluation">Request Written Scope</a>
+          <a class="button secondary" href="/services">View Services</a>
+        </div>
+
+        <p style="margin-top: 18px;">
+          Direct contact: ta14admissibleexecution@gmail.com
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>TA-14 Admissible Execution Architecture</strong><br />
+        Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+      </div>
+
+      <div>
+        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
