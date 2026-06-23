@@ -463,6 +463,10 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
+    .grid.five {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
     .card {
       position: relative;
       overflow: hidden;
@@ -640,6 +644,12 @@
       font-weight: 850;
     }
 
+    .dark-section .tag {
+      background: rgba(255, 255, 255, 0.12);
+      color: #dbeafe;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
     .page-card {
       min-height: 255px;
       display: flex;
@@ -649,7 +659,8 @@
     }
 
     .page-card .code,
-    .review-card .code {
+    .review-card .code,
+    .runtime-code {
       display: inline-flex;
       width: fit-content;
       min-width: 42px;
@@ -674,6 +685,81 @@
 
     .review-card {
       min-height: 235px;
+    }
+
+    .runtime-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 46px;
+      border-radius: 42px;
+      color: #ffffff;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        radial-gradient(circle at 12% 15%, rgba(56, 189, 248, 0.25), transparent 34%),
+        radial-gradient(circle at 88% 20%, rgba(124, 58, 237, 0.24), transparent 36%),
+        linear-gradient(135deg, #07183d, #050b22 54%, #302155);
+      background-size: 70px 70px, 70px 70px, auto, auto, auto;
+      box-shadow: var(--shadow);
+    }
+
+    .runtime-panel h2 {
+      max-width: 1040px;
+      margin-top: 12px;
+      color: #ffffff;
+      font-size: clamp(2.35rem, 4.4vw, 4.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      font-weight: 950;
+    }
+
+    .runtime-panel p {
+      max-width: 1080px;
+      margin-top: 20px;
+      color: #dbeafe;
+      font-size: 1.14rem;
+      line-height: 1.8;
+    }
+
+    .runtime-grid {
+      margin-top: 30px;
+    }
+
+    .runtime-panel .card {
+      background: rgba(255, 255, 255, 0.085);
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: none;
+    }
+
+    .runtime-panel .card h3 {
+      color: #ffffff;
+    }
+
+    .runtime-panel .card p {
+      color: #cbd5e1;
+      margin-top: 0;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .runtime-panel .runtime-code {
+      background: rgba(255, 255, 255, 0.14);
+      color: #dff8ff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 18px;
+    }
+
+    .runtime-panel .chain-band {
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .stack-card {
+      min-height: 240px;
+    }
+
+    .stack-card .runtime-code {
+      margin-bottom: 18px;
     }
 
     .distinction-panel {
@@ -849,7 +935,8 @@
       }
 
       .hero-metrics,
-      .grid.four {
+      .grid.four,
+      .grid.five {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -908,7 +995,8 @@
       .hero-metrics,
       .grid.two,
       .grid.three,
-      .grid.four {
+      .grid.four,
+      .grid.five {
         grid-template-columns: 1fr;
       }
 
@@ -918,6 +1006,7 @@
 
       .feature-panel,
       .distinction-panel,
+      .runtime-panel,
       .request-panel {
         padding: 30px 24px;
         border-radius: 32px;
@@ -953,7 +1042,7 @@
         <a href="/use-cases">Use Cases</a>
         <a href="/resources">Resources</a>
         <a href="/founder">Founder</a>
-        <a href="/gate">Gate</a>
+        <a href="#runtime-admissibility-dashboard">Gate</a>
         <a href="/positioning">Positioning</a>
         <a href="/public-record">Public Record</a>
         <a href="/environmental">Environmental</a>
@@ -1147,6 +1236,74 @@
       </div>
     </section>
 
+    <section id="runtime-admissibility-dashboard">
+      <div class="section-inner">
+        <div class="runtime-panel">
+          <p class="eyebrow">Operational Prototype</p>
+
+          <h2>The TA-14 Runtime Admissibility Dashboard turns the architecture into a working local gate.</h2>
+
+          <p>
+            The Runtime Admissibility Dashboard is a repo-based local prototype inside the TA-14 corpus.
+            It demonstrates how proposed events, repository evidence, safe examples, dangerous examples,
+            and admissibility conditions can be processed through a TA-14-style gate before consequence-bearing
+            execution is allowed to proceed.
+          </p>
+
+          <div class="grid four runtime-grid">
+            <article class="card page-card">
+              <div>
+                <span class="runtime-code">RUN</span>
+                <h3>Local Runtime</h3>
+                <p>
+                  The dashboard runs from the repository folder and provides a working prototype surface for
+                  admissibility evaluation, dashboard status, and event review.
+                </p>
+              </div>
+            </article>
+
+            <article class="card page-card">
+              <div>
+                <span class="runtime-code">SCAN</span>
+                <h3>Repository Intelligence</h3>
+                <p>
+                  Repo scanner and corpus-summary files connect the dashboard to the TA-14 repository,
+                  allowing the prototype to refresh its understanding of the local corpus.
+                </p>
+              </div>
+            </article>
+
+            <article class="card page-card">
+              <div>
+                <span class="runtime-code">TEST</span>
+                <h3>Safe and Dangerous Events</h3>
+                <p>
+                  Safe-event and dangerous-event examples allow the dashboard to test how admissibility logic
+                  distinguishes acceptable routes from routes that require hold, escalation, refusal, or halt.
+                </p>
+              </div>
+            </article>
+
+            <article class="card page-card">
+              <div>
+                <span class="runtime-code">GATE</span>
+                <h3>Admissibility Routing</h3>
+                <p>
+                  The prototype demonstrates the core TA-14 control question: whether a proposed event has
+                  enough admissible evidence to proceed, or whether the route must be held, escalated, refused,
+                  or halted.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="chain-band">
+            The dashboard operationalizes the doctrine: No admissible evidence. No admissible execution.
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="chain">
       <div class="section-inner">
         <div class="section-head">
@@ -1212,6 +1369,63 @@
               <span>The resulting condition, accountability object, verification record, or new reality after execution.</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="public-stack">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-kicker">TA-14 Public Stack</p>
+
+          <h2>TA-14 now has doctrine, publication, repository, portal, and runtime-gate layers.</h2>
+
+          <p>
+            Each layer serves a different purpose. Together they make TA-14 easier to understand, easier to cite,
+            easier to review, easier to preserve, and harder to reduce to a mere concept.
+          </p>
+        </div>
+
+        <div class="grid five">
+          <article class="card stack-card">
+            <span class="runtime-code">DOC</span>
+            <h3>Doctrine Layer</h3>
+            <p>
+              Google Sites, Medium articles, public explanations, review doctrine, and category-positioning materials.
+            </p>
+          </article>
+
+          <article class="card stack-card">
+            <span class="runtime-code">DOI</span>
+            <h3>Publication Layer</h3>
+            <p>
+              Zenodo DOI records preserve frozen publication versions and create stable citation anchors.
+            </p>
+          </article>
+
+          <article class="card stack-card">
+            <span class="runtime-code">GIT</span>
+            <h3>Repository Layer</h3>
+            <p>
+              GitHub preserves standards, schemas, doctrine files, architecture maps, version history, and public development chronology.
+            </p>
+          </article>
+
+          <article class="card stack-card">
+            <span class="runtime-code">WEB</span>
+            <h3>Portal Layer</h3>
+            <p>
+              The public website gives TA-14 a clear front door for visitors, partners, reviewers, prospects, and governance-system builders.
+            </p>
+          </article>
+
+          <article class="card stack-card">
+            <span class="runtime-code">GATE</span>
+            <h3>Runtime Gate Layer</h3>
+            <p>
+              The Runtime Admissibility Dashboard shows how TA-14 can process events, evidence states, and route decisions.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -1331,9 +1545,9 @@
             <div>
               <span class="code">G</span>
               <h3>Gate</h3>
-              <p>The TA-14 Admissible Execution Gate and the reference system for proof-bound execution control.</p>
+              <p>The TA-14 Runtime Admissibility Dashboard and reference system for proof-bound execution control.</p>
             </div>
-            <a href="/gate">Gate and system page.</a>
+            <a href="#runtime-admissibility-dashboard">Gate and runtime prototype.</a>
           </article>
 
           <article class="card page-card">
@@ -1587,6 +1801,7 @@
         <a href="/">Home</a> ·
         <a href="/governance-review">Governance Review</a> ·
         <a href="/architecture">Architecture</a> ·
+        <a href="#runtime-admissibility-dashboard">Gate</a> ·
         <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
       </div>
     </div>
