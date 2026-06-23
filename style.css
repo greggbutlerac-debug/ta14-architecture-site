@@ -286,3 +286,62 @@ footer {
   text-decoration: none;
   opacity: .92;
 }
+
+
+.founder-hero {
+  min-height: 78vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  padding: clamp(3rem, 7vw, 7rem) clamp(1.25rem, 6vw, 7rem);
+}
+
+.founder-copy {
+  max-width: 860px;
+}
+
+.portrait-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.founder-portrait {
+  width: min(420px, 100%);
+  aspect-ratio: 1 / 1.18;
+  object-fit: cover;
+  border-radius: 2rem;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 90px rgba(0,0,0,.45);
+}
+
+.founder-story {
+  border-top: 1px solid var(--line);
+  padding: clamp(3rem, 7vw, 7rem) clamp(1.25rem, 6vw, 7rem);
+  max-width: 1180px;
+}
+
+.founder-story p {
+  color: var(--muted);
+  max-width: 900px;
+  font-size: 1.08rem;
+}
+
+.founder-closing {
+  margin-left: clamp(1.25rem, 6vw, 7rem);
+  margin-right: clamp(1.25rem, 6vw, 7rem);
+}
+
+@media (max-width: 900px) {
+  .founder-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait-wrap {
+    justify-content: flex-start;
+  }
+
+  .founder-portrait {
+    width: min(360px, 100%);
+  }
+}

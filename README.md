@@ -31,3 +31,7 @@ TA-14 reviews do not automatically certify, endorse, or validate a system. They 
 ## Resources link fix
 
 Resources page cards now distinguish clickable resources from reference notes to avoid confusing non-clickable cards or stale page-path links.
+
+## Founder page expansion
+
+Version 5 expands the Founder page into a full author/founder story page and adds the founder portrait image in `/assets/greggory-don-butler-founder.jpg`.
