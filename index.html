@@ -19,7 +19,6 @@
       --light-muted: #64748b;
       --line: #e2e8f0;
       --soft: #f8fafc;
-      --soft-2: #f1f5f9;
       --white: #ffffff;
 
       --blue: #2563eb;
@@ -64,18 +63,18 @@
       top: 0;
       z-index: 50;
       border-bottom: 1px solid rgba(226, 232, 240, 0.88);
-      background: rgba(255, 255, 255, 0.90);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(16px);
     }
 
     .nav {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 15px 24px;
+      padding: 14px 20px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 24px;
+      gap: 22px;
     }
 
     .brand {
@@ -83,18 +82,19 @@
       flex-direction: column;
       gap: 2px;
       text-decoration: none;
-      min-width: 260px;
+      min-width: 245px;
+      padding-top: 4px;
     }
 
     .brand strong {
-      font-size: 1.02rem;
+      font-size: 1rem;
       font-weight: 900;
       letter-spacing: -0.035em;
       color: var(--black);
     }
 
     .brand span {
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       color: var(--light-muted);
       font-weight: 700;
     }
@@ -102,27 +102,34 @@
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 8px;
       align-items: center;
       justify-content: flex-end;
+      max-width: 850px;
     }
 
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 800;
+      font-size: 0.84rem;
+      line-height: 1;
+      font-weight: 900;
+      padding: 9px 10px;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
     }
 
     .nav-links a:hover {
       color: var(--black);
+      border-color: var(--black);
+      background: #ffffff;
     }
 
     .nav-links .nav-cta {
       color: #ffffff;
       background: var(--black);
-      padding: 10px 15px;
-      border-radius: 999px;
+      border-color: var(--black);
       box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
     }
 
@@ -287,12 +294,6 @@
       color: #ffffff;
       border-color: var(--black);
       box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
-    }
-
-    .button-light {
-      background: #ffffff;
-      color: var(--black);
-      border-color: #ffffff;
     }
 
     .direct {
@@ -550,44 +551,6 @@
       font-size: 0.92rem;
     }
 
-    .public-record {
-      border-radius: 38px;
-      padding: 40px;
-      background:
-        radial-gradient(circle at top left, rgba(16, 185, 129, 0.10), transparent 24rem),
-        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.10), transparent 24rem),
-        #ffffff;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .link-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .link-list a {
-      display: block;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      background: #ffffff;
-      text-decoration: none;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-    }
-
-    .link-list strong {
-      display: block;
-      color: var(--black);
-      margin-bottom: 4px;
-    }
-
-    .link-list span {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
     .cta-panel {
       padding: 42px;
       border-radius: 38px;
@@ -637,6 +600,16 @@
     }
 
     @media (max-width: 980px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        max-width: none;
+      }
+
       .hero-inner,
       .grid.two,
       .grid.three,
@@ -651,15 +624,6 @@
     }
 
     @media (max-width: 760px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
-
       main {
         padding-top: 48px;
       }
@@ -668,7 +632,6 @@
       .card,
       .quote-panel,
       .problem,
-      .public-record,
       .cta-panel {
         padding: 24px;
         border-radius: 28px;
@@ -676,6 +639,15 @@
 
       .signal-grid {
         grid-template-columns: 1fr;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+        padding: 8px 9px;
       }
     }
   </style>
@@ -695,7 +667,14 @@
         <a href="/services">Services</a>
         <a href="/use-cases">Use Cases</a>
         <a href="/resources">Resources</a>
-        <a class="nav-cta" href="/request-evaluation">Request Review</a>
+        <a href="/founder">Founder</a>
+        <a href="/gate">Gate</a>
+        <a href="/positioning">Positioning</a>
+        <a href="/public-record">Public Record</a>
+        <a href="/environmental-integrity">Environmental</a>
+        <a href="/evidence-integrity">Evidence</a>
+        <a href="/partner-review-network">Partners</a>
+        <a class="nav-cta" href="/request-evaluation">Request</a>
       </div>
     </nav>
   </header>
@@ -767,8 +746,8 @@
         <a href="#why">Why TA-14</a>
         <a href="#chain">The Chain</a>
         <a href="#pages">Site Map</a>
+        <a href="#future-pages">Expanded Pages</a>
         <a href="#reviews">Reviews</a>
-        <a href="#public-record">Public Record</a>
         <a href="#request">Request Review</a>
       </div>
     </section>
@@ -883,12 +862,11 @@
     </section>
 
     <section id="pages">
-      <p class="eyebrow">Site map</p>
-      <h2>The TA-14 public portal</h2>
+      <p class="eyebrow">Main portal pages</p>
+      <h2>The public TA-14 site now has a real top-level structure.</h2>
 
       <p class="lead">
-        This site is organized as a public entry point for understanding TA-14, reviewing the architecture,
-        identifying service lanes, exploring use cases, accessing public records, and requesting a review.
+        These are the core pages already being rebuilt into the main public portal.
       </p>
 
       <div class="grid three">
@@ -966,6 +944,118 @@
       </div>
     </section>
 
+    <section id="future-pages">
+      <p class="eyebrow">Expanded public architecture pages</p>
+      <h2>The next pages are already linked in the top navigation.</h2>
+
+      <p class="lead">
+        As each page is built, the navigation is already ready. The links are visible now, and each new page
+        will become active as soon as its file is created.
+      </p>
+
+      <div class="grid three">
+        <a class="card page-card" href="/founder">
+          <div>
+            <div class="number blue">F</div>
+            <h3>Founder</h3>
+            <p>
+              Greggory Don Butler authorship, origin, public chronology, publication record, and founder authority.
+            </p>
+          </div>
+          <span>Founder / author page.</span>
+        </a>
+
+        <a class="card page-card alt" href="/gate">
+          <div>
+            <div class="number green">G</div>
+            <h3>Gate</h3>
+            <p>
+              The TA-14 Admissible Execution Gate and the reference system for proof-bound execution control.
+            </p>
+          </div>
+          <span>Gate and system page.</span>
+        </a>
+
+        <a class="card page-card" href="/positioning">
+          <div>
+            <div class="number violet">P</div>
+            <h3>Positioning</h3>
+            <p>
+              TA-14 category position, architecture distinctions, adjacent system boundaries, and public posture.
+            </p>
+          </div>
+          <span>Positioning page.</span>
+        </a>
+
+        <a class="card page-card alt" href="/public-record">
+          <div>
+            <div class="number amber">PR</div>
+            <h3>Public Record</h3>
+            <p>
+              Public chronology, publication records, DOI index, sites, repositories, and evidence anchors.
+            </p>
+          </div>
+          <span>Public record page.</span>
+        </a>
+
+        <a class="card page-card" href="/environmental-integrity">
+          <div>
+            <div class="number green">EI</div>
+            <h3>Environmental Integrity</h3>
+            <p>
+              Environmental Integrity Governance, Atmospheric Integrity Records, IAQ, HVACDR, and atmospheric evidence.
+            </p>
+          </div>
+          <span>Environmental page.</span>
+        </a>
+
+        <a class="card page-card alt" href="/evidence-integrity">
+          <div>
+            <div class="number blue">EV</div>
+            <h3>Evidence Integrity</h3>
+            <p>
+              Evidence Governance, Admissible Evidence Architecture, evidence continuity, and reliance governance.
+            </p>
+          </div>
+          <span>Evidence page.</span>
+        </a>
+
+        <a class="card page-card" href="/partner-review-network">
+          <div>
+            <div class="number violet">PN</div>
+            <h3>Partner Review Network</h3>
+            <p>
+              Independent partner architectures plus TA-14 second-layer admissible-execution review.
+            </p>
+          </div>
+          <span>Partner page.</span>
+        </a>
+
+        <a class="card page-card alt" href="/what-ta14-is-not">
+          <div>
+            <div class="number amber">NO</div>
+            <h3>What TA-14 Is Not</h3>
+            <p>
+              Boundaries separating TA-14 from dashboards, ordinary logging, security audits, legal advice,
+              compliance checklists, and unsupported certification claims.
+            </p>
+          </div>
+          <span>Boundary page.</span>
+        </a>
+
+        <a class="card page-card" href="/no-build-before-boundary">
+          <div>
+            <div class="number green">NB</div>
+            <h3>No Build Before Boundary</h3>
+            <p>
+              Commercial boundaries, protected scope, partner-review limitations, and anti-extraction posture.
+            </p>
+          </div>
+          <span>Scope-control page.</span>
+        </a>
+      </div>
+    </section>
+
     <section id="reviews">
       <p class="eyebrow">Review focus</p>
       <h2>TA-14 reviews systems that can create reliance, intervention, obligation, or outcome.</h2>
@@ -1033,50 +1123,6 @@
             <h3 style="color:#ffffff;">Outcome after execution</h3>
             <p style="color:#cbd5e1;">The result must be recorded, reviewable, and accountable after action occurs.</p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="public-record">
-      <div class="public-record">
-        <p class="eyebrow">Public record anchors</p>
-        <h2>TA-14 is supported by a preserved public architecture record.</h2>
-
-        <p class="lead">
-          These public anchors help establish the public corpus, chronology, preservation record,
-          and reference foundation for TA-14 Admissible Execution Architecture.
-        </p>
-
-        <div class="link-list">
-          <a href="https://doi.org/10.5281/zenodo.20463927" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Volume 1 Foundational Monograph v1.2 — DOI Record</strong>
-            <span>DOI: 10.5281/zenodo.20463927</span>
-          </a>
-
-          <a href="https://doi.org/10.5281/zenodo.20463926" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Volume 1 Concept DOI</strong>
-            <span>Concept DOI: 10.5281/zenodo.20463926</span>
-          </a>
-
-          <a href="https://github.com/greggbutlerac-debug/ta14-admissible-execution-gate" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 GitHub Repository</strong>
-            <span>Public repository for TA-14 admissible-execution architecture materials.</span>
-          </a>
-
-          <a href="https://sites.google.com/view/ta-14-volume-1-preservation-ed/home" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Volume 1 Preservation Page</strong>
-            <span>Public preservation anchor for Volume 1, institutional memory, and admissibility-state architecture.</span>
-          </a>
-
-          <a href="https://sites.google.com/view/environmental-integrity-gover/home" target="_blank" rel="noopener noreferrer">
-            <strong>Environmental Integrity Governance</strong>
-            <span>Public entry point for environmental integrity governance materials.</span>
-          </a>
-
-          <a href="https://sites.google.com/view/atmosphericintegrityrecordairc/home" target="_blank" rel="noopener noreferrer">
-            <strong>Atmospheric Integrity Records / AIRC</strong>
-            <span>Public entry point for atmospheric evidence and environmental record continuity.</span>
-          </a>
         </div>
       </div>
     </section>
