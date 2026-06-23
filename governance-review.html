@@ -1,0 +1,1396 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Governance Review | TA-14 Admissible Execution Architecture</title>
+
+  <meta
+    name="description"
+    content="TA-14 Governance Review evaluates AI execution-governance entities, runtime control systems, trust frameworks, policy engines, partner architectures, and admissibility-adjacent governance systems for admissible execution readiness."
+  />
+
+  <style>
+    :root {
+      --black: #020617;
+      --ink: #0f172a;
+      --muted: #475569;
+      --light-muted: #64748b;
+      --line: #e2e8f0;
+      --soft: #f8fafc;
+      --white: #ffffff;
+
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --violet: #7c3aed;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+
+      --max: 1200px;
+      --radius: 30px;
+      --shadow: 0 30px 90px rgba(15, 23, 42, 0.18);
+      --soft-shadow: 0 18px 55px rgba(15, 23, 42, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(37, 99, 235, 0.16), transparent 34rem),
+        radial-gradient(circle at 85% 5%, rgba(124, 58, 237, 0.13), transparent 34rem),
+        radial-gradient(circle at 50% 45%, rgba(6, 182, 212, 0.08), transparent 42rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.88);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+      min-width: 245px;
+      padding-top: 4px;
+    }
+
+    .brand strong {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      color: var(--black);
+    }
+
+    .brand span {
+      font-size: 0.84rem;
+      color: var(--light-muted);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+      max-width: 900px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      line-height: 1;
+      font-weight: 900;
+      padding: 9px 10px;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--black);
+      border-color: var(--black);
+      background: #ffffff;
+    }
+
+    .nav-links .nav-feature {
+      color: var(--black);
+      border-color: rgba(37, 99, 235, 0.30);
+      background: rgba(37, 99, 235, 0.08);
+    }
+
+    .nav-links .nav-cta {
+      color: #ffffff;
+      background: var(--black);
+      border-color: var(--black);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px 92px;
+    }
+
+    section {
+      margin-top: 88px;
+    }
+
+    .hero {
+      margin-top: 0;
+      padding: 22px 0 30px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 44px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.42), transparent 28rem),
+        radial-gradient(circle at 85% 18%, rgba(124, 58, 237, 0.35), transparent 28rem),
+        radial-gradient(circle at 50% 90%, rgba(6, 182, 212, 0.22), transparent 28rem),
+        linear-gradient(135deg, #020617 0%, #0f172a 48%, #111827 100%);
+      color: #ffffff;
+      padding: clamp(32px, 6vw, 64px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.18));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 18px;
+      color: #94a3b8;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow,
+    .quote-panel .eyebrow,
+    .card.dark .eyebrow,
+    .cta-panel .eyebrow {
+      color: #bae6fd;
+    }
+
+    h1 {
+      max-width: 1080px;
+      margin: 0 0 26px;
+      color: var(--black);
+      font-size: clamp(3.2rem, 8vw, 7.25rem);
+      line-height: 0.88;
+      letter-spacing: -0.085em;
+    }
+
+    .hero h1 {
+      color: #ffffff;
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--black);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      color: var(--black);
+      font-size: 1.35rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .lead {
+      max-width: 940px;
+      color: #334155;
+      font-size: clamp(1.16rem, 2vw, 1.42rem);
+      line-height: 1.72;
+    }
+
+    .hero .lead {
+      color: #dbeafe;
+    }
+
+    .hero-actions,
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 32px 0 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border: 1px solid var(--black);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: #ffffff;
+      color: var(--black);
+      border-color: #ffffff;
+      box-shadow: 0 16px 40px rgba(255, 255, 255, 0.14);
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.38);
+    }
+
+    .button-dark {
+      background: var(--black);
+      color: #ffffff;
+      border-color: var(--black);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
+    }
+
+    .button-light-outline {
+      background: #ffffff;
+      color: var(--black);
+      border-color: var(--line);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+    }
+
+    .direct {
+      margin-top: 12px;
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+
+    .direct a {
+      color: #ffffff;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .hero-orb {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 34px;
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-orb h2 {
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.06em;
+    }
+
+    .hero-orb p {
+      color: #e2e8f0;
+    }
+
+    .chain-line {
+      margin-top: 20px;
+      color: #e0f2fe;
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      font-weight: 900;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .signal {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .signal strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .signal span {
+      color: #cbd5e1;
+      font-size: 0.93rem;
+    }
+
+    .mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .mini-nav a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 13px;
+      color: var(--muted);
+      background: #ffffff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+    }
+
+    .mini-nav a:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .mini-nav a.featured {
+      color: var(--black);
+      border-color: rgba(37, 99, 235, 0.30);
+      background: rgba(37, 99, 235, 0.08);
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--soft-shadow);
+      text-decoration: none;
+      display: block;
+    }
+
+    .card.alt {
+      background: rgba(248, 250, 252, 0.96);
+    }
+
+    .card.dark {
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.20), transparent 18rem),
+        var(--black);
+      color: #ffffff;
+      border-color: var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .card.dark h2,
+    .card.dark h3,
+    .card.dark p,
+    .card.dark li {
+      color: #ffffff;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      transition: transform 160ms ease;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: var(--black);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+
+    .number.blue {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+    }
+
+    .number.violet {
+      background: linear-gradient(135deg, var(--violet), var(--rose));
+    }
+
+    .number.green {
+      background: linear-gradient(135deg, var(--emerald), var(--cyan));
+    }
+
+    .number.amber {
+      background: linear-gradient(135deg, var(--amber), var(--rose));
+    }
+
+    .quote-panel {
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.22), transparent 24rem),
+        radial-gradient(circle at 95% 15%, rgba(124, 58, 237, 0.22), transparent 24rem),
+        var(--black);
+      color: #ffffff;
+      padding: 42px;
+      margin-top: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-panel h2,
+    .quote-panel p {
+      color: #ffffff;
+    }
+
+    .quote-panel p.big {
+      margin: 0;
+      font-size: clamp(1.65rem, 3.2vw, 2.85rem);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .problem {
+      padding: 40px;
+      border: 1px solid var(--line);
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.10), transparent 18rem),
+        #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-panel {
+      padding: 42px;
+      border: 1px solid var(--line);
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 8% 10%, rgba(124, 58, 237, 0.10), transparent 22rem),
+        radial-gradient(circle at 94% 12%, rgba(37, 99, 235, 0.12), transparent 24rem),
+        #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .chain-grid,
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .chain-step,
+    .review-step {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      background: #ffffff;
+      min-height: 178px;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
+    }
+
+    .chain-step strong,
+    .review-step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--black);
+      font-size: 1.07rem;
+    }
+
+    .chain-step span,
+    .review-step span {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .page-card {
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .page-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 20px 20px auto;
+      width: 80px;
+      height: 80px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.16), transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-card span {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .cta-panel {
+      padding: 42px;
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.24), transparent 24rem),
+        radial-gradient(circle at 90% 10%, rgba(244, 63, 94, 0.18), transparent 24rem),
+        var(--black);
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-panel h2,
+    .cta-panel p {
+      color: #ffffff;
+    }
+
+    .cta-panel p {
+      max-width: 900px;
+      color: #e2e8f0;
+      font-size: 1.16rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 900;
+    }
+
+    .boundary-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .boundary-item {
+      border-left: 4px solid var(--blue);
+      border-radius: 0 22px 22px 0;
+      padding: 18px 22px;
+      background: #ffffff;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
+    }
+
+    .boundary-item strong {
+      display: block;
+      color: var(--black);
+      font-size: 1.08rem;
+      margin-bottom: 6px;
+    }
+
+    .boundary-item p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--muted);
+      padding: 34px 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    footer strong {
+      color: var(--black);
+    }
+
+    footer a {
+      color: var(--black);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        max-width: none;
+      }
+
+      .hero-inner,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .chain-grid,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -0.06em;
+      }
+    }
+
+    @media (max-width: 760px) {
+      main {
+        padding-top: 48px;
+      }
+
+      .hero-shell,
+      .card,
+      .quote-panel,
+      .problem,
+      .feature-panel,
+      .cta-panel {
+        padding: 24px;
+        border-radius: 28px;
+      }
+
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+        padding: 8px 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <strong>TA-14 Admissible Execution Architecture</strong>
+        <span>Proof-bound governance before consequence</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a class="nav-feature active" href="/governance-review">Governance Review</a>
+        <a href="/services">Services</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/resources">Resources</a>
+        <a href="/public-record">Public Record</a>
+        <a href="/environmental-integrity">Environmental</a>
+        <a href="/evidence-integrity">Evidence</a>
+        <a href="/partner-review-network">Partners</a>
+        <a class="nav-cta" href="/request-evaluation">Request</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-shell">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">Governance Review</p>
+
+            <h1>Who governs the governance?</h1>
+
+            <p class="lead">
+              Some systems do not merely execute. They govern execution. They claim to authorize AI agents,
+              control workflows, validate trust, enforce policy, route decisions, verify evidence, constrain
+              runtime behavior, or decide whether action should proceed.
+            </p>
+
+            <p class="lead">
+              TA-14 Governance Review evaluates whether those governance systems can actually prove admissible
+              execution before consequence-bearing action occurs.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="/request-evaluation">Request Governance Review</a>
+              <a class="button button-secondary" href="#review-chain">Review the Chain</a>
+              <a class="button button-secondary" href="/">Return Home</a>
+            </div>
+
+            <p class="direct">
+              Direct contact:
+              <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
+            </p>
+          </div>
+
+          <aside class="hero-orb">
+            <p class="eyebrow">Core Question</p>
+            <h2>Can this governance system prove admissible execution?</h2>
+
+            <p>
+              TA-14 does not ask only whether a governance system exists. It asks whether that system can preserve the admissible chain from reality through outcome.
+            </p>
+
+            <div class="chain-line">
+              Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+            </div>
+
+            <div class="signal-grid">
+              <div class="signal">
+                <strong>Evidence</strong>
+                <span>What proof supports action?</span>
+              </div>
+
+              <div class="signal">
+                <strong>Reliance</strong>
+                <span>Who depends on the proof?</span>
+              </div>
+
+              <div class="signal">
+                <strong>Authority</strong>
+                <span>Who may permit consequence?</span>
+              </div>
+
+              <div class="signal">
+                <strong>Outcome</strong>
+                <span>What remains accountable?</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="mini-nav">
+        <a class="featured" href="#what-it-is">What It Is</a>
+        <a href="#who-needs-it">Who Needs It</a>
+        <a href="#review-chain">Review Chain</a>
+        <a href="#test-surfaces">Test Surfaces</a>
+        <a href="#outputs">Outputs</a>
+        <a href="#boundaries">Boundaries</a>
+        <a href="#request">Request Review</a>
+      </div>
+    </section>
+
+    <section id="what-it-is">
+      <p class="eyebrow">What Governance Review Is</p>
+
+      <div class="problem">
+        <h2>TA-14 reviews governance systems the same way it reviews execution systems: through the admissibility chain.</h2>
+
+        <p class="lead">
+          A governance system may appear serious because it has policies, gates, controls, dashboards, audit trails,
+          trust scores, approvals, runtime rules, or refusal logic. But those features do not automatically prove
+          admissible execution.
+        </p>
+
+        <p class="lead">
+          TA-14 Governance Review asks whether the governance entity can show how evidence becomes admissible,
+          how admissibility becomes governed reliance, how reliance becomes valid authority, how authority binds
+          a route, how commit is controlled, how execution is restrained, and how outcome is accounted for.
+        </p>
+
+        <div class="quote-panel">
+          <p class="big">
+            A governance system is not ready because it says “governance.” It is ready when it can prove that consequence cannot happen outside the admissible chain.
+          </p>
+
+          <div class="chain-line">
+            No admissible evidence. No admissible reliance. No admissible execution.
+          </div>
+        </div>
+
+        <div class="grid three">
+          <article class="card">
+            <div class="number blue">1</div>
+            <h3>Review the claim</h3>
+            <p>
+              TA-14 identifies what the governance system claims to control: evidence, policy, identity,
+              runtime behavior, authority, refusal, commit, execution, outcome, or another consequence-bearing layer.
+            </p>
+          </article>
+
+          <article class="card alt">
+            <div class="number violet">2</div>
+            <h3>Map the chain</h3>
+            <p>
+              The system is mapped against Reality, Record, Continuity, Admissibility, Binding,
+              Commit, Execution, and Outcome to identify strengths, gaps, dependencies, and unsupported leaps.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number green">3</div>
+            <h3>Test readiness</h3>
+            <p>
+              TA-14 asks whether the governance system can prevent consequence-bearing action outside
+              the admissibility chain, especially under ambiguity, pressure, authority drift, stale evidence,
+              or incomplete outcome proof.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="who-needs-it">
+      <p class="eyebrow">Who Needs Governance Review</p>
+      <h2>Governance Review is for systems that claim to control whether AI or automated execution should proceed.</h2>
+
+      <p class="lead">
+        This review lane is designed for governance entities, frameworks, architectures, and operational systems that sit near the boundary between decision and consequence.
+      </p>
+
+      <div class="grid three">
+        <article class="card page-card">
+          <div>
+            <div class="number blue">AI</div>
+            <h3>AI Governance Frameworks</h3>
+            <p>
+              Governance models that claim to manage AI decision rights, model risk, human oversight,
+              evidence use, authority, escalation, or consequence-bearing AI deployment.
+            </p>
+          </div>
+          <span>Review whether the framework proves admissible execution, not merely governance intent.</span>
+        </article>
+
+        <article class="card page-card alt">
+          <div>
+            <div class="number violet">RT</div>
+            <h3>Runtime Control Systems</h3>
+            <p>
+              Agent runtime gates, policy engines, orchestration layers, refusal logic, tool-permission systems,
+              safety boundaries, and execution-control architectures.
+            </p>
+          </div>
+          <span>Review whether runtime action remains constrained by admissible evidence and authority.</span>
+        </article>
+
+        <article class="card page-card">
+          <div>
+            <div class="number green">TR</div>
+            <h3>Trust and Verification Layers</h3>
+            <p>
+              Identity systems, attestation layers, trust scores, verification networks, audit layers,
+              and provenance architectures that influence reliance or permission.
+            </p>
+          </div>
+          <span>Review whether trust claims are sufficient for consequence-bearing reliance.</span>
+        </article>
+
+        <article class="card page-card alt">
+          <div>
+            <div class="number amber">PL</div>
+            <h3>Policy and Compliance Workflows</h3>
+            <p>
+              Compliance workflows, policy engines, approval systems, audit trails, regulated decision routes,
+              and institutional review processes.
+            </p>
+          </div>
+          <span>Review whether policy compliance actually reaches admissible execution.</span>
+        </article>
+
+        <article class="card page-card">
+          <div>
+            <div class="number blue">ENV</div>
+            <h3>Environmental Evidence Systems</h3>
+            <p>
+              IAQ, HVACDR, atmospheric records, sensor platforms, intervention systems, diagnostic routes,
+              and environmental integrity workflows.
+            </p>
+          </div>
+          <span>Review whether environmental evidence supports reliance, intervention, and outcome proof.</span>
+        </article>
+
+        <article class="card page-card alt">
+          <div>
+            <div class="number violet">NET</div>
+            <h3>Partner Architectures</h3>
+            <p>
+              Serious adjacent architectures seeking second-layer TA-14 review without being absorbed,
+              renamed, certified, or represented as TA-14 without written approval.
+            </p>
+          </div>
+          <span>Review alignment while preserving each architecture’s independent identity.</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="review-chain">
+      <p class="eyebrow">Review Chain</p>
+
+      <div class="quote-panel">
+        <p class="big">
+          TA-14 reviews whether a governance system can preserve the route from reality to outcome without allowing inadmissible consequence to attach.
+        </p>
+
+        <div class="chain-line">
+          Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+        </div>
+      </div>
+
+      <div class="chain-grid">
+        <article class="chain-step">
+          <div class="number">1</div>
+          <strong>Reality</strong>
+          <span>What real-world condition, operational fact, risk, user state, environmental condition, or decision context does the governance system claim to represent?</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">2</div>
+          <strong>Record</strong>
+          <span>What record, source, signal, model output, sensor value, policy object, document, log, or determination is captured?</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">3</div>
+          <strong>Continuity</strong>
+          <span>Can the governance system preserve chronology, source, baseline, threshold, handoff, determination, and reviewability?</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">4</div>
+          <strong>Admissibility</strong>
+          <span>Does the system distinguish raw records from admissible evidence strong enough to support reliance?</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">5</div>
+          <strong>Binding</strong>
+          <span>Where do evidence, reliance, authority, scope, route, and obligation begin to attach to consequence?</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">6</div>
+          <strong>Commit</strong>
+          <span>Is there a controlled commit boundary where the system receipts why action proceeds, pauses, refuses, or escalates?</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">7</div>
+          <strong>Execution</strong>
+          <span>Can the system prevent consequence-bearing action outside the admissibility chain?</span>
+        </article>
+
+        <article class="chain-step">
+          <div class="number">8</div>
+          <strong>Outcome</strong>
+          <span>Can the governance system account for what happened, what changed, what was prevented, and whether the result matched the admissible basis?</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="test-surfaces">
+      <p class="eyebrow">Test Surfaces</p>
+
+      <div class="feature-panel">
+        <h2>TA-14 tests governance systems where impressive controls often fail.</h2>
+
+        <p class="lead">
+          Governance systems usually look strongest under normal conditions. TA-14 review focuses on the pressure points where evidence, authority, scope, binding, commit, execution, and outcome accountability can degrade.
+        </p>
+
+        <div class="review-grid">
+          <article class="review-step">
+            <div class="number blue">E</div>
+            <strong>Evidence Integrity</strong>
+            <span>Does the system distinguish records, logs, outputs, sensor readings, and claims from admissible evidence?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number violet">R</div>
+            <strong>Reliance Validity</strong>
+            <span>Who or what relies on the evidence, and is that reliance scoped, current, governed, and sufficient?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number green">A</div>
+            <strong>Authority Drift</strong>
+            <span>Can authority change, expire, narrow, conflict, or drift before action occurs?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number amber">S</div>
+            <strong>Scope Control</strong>
+            <span>Does evidence valid for one purpose get stretched into another consequence-bearing route?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number blue">B</div>
+            <strong>Binding Point</strong>
+            <span>Where does the system bind evidence, reliance, authority, and route to obligation or permission?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number violet">C</div>
+            <strong>Commit Boundary</strong>
+            <span>Is there a controlled point where the system proves, receipts, refuses, escalates, or pauses before execution?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number green">F</div>
+            <strong>Fail-Closed Behavior</strong>
+            <span>What happens when evidence is missing, stale, conflicted, insufficient, or not reviewable?</span>
+          </article>
+
+          <article class="review-step">
+            <div class="number amber">O</div>
+            <strong>Outcome Proof</strong>
+            <span>Can the system prove what consequence occurred and whether that consequence matched the admissible basis?</span>
+          </article>
+        </div>
+
+        <div class="grid two" style="margin-top: 22px;">
+          <article class="card dark">
+            <p class="eyebrow">Pressure Testing</p>
+            <h2>Governance must survive pressure.</h2>
+
+            <ul>
+              <li>ambiguous evidence</li>
+              <li>stale or degraded records</li>
+              <li>authority valid → invalid before commit</li>
+              <li>downstream reliance pressure</li>
+              <li>partial or asynchronous execution</li>
+              <li>human escalation delay</li>
+              <li>procedural momentum</li>
+              <li>post-outcome accountability gaps</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <p class="eyebrow">Core finding</p>
+            <h2>A governance system can look mature and still fail admissible execution.</h2>
+
+            <p>
+              It may log every action, display every metric, enforce policies, require approvals, and produce audit trails. TA-14 still asks whether the system prevented consequence from attaching before the evidentiary, reliance, authority, binding, and commit chain was admissible.
+            </p>
+
+            <p>
+              That is the difference between governance appearance and admissible-execution governance.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="outputs">
+      <p class="eyebrow">Review Outputs</p>
+      <h2>A TA-14 Governance Review produces practical, evidence-first findings.</h2>
+
+      <p class="lead">
+        The review may be public-material only, scoped private-material, partner-track, or production-readiness oriented depending on the evidence provided and the written engagement boundary.
+      </p>
+
+      <div class="grid three">
+        <article class="card">
+          <div class="number blue">01</div>
+          <h3>Governance Claim Map</h3>
+          <p>
+            Identifies what the reviewed system claims to govern and where those claims sit in the TA-14 chain.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number violet">02</div>
+          <h3>Admissible-Execution Chain Map</h3>
+          <p>
+            Maps evidence, continuity, admissibility, reliance, authority, binding, commit, execution, and outcome surfaces.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number green">03</div>
+          <h3>Strengths-Plus-Gaps Finding</h3>
+          <p>
+            Recognizes serious architecture strengths while identifying missing proof, weak boundaries, incomplete evidence, or non-reviewable claims.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number amber">04</div>
+          <h3>Evidence Requirements List</h3>
+          <p>
+            Defines what evidence would be required to support stronger admissibility, controlled PASS, production-readiness, or partner-review claims.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number blue">05</div>
+          <h3>Misexecution Pressure Findings</h3>
+          <p>
+            Identifies where the governance system may permit inadmissible execution under ambiguity, pressure, drift, partial execution, or outcome gaps.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number violet">06</div>
+          <h3>Readiness Path</h3>
+          <p>
+            Provides next-step evidence requirements without converting the review into free implementation design or unauthorized architecture-building.
+          </p>
+        </article>
+      </div>
+
+      <div class="quote-panel">
+        <p class="big">
+          The strongest review finding is not “this system is good” or “this system is bad.” It is: here is what the system can prove, here is what remains incomplete, and here is what must be true before consequence can safely proceed.
+        </p>
+      </div>
+    </section>
+
+    <section id="decision-classes">
+      <p class="eyebrow">Decision Classes</p>
+      <h2>Governance Review uses TA-14-style findings, not hype language.</h2>
+
+      <div class="grid three">
+        <article class="card">
+          <h3>Strong Alignment</h3>
+          <p>
+            The reviewed system shows serious alignment with the TA-14 chain and provides credible evidence surfaces, though additional evidence may still be required for production-grade claims.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Partial Admissibility</h3>
+          <p>
+            The system governs some routes or layers well but lacks full route-complete proof across evidence, reliance, authority, binding, commit, execution, or outcome.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Controlled PASS Path</h3>
+          <p>
+            The system may support controlled or limited use if specific evidence conditions, boundaries, and refusal requirements are met.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Evidence Gap</h3>
+          <p>
+            The system makes a governance claim that may be serious but lacks sufficient public or submitted evidence to support the claim.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Route-Complete Evidence Required</h3>
+          <p>
+            The system cannot claim production-grade admissible execution until every consequence-bearing route is registered, governed, tested, fail-closed, and outcome-accounted.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Not Reviewable</h3>
+          <p>
+            Available materials are insufficient to determine whether the governance claim can support admissible execution.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="boundaries">
+      <p class="eyebrow">Boundaries</p>
+
+      <div class="problem">
+        <h2>Governance Review is not certification, endorsement, or absorption.</h2>
+
+        <p class="lead">
+          TA-14 can review another governance system without renaming it, owning it, absorbing it, certifying it, or allowing it to use TA-14 status language without written approval.
+        </p>
+
+        <div class="boundary-list">
+          <div class="boundary-item">
+            <strong>Not endorsement</strong>
+            <p>A review may identify strengths and gaps. It does not mean TA-14 endorses the reviewed system unless expressly stated in a written agreement.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>Not certification</strong>
+            <p>TA-14 Governance Review is an architecture and admissibility-chain review unless a separate certification-readiness or certification program is written and scoped.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>Not legal advice</strong>
+            <p>TA-14 does not provide legal evidence rulings, legal compliance opinions, or legal advice.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>Not a cybersecurity audit</strong>
+            <p>TA-14 may identify integrity or governance concerns, but it does not replace cybersecurity, forensic, SOC, penetration, or compliance audits.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>Not private implementation validation</strong>
+            <p>Public-material review does not infer private production capability from public claims, diagrams, pages, repositories, or statements.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>No unauthorized TA-14 status language</strong>
+            <p>Reviewed systems may not claim TA-14 alignment, partnership, certification-readiness, backing, review status, or shared-pathway status without written approval.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>No build before boundary</strong>
+            <p>Custom route design, implementation guidance, proof-object design, maturity roadmaps, schemas, partner packaging, and enablement materials require written scope.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-to-submit">
+      <p class="eyebrow">How to Submit</p>
+      <h2>Submit the governance system and the consequence it claims to control.</h2>
+
+      <p class="lead">
+        The strongest request identifies the governance claim, the execution route, the evidence used before action, who relies on it, where authority comes from, where binding or commit occurs, and what outcome proof remains after action.
+      </p>
+
+      <div class="grid three">
+        <article class="card">
+          <div class="number blue">1</div>
+          <h3>Describe the system</h3>
+          <p>
+            Name the governance entity, framework, runtime architecture, trust layer, policy workflow, partner system, or environmental evidence route.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number violet">2</div>
+          <h3>Identify the consequence</h3>
+          <p>
+            Explain what action, reliance, refusal, escalation, intervention, route, decision, or outcome the system claims to govern.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number green">3</div>
+          <h3>Provide the evidence basis</h3>
+          <p>
+            Submit public materials, diagrams, logs, governance descriptions, proof objects, event models, route maps, policies, or evidence packets.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="request">
+      <div class="cta-panel">
+        <p class="eyebrow">Request Governance Review</p>
+        <h2>Need to know whether a governance system is ready to govern execution?</h2>
+
+        <p>
+          Request a TA-14 Governance Review for an AI governance framework, runtime control system, trust layer,
+          compliance workflow, policy engine, partner architecture, environmental evidence process, or other
+          admissibility-adjacent governance system.
+        </p>
+
+        <div class="cta-row">
+          <a class="button button-primary" href="/request-evaluation">Request Governance Review</a>
+          <a
+            class="button button-secondary"
+            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Governance%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20Governance%20Review.%0A%0AGovernance%20system%2C%20framework%2C%20or%20architecture%20to%20be%20reviewed%3A%0A%0AWhat%20the%20system%20claims%20to%20govern%3A%0A%0AConsequence-bearing%20action%20or%20decision%20involved%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%3A%0A%0AWhat%20authority%20allows%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AWhat%20outcome%20proof%20exists%20after%20action%3A%0A%0AReview%20materials%20or%20links%3A%0A%0ARequested%20review%20type%3A%0A%0AThank%20you."
+          >
+            Email Governance Review Request
+          </a>
+          <a class="button button-secondary" href="/">Return Home</a>
+        </div>
+
+        <p style="margin-top: 18px;">
+          Direct contact: ta14admissibleexecution@gmail.com
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>TA-14 Admissible Execution Architecture</strong><br />
+        Governance Review · Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+      </div>
+
+      <div>
+        <a href="/">Home</a> ·
+        <a href="/architecture">Architecture</a> ·
+        <a href="/evidence-integrity">Evidence Integrity</a> ·
+        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+```
