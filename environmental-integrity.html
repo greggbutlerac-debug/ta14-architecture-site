@@ -1,1 +1,1335 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Environmental Integrity Governance | TA-14</title><meta name="description" content="Environmental Integrity Governance under TA-14."/><link rel="stylesheet" href="assets/styles.css"/></head><body><header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="brand" href="index.html">TA-14 Admissible Execution Architecture<span>Proof-bound governance before consequence</span></a><div class="nav-links"><a href="start-here.html">Start Here</a><a href="architecture.html">Architecture</a><a href="services.html">Services</a><a href="use-cases.html">Use Cases</a><a href="resources.html">Resources</a><a class="button-small" href="request-evaluation.html">Request Review</a></div></nav></header><main class="page"><p class="eyebrow">Environmental Integrity Governance</p><h1>Atmospheric evidence is not ordinary monitoring.</h1><p class="lead">Environmental Integrity Governance applies TA-14 logic to air, buildings, HVACDR, IAQ, refrigeration, filtration, diagnostics, intervention, and post-intervention outcome proof.</p><div class="grid three"><div class="card"><h3>Observation</h3><p>Preserve environmental condition records with source, context, and chronology.</p></div><div class="card alt"><h3>Baseline and threshold</h3><p>Define what condition is normal, what threshold matters, and what evidence supports intervention.</p></div><div class="card"><h3>Diagnostic determination</h3><p>Separate raw readings from interpreted findings that can support action.</p></div><div class="card alt"><h3>Intervention authority</h3><p>Show why a consequence-bearing intervention is authorized and bounded.</p></div><div class="card"><h3>Evidence before contact</h3><p>Non-invasive evidence should govern refrigerant-side contact and other consequence-bearing actions.</p></div><div class="card alt"><h3>Outcome verification</h3><p>Preserve post-intervention proof and the new environmental record.</p></div></div><section class="site-cta"><h2>Need to know whether a system is ready to act?</h2><p>Request a TA-14 review for an AI workflow, environmental evidence process, partner architecture, institutional decision route, or other consequence-bearing execution pathway.</p><div class="hero-actions"><a class="button button-light" href="request-evaluation.html">Request a TA-14 Review</a><a class="button button-secondary" href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Inquiry">Email TA-14</a></div></section></main><footer class="footer"><div class="footer-inner"><div><strong>TA-14 Admissible Execution Architecture</strong><br/>Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome</div><div><a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a></div></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Environmental Integrity | TA-14 Admissible Execution Architecture</title>
+
+  <meta
+    name="description"
+    content="Environmental Integrity Governance under TA-14: atmospheric evidence, IAQ, HVACDR, Atmospheric Integrity Records, AIRC, admissible environmental evidence, and proof-bound intervention before consequence."
+  />
+
+  <style>
+    :root {
+      --black: #020617;
+      --ink: #0f172a;
+      --muted: #475569;
+      --light-muted: #64748b;
+      --line: #e2e8f0;
+      --soft: #f8fafc;
+      --white: #ffffff;
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --violet: #7c3aed;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --red: #dc2626;
+      --max: 1200px;
+      --radius: 30px;
+      --shadow: 0 30px 90px rgba(15, 23, 42, 0.18);
+      --soft-shadow: 0 18px 55px rgba(15, 23, 42, 0.10);
+      --warning-bg: #fff7ed;
+      --warning: #7c2d12;
+      --green-bg: #ecfdf5;
+      --green: #064e3b;
+      --blue-bg: #eff6ff;
+      --blue-text: #1e3a8a;
+      --violet-bg: #f5f3ff;
+      --violet-text: #4c1d95;
+      --red-bg: #fef2f2;
+      --red-text: #7f1d1d;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(16, 185, 129, 0.16), transparent 34rem),
+        radial-gradient(circle at 85% 5%, rgba(6, 182, 212, 0.15), transparent 34rem),
+        radial-gradient(circle at 50% 45%, rgba(37, 99, 235, 0.08), transparent 42rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.88);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+      min-width: 245px;
+      padding-top: 4px;
+    }
+
+    .brand strong {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      color: var(--black);
+    }
+
+    .brand span {
+      font-size: 0.84rem;
+      color: var(--light-muted);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+      max-width: 850px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      line-height: 1;
+      font-weight: 900;
+      padding: 9px 10px;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .nav-links a:hover {
+      color: var(--black);
+      border-color: var(--black);
+      background: #ffffff;
+    }
+
+    .nav-links .nav-cta {
+      color: #ffffff;
+      background: var(--black);
+      border-color: var(--black);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px 92px;
+    }
+
+    section { margin-top: 88px; }
+
+    .hero {
+      margin-top: 0;
+      padding: 22px 0 30px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 44px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(16, 185, 129, 0.44), transparent 28rem),
+        radial-gradient(circle at 88% 16%, rgba(6, 182, 212, 0.42), transparent 28rem),
+        radial-gradient(circle at 54% 92%, rgba(124, 58, 237, 0.20), transparent 28rem),
+        linear-gradient(135deg, #020617 0%, #0f172a 48%, #062923 100%);
+      color: #ffffff;
+      padding: clamp(32px, 6vw, 64px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.18));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 18px;
+      color: var(--light-muted);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow { color: #bbf7d0; }
+
+    h1 {
+      max-width: 1080px;
+      margin: 0 0 26px;
+      color: var(--black);
+      font-size: clamp(3.35rem, 8vw, 7.15rem);
+      line-height: 0.88;
+      letter-spacing: -0.085em;
+    }
+
+    .hero h1 {
+      color: #ffffff;
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--black);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      color: var(--black);
+      font-size: 1.35rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    p { margin: 0 0 18px; }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    li { margin-bottom: 8px; }
+
+    .lead {
+      max-width: 930px;
+      color: #334155;
+      font-size: clamp(1.16rem, 2vw, 1.42rem);
+      line-height: 1.72;
+    }
+
+    .hero .lead { color: #dcfce7; }
+
+    .hero-actions,
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 32px 0 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border: 1px solid var(--black);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      background: #ffffff;
+      color: var(--black);
+      border-color: #ffffff;
+      box-shadow: 0 16px 40px rgba(255, 255, 255, 0.14);
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.38);
+    }
+
+    .button-dark {
+      background: var(--black);
+      color: #ffffff;
+      border-color: var(--black);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
+    }
+
+    .direct {
+      margin-top: 12px;
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+
+    .direct a {
+      color: #ffffff;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .env-panel {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 36px;
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .env-panel h2 {
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3.05rem);
+      letter-spacing: -0.06em;
+    }
+
+    .signal-box {
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 26px;
+      background: rgba(2, 6, 23, 0.72);
+      padding: 22px;
+      margin-top: 22px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.30);
+    }
+
+    .signal-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      color: #cbd5e1;
+      font-weight: 800;
+    }
+
+    .signal-row:last-child { border-bottom: 0; }
+
+    .signal-row strong { color: #ffffff; }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .status.pass { background: var(--emerald); }
+    .status.hold { background: var(--amber); }
+    .status.refuse { background: var(--red); }
+    .status.escalate { background: var(--violet); }
+
+    .chain-line {
+      margin-top: 20px;
+      color: #e0f2fe;
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      font-weight: 900;
+    }
+
+    .mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .mini-nav a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 13px;
+      color: var(--muted);
+      background: #ffffff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+    }
+
+    .mini-nav a:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--soft-shadow);
+      text-decoration: none;
+      display: block;
+    }
+
+    .card.alt { background: rgba(248, 250, 252, 0.96); }
+
+    .card.dark {
+      background:
+        radial-gradient(circle at top right, rgba(16, 185, 129, 0.18), transparent 18rem),
+        var(--black);
+      color: #ffffff;
+      border-color: var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .card.dark h2,
+    .card.dark h3,
+    .card.dark p,
+    .card.dark li { color: #ffffff; }
+
+    .card:hover {
+      transform: translateY(-2px);
+      transition: transform 160ms ease;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: var(--black);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.92rem;
+    }
+
+    .number.blue { background: linear-gradient(135deg, var(--blue), var(--cyan)); }
+    .number.violet { background: linear-gradient(135deg, var(--violet), var(--rose)); }
+    .number.green { background: linear-gradient(135deg, var(--emerald), var(--cyan)); }
+    .number.amber { background: linear-gradient(135deg, var(--amber), var(--rose)); }
+    .number.red { background: linear-gradient(135deg, var(--red), var(--rose)); }
+
+    .quote-panel {
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.22), transparent 24rem),
+        radial-gradient(circle at 95% 15%, rgba(6, 182, 212, 0.22), transparent 24rem),
+        var(--black);
+      color: #ffffff;
+      padding: 42px;
+      margin-top: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-panel h2,
+    .quote-panel p { color: #ffffff; }
+
+    .quote-panel p.big {
+      margin: 0;
+      font-size: clamp(1.65rem, 3.2vw, 2.85rem);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .compare-box {
+      border-radius: 30px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+      background: #ffffff;
+    }
+
+    .compare-box.old { background: #f8fafc; }
+
+    .compare-box.new {
+      background:
+        radial-gradient(circle at top right, rgba(16,185,129,0.12), transparent 16rem),
+        #ffffff;
+      border-color: #a7f3d0;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .flow-step {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      background: #ffffff;
+      min-height: 190px;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
+    }
+
+    .flow-step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--black);
+      font-size: 1.08rem;
+    }
+
+    .flow-step span {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .evidence-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .evidence-item {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      background: #ffffff;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.055);
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .evidence-item strong {
+      color: var(--black);
+      font-size: 1.12rem;
+    }
+
+    .evidence-item span {
+      color: var(--muted);
+    }
+
+    .record-card {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      background: #ffffff;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.06);
+      text-decoration: none;
+      display: block;
+      min-height: 190px;
+    }
+
+    .record-card:hover {
+      transform: translateY(-2px);
+      transition: transform 160ms ease;
+    }
+
+    .record-card strong {
+      display: block;
+      color: var(--black);
+      font-size: 1.08rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .record-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .record-card .meta {
+      margin-top: 14px;
+      color: var(--light-muted);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .warning {
+      border: 1px solid #fed7aa;
+      border-radius: 22px;
+      background: var(--warning-bg);
+      color: var(--warning);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .warning h3,
+    .warning p,
+    .warning li { color: var(--warning); }
+
+    .green-box {
+      border: 1px solid #a7f3d0;
+      border-radius: 22px;
+      background: var(--green-bg);
+      color: var(--green);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .green-box h3,
+    .green-box p,
+    .green-box li { color: var(--green); }
+
+    .blue-box {
+      border: 1px solid #bfdbfe;
+      border-radius: 22px;
+      background: var(--blue-bg);
+      color: var(--blue-text);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .blue-box h3,
+    .blue-box p,
+    .blue-box li { color: var(--blue-text); }
+
+    .violet-box {
+      border: 1px solid #ddd6fe;
+      border-radius: 22px;
+      background: var(--violet-bg);
+      color: var(--violet-text);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .violet-box h3,
+    .violet-box p,
+    .violet-box li { color: var(--violet-text); }
+
+    .red-box {
+      border: 1px solid #fecaca;
+      border-radius: 22px;
+      background: var(--red-bg);
+      color: var(--red-text);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .red-box h3,
+    .red-box p,
+    .red-box li { color: var(--red-text); }
+
+    .cta-panel {
+      padding: 42px;
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.24), transparent 24rem),
+        radial-gradient(circle at 90% 10%, rgba(6, 182, 212, 0.20), transparent 24rem),
+        var(--black);
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-panel h2,
+    .cta-panel p { color: #ffffff; }
+
+    .cta-panel p {
+      max-width: 860px;
+      color: #e2e8f0;
+      font-size: 1.16rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--muted);
+      padding: 34px 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    footer strong { color: var(--black); }
+
+    footer a {
+      color: var(--black);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        max-width: none;
+      }
+
+      .hero-inner,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .comparison,
+      .flow,
+      .evidence-item {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { letter-spacing: -0.06em; }
+    }
+
+    @media (max-width: 760px) {
+      main { padding-top: 48px; }
+
+      .hero-shell,
+      .card,
+      .quote-panel,
+      .cta-panel {
+        padding: 24px;
+        border-radius: 28px;
+      }
+
+      .brand { min-width: 0; }
+
+      .nav-links a {
+        font-size: 0.8rem;
+        padding: 8px 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <strong>TA-14 Admissible Execution Architecture</strong>
+        <span>Proof-bound governance before consequence</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/services">Services</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/resources">Resources</a>
+        <a href="/founder">Founder</a>
+        <a href="/gate">Gate</a>
+        <a href="/positioning">Positioning</a>
+        <a href="/public-record">Public Record</a>
+        <a href="/environmental-integrity">Environmental</a>
+        <a href="/evidence-integrity">Evidence</a>
+        <a href="/partner-review-network">Partners</a>
+        <a class="nav-cta" href="/request-evaluation">Request</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-shell">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">Environmental Integrity Governance</p>
+
+            <h1>The atmosphere needs admissible evidence.</h1>
+
+            <p class="lead">
+              Environmental Integrity Governance applies TA-14 to air, buildings, HVACDR, indoor environmental
+              quality, refrigeration-side intervention, filtration, diagnostics, and atmospheric records.
+            </p>
+
+            <p class="lead">
+              It separates ordinary monitoring from admissible environmental evidence. A sensor can detect.
+              A dashboard can display. Optimization can adjust. But none of those automatically prove that
+              environmental action was admissible before people relied on the result.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="/request-evaluation">Request Environmental Review</a>
+              <a class="button button-secondary" href="https://sites.google.com/view/environmental-integrity-gover/home" target="_blank" rel="noopener noreferrer">Open EIG Public Site</a>
+            </div>
+
+            <p class="direct">
+              Direct contact:
+              <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
+            </p>
+          </div>
+
+          <aside class="env-panel">
+            <p class="eyebrow">Core Distinction</p>
+            <h2>Monitoring is not Environmental Integrity Governance.</h2>
+
+            <p>
+              Sensors and dashboards can be useful, but they are not the same as governed atmospheric evidence,
+              preserved chronology, intervention authority, reliance validity, and post-intervention proof.
+            </p>
+
+            <div class="signal-box">
+              <div class="signal-row">
+                <strong>Atmospheric Reality</strong>
+                <span class="status pass">observed</span>
+              </div>
+              <div class="signal-row">
+                <strong>Record Continuity</strong>
+                <span class="status hold">must prove</span>
+              </div>
+              <div class="signal-row">
+                <strong>Threshold</strong>
+                <span class="status pass">declared</span>
+              </div>
+              <div class="signal-row">
+                <strong>Intervention Authority</strong>
+                <span class="status escalate">governed</span>
+              </div>
+              <div class="signal-row">
+                <strong>Post-Intervention Proof</strong>
+                <span class="status refuse">required</span>
+              </div>
+            </div>
+
+            <div class="chain-line">
+              Observation → Record → Threshold → Determination → Intervention → Outcome Proof
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="mini-nav">
+        <a href="#distinction">Distinction</a>
+        <a href="#why">Why It Matters</a>
+        <a href="#airc">AIRC</a>
+        <a href="#chain">TA-14 Chain</a>
+        <a href="#intervention">Intervention Proof</a>
+        <a href="#domains">Domains</a>
+        <a href="#public-record">Public Record</a>
+        <a href="#boundaries">Boundaries</a>
+        <a href="#request">Request Review</a>
+      </div>
+    </section>
+
+    <section id="distinction">
+      <p class="eyebrow">The distinction</p>
+
+      <div class="quote-panel">
+        <p class="big">
+          Dashboards are not atmospheric admissibility. Sensors do not replace governance. Optimization is not proof.
+        </p>
+
+        <div class="chain-line">
+          Environmental signal → atmospheric record → admissible reliance → governed intervention → verified outcome
+        </div>
+      </div>
+
+      <div class="comparison">
+        <article class="compare-box old">
+          <h3>Ordinary environmental monitoring</h3>
+          <ul>
+            <li>Displays readings.</li>
+            <li>Tracks sensor values.</li>
+            <li>Shows trend lines.</li>
+            <li>Triggers alerts.</li>
+            <li>Optimizes equipment behavior.</li>
+            <li>Logs what the system saw or did.</li>
+          </ul>
+        </article>
+
+        <article class="compare-box new">
+          <h3>Environmental Integrity Governance</h3>
+          <ul>
+            <li>Preserves atmospheric evidence.</li>
+            <li>Maintains chronology and continuity.</li>
+            <li>Defines thresholds and reliance conditions.</li>
+            <li>Separates observation from validation.</li>
+            <li>Controls intervention authority.</li>
+            <li>Requires post-intervention proof.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="red-box">
+        <h3>The risk of collapsing observer, actor, and validator</h3>
+        <p>
+          If the same operational loop senses, interprets, optimizes, intervenes, generates the record, and validates
+          the result, the environmental proof chain can become contaminated. Environmental Integrity Governance
+          requires evidentiary separation strong enough to support reliance.
+        </p>
+      </div>
+    </section>
+
+    <section id="why">
+      <p class="eyebrow">Why it matters</p>
+      <h2>People rely on air before anyone proves the air is governable.</h2>
+
+      <p class="lead">
+        Environmental systems create reliance every day. Occupants breathe the air. Building owners trust
+        dashboards. Technicians intervene. Automation adjusts equipment. Institutions make claims about indoor
+        conditions. But a reading, chart, filter, coating, or optimization strategy does not automatically prove
+        environmental integrity.
+      </p>
+
+      <div class="grid three">
+        <article class="card">
+          <div class="number green">01</div>
+          <h3>Reliance happens fast</h3>
+          <p>
+            People rely on environmental conditions in real time. TA-14 asks whether the evidence behind that
+            reliance is preserved, admissible, and strong enough.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number blue">02</div>
+          <h3>Intervention changes reality</h3>
+          <p>
+            HVACDR, filtration, ventilation, refrigeration, controls, and IAQ interventions do not merely
+            produce data. They change environmental reality.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number violet">03</div>
+          <h3>Outcome must be proven</h3>
+          <p>
+            Environmental integrity requires a post-intervention record that proves what changed, whether the
+            threshold was met, and whether reliance became valid.
+          </p>
+        </article>
+      </div>
+
+      <div class="green-box">
+        <h3>Environmental Integrity Governance asks the harder question</h3>
+        <p>
+          Not merely “what does the dashboard show?” but “is the atmospheric evidence chain admissible enough
+          to justify reliance, intervention, execution, and outcome claims?”
+        </p>
+      </div>
+    </section>
+
+    <section id="airc">
+      <p class="eyebrow">Atmospheric Integrity Records / AIRC</p>
+      <h2>Atmospheric Integrity Records preserve the environmental evidence chain.</h2>
+
+      <p class="lead">
+        Atmospheric Integrity Records are the record layer for environmental integrity. They treat atmospheric
+        conditions as evidence-bearing reality, not just sensor output. The purpose is to preserve the sequence
+        from observation through outcome proof.
+      </p>
+
+      <div class="evidence-list">
+        <article class="evidence-item">
+          <strong>Atmospheric observation</strong>
+          <span>
+            What was observed, when, by what source, under what conditions, and with what known limitations?
+          </span>
+        </article>
+
+        <article class="evidence-item">
+          <strong>Baseline and chronology</strong>
+          <span>
+            What was the pre-intervention condition, what changed over time, and was the record sequence preserved?
+          </span>
+        </article>
+
+        <article class="evidence-item">
+          <strong>Threshold and determination</strong>
+          <span>
+            What threshold, standard, rule, diagnostic determination, or reliance condition was declared?
+          </span>
+        </article>
+
+        <article class="evidence-item">
+          <strong>Intervention authority</strong>
+          <span>
+            Who or what had authority to intervene, optimize, adjust, remediate, declare success, or create reliance?
+          </span>
+        </article>
+
+        <article class="evidence-item">
+          <strong>Post-intervention proof</strong>
+          <span>
+            What outcome record proves the intervention worked, failed, degraded, or requires continued review?
+          </span>
+        </article>
+      </div>
+
+      <div class="blue-box">
+        <h3>AIRC function</h3>
+        <p>
+          AIRC gives environmental claims a record structure. It does not merely ask whether a sensor produced
+          a value. It asks whether that value can participate in an admissible atmospheric evidence chain.
+        </p>
+      </div>
+    </section>
+
+    <section id="chain">
+      <p class="eyebrow">TA-14 environmental chain</p>
+      <h2>Environmental integrity maps directly to the TA-14 chain.</h2>
+
+      <div class="flow">
+        <article class="flow-step">
+          <div class="number green">1</div>
+          <strong>Reality</strong>
+          <span>The actual atmospheric or environmental condition before reliance or intervention.</span>
+        </article>
+
+        <article class="flow-step">
+          <div class="number blue">2</div>
+          <strong>Record</strong>
+          <span>The preserved evidence of that condition, including source, time, baseline, and known limitations.</span>
+        </article>
+
+        <article class="flow-step">
+          <div class="number violet">3</div>
+          <strong>Continuity</strong>
+          <span>The proof that records were not broken, replaced, altered, or detached from the condition they represent.</span>
+        </article>
+
+        <article class="flow-step">
+          <div class="number amber">4</div>
+          <strong>Admissibility</strong>
+          <span>The determination that evidence is strong enough to support reliance, diagnosis, action, or claim.</span>
+        </article>
+
+        <article class="flow-step">
+          <div class="number green">5</div>
+          <strong>Binding</strong>
+          <span>The point where environmental evidence becomes relied upon for decision, claim, intervention, or obligation.</span>
+        </article>
+
+        <article class="flow-step">
+          <div class="number blue">6</div>
+          <strong>Commit</strong>
+          <span>The moment action becomes difficult to reverse, such as adjustment, remediation, shutdown, upgrade, or declaration.</span>
+        </article>
+
+        <article class="flow-step">
+          <div class="number violet">7</div>
+          <strong>Execution</strong>
+          <span>The environmental intervention, optimization, diagnostic action, operating change, or reliance event.</span>
+        </article>
+
+        <article class="flow-step">
+          <div class="number amber">8</div>
+          <strong>Outcome</strong>
+          <span>The post-intervention atmospheric proof that verifies what changed and whether the route was justified.</span>
+        </article>
+      </div>
+
+      <div class="card dark" style="margin-top:30px;">
+        <h2>Environmental execution is still execution.</h2>
+        <p class="lead" style="color:#e2e8f0;">
+          When a system changes air, controls equipment, declares safety, recommends action, validates a condition,
+          or creates reliance, consequence is being formed. TA-14 treats that as an admissible-execution problem.
+        </p>
+      </div>
+    </section>
+
+    <section id="intervention">
+      <p class="eyebrow">Evidence before intervention</p>
+      <h2>Environmental intervention must be justified before it changes reality.</h2>
+
+      <p class="lead">
+        TA-14’s applied environmental doctrine comes from a simple operational discipline: before intervention,
+        there must be sequence, baseline, threshold, declared diagnostic determination, and post-intervention
+        performance record.
+      </p>
+
+      <div class="grid three">
+        <article class="card">
+          <div class="number green">SEQ</div>
+          <h3>Sequence</h3>
+          <p>
+            The order of observation, testing, diagnosis, threshold comparison, intervention, and verification
+            must be preserved.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number blue">BASE</div>
+          <h3>Baseline</h3>
+          <p>
+            The system must know the pre-action condition before it can prove that intervention changed anything.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number violet">THR</div>
+          <h3>Threshold</h3>
+          <p>
+            The system must identify what condition matters and what evidence is sufficient to justify reliance.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number amber">DET</div>
+          <h3>Determination</h3>
+          <p>
+            A diagnostic or environmental determination must be declared before the route can justify action.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number green">ACT</div>
+          <h3>Intervention</h3>
+          <p>
+            The action must be authorized, bounded, controlled, and connected to the evidence that justified it.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number blue">POST</div>
+          <h3>Post-intervention record</h3>
+          <p>
+            The outcome must be preserved so the system can prove whether the action succeeded, failed, or requires review.
+          </p>
+        </article>
+      </div>
+
+      <div class="warning">
+        <h3>No evidence-before-intervention, no admissible environmental claim</h3>
+        <p>
+          If the system cannot prove the condition before action, the reason for action, the authority for action,
+          and the result after action, then its environmental claim is incomplete.
+        </p>
+      </div>
+    </section>
+
+    <section id="domains">
+      <p class="eyebrow">Applied domains</p>
+      <h2>Environmental Integrity Governance applies wherever environmental evidence creates reliance.</h2>
+
+      <div class="grid three">
+        <article class="card">
+          <h3>Indoor Air Quality</h3>
+          <p>
+            IAQ readings, occupant exposure claims, air-quality dashboards, filtration claims, ventilation status,
+            and indoor environmental reliance.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>HVACDR / refrigeration</h3>
+          <p>
+            Diagnostic sequence, baseline condition, threshold, intervention authority, refrigerant-side action,
+            equipment behavior, and post-action performance record.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Building automation</h3>
+          <p>
+            Control strategies, optimization loops, ventilation changes, equipment scheduling, IAQ response,
+            and automated environmental decisions.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Filtration and remediation</h3>
+          <p>
+            Claims about filters, coatings, purification, remediation, cleaning, air treatment, or environmental
+            improvement require outcome evidence.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Institutional reliance</h3>
+          <p>
+            Schools, facilities, employers, healthcare environments, public buildings, and property operators
+            rely on atmospheric claims that should be evidence-governed.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Environmental review</h3>
+          <p>
+            TA-14 can review whether an environmental system has enough evidence continuity, authority, threshold,
+            intervention, and outcome proof to support reliance.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="public-record">
+      <p class="eyebrow">Public record anchors</p>
+      <h2>Environmental Integrity Governance has a public architecture record.</h2>
+
+      <div class="grid three">
+        <a class="record-card" href="https://sites.google.com/view/environmental-integrity-gover/home" target="_blank" rel="noopener noreferrer">
+          <strong>Environmental Integrity Governance</strong>
+          <span>Public entry point for atmospheric and environmental evidence governance.</span>
+          <span class="meta">EIG public site</span>
+        </a>
+
+        <a class="record-card" href="https://sites.google.com/view/atmosphericintegrityrecordairc/home" target="_blank" rel="noopener noreferrer">
+          <strong>Atmospheric Integrity Records / AIRC</strong>
+          <span>Public entry point for atmospheric records and environmental evidence continuity.</span>
+          <span class="meta">AIRC public site</span>
+        </a>
+
+        <a class="record-card" href="https://sites.google.com/view/environmental-integrity-gover/reference/greggory-don-butler" target="_blank" rel="noopener noreferrer">
+          <strong>Greggory Don Butler — EIG Reference</strong>
+          <span>Reference page for Greggory Don Butler’s Environmental Integrity Governance work.</span>
+          <span class="meta">Origin / reference</span>
+        </a>
+
+        <a class="record-card" href="https://www.scilynk.com/paper/W7161428741" target="_blank" rel="noopener noreferrer">
+          <strong>Environmental Integrity Governance Indexed Record</strong>
+          <span>Indexed public publication record for Environmental Integrity Governance.</span>
+          <span class="meta">Scilynk index</span>
+        </a>
+
+        <a class="record-card" href="https://www.scilynk.com/paper/W7161494305" target="_blank" rel="noopener noreferrer">
+          <strong>Atmospheric Integrity Records Indexed Record</strong>
+          <span>Indexed public publication record for Atmospheric Integrity Records.</span>
+          <span class="meta">Scilynk index</span>
+        </a>
+
+        <a class="record-card" href="https://www.automatedbuildings.com/author/butler/" target="_blank" rel="noopener noreferrer">
+          <strong>AutomatedBuildings Author Archive</strong>
+          <span>Published articles connecting environmental integrity, IAQ, HVAC, atmospheric evidence, and building automation.</span>
+          <span class="meta">AutomatedBuildings</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="boundaries">
+      <p class="eyebrow">Boundaries</p>
+      <h2>Environmental Integrity Governance is not a dashboard claim.</h2>
+
+      <div class="grid three">
+        <article class="card">
+          <h3>Not ordinary monitoring</h3>
+          <p>
+            Monitoring can show a condition. EIG asks whether the condition is part of a governed evidence chain.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Not optimization alone</h3>
+          <p>
+            Optimization may improve performance. EIG asks whether the intervention was justified and proven.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Not certification by default</h3>
+          <p>
+            A public page, article, sensor platform, or review conversation does not certify an environmental system.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Not legal or medical advice</h3>
+          <p>
+            Environmental integrity review is architecture and evidence review. It is not legal, medical, or regulatory advice.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Not a replacement for specialists</h3>
+          <p>
+            EIG can work with HVACDR, IAQ, engineering, facility, scientific, legal, safety, and regulatory specialists.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Not a free implementation scope</h3>
+          <p>
+            Custom environmental evidence design, route mapping, review packets, and partner implementation require written scope.
+          </p>
+        </article>
+      </div>
+
+      <div class="violet-box">
+        <h3>Correct positioning</h3>
+        <p>
+          Environmental Integrity Governance is the admissible-evidence layer for environmental reliance:
+          observation, record, continuity, threshold, determination, intervention authority, execution control,
+          and post-intervention proof.
+        </p>
+      </div>
+    </section>
+
+    <section id="request">
+      <div class="cta-panel">
+        <p class="eyebrow">Request review</p>
+        <h2>Need an Environmental Integrity Governance review?</h2>
+
+        <p>
+          Submit an IAQ system, HVACDR process, environmental monitoring platform, filtration claim, building
+          automation route, atmospheric evidence process, or post-intervention proof package for TA-14 review.
+          The review can identify whether the environmental evidence chain is strong enough to support reliance,
+          intervention, and outcome claims.
+        </p>
+
+        <div class="cta-row">
+          <a class="button button-primary" href="/request-evaluation">Request Environmental Review</a>
+          <a class="button button-secondary" href="/resources">Open Public Resources</a>
+        </div>
+
+        <p style="margin-top: 18px;">
+          Direct contact: ta14admissibleexecution@gmail.com
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>TA-14 Admissible Execution Architecture</strong><br />
+        Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+      </div>
+
+      <div>
+        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
