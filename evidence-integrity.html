@@ -1,25 +1,1273 @@
-<header class="site-header">
-  <nav class="nav" aria-label="Main navigation">
-    <a class="brand" href="/">
-      <strong>TA-14 Admissible Execution Architecture</strong>
-      <span>Return to homepage</span>
-    </a>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evidence Integrity | TA-14 Admissible Execution Architecture</title>
+  <meta
+    name="description"
+    content="Evidence Integrity is the upstream proof discipline inside TA-14 Admissible Execution Architecture. A record is not automatically evidence, and evidence is not automatically admissible for reliance or execution."
+  />
 
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/start-here">Start Here</a>
-      <a href="/architecture">Architecture</a>
-      <a href="/services">Services</a>
-      <a href="/use-cases">Use Cases</a>
-      <a href="/resources">Resources</a>
-      <a href="/founder">Founder</a>
-      <a href="/gate">Gate</a>
-      <a href="/positioning">Positioning</a>
-      <a href="/public-record">Public Record</a>
-      <a href="/environmental-integrity">Environmental</a>
-      <a href="/evidence">Evidence</a>
-      <a href="/partners">Partners</a>
-      <a class="nav-cta" href="/request-evaluation">Request</a>
+  <style>
+    :root {
+      --bg: #070b12;
+      --bg-soft: #0d1420;
+      --panel: #111b2a;
+      --panel-2: #0f1724;
+      --panel-3: #151f30;
+      --text: #eef4ff;
+      --muted: #aab8cc;
+      --muted-2: #8291a8;
+      --line: rgba(185, 205, 235, 0.16);
+      --line-strong: rgba(185, 205, 235, 0.28);
+      --gold: #d9b56d;
+      --gold-soft: rgba(217, 181, 109, 0.14);
+      --blue: #8fb8ff;
+      --blue-soft: rgba(143, 184, 255, 0.13);
+      --green: #9de0bd;
+      --green-soft: rgba(157, 224, 189, 0.12);
+      --red: #ff9b9b;
+      --red-soft: rgba(255, 155, 155, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(143, 184, 255, 0.16), transparent 32%),
+        radial-gradient(circle at 90% 10%, rgba(217, 181, 109, 0.12), transparent 34%),
+        linear-gradient(180deg, #060910 0%, #08101b 38%, #070b12 100%);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 11, 18, 0.82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 250px;
+    }
+
+    .brand strong {
+      font-size: 15px;
+      letter-spacing: 0.02em;
+    }
+
+    .brand span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-links a.home-link {
+      color: var(--gold);
+      border-color: rgba(217, 181, 109, 0.28);
+      background: rgba(217, 181, 109, 0.08);
+    }
+
+    main {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 76px 0 44px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      background: var(--gold-soft);
+      border: 1px solid rgba(217, 181, 109, 0.22);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      margin: 0 0 22px;
+    }
+
+    .hero-lede {
+      font-size: clamp(18px, 2vw, 22px);
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 0 26px;
+    }
+
+    .rule-line {
+      font-size: clamp(21px, 3vw, 32px);
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      color: var(--text);
+      margin: 28px 0;
+      padding: 22px 24px;
+      border-left: 4px solid var(--gold);
+      background: linear-gradient(90deg, rgba(217, 181, 109, 0.12), rgba(217, 181, 109, 0.02));
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+
+    .hero-actions,
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 12px 17px;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, rgba(217, 181, 109, 0.92), rgba(190, 139, 57, 0.96));
+      color: #111014;
+      border-color: rgba(217, 181, 109, 0.78);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(217, 181, 109, 0.42);
+    }
+
+    .hero-card {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+        var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(217, 181, 109, 0.16), transparent 32%),
+        radial-gradient(circle at 0% 100%, rgba(143, 184, 255, 0.12), transparent 36%);
+      pointer-events: none;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .mini-title {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 14px;
+    }
+
+    .chain {
+      display: grid;
+      gap: 9px;
+      margin: 20px 0;
+    }
+
+    .chain span {
+      display: block;
+      padding: 11px 13px;
+      border-radius: 13px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .chain span.strong {
+      color: var(--text);
+      border-color: rgba(217, 181, 109, 0.34);
+      background: rgba(217, 181, 109, 0.09);
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-panel {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018)),
+        var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: clamp(26px, 4vw, 46px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+    }
+
+    .section-kicker {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      margin: 0 0 18px;
+    }
+
+    h3 {
+      font-size: 21px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      margin: 0 0 10px;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .lead {
+      font-size: 19px;
+      color: #d9e4f7;
+      max-width: 920px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      background: rgba(255,255,255,0.035);
+      min-height: 100%;
+    }
+
+    .card.gold {
+      background: var(--gold-soft);
+      border-color: rgba(217, 181, 109, 0.28);
+    }
+
+    .card.blue {
+      background: var(--blue-soft);
+      border-color: rgba(143, 184, 255, 0.24);
+    }
+
+    .card.green {
+      background: var(--green-soft);
+      border-color: rgba(157, 224, 189, 0.24);
+    }
+
+    .card.red {
+      background: var(--red-soft);
+      border-color: rgba(255, 155, 155, 0.24);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .number {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      background: rgba(217, 181, 109, 0.14);
+      border: 1px solid rgba(217, 181, 109, 0.32);
+      color: var(--gold);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .equation {
+      font-size: clamp(20px, 3vw, 34px);
+      line-height: 1.22;
+      letter-spacing: -0.035em;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(217, 181, 109, 0.28);
+      background: rgba(217, 181, 109, 0.10);
+      margin: 24px 0;
+      color: var(--text);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .compare h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(217, 181, 109, 0.28);
+      background: rgba(217, 181, 109, 0.08);
+      margin-bottom: 12px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin: 26px 0;
+    }
+
+    .flow .step {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      background: rgba(255,255,255,0.035);
+      min-height: 110px;
+    }
+
+    .flow .step strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .flow .step span {
+      color: var(--muted-2);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .state {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+    }
+
+    .state h3 {
+      font-size: 18px;
+    }
+
+    .state p {
+      font-size: 14px;
+    }
+
+    .chain-map {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .chain-node {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+    }
+
+    .chain-node strong {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .chain-node p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .anchors {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .anchor-card {
+      display: block;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      transition: 0.18s ease;
+    }
+
+    .anchor-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(217, 181, 109, 0.42);
+      background: rgba(217, 181, 109, 0.07);
+    }
+
+    .anchor-card strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--text);
+    }
+
+    .anchor-card span {
+      display: block;
+      color: var(--muted-2);
+      font-size: 13px;
+    }
+
+    .boundary-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .boundary-item {
+      border-left: 3px solid var(--gold);
+      background: rgba(255,255,255,0.035);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 16px 18px;
+    }
+
+    .boundary-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .boundary-item p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .cta {
+      padding: 44px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(217, 181, 109, 0.30);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(217, 181, 109, 0.20), transparent 30%),
+        radial-gradient(circle at 100% 100%, rgba(143, 184, 255, 0.13), transparent 34%),
+        rgba(17, 27, 42, 0.92);
+      margin: 34px 0 54px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      max-width: 840px;
+    }
+
+    .contact {
+      margin-top: 22px;
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0 44px;
+      color: var(--muted-2);
+    }
+
+    .footer-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-inner strong {
+      color: var(--text);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .split,
+      .grid-2,
+      .compare {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .anchors {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-4,
+      .state-grid,
+      .chain-map {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-wrap {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .grid-3,
+      .grid-4,
+      .state-grid,
+      .chain-map,
+      .anchors,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .section-panel,
+      .cta {
+        padding: 24px;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="/" aria-label="Return to TA-14 homepage">
+        <strong>TA-14 Admissible Execution Architecture</strong>
+        <span>Proof-bound governance before consequence</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="home-link" href="/">Home</a>
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/services">Services</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/resources">Resources</a>
+        <a href="/environmental-integrity">Environmental</a>
+        <a class="active" href="/evidence-integrity">Evidence</a>
+        <a href="/partners">Partners</a>
+        <a href="/request-evaluation">Request</a>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div>
+        <div class="eyebrow">Evidence Integrity</div>
+        <h1>Evidence must be governed before execution.</h1>
+        <p class="hero-lede">
+          TA-14 does not begin at the moment of action. It begins earlier, with the evidence a system wants to rely on before it binds, commits, executes, or creates consequence.
+        </p>
+
+        <p class="hero-lede">
+          Evidence Integrity is the upstream proof discipline inside <strong>TA-14 Admissible Execution Architecture</strong>. It asks whether records, signals, documents, logs, observations, measurements, outputs, claims, and determinations are strong enough to become admissible evidence — and whether admissible evidence is strong enough to support reliance.
+        </p>
+
+        <div class="rule-line">
+          No admissible evidence.<br />
+          No admissible reliance.<br />
+          No admissible execution.
+        </div>
+
+        <div class="hero-actions">
+          <a class="button primary" href="/request-evaluation">Request Evidence Gap Review</a>
+          <a class="button" href="/resources">Open Evidence Records</a>
+          <a class="button" href="/">Return Home</a>
+        </div>
+
+        <p class="contact">Direct contact: ta14admissibleexecution@gmail.com</p>
+      </div>
+
+      <aside class="hero-card">
+        <p class="mini-title">Core chain</p>
+        <h2>Record is not permission.</h2>
+        <p>
+          A system may possess a record and still lack evidence. It may possess evidence and still lack admissibility. It may possess admissible evidence and still lack governed reliance or authority to execute.
+        </p>
+
+        <div class="chain" aria-label="Evidence integrity progression">
+          <span>Record exists</span>
+          <span>Evidence must qualify</span>
+          <span>Admissibility must be earned</span>
+          <span>Reliance must be governed</span>
+          <span class="strong">Execution is not automatic</span>
+        </div>
+
+        <p>
+          Evidence Integrity protects the movement from reality into admissible proof before consequence-bearing action occurs.
+        </p>
+      </aside>
+    </section>
+
+    <section id="core-doctrine">
+      <div class="section-panel">
+        <div class="section-kicker">Core Doctrine</div>
+        <h2>A record is not automatically admissible evidence.</h2>
+        <p class="lead">
+          TA-14 separates record, evidence, admissible evidence, reliance, authority, binding, commit, execution, and outcome.
+        </p>
+
+        <div class="equation">
+          Record → Evidence → Admissibility → Reliance → Authority → Binding → Commit → Execution → Outcome
+        </div>
+
+        <div class="compare">
+          <div class="card red">
+            <span class="pill">What many systems assume</span>
+            <h3>The shortcut</h3>
+            <ul>
+              <li>If it is logged, it is evidence.</li>
+              <li>If it is evidence, it can be trusted.</li>
+              <li>If it can be trusted, it can be relied upon.</li>
+              <li>If it can be relied upon, execution may proceed.</li>
+              <li>If execution is logged, governance happened.</li>
+            </ul>
+          </div>
+
+          <div class="card green">
+            <span class="pill">What TA-14 requires</span>
+            <h3>The admissible chain</h3>
+            <ul>
+              <li>A record must qualify as evidence.</li>
+              <li>Evidence must prove continuity and sufficiency.</li>
+              <li>Admissible evidence must be scoped to the decision.</li>
+              <li>Reliance must be authorized and bounded.</li>
+              <li>Execution must be controlled before consequence attaches.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card gold" style="margin-top: 18px;">
+          <h3>The dangerous shortcut</h3>
+          <p>
+            When systems skip from “a record exists” to “execution is allowed,” they collapse the evidence chain. TA-14 exists to prevent that shortcut. The existence of data is not the same as admissible authority to create consequence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-it-matters">
+      <div class="section-panel">
+        <div class="section-kicker">Why It Matters</div>
+        <h2>Execution failures often begin as evidence failures.</h2>
+        <p class="lead">
+          A system can execute the intended instruction and still misexecute if the evidence behind that instruction was incomplete, stale, broken, out of scope, unauthoritative, contaminated, contradicted, or insufficient for reliance.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="number">01</div>
+            <h3>Bad evidence creates bad reliance</h3>
+            <p>
+              If evidence is weak, unreliable, stale, incomplete, or contradicted, reliance built on that evidence is unstable.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="number">02</div>
+            <h3>Bad reliance creates bad execution</h3>
+            <p>
+              When a system relies on evidence that has not become admissible, it may bind, commit, or execute without a legitimate basis.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="number">03</div>
+            <h3>Bad execution creates bad outcome</h3>
+            <p>
+              Once consequence attaches, the problem is no longer only informational. It becomes operational, institutional, environmental, financial, legal, atmospheric, or human.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule-line">
+          Evidence Integrity stops damaged proof before it becomes consequence.
+        </div>
+      </div>
+    </section>
+
+    <section id="distinction">
+      <div class="section-panel">
+        <div class="section-kicker">The Distinction</div>
+        <h2>Information, record, evidence, and admissible evidence are not the same thing.</h2>
+
+        <div class="flow">
+          <div class="step">
+            <strong>Information</strong>
+            <span>A signal, statement, measurement, observation, output, message, image, claim, or event available to a system.</span>
+          </div>
+
+          <div class="step">
+            <strong>Record</strong>
+            <span>Preserved information. It may show that something was stored, logged, measured, written, captured, or generated.</span>
+          </div>
+
+          <div class="step">
+            <strong>Evidence</strong>
+            <span>A record that can be evaluated for relevance, source, continuity, scope, meaning, and usefulness to a claim or decision.</span>
+          </div>
+
+          <div class="step">
+            <strong>Admissible Evidence</strong>
+            <span>Evidence strong enough, continuous enough, scoped enough, and authoritative enough to support a defined reliance condition.</span>
+          </div>
+
+          <div class="step">
+            <strong>Governed Reliance</strong>
+            <span>The controlled point where admissible evidence may support authority, binding, commit, execution, or outcome claims.</span>
+          </div>
+        </div>
+
+        <p class="lead">
+          TA-14 does not allow systems to jump from record to execution. The evidence-to-admissibility transition must be preserved, governed, and reviewable.
+        </p>
+      </div>
+    </section>
+
+    <section id="evidence-governance">
+      <div class="section-panel">
+        <div class="section-kicker">Evidence Governance Architecture</div>
+        <h2>Evidence itself requires governance.</h2>
+        <p class="lead">
+          Evidence Integrity is the public-facing proof condition. Evidence Governance Architecture is the deeper TA-14 architecture family that asks what must be true of evidence before admissibility can exist.
+        </p>
+
+        <div class="grid-4">
+          <div class="card">
+            <h3>Source Integrity</h3>
+            <p>Where did the record, signal, observation, measurement, log, output, claim, or determination originate, and is that origin trustworthy enough for review?</p>
+          </div>
+
+          <div class="card">
+            <h3>Chronology</h3>
+            <p>Was the sequence preserved from reality to record to evidence to determination, or did the system lose the order needed to support consequence?</p>
+          </div>
+
+          <div class="card">
+            <h3>Continuity</h3>
+            <p>Can the evidence prove it remained connected to the reality, source event, system state, or condition it claims to represent?</p>
+          </div>
+
+          <div class="card">
+            <h3>Sufficiency</h3>
+            <p>Is the evidence strong enough for the actual decision, route, intervention, reliance, or execution being considered?</p>
+          </div>
+
+          <div class="card">
+            <h3>Authority</h3>
+            <p>Who or what is authorized to generate, validate, interpret, rely on, bind, commit, or execute from this evidence?</p>
+          </div>
+
+          <div class="card">
+            <h3>Scope</h3>
+            <p>What is the evidence allowed to prove, and what is outside its evidentiary reach?</p>
+          </div>
+
+          <div class="card">
+            <h3>Survivability</h3>
+            <p>Can the evidence remain valid under runtime pressure, ambiguity, missing data, downstream reliance, adversarial pressure, or procedural momentum?</p>
+          </div>
+
+          <div class="card">
+            <h3>Lifecycle</h3>
+            <p>Is the evidence active, partial, stale, superseded, degraded, conflicted, insufficient, or no longer reviewable?</p>
+          </div>
+        </div>
+
+        <div class="card gold" style="margin-top: 18px;">
+          <h3>Evidence Governance is upstream of execution</h3>
+          <p>
+            TA-14 remains Admissible Execution Architecture. Evidence Governance does not rename the parent. It explains what must be true before admissible execution can exist.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="transition">
+      <div class="section-panel">
+        <div class="section-kicker">Evidence-to-Admissibility Transition</div>
+        <h2>The key transition is not data to action. It is evidence to admissibility.</h2>
+        <p class="lead">
+          Many systems try to move from data directly to action. TA-14 inserts the missing governance sequence: record, evidence, admissible evidence, governed reliance, authority, binding, commit, execution, and outcome.
+        </p>
+
+        <div class="grid-4">
+          <div class="card blue">
+            <div class="number">1</div>
+            <h3>Record</h3>
+            <p>A preserved trace, signal, document, observation, log, measurement, statement, image, output, or event record.</p>
+          </div>
+
+          <div class="card blue">
+            <div class="number">2</div>
+            <h3>Evidence</h3>
+            <p>A record that can be evaluated for relevance, source, continuity, scope, meaning, and usefulness to a claim or decision.</p>
+          </div>
+
+          <div class="card blue">
+            <div class="number">3</div>
+            <h3>Admissible Evidence</h3>
+            <p>Evidence strong enough, continuous enough, scoped enough, and authoritative enough to support a defined reliance condition.</p>
+          </div>
+
+          <div class="card blue">
+            <div class="number">4</div>
+            <h3>Governed Reliance</h3>
+            <p>The controlled point where admissible evidence may support binding, commit, execution, refusal, escalation, or outcome claims within defined limits.</p>
+          </div>
+        </div>
+
+        <div class="card red" style="margin-top: 18px;">
+          <h3>Evidence can outrun governance.</h3>
+          <p>
+            Evidence Outrun occurs when evidence volume, speed, complexity, reliance pressure, downstream use, or procedural momentum exceeds the system’s ability to preserve continuity and determine admissibility. TA-14 treats that as a serious pre-execution risk.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="states">
+      <div class="section-panel">
+        <div class="section-kicker">Evidence States</div>
+        <h2>Evidence has a state. That state can change.</h2>
+        <p class="lead">
+          TA-14 treats evidence as something that can be active, partial, degraded, conflicted, superseded, stale, insufficient, or not reviewable. Execution should not rely on evidence without knowing its current state.
+        </p>
+
+        <div class="state-grid">
+          <div class="state">
+            <h3>Active</h3>
+            <p>Current enough, connected enough, and reviewable enough to participate in admissibility analysis.</p>
+          </div>
+
+          <div class="state">
+            <h3>Partial</h3>
+            <p>Useful but incomplete. May support investigation, but not consequence-bearing execution by itself.</p>
+          </div>
+
+          <div class="state">
+            <h3>Degraded</h3>
+            <p>Weakening due to age, missing continuity, uncertainty, pressure, source issues, ambiguity, or changed conditions.</p>
+          </div>
+
+          <div class="state">
+            <h3>Conflicted</h3>
+            <p>Competing records or interpretations prevent direct reliance without reconciliation or escalation.</p>
+          </div>
+
+          <div class="state">
+            <h3>Superseded</h3>
+            <p>Replaced by stronger, newer, corrected, or higher-authority evidence.</p>
+          </div>
+
+          <div class="state">
+            <h3>Stale</h3>
+            <p>Once useful but no longer current enough to support reliance for the proposed route.</p>
+          </div>
+
+          <div class="state">
+            <h3>Insufficient</h3>
+            <p>Not strong enough to support the claim, threshold, diagnosis, authority, or execution route.</p>
+          </div>
+
+          <div class="state">
+            <h3>Not Reviewable</h3>
+            <p>Lacks enough origin, continuity, source, context, or preservation to participate in admissibility review.</p>
+          </div>
+        </div>
+
+        <div class="rule-line">
+          If the system does not know the state of the evidence, the route is not ready for consequence-bearing execution.
+        </div>
+      </div>
+    </section>
+
+    <section id="chain-map">
+      <div class="section-panel">
+        <div class="section-kicker">TA-14 Chain Mapping</div>
+        <h2>Evidence Integrity supports every part of the admissible-execution chain.</h2>
+
+        <div class="chain-map">
+          <div class="chain-node">
+            <strong>Reality</strong>
+            <p>The condition, event, state, action, or environment the evidence claims to represent.</p>
+          </div>
+
+          <div class="chain-node">
+            <strong>Record</strong>
+            <p>The preserved trace or source object that captures some aspect of reality.</p>
+          </div>
+
+          <div class="chain-node">
+            <strong>Continuity</strong>
+            <p>The proof that the record remained connected, ordered, preserved, and reviewable.</p>
+          </div>
+
+          <div class="chain-node">
+            <strong>Admissibility</strong>
+            <p>The determination that evidence is sufficient, scoped, authoritative, and reliable enough for reliance.</p>
+          </div>
+
+          <div class="chain-node">
+            <strong>Binding</strong>
+            <p>The point where reliance begins to attach to obligation, permission, decision, routing, or consequence.</p>
+          </div>
+
+          <div class="chain-node">
+            <strong>Commit</strong>
+            <p>The controlled boundary where a route becomes difficult to reverse and must be receipted.</p>
+          </div>
+
+          <div class="chain-node">
+            <strong>Execution</strong>
+            <p>The action that may proceed only if the evidence chain supports admissible execution.</p>
+          </div>
+
+          <div class="chain-node">
+            <strong>Outcome</strong>
+            <p>The preserved proof of what execution created, changed, prevented, escalated, or refused.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="applied-domains">
+      <div class="section-panel">
+        <div class="section-kicker">Applied Domains</div>
+        <h2>Evidence Integrity connects AI governance, environmental proof, and partner review.</h2>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>AI Systems</h3>
+            <p>
+              A model output is not automatically admissible evidence. TA-14 asks what sources grounded the output, whether they were current and authoritative, whether uncertainty was preserved, and whether reliance occurred before admissibility was established.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Environmental Integrity</h3>
+            <p>
+              A dashboard reading is not automatically atmospheric proof. Environmental Integrity requires sequence, baseline, threshold, declared determination, intervention authority, and post-intervention record.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Partner Reviews</h3>
+            <p>
+              Partner architectures may specialize in one layer of governance. TA-14 reviews whether the full chain from evidence through outcome remains admissible before consequence is allowed.
+            </p>
+          </div>
+        </div>
+
+        <div class="card gold" style="margin-top: 18px;">
+          <h3>The observer, actor, and validator problem</h3>
+          <p>
+            Environmental and automated systems can create evidentiary risk when the same operational loop observes the condition, interprets it, intervenes, and validates its own outcome. Evidence Integrity preserves the distinction between monitoring, optimization, operational action, and admissible proof.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="public-records">
+      <div class="section-panel">
+        <div class="section-kicker">Public Record Anchors</div>
+        <h2>Evidence Integrity is preserved in the TA-14 public record.</h2>
+        <p class="lead">
+          Public records support chronology, architecture position, and review basis. They do not automatically prove private production capability. TA-14 uses public records carefully: to identify stated architecture, preserve chronology, map strengths and gaps, and avoid unsupported private-capability assumptions.
+        </p>
+
+        <div class="anchors">
+          <a class="anchor-card" href="/resources">
+            <strong>TA-14 Resource Hub</strong>
+            <span>Expanded DOI, GitHub, article, public site, and indexed-record library.</span>
+          </a>
+
+          <a class="anchor-card" href="/architecture">
+            <strong>TA-14 Parent Architecture</strong>
+            <span>Full chain: Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome.</span>
+          </a>
+
+          <a class="anchor-card" href="/environmental-integrity">
+            <strong>Environmental Integrity Governance</strong>
+            <span>Applied evidence integrity for atmospheric, HVAC, IAQ, refrigeration, and environmental proof chains.</span>
+          </a>
+
+          <a class="anchor-card" href="/public-record">
+            <strong>Public Record</strong>
+            <span>Chronology and public preservation anchors for TA-14 materials.</span>
+          </a>
+
+          <a class="anchor-card" href="/use-cases">
+            <strong>Use Cases</strong>
+            <span>AI workflows, institutional decisions, environmental systems, partner architectures, and runtime pressure cases.</span>
+          </a>
+
+          <a class="anchor-card" href="/">
+            <strong>Return to Home</strong>
+            <span>Back to the primary TA-14 public entry point.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="boundaries">
+      <div class="section-panel">
+        <div class="section-kicker">Boundaries</div>
+        <h2>Evidence Integrity is not a claim that every record is ready for execution.</h2>
+
+        <div class="boundary-list">
+          <div class="boundary-item">
+            <strong>Not all records are evidence</strong>
+            <p>A record can exist and still fail as evidence if source, context, continuity, or meaning cannot be established.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>Not all evidence is admissible</strong>
+            <p>Evidence can be relevant but still insufficient, stale, conflicted, unauthorized, degraded, contradicted, or out of scope.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>Not all admissible evidence authorizes execution</strong>
+            <p>Even strong evidence must pass through reliance, authority, binding, commit, and execution control.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>Not a legal evidence opinion</strong>
+            <p>TA-14 evidence review is architecture and admissibility-chain review, not legal advice or a legal evidentiary ruling.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>Not a cybersecurity audit</strong>
+            <p>Evidence Integrity can surface integrity issues, but it does not replace cybersecurity, forensic, or compliance audits.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>Not free implementation scope</strong>
+            <p>Custom schemas, route objects, implementation guidance, maturity roadmaps, production mapping, proof-object design, and third-party implementation work require written scope.</p>
+          </div>
+
+          <div class="boundary-item">
+            <strong>Correct positioning</strong>
+            <p>Evidence Integrity is the upstream proof discipline inside TA-14. It governs whether the evidence chain is strong enough before a system is allowed to rely, bind, commit, execute, or create outcome.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="request-review">
+      <div class="cta">
+        <div class="section-kicker">Request Review</div>
+        <h2>Need an Evidence Gap Review?</h2>
+        <p class="lead">
+          Submit an AI workflow, environmental evidence process, institutional decision route, partner architecture, governance system, automation pathway, dashboard, execution gate, or public-material architecture claim.
+        </p>
+        <p>
+          TA-14 can review whether the record and evidence chain are strong enough to support admissibility, reliance, authority, binding, commit, execution, and outcome accountability.
+        </p>
+
+        <div class="button-row">
+          <a class="button primary" href="/request-evaluation">Request Evidence Gap Review</a>
+          <a class="button" href="/public-record">View Public Record</a>
+          <a class="button" href="/resources">Open Resources</a>
+          <a class="button" href="/">Return Home</a>
+        </div>
+
+        <p class="contact">Direct contact: ta14admissibleexecution@gmail.com</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>TA-14 Admissible Execution Architecture</strong><br />
+        Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+      </div>
+
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/resources">Resources</a>
+        <a href="/request-evaluation">Request</a>
+      </div>
+
+      <div>ta14admissibleexecution@gmail.com</div>
+    </div>
+  </footer>
+</body>
+</html>
+```
