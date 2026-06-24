@@ -9,7 +9,7 @@
 
   <meta
     name="description"
-    content="TA-14 Admissible Execution Architecture provides proof-bound governance before consequence. No admissible evidence. No admissible execution."
+    content="TA-14 Admissible Execution Architecture provides proof-bound governance before consequence. Submit systems, workflows, evidence processes, governance architectures, and consequence-bearing routes through the TA-14 Governance Review Desk."
   />
 
   <meta name="author" content="Greggory Don Butler" />
@@ -20,19 +20,20 @@
       --ink: #050816;
       --navy: #07183d;
       --navy-deep: #050b22;
-      --purple: #382968;
+      --purple: #302155;
       --blue: #7dd3fc;
       --soft-blue: #eaf4ff;
-      --soft: #f7f9fd;
-      --panel: #ffffff;
+      --soft: #f8fafc;
+      --line: #dbe4f0;
       --muted: #64748b;
       --muted-dark: #475569;
-      --line: #dbe4f0;
       --white: #ffffff;
       --shadow: 0 34px 90px rgba(15, 23, 42, 0.16);
       --shadow-soft: 0 18px 48px rgba(15, 23, 42, 0.08);
       --max: 1480px;
       --radius-xl: 46px;
+      --radius-lg: 34px;
+      --radius-md: 26px;
     }
 
     * {
@@ -57,7 +58,7 @@
       background:
         radial-gradient(circle at 6% 7%, rgba(186, 230, 253, 0.56), transparent 30%),
         radial-gradient(circle at 94% 17%, rgba(233, 213, 255, 0.55), transparent 32%),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 40%, #ffffff 100%);
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
       line-height: 1.6;
     }
 
@@ -189,6 +190,13 @@
       box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.08);
     }
 
+    .nav-pills a.desk {
+      background: #eff6ff;
+      color: #0f172a;
+      border-color: #bfdbfe;
+      box-shadow: 0 10px 26px rgba(37, 99, 235, 0.1);
+    }
+
     .nav-pills a.request {
       background: #020617;
       color: #ffffff;
@@ -198,6 +206,16 @@
 
     main {
       overflow: hidden;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      font-weight: 950;
     }
 
     .hero-section {
@@ -248,16 +266,6 @@
       z-index: 1;
     }
 
-    .eyebrow,
-    .section-kicker {
-      color: #2563eb;
-      text-transform: uppercase;
-      letter-spacing: 0.17em;
-      font-size: 0.78rem;
-      line-height: 1.4;
-      font-weight: 950;
-    }
-
     .hero-panel .eyebrow {
       color: #b7f2ff;
       letter-spacing: 0.24em;
@@ -279,7 +287,7 @@
     }
 
     .hero-lede {
-      max-width: 770px;
+      max-width: 790px;
       margin-top: 30px;
       color: #dbeafe;
       font-size: clamp(1.12rem, 1.5vw, 1.38rem);
@@ -324,6 +332,14 @@
       color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.22);
       background: rgba(255, 255, 255, 0.09);
+    }
+
+    .button.desk-button {
+      background: linear-gradient(135deg, #dff8ff, #ffffff);
+      color: #020617;
+      box-shadow:
+        0 18px 36px rgba(0, 0, 0, 0.22),
+        inset 0 0 0 1px rgba(125, 211, 252, 0.48);
     }
 
     .button.dark {
@@ -417,8 +433,15 @@
     }
 
     .section-head {
-      max-width: 960px;
+      max-width: 980px;
       margin-bottom: 34px;
+    }
+
+    .section-head.center {
+      max-width: 1040px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
 
     .section-head h2 {
@@ -485,7 +508,8 @@
       line-height: 1.7;
     }
 
-    .card ul {
+    .card ul,
+    .card ol {
       margin-top: 10px;
       padding-left: 20px;
     }
@@ -518,18 +542,6 @@
       background: #07111f;
       color: #ffffff;
       box-shadow: none;
-    }
-
-    .chain-band {
-      margin-top: 28px;
-      padding: 26px;
-      border-radius: 28px;
-      background: #07111f;
-      color: #ffffff;
-      text-align: center;
-      font-size: clamp(1rem, 2vw, 1.35rem);
-      letter-spacing: -0.02em;
-      font-weight: 950;
     }
 
     .soft-section {
@@ -574,105 +586,152 @@
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
     }
 
-    .split-panel {
+    .desk-showcase {
+      position: relative;
+      overflow: hidden;
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: 24px;
+      grid-template-columns: minmax(0, 1fr) 460px;
+      gap: 34px;
       align-items: stretch;
-    }
-
-    .feature-panel {
-      padding: 34px;
-      border-radius: 34px;
+      padding: 54px;
+      border-radius: 46px;
+      color: #ffffff;
       background:
-        radial-gradient(circle at 12% 5%, rgba(125, 211, 252, 0.24), transparent 30%),
-        linear-gradient(135deg, #07183d, #111827);
-      color: #ffffff;
-      box-shadow: var(--shadow-soft);
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        radial-gradient(circle at 12% 15%, rgba(56, 189, 248, 0.25), transparent 34%),
+        radial-gradient(circle at 88% 18%, rgba(124, 58, 237, 0.28), transparent 36%),
+        linear-gradient(135deg, #07183d, #050b22 54%, #302155);
+      background-size: 70px 70px, 70px 70px, auto, auto, auto;
+      box-shadow: var(--shadow);
     }
 
-    .feature-panel h3 {
-      max-width: 720px;
+    .desk-showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(125, 211, 252, 0.13), transparent 36%),
+        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.06), transparent 30%);
+    }
+
+    .desk-copy,
+    .desk-process,
+    .desk-cards {
+      position: relative;
+      z-index: 1;
+    }
+
+    .desk-showcase .eyebrow {
+      color: #b7f2ff;
+    }
+
+    .desk-showcase h2 {
+      max-width: 980px;
+      margin-top: 12px;
       color: #ffffff;
-      font-size: clamp(1.9rem, 3vw, 3.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.06em;
+      font-size: clamp(2.6rem, 4.7vw, 5.3rem);
+      line-height: 0.95;
+      letter-spacing: -0.075em;
       font-weight: 950;
     }
 
-    .feature-panel p {
-      margin-top: 18px;
+    .desk-showcase p {
+      max-width: 960px;
+      margin-top: 20px;
       color: #dbeafe;
-      font-size: 1.08rem;
-      line-height: 1.75;
+      font-size: 1.12rem;
+      line-height: 1.78;
     }
 
-    .mini-chain {
+    .desk-process {
       display: grid;
-      gap: 10px;
+      gap: 14px;
+      align-self: stretch;
     }
 
-    .chain-step {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: #ffffff;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.045);
+    .desk-step {
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.085);
+      border: 1px solid rgba(255, 255, 255, 0.14);
     }
 
-    .chain-step strong {
+    .desk-step strong {
       display: block;
-      color: #07111f;
+      color: #ffffff;
       font-size: 1rem;
       font-weight: 950;
+      margin-bottom: 6px;
     }
 
-    .chain-step span {
+    .desk-step span {
       display: block;
+      color: #cbd5e1;
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .desk-cards {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
       margin-top: 4px;
-      color: #64748b;
-      font-size: 0.96rem;
-      line-height: 1.55;
     }
 
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 26px;
+    .desk-mini-card {
+      padding: 22px;
+      min-height: 190px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.085);
+      border: 1px solid rgba(255, 255, 255, 0.14);
     }
 
-    .tag {
+    .desk-mini-card span {
       display: inline-flex;
+      width: fit-content;
+      min-width: 38px;
+      height: 36px;
+      padding: 0 12px;
       align-items: center;
-      min-height: 34px;
-      padding: 0 13px;
+      justify-content: center;
+      margin-bottom: 15px;
       border-radius: 999px;
-      background: #eaf4ff;
-      color: #075985;
-      font-size: 0.9rem;
-      font-weight: 850;
-    }
-
-    .dark-section .tag {
-      background: rgba(255, 255, 255, 0.12);
-      color: #dbeafe;
+      color: #dff8ff;
+      background: rgba(255, 255, 255, 0.14);
       border: 1px solid rgba(255, 255, 255, 0.12);
+      font-weight: 950;
+      font-size: 0.82rem;
     }
 
-    .page-card {
-      min-height: 255px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
+    .desk-mini-card h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      font-weight: 950;
+      margin-bottom: 10px;
     }
 
-    .page-card a,
-    .record-item a {
-      color: #075985;
-      font-weight: 900;
-      overflow-wrap: anywhere;
+    .desk-mini-card p {
+      margin-top: 0;
+      color: #cbd5e1;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    .chain-band {
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 28px;
+      background: #07111f;
+      color: #ffffff;
+      text-align: center;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      letter-spacing: -0.02em;
+      font-weight: 950;
     }
 
     .runtime-showcase {
@@ -837,67 +896,84 @@
       line-height: 1.7;
     }
 
-    .distinction-panel {
-      padding: 44px;
-      border-radius: 42px;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(135deg, #081a43, #071028 50%, #2d235c);
-      background-size: 70px 70px, 70px 70px, auto;
-      color: #ffffff;
-      box-shadow: var(--shadow);
+    .split-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 24px;
+      align-items: stretch;
     }
 
-    .distinction-panel h2 {
+    .feature-panel {
+      padding: 34px;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 12% 5%, rgba(125, 211, 252, 0.24), transparent 30%),
+        linear-gradient(135deg, #07183d, #111827);
       color: #ffffff;
-      max-width: 1020px;
-      font-size: clamp(2.35rem, 4.4vw, 4.7rem);
-      line-height: 0.98;
-      letter-spacing: -0.07em;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .feature-panel h3 {
+      max-width: 720px;
+      color: #ffffff;
+      font-size: clamp(1.9rem, 3vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
       font-weight: 950;
     }
 
-    .distinction-panel p {
-      margin-top: 20px;
-      max-width: 1060px;
+    .feature-panel p {
+      margin-top: 18px;
       color: #dbeafe;
-      font-size: 1.14rem;
-      line-height: 1.8;
+      font-size: 1.08rem;
+      line-height: 1.75;
     }
 
-    .distinction-grid {
-      margin-top: 30px;
-    }
-
-    .record-list {
+    .mini-chain {
       display: grid;
-      gap: 14px;
+      gap: 10px;
     }
 
-    .record-item {
-      padding: 20px;
+    .chain-step {
+      padding: 18px;
       border: 1px solid var(--line);
-      border-radius: 24px;
+      border-radius: 22px;
       background: #ffffff;
       box-shadow: 0 10px 26px rgba(15, 23, 42, 0.045);
     }
 
-    .record-item strong {
+    .chain-step strong {
       display: block;
-      margin-bottom: 5px;
       color: #07111f;
+      font-size: 1rem;
       font-weight: 950;
     }
 
-    .request-section {
-      padding-top: 88px !important;
-      padding-bottom: 88px !important;
+    .chain-step span {
+      display: block;
+      margin-top: 4px;
+      color: #64748b;
+      font-size: 0.96rem;
+      line-height: 1.55;
     }
 
+    .page-card {
+      min-height: 255px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .page-card a,
+    .record-item a {
+      color: #075985;
+      font-weight: 900;
+      overflow-wrap: anywhere;
+    }
+
+    .distinction-panel,
     .request-panel {
-      max-width: var(--max);
-      margin: 0 auto;
       padding: 46px;
       border-radius: 42px;
       color: #ffffff;
@@ -907,22 +983,24 @@
       box-shadow: var(--shadow);
     }
 
+    .distinction-panel h2,
     .request-panel h2 {
-      max-width: 980px;
+      max-width: 1020px;
       margin-top: 12px;
       color: #ffffff;
-      font-size: clamp(2.4rem, 4.4vw, 4.7rem);
+      font-size: clamp(2.35rem, 4.4vw, 4.7rem);
       line-height: 0.98;
-      letter-spacing: -0.065em;
+      letter-spacing: -0.07em;
       font-weight: 950;
     }
 
+    .distinction-panel p,
     .request-panel p {
-      max-width: 1000px;
-      margin-top: 18px;
+      margin-top: 20px;
+      max-width: 1060px;
       color: #dbeafe;
-      font-size: 1.12rem;
-      line-height: 1.75;
+      font-size: 1.14rem;
+      line-height: 1.8;
     }
 
     .request-list {
@@ -1008,6 +1086,7 @@
       }
 
       .hero-panel,
+      .desk-showcase,
       .runtime-showcase {
         grid-template-columns: 1fr;
         padding: 62px 48px;
@@ -1021,6 +1100,7 @@
       .hero-metrics,
       .grid.four,
       .grid.five,
+      .desk-cards,
       .runtime-cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1058,6 +1138,7 @@
       }
 
       .hero-panel,
+      .desk-showcase,
       .runtime-showcase {
         min-height: auto;
         padding: 46px 26px;
@@ -1088,6 +1169,7 @@
       .grid.three,
       .grid.four,
       .grid.five,
+      .desk-cards,
       .runtime-cards {
         grid-template-columns: 1fr;
       }
@@ -1128,7 +1210,8 @@
       <nav class="nav-pills" aria-label="Primary navigation">
         <a href="/start-here">Start Here</a>
         <a href="/architecture">Architecture</a>
-        <a class="active" href="/governance-review">Governance Review</a>
+        <a href="/governance-review">Governance Review</a>
+        <a class="desk" href="/review-desk">Review Desk</a>
         <a href="/services">Services</a>
         <a href="/use-cases">Use Cases</a>
         <a href="/resources">Resources</a>
@@ -1164,6 +1247,7 @@
           </p>
 
           <div class="hero-actions">
+            <a class="button desk-button" href="/review-desk">Open the Governance Review Desk</a>
             <a class="button primary" href="/request-evaluation">Request a TA-14 Review</a>
             <a class="button secondary" href="/governance-review">Explore Governance Review</a>
             <a class="button secondary" href="#runtime-admissibility-gate">Runtime Admissibility Gate</a>
@@ -1203,6 +1287,95 @@
         <div class="metric">
           <strong>Outcome</strong>
           <span>What proof remains after action?</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="governance-review-desk">
+      <div class="section-inner">
+        <div class="desk-showcase">
+          <div class="desk-copy">
+            <p class="eyebrow">TA-14 Governance Review Desk</p>
+
+            <h2>The Review Desk is the operational front door for admissible-execution review.</h2>
+
+            <p>
+              The TA-14 Governance Review Desk receives systems, workflows, evidence processes,
+              governance architectures, partner pathways, environmental integrity routes, and other
+              consequence-bearing routes for structured admissible-execution review.
+            </p>
+
+            <p>
+              It turns interest into a reviewable route: what is being reviewed, what consequence may occur,
+              what evidence supports the action, who relies on that evidence, and where authority, binding,
+              commit, execution, and outcome records appear.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="/review-desk">Open Governance Review Desk</a>
+              <a class="button secondary" href="/request-evaluation">Submit Review Request</a>
+              <a class="button secondary" href="/partners">Partner Review Network</a>
+            </div>
+          </div>
+
+          <div class="desk-process" aria-label="Governance Review Desk process">
+            <div class="desk-step">
+              <strong>Inquiry</strong>
+              <span>A system, workflow, architecture, or route is submitted for review.</span>
+            </div>
+
+            <div class="desk-step">
+              <strong>Route Classification</strong>
+              <span>TA-14 identifies the review lane and the consequence-bearing route.</span>
+            </div>
+
+            <div class="desk-step">
+              <strong>Evidence Intake</strong>
+              <span>The current record, authority, reliance, scope, and outcome proof are identified.</span>
+            </div>
+
+            <div class="desk-step">
+              <strong>Review Scope</strong>
+              <span>The work is bounded before TA-14 provides deeper architecture value.</span>
+            </div>
+
+            <div class="desk-step">
+              <strong>Finding</strong>
+              <span>The review produces a route-specific admissibility finding or evidence-gap direction.</span>
+            </div>
+          </div>
+
+          <div class="desk-cards">
+            <article class="desk-mini-card">
+              <span>01</span>
+              <h3>Public-Material Review</h3>
+              <p>For websites, docs, repos, claims, and public governance materials.</p>
+            </article>
+
+            <article class="desk-mini-card">
+              <span>02</span>
+              <h3>Evidence Gap Review</h3>
+              <p>For systems that need to know what evidence is missing before readiness.</p>
+            </article>
+
+            <article class="desk-mini-card">
+              <span>03</span>
+              <h3>Governance-System Review</h3>
+              <p>For AI governance tools, runtime controls, trust frameworks, and policy engines.</p>
+            </article>
+
+            <article class="desk-mini-card">
+              <span>04</span>
+              <h3>Runtime Gate Review</h3>
+              <p>For proceed, hold, escalate, refuse, and halt route-control logic.</p>
+            </article>
+
+            <article class="desk-mini-card">
+              <span>05</span>
+              <h3>Partner Review Intake</h3>
+              <p>For independent architectures seeking bounded TA-14 second-layer review.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -1309,20 +1482,10 @@
           </article>
         </div>
 
-        <div class="tag-row">
-          <span class="tag">AI execution governance</span>
-          <span class="tag">runtime governance</span>
-          <span class="tag">policy engines</span>
-          <span class="tag">trust frameworks</span>
-          <span class="tag">admissibility review</span>
-          <span class="tag">partner architectures</span>
-          <span class="tag">route-complete evidence</span>
-        </div>
-
         <div class="hero-actions">
-          <a class="button primary" href="/governance-review">Open Governance Review Page</a>
+          <a class="button primary" href="/review-desk">Enter Review Desk</a>
+          <a class="button secondary" href="/governance-review">Open Governance Review Page</a>
           <a class="button secondary" href="/request-evaluation">Request Governance Review</a>
-          <a class="button secondary" href="/architecture">View TA-14 Architecture</a>
         </div>
       </div>
     </section>
@@ -1348,9 +1511,9 @@
             </p>
 
             <div class="hero-actions">
-              <a class="button primary" href="/request-evaluation">Submit Route for Review</a>
+              <a class="button primary" href="/review-desk">Route Through Review Desk</a>
+              <a class="button secondary" href="/request-evaluation">Submit Route for Review</a>
               <a class="button secondary" href="/resources">View Public Corpus</a>
-              <a class="button secondary" href="/governance-review">Governance Review</a>
             </div>
           </div>
 
@@ -1487,7 +1650,7 @@
         <div class="section-head">
           <p class="section-kicker">TA-14 Public Stack</p>
 
-          <h2>TA-14 now has doctrine, publication, repository, portal, and runtime-gate layers.</h2>
+          <h2>TA-14 now has doctrine, publication, repository, portal, runtime-gate, and review-desk layers.</h2>
 
           <p>
             Each layer serves a different purpose. Together they make TA-14 easier to understand, easier to cite,
@@ -1496,7 +1659,7 @@
         </div>
 
         <div class="grid five">
-          <article class="card stack-card">
+          <article class="card">
             <span class="runtime-code">DOC</span>
             <h3>Doctrine Layer</h3>
             <p>
@@ -1504,7 +1667,7 @@
             </p>
           </article>
 
-          <article class="card stack-card">
+          <article class="card">
             <span class="runtime-code">DOI</span>
             <h3>Publication Layer</h3>
             <p>
@@ -1512,7 +1675,7 @@
             </p>
           </article>
 
-          <article class="card stack-card">
+          <article class="card">
             <span class="runtime-code">GIT</span>
             <h3>Repository Layer</h3>
             <p>
@@ -1520,20 +1683,19 @@
             </p>
           </article>
 
-          <article class="card stack-card">
-            <span class="runtime-code">WEB</span>
-            <h3>Portal Layer</h3>
-            <p>
-              The public website gives TA-14 a clear front door for visitors, partners, reviewers, prospects, and governance-system builders.
-            </p>
-          </article>
-
-          <article class="card stack-card">
+          <article class="card">
             <span class="runtime-code">GATE</span>
             <h3>Runtime Gate Layer</h3>
             <p>
-              The Runtime Admissibility Gate shows how TA-14 can process events, evidence states, route decisions,
-              escalation, refusal, and halt logic.
+              The Runtime Admissibility Gate shows how TA-14 can process events, evidence states, escalation, refusal, and halt logic.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="runtime-code">DESK</span>
+            <h3>Review Desk Layer</h3>
+            <p>
+              The Governance Review Desk gives systems, workflows, and partner architectures a structured way to enter review.
             </p>
           </article>
         </div>
@@ -1548,7 +1710,7 @@
           <h2>The public TA-14 site now has a real top-level structure.</h2>
 
           <p>
-            These are the core pages already being rebuilt into the main public portal.
+            These are the core pages of the main public portal.
           </p>
         </div>
 
@@ -1592,74 +1754,21 @@
           <article class="card page-card">
             <div>
               <span class="code">04</span>
-              <h3>Services</h3>
+              <h3>Governance Review Desk</h3>
               <p>
-                Review lanes for public-material architecture review, governance review, evidence gap review,
-                partner alignment, environmental integrity, and production-readiness review.
+                The operational intake page for routing systems, workflows, evidence processes,
+                governance architectures, and consequence-bearing pathways into TA-14 review.
               </p>
             </div>
-            <a href="/services">Choose the right review path.</a>
+            <a href="/review-desk">Enter the Review Desk.</a>
           </article>
 
           <article class="card page-card">
             <div>
               <span class="code">05</span>
-              <h3>Use Cases</h3>
-              <p>
-                AI workflows, AI execution-governance entities, environmental evidence, partner architectures,
-                institutional decisions, operational reliance, and consequence-bearing review scenarios.
-              </p>
-            </div>
-            <a href="/use-cases">See where TA-14 applies.</a>
-          </article>
-
-          <article class="card page-card">
-            <div>
-              <span class="code">06</span>
-              <h3>Request Review</h3>
-              <p>
-                Submit a system, workflow, evidence process, governance framework, partner architecture,
-                environmental pathway, or institutional decision route for TA-14 review.
-              </p>
-            </div>
-            <a href="/request-evaluation">Move from interest to review.</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="expanded-pages">
-      <div class="section-inner">
-        <div class="section-head">
-          <p class="section-kicker">Expanded public architecture pages</p>
-
-          <h2>The next pages are already linked in the top navigation.</h2>
-
-          <p>
-            As each page is built, the navigation is already ready. The links are visible now, and each new page
-            becomes active as soon as its file is created.
-          </p>
-        </div>
-
-        <div class="grid four">
-          <article class="card page-card">
-            <div>
-              <span class="code">F</span>
-              <h3>Founder</h3>
-              <p>
-                Greggory Don Butler authorship, origin, public chronology, publication record, and founder authority.
-              </p>
-            </div>
-            <a href="/founder">Founder / author page.</a>
-          </article>
-
-          <article class="card page-card">
-            <div>
-              <span class="code">RG</span>
               <h3>Runtime Admissibility Gate</h3>
               <p>
-                The TA-14 Runtime Admissibility Dashboard and Gate prototype for proof-bound execution control,
-                admissibility routing, escalation, refusal, and halt decisions.
+                Prototype layer for proof-bound execution control, admissibility routing, escalation, refusal, and halt decisions.
               </p>
             </div>
             <a href="#runtime-admissibility-gate">Open the runtime gate overview.</a>
@@ -1667,117 +1776,13 @@
 
           <article class="card page-card">
             <div>
-              <span class="code">P</span>
-              <h3>Positioning</h3>
-              <p>
-                TA-14 category position, architecture distinctions, adjacent system boundaries, and public posture.
-              </p>
-            </div>
-            <a href="/positioning">Positioning page.</a>
-          </article>
-
-          <article class="card page-card">
-            <div>
-              <span class="code">PR</span>
-              <h3>Public Record</h3>
-              <p>
-                Public chronology, publication records, DOI index, sites, repositories, and evidence anchors.
-              </p>
-            </div>
-            <a href="/public-record">Public record page.</a>
-          </article>
-
-          <article class="card page-card">
-            <div>
-              <span class="code">EI</span>
-              <h3>Environmental Integrity</h3>
-              <p>
-                Environmental Integrity Governance, Atmospheric Integrity Records, IAQ, HVACDR, and atmospheric evidence.
-              </p>
-            </div>
-            <a href="/environmental">Environmental page.</a>
-          </article>
-
-          <article class="card page-card">
-            <div>
-              <span class="code">EV</span>
-              <h3>Evidence Integrity</h3>
-              <p>
-                Evidence Governance, Admissible Evidence Architecture, evidence continuity, and reliance governance.
-              </p>
-            </div>
-            <a href="/evidence">Evidence integrity page.</a>
-          </article>
-
-          <article class="card page-card">
-            <div>
-              <span class="code">PN</span>
+              <span class="code">06</span>
               <h3>Partner Review Network</h3>
               <p>
                 Independent partner architectures plus TA-14 second-layer admissible-execution review.
               </p>
             </div>
             <a href="/partners">Partner review network page.</a>
-          </article>
-
-          <article class="card page-card">
-            <div>
-              <span class="code">NO</span>
-              <h3>What TA-14 Is Not</h3>
-              <p>
-                Boundaries separating TA-14 from dashboards, ordinary logging, security audits, legal advice,
-                compliance checklists, and unsupported certification claims.
-              </p>
-            </div>
-            <a href="/positioning">Boundary page.</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="soft-section" id="review-focus">
-      <div class="section-inner">
-        <div class="section-head">
-          <p class="section-kicker">Review focus</p>
-
-          <h2>TA-14 reviews systems that can create reliance, intervention, obligation, or outcome.</h2>
-        </div>
-
-        <div class="grid four">
-          <article class="card review-card">
-            <span class="code">AI</span>
-            <h3>AI Workflows</h3>
-            <p>
-              Agents, model-assisted decisions, automated recommendations, AI governance workflows,
-              and operational decision support.
-            </p>
-          </article>
-
-          <article class="card review-card">
-            <span class="code">GOV</span>
-            <h3>Governance Systems</h3>
-            <p>
-              AI execution-governance entities, trust frameworks, runtime gates, policy engines,
-              compliance workflows, and admissibility-adjacent systems.
-            </p>
-          </article>
-
-          <article class="card review-card">
-            <span class="code">ENV</span>
-            <h3>Environmental Evidence</h3>
-            <p>
-              IAQ, HVACDR, atmospheric evidence, filtration, refrigeration, diagnostics,
-              intervention thresholds, and post-intervention proof.
-            </p>
-          </article>
-
-          <article class="card review-card">
-            <span class="code">NET</span>
-            <h3>Partner Review Network</h3>
-            <p>
-              Runtime gates, refusal layers, evidence tools, audit systems, trust layers,
-              policy engines, and adjacent governance systems reviewed through bounded partner pathways.
-            </p>
           </article>
         </div>
       </div>
@@ -1795,7 +1800,7 @@
             a proposed consequence is admissible enough to allow that consequence to happen.
           </p>
 
-          <div class="grid three distinction-grid">
+          <div class="grid three" style="margin-top: 30px;">
             <article class="card">
               <h3>Evidence before reliance</h3>
               <p>Information must become governed evidence before it can support reliance.</p>
@@ -1815,102 +1820,59 @@
       </div>
     </section>
 
-    <section class="soft-section" id="public-record">
+    <section class="request-section" id="request">
       <div class="section-inner">
-        <div class="section-head">
-          <p class="section-kicker">Public record</p>
+        <div class="request-panel">
+          <p class="eyebrow">Request review</p>
 
-          <h2>TA-14 is grounded in a preserved public architecture record.</h2>
+          <h2>Request a TA-14 review.</h2>
 
           <p>
-            The public record supports TA-14 as a declared admissible-execution architecture with a visible corpus,
-            applied domains, public sites, repository work, runtime-gate prototyping, and review pathways.
+            TA-14 reviews systems, workflows, evidence processes, partner architectures, runtime-gate pathways,
+            environmental integrity routes, and institutional decision routes where consequence-bearing action,
+            reliance, intervention, or outcome may occur.
+          </p>
+
+          <div class="request-list" aria-label="TA-14 review request checklist">
+            <h3>To request a TA-14 review, include:</h3>
+
+            <ol>
+              <li>What system, workflow, evidence process, or architecture should be reviewed.</li>
+              <li>What consequence-bearing action, reliance, intervention, or decision may occur.</li>
+              <li>What evidence currently supports that action.</li>
+              <li>Who or what relies on the evidence.</li>
+              <li>Where authority, binding, commit, execution, and outcome records appear.</li>
+            </ol>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button primary" href="/review-desk">
+              Open Governance Review Desk
+            </a>
+
+            <a class="button secondary" href="/request-evaluation">
+              Request a TA-14 Review
+            </a>
+
+            <a class="button secondary" href="/governance-review">
+              Open Governance Review
+            </a>
+
+            <a
+              class="button secondary"
+              href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0A1.%20What%20system%2C%20workflow%2C%20evidence%20process%2C%20or%20architecture%20should%20be%20reviewed%3A%0A%0A2.%20What%20consequence-bearing%20action%2C%20reliance%2C%20intervention%2C%20or%20decision%20may%20occur%3A%0A%0A3.%20What%20evidence%20currently%20supports%20that%20action%3A%0A%0A4.%20Who%20or%20what%20relies%20on%20the%20evidence%3A%0A%0A5.%20Where%20authority%2C%20binding%2C%20commit%2C%20execution%2C%20and%20outcome%20records%20appear%3A%0A%0AThank%20you."
+            >
+              Email TA-14 Review Request
+            </a>
+          </div>
+
+          <p class="direct-contact">
+            Direct contact:
+            <a href="mailto:ta14admissibleexecution@gmail.com">
+              ta14admissibleexecution@gmail.com
+            </a>
           </p>
         </div>
-
-        <div class="record-list">
-          <div class="record-item">
-            <strong>TA-14 Admissible Execution Architecture</strong>
-            <a href="https://ta14-architecture.netlify.app/" target="_blank" rel="noopener noreferrer">
-              ta14-architecture.netlify.app
-            </a>
-          </div>
-
-          <div class="record-item">
-            <strong>Environmental Integrity Governance</strong>
-            <a href="https://sites.google.com/view/environmental-integrity-gover/home" target="_blank" rel="noopener noreferrer">
-              sites.google.com/view/environmental-integrity-gover/home
-            </a>
-          </div>
-
-          <div class="record-item">
-            <strong>Atmospheric Integrity Records / AIRC</strong>
-            <a href="https://sites.google.com/view/atmosphericintegrityrecordairc/home" target="_blank" rel="noopener noreferrer">
-              sites.google.com/view/atmosphericintegrityrecordairc/home
-            </a>
-          </div>
-
-          <div class="record-item">
-            <strong>TA-14 Volume 1 Preservation Finding</strong>
-            <a href="https://sites.google.com/view/ta-14-volume-1-preservation-ed/home" target="_blank" rel="noopener noreferrer">
-              sites.google.com/view/ta-14-volume-1-preservation-ed/home
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="request-section" id="request">
-      <div class="request-panel">
-        <p class="eyebrow">Request review</p>
-
-        <h2>Request a TA-14 review.</h2>
-
-        <p>
-          TA-14 reviews systems, workflows, evidence processes, partner architectures, runtime-gate pathways,
-          environmental integrity routes, and institutional decision routes where consequence-bearing action,
-          reliance, intervention, or outcome may occur.
-        </p>
-
-        <div class="request-list" aria-label="TA-14 review request checklist">
-          <h3>To request a TA-14 review, include:</h3>
-
-          <ol>
-            <li>What system, workflow, evidence process, or architecture should be reviewed.</li>
-            <li>What consequence-bearing action, reliance, intervention, or decision may occur.</li>
-            <li>What evidence currently supports that action.</li>
-            <li>Who or what relies on the evidence.</li>
-            <li>Where authority, binding, commit, execution, and outcome records appear.</li>
-          </ol>
-        </div>
-
-        <div class="hero-actions">
-          <a class="button primary" href="/request-evaluation">
-            Request a TA-14 Review
-          </a>
-
-          <a class="button secondary" href="/governance-review">
-            Open Governance Review
-          </a>
-
-          <a class="button secondary" href="#runtime-admissibility-gate">
-            Runtime Admissibility Gate
-          </a>
-
-          <a
-            class="button secondary"
-            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0A1.%20What%20system%2C%20workflow%2C%20evidence%20process%2C%20or%20architecture%20should%20be%20reviewed%3A%0A%0A2.%20What%20consequence-bearing%20action%2C%20reliance%2C%20intervention%2C%20or%20decision%20may%20occur%3A%0A%0A3.%20What%20evidence%20currently%20supports%20that%20action%3A%0A%0A4.%20Who%20or%20what%20relies%20on%20the%20evidence%3A%0A%0A5.%20Where%20authority%2C%20binding%2C%20commit%2C%20execution%2C%20and%20outcome%20records%20appear%3A%0A%0AThank%20you."
-          >
-            Email TA-14 Review Request
-          </a>
-        </div>
-
-        <p class="direct-contact">
-          Direct contact:
-          <a href="mailto:ta14admissibleexecution@gmail.com">
-            ta14admissibleexecution@gmail.com
-          </a>
-        </p>
       </div>
     </section>
   </main>
@@ -1924,6 +1886,7 @@
 
       <div>
         <a href="/">Home</a> ·
+        <a href="/review-desk">Review Desk</a> ·
         <a href="/governance-review">Governance Review</a> ·
         <a href="/architecture">Architecture</a> ·
         <a href="#runtime-admissibility-gate">Runtime Gate</a> ·
