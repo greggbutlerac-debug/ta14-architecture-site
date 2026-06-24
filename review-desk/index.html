@@ -1,0 +1,1380 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TA-14 Governance Review Desk</title>
+
+  <meta
+    name="description"
+    content="The TA-14 Governance Review Desk receives systems, workflows, evidence processes, governance architectures, partner pathways, environmental integrity routes, and consequence-bearing routes for structured admissible-execution review."
+  />
+
+  <meta name="author" content="Greggory Don Butler" />
+  <meta name="robots" content="index, follow" />
+
+  <style>
+    :root {
+      --ink: #050816;
+      --navy: #07183d;
+      --navy-deep: #050b22;
+      --purple: #302155;
+      --blue: #7dd3fc;
+      --soft-blue: #eaf4ff;
+      --soft: #f8fafc;
+      --line: #dbe4f0;
+      --muted: #64748b;
+      --muted-dark: #475569;
+      --white: #ffffff;
+      --shadow: 0 34px 90px rgba(15, 23, 42, 0.16);
+      --shadow-soft: 0 18px 48px rgba(15, 23, 42, 0.08);
+      --max: 1480px;
+      --radius-xl: 46px;
+      --radius-lg: 34px;
+      --radius-md: 26px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 6% 7%, rgba(186, 230, 253, 0.56), transparent 30%),
+        radial-gradient(circle at 94% 17%, rgba(233, 213, 255, 0.55), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #38bdf8;
+      outline-offset: 4px;
+      border-radius: 999px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin: 0;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 16px;
+      z-index: 999;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #020617;
+      color: #ffffff;
+      font-weight: 900;
+    }
+
+    .skip-link:focus {
+      left: 16px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+    }
+
+    .nav-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 34px 24px;
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .brand {
+      display: block;
+      color: var(--ink);
+    }
+
+    .brand-title {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1.35;
+      letter-spacing: -0.04em;
+      font-weight: 950;
+    }
+
+    .brand-subtitle {
+      display: block;
+      max-width: 285px;
+      margin-top: 5px;
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.6;
+      font-weight: 760;
+    }
+
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .nav-pills a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: #44546a;
+      font-size: 1rem;
+      line-height: 1;
+      font-weight: 870;
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
+      transition:
+        transform 150ms ease,
+        background 150ms ease,
+        border-color 150ms ease,
+        color 150ms ease,
+        box-shadow 150ms ease;
+    }
+
+    .nav-pills a:hover {
+      transform: translateY(-1px);
+      border-color: #bfdbfe;
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .nav-pills a.active {
+      border-color: #bfdbfe;
+      color: #030712;
+      background: #eff6ff;
+      box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.08);
+    }
+
+    .nav-pills a.request {
+      background: #020617;
+      color: #ffffff;
+      border-color: #020617;
+      box-shadow: 0 12px 28px rgba(2, 6, 23, 0.18);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      font-weight: 950;
+    }
+
+    .hero {
+      padding: 112px 34px 82px;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      max-width: var(--max);
+      min-height: 680px;
+      margin: 0 auto;
+      padding: 82px;
+      border-radius: var(--radius-xl);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 430px;
+      gap: 54px;
+      align-items: center;
+      color: #ffffff;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        radial-gradient(circle at 13% 52%, rgba(29, 78, 216, 0.36), transparent 42%),
+        radial-gradient(circle at 86% 18%, rgba(124, 58, 237, 0.34), transparent 38%),
+        linear-gradient(115deg, #081a43 0%, #071028 46%, #2d235c 100%);
+      background-size:
+        72px 72px,
+        72px 72px,
+        auto,
+        auto,
+        auto;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(125, 211, 252, 0.13), transparent 36%),
+        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.06), transparent 30%);
+    }
+
+    .hero-copy,
+    .hero-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .eyebrow {
+      color: #b7f2ff;
+      letter-spacing: 0.24em;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      max-width: 950px;
+      color: #ffffff;
+      font-size: clamp(4.2rem, 7.1vw, 8.2rem);
+      line-height: 0.88;
+      letter-spacing: -0.085em;
+      font-weight: 950;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .hero-lede {
+      max-width: 900px;
+      margin-top: 30px;
+      color: #dbeafe;
+      font-size: clamp(1.12rem, 1.5vw, 1.38rem);
+      line-height: 1.75;
+      font-weight: 570;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 920;
+      transition:
+        transform 150ms ease,
+        box-shadow 150ms ease,
+        background 150ms ease,
+        border-color 150ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: #ffffff;
+      color: #020617;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+    }
+
+    .button.secondary {
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .button.dark {
+      background: #020617;
+      color: #ffffff;
+      box-shadow: 0 16px 36px rgba(2, 6, 23, 0.16);
+    }
+
+    .button.light {
+      background: #ffffff;
+      color: #020617;
+      border: 1px solid var(--line);
+    }
+
+    .hero-card {
+      min-height: 470px;
+      padding: 34px;
+      border-radius: 38px;
+      background: rgba(93, 72, 142, 0.64);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 30px 70px rgba(2, 6, 23, 0.28);
+    }
+
+    .hero-card-label {
+      color: #c7f5ff;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.85rem;
+      font-weight: 950;
+    }
+
+    .hero-card-title {
+      margin-top: 26px;
+      color: #ffffff;
+      font-size: clamp(2.5rem, 3.7vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.07em;
+      font-weight: 950;
+    }
+
+    .hero-card p {
+      margin-top: 26px;
+      color: #dbeafe;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      font-weight: 620;
+    }
+
+    .hero-metrics {
+      max-width: var(--max);
+      margin: 26px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 22px;
+      border: 1px solid rgba(219, 228, 240, 0.88);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 34px rgba(15, 23, 42, 0.06);
+    }
+
+    .metric strong {
+      display: block;
+      color: #07111f;
+      font-size: 1.08rem;
+      font-weight: 950;
+      letter-spacing: -0.03em;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: #64748b;
+      font-weight: 720;
+    }
+
+    section.content {
+      padding: 78px 34px;
+    }
+
+    .section-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 1060px;
+      margin-bottom: 34px;
+    }
+
+    .section-head.center {
+      max-width: 1040px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      margin-top: 12px;
+      color: #07111f;
+      font-size: clamp(2.2rem, 4vw, 4.1rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      font-weight: 950;
+    }
+
+    .section-head p {
+      margin-top: 18px;
+      color: #475569;
+      font-size: 1.14rem;
+      line-height: 1.75;
+      font-weight: 520;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .grid.five {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: #ffffff;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.055);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #07111f;
+      font-size: 1.24rem;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      font-weight: 950;
+    }
+
+    .card p,
+    .card li {
+      color: #52637a;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .card ul,
+    .card ol {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .code {
+      display: inline-flex;
+      width: fit-content;
+      min-width: 44px;
+      height: 44px;
+      padding: 0 13px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border-radius: 999px;
+      background: #07111f;
+      color: #ffffff;
+      font-weight: 950;
+      font-size: 0.92rem;
+    }
+
+    .soft-section {
+      background: rgba(248, 250, 252, 0.86);
+      border-top: 1px solid rgba(226, 232, 240, 0.75);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
+    }
+
+    .desk-pathway {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 460px;
+      gap: 34px;
+      align-items: stretch;
+      padding: 54px;
+      border-radius: 46px;
+      color: #ffffff;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        radial-gradient(circle at 12% 15%, rgba(56, 189, 248, 0.25), transparent 34%),
+        radial-gradient(circle at 88% 18%, rgba(124, 58, 237, 0.28), transparent 36%),
+        linear-gradient(135deg, #07183d, #050b22 54%, #302155);
+      background-size: 70px 70px, 70px 70px, auto, auto, auto;
+      box-shadow: var(--shadow);
+    }
+
+    .desk-pathway::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(125, 211, 252, 0.13), transparent 36%),
+        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.06), transparent 30%);
+    }
+
+    .desk-pathway-copy,
+    .desk-pathway-steps,
+    .desk-pathway-cards {
+      position: relative;
+      z-index: 1;
+    }
+
+    .desk-pathway .eyebrow {
+      color: #b7f2ff;
+    }
+
+    .desk-pathway h2 {
+      max-width: 980px;
+      margin-top: 12px;
+      color: #ffffff;
+      font-size: clamp(2.6rem, 4.7vw, 5.3rem);
+      line-height: 0.95;
+      letter-spacing: -0.075em;
+      font-weight: 950;
+    }
+
+    .desk-pathway p {
+      max-width: 960px;
+      margin-top: 20px;
+      color: #dbeafe;
+      font-size: 1.12rem;
+      line-height: 1.78;
+    }
+
+    .desk-pathway-steps {
+      display: grid;
+      gap: 14px;
+      align-self: stretch;
+    }
+
+    .desk-step {
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.085);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .desk-step strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 950;
+      margin-bottom: 6px;
+    }
+
+    .desk-step span {
+      display: block;
+      color: #cbd5e1;
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .desk-pathway-cards {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .desk-mini-card {
+      padding: 22px;
+      min-height: 190px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.085);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .desk-mini-card span {
+      display: inline-flex;
+      width: fit-content;
+      min-width: 38px;
+      height: 36px;
+      padding: 0 12px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      border-radius: 999px;
+      color: #dff8ff;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-weight: 950;
+      font-size: 0.82rem;
+    }
+
+    .desk-mini-card h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+
+    .desk-mini-card p {
+      margin-top: 0;
+      color: #cbd5e1;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    .dark-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 48px;
+      border-radius: 42px;
+      color: #ffffff;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        radial-gradient(circle at 14% 20%, rgba(56, 189, 248, 0.17), transparent 34%),
+        linear-gradient(135deg, #081a43, #071028 50%, #2d235c);
+      background-size: 70px 70px, 70px 70px, auto, auto;
+      box-shadow: var(--shadow);
+    }
+
+    .dark-panel .eyebrow {
+      color: #b7f2ff;
+    }
+
+    .dark-panel h2 {
+      color: #ffffff;
+      max-width: 1100px;
+      font-size: clamp(2.35rem, 4.4vw, 4.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      font-weight: 950;
+      margin-top: 12px;
+    }
+
+    .dark-panel p {
+      margin-top: 20px;
+      max-width: 1080px;
+      color: #dbeafe;
+      font-size: 1.14rem;
+      line-height: 1.8;
+    }
+
+    .checklist-panel {
+      padding: 34px;
+      border-radius: 34px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .checklist-panel h3 {
+      color: #07111f;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      font-weight: 950;
+    }
+
+    .checklist-panel p {
+      margin-top: 16px;
+      color: #52637a;
+      font-size: 1.06rem;
+      line-height: 1.7;
+    }
+
+    .review-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+      padding: 0;
+      list-style: none;
+      counter-reset: review-counter;
+    }
+
+    .review-list li {
+      counter-increment: review-counter;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 22px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      font-size: 1rem;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    .review-list li::before {
+      content: counter(review-counter);
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #07111f;
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 950;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      padding: 22px;
+      border-radius: 26px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.055);
+    }
+
+    .timeline-item strong {
+      display: block;
+      color: #07111f;
+      font-size: 1.1rem;
+      font-weight: 950;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item span {
+      display: block;
+      color: #52637a;
+      line-height: 1.7;
+    }
+
+    .boundary-note {
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: 28px;
+      color: #ffffff;
+      background: #07111f;
+      font-size: 1.08rem;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    .boundary-note strong {
+      color: #ffffff;
+      font-weight: 950;
+    }
+
+    footer {
+      padding: 32px 34px;
+      background: #ffffff;
+      border-top: 1px solid var(--line);
+      color: #64748b;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 0.96rem;
+    }
+
+    footer strong {
+      color: #07111f;
+      font-weight: 950;
+    }
+
+    footer a {
+      color: #334155;
+      font-weight: 850;
+    }
+
+    @media (max-width: 1180px) {
+      .nav-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-pills {
+        justify-content: flex-start;
+      }
+
+      .hero-panel,
+      .desk-pathway {
+        grid-template-columns: 1fr;
+        padding: 62px 48px;
+      }
+
+      .hero-card {
+        max-width: 600px;
+      }
+
+      .hero-metrics,
+      .grid.three,
+      .grid.four,
+      .grid.five,
+      .desk-pathway-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-wrap {
+        padding: 20px;
+      }
+
+      .brand-title {
+        font-size: 1.18rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.92rem;
+      }
+
+      .nav-pills {
+        gap: 8px;
+      }
+
+      .nav-pills a {
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 0.88rem;
+      }
+
+      .hero {
+        padding: 44px 18px 48px;
+      }
+
+      .hero-panel,
+      .desk-pathway,
+      .dark-panel {
+        min-height: auto;
+        padding: 36px 24px;
+        border-radius: 32px;
+      }
+
+      h1 {
+        font-size: clamp(3.1rem, 17vw, 5.2rem);
+      }
+
+      .hero-card {
+        min-height: auto;
+        padding: 28px;
+        border-radius: 28px;
+      }
+
+      .hero-metrics,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .grid.five,
+      .desk-pathway-cards {
+        grid-template-columns: 1fr;
+      }
+
+      section.content {
+        padding: 54px 18px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .review-list li {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="/" aria-label="TA-14 homepage">
+        <span class="brand-title">TA-14 Admissible Execution Architecture</span>
+        <span class="brand-subtitle">Proof-bound governance before consequence</span>
+      </a>
+
+      <nav class="nav-pills" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/governance-review">Governance Review</a>
+        <a href="/review-desk" class="active">Review Desk</a>
+        <a href="/services">Services</a>
+        <a href="/evidence">Evidence Integrity</a>
+        <a href="/partners">Partner Review Network</a>
+        <a href="/request-evaluation" class="request">Request</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">TA-14 Governance Review Desk</p>
+
+          <h1>
+            <span>Submit</span>
+            <span>a route</span>
+            <span>before</span>
+            <span>consequence.</span>
+          </h1>
+
+          <p class="hero-lede">
+            The TA-14 Governance Review Desk receives systems, workflows, evidence processes,
+            governance architectures, partner pathways, environmental integrity routes, and other
+            consequence-bearing routes for structured admissible-execution review.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="/request-evaluation">Submit Review Request</a>
+            <a class="button secondary" href="#intake-checklist">View Intake Checklist</a>
+            <a class="button secondary" href="#review-lanes">Review Lanes</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="TA-14 Governance Review Desk purpose">
+          <p class="hero-card-label">Operational Intake</p>
+
+          <p class="hero-card-title">
+            Inquiry → route classification → evidence intake → review scope → finding.
+          </p>
+
+          <p>
+            The Review Desk is the public front door for turning interest into a scoped TA-14 review.
+            It protects the architecture from open-ended extraction while giving serious systems a clear way in.
+          </p>
+        </aside>
+      </div>
+
+      <div class="hero-metrics" aria-label="TA-14 Review Desk checkpoints">
+        <div class="metric">
+          <strong>System</strong>
+          <span>What is being reviewed?</span>
+        </div>
+
+        <div class="metric">
+          <strong>Consequence</strong>
+          <span>What action or reliance may occur?</span>
+        </div>
+
+        <div class="metric">
+          <strong>Evidence</strong>
+          <span>What currently supports the action?</span>
+        </div>
+
+        <div class="metric">
+          <strong>Records</strong>
+          <span>Where do authority, commit, execution, and outcome appear?</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="desk-process">
+      <div class="section-inner">
+        <div class="desk-pathway">
+          <div class="desk-pathway-copy">
+            <p class="eyebrow">Review Desk Process</p>
+
+            <h2>The desk turns a claim into a reviewable route.</h2>
+
+            <p>
+              TA-14 does not begin with vague architecture talk. It begins by identifying the route:
+              the system, the evidence, the reliance, the authority, the binding point, the commit boundary,
+              the execution path, and the outcome record.
+            </p>
+
+            <p>
+              That route is then classified into the right review lane before deeper evidence analysis,
+              readiness language, partner positioning, or admissibility findings are produced.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="/request-evaluation">Submit Through the Desk</a>
+              <a class="button secondary" href="/governance-review">Governance Review</a>
+              <a class="button secondary" href="/partners">Partner Review Network</a>
+            </div>
+          </div>
+
+          <div class="desk-pathway-steps" aria-label="TA-14 Governance Review Desk process">
+            <div class="desk-step">
+              <strong>1. Inquiry</strong>
+              <span>A system, workflow, architecture, evidence process, or route is submitted for review.</span>
+            </div>
+
+            <div class="desk-step">
+              <strong>2. Route Classification</strong>
+              <span>TA-14 identifies the review lane and the consequence-bearing route.</span>
+            </div>
+
+            <div class="desk-step">
+              <strong>3. Evidence Intake</strong>
+              <span>The current record, authority, reliance, scope, and outcome proof are identified.</span>
+            </div>
+
+            <div class="desk-step">
+              <strong>4. Review Scope</strong>
+              <span>The engagement is bounded before TA-14 provides deeper architecture value.</span>
+            </div>
+
+            <div class="desk-step">
+              <strong>5. Finding</strong>
+              <span>The review produces a route-specific admissibility finding or evidence-gap direction.</span>
+            </div>
+          </div>
+
+          <div class="desk-pathway-cards">
+            <article class="desk-mini-card">
+              <span>INQ</span>
+              <h3>Inquiry</h3>
+              <p>What is being submitted, by whom, and for what purpose?</p>
+            </article>
+
+            <article class="desk-mini-card">
+              <span>ROUTE</span>
+              <h3>Route</h3>
+              <p>What path moves from evidence to reliance, action, execution, or outcome?</p>
+            </article>
+
+            <article class="desk-mini-card">
+              <span>EVID</span>
+              <h3>Evidence</h3>
+              <p>What records, sources, thresholds, logs, or proofs currently support action?</p>
+            </article>
+
+            <article class="desk-mini-card">
+              <span>SCOPE</span>
+              <h3>Scope</h3>
+              <p>What will TA-14 review, and what remains outside the review boundary?</p>
+            </article>
+
+            <article class="desk-mini-card">
+              <span>FIND</span>
+              <h3>Finding</h3>
+              <p>What admissibility class, evidence gap, or readiness direction applies?</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content soft-section" id="review-lanes">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-kicker">Review Lanes</p>
+
+          <h2>The Governance Review Desk routes requests into the right TA-14 review lane.</h2>
+
+          <p>
+            Not every request needs the same kind of review. The desk classifies the request before deep work begins,
+            so TA-14 can preserve boundaries, reduce free architecture extraction, and provide the right review path.
+          </p>
+        </div>
+
+        <div class="grid three">
+          <article class="card">
+            <span class="code">01</span>
+            <h3>Public-Material Architecture Review</h3>
+            <p>
+              For systems where TA-14 reviews public claims, websites, documentation, repositories,
+              demos, published pages, or other public evidence.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="code">02</span>
+            <h3>Evidence Gap Review</h3>
+            <p>
+              For systems that need to know what evidence is missing before they can claim admissible-execution
+              readiness, production readiness, or route completeness.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="code">03</span>
+            <h3>Governance-System Review</h3>
+            <p>
+              For AI governance tools, runtime governance systems, trust frameworks, policy engines,
+              execution-control systems, and admissibility-adjacent architectures.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="code">04</span>
+            <h3>Runtime Admissibility Gate Review</h3>
+            <p>
+              For routes that need to be evaluated against proceed, hold, escalate, refuse, block,
+              or halt logic before consequence-bearing execution.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="code">05</span>
+            <h3>Partner Review Network Intake</h3>
+            <p>
+              For independent architectures seeking bounded TA-14 second-layer review, approved public language,
+              or partner-review pathway classification.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="code">06</span>
+            <h3>Environmental / Evidence Integrity Review</h3>
+            <p>
+              For IAQ, HVACDR, atmospheric evidence, environmental sensing, intervention thresholds,
+              evidence-before-action routes, and post-intervention proof.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="intake-checklist">
+      <div class="section-inner">
+        <div class="grid two">
+          <div class="checklist-panel">
+            <h3>To request a TA-14 review, include these five items.</h3>
+
+            <p>
+              These five questions are the minimum intake structure. They help TA-14 identify whether the request
+              is reviewable, what lane it belongs in, and where the admissibility chain may be strong, partial,
+              missing, or not reviewable.
+            </p>
+
+            <ol class="review-list">
+              <li>What system, workflow, evidence process, or architecture should be reviewed.</li>
+              <li>What consequence-bearing action, reliance, intervention, or decision may occur.</li>
+              <li>What evidence currently supports that action.</li>
+              <li>Who or what relies on the evidence.</li>
+              <li>Where authority, binding, commit, execution, and outcome records appear.</li>
+            </ol>
+          </div>
+
+          <div class="dark-panel">
+            <p class="eyebrow">Why the checklist matters</p>
+
+            <h2>No route. No review.</h2>
+
+            <p>
+              TA-14 does not review vague intentions. It reviews consequence-bearing routes.
+              A route must identify the evidence, reliance, authority, binding point, commit boundary,
+              execution path, and outcome record.
+            </p>
+
+            <p>
+              If the route cannot be identified, the review begins as an evidence-gap or boundary-definition
+              exercise before any stronger readiness or admissibility finding can be made.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="/request-evaluation">Submit the Five Items</a>
+              <a class="button secondary" href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Governance%20Review%20Desk%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20submit%20a%20request%20through%20the%20TA-14%20Governance%20Review%20Desk.%0A%0A1.%20What%20system%2C%20workflow%2C%20evidence%20process%2C%20or%20architecture%20should%20be%20reviewed%3A%0A%0A2.%20What%20consequence-bearing%20action%2C%20reliance%2C%20intervention%2C%20or%20decision%20may%20occur%3A%0A%0A3.%20What%20evidence%20currently%20supports%20that%20action%3A%0A%0A4.%20Who%20or%20what%20relies%20on%20the%20evidence%3A%0A%0A5.%20Where%20authority%2C%20binding%2C%20commit%2C%20execution%2C%20and%20outcome%20records%20appear%3A%0A%0AThank%20you.">Email Review Desk Request</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content soft-section" id="review-classes">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-kicker">Review Classes</p>
+
+          <h2>The Review Desk does not jump straight to certification language.</h2>
+
+          <p>
+            TA-14 review should move through controlled classes. This protects TA-14, protects clients,
+            and prevents premature public claims.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <strong>Reviewed</strong>
+            <span>
+              TA-14 has reviewed the submitted materials within a defined scope. This is not a certification
+              or production-readiness finding.
+            </span>
+          </div>
+
+          <div class="timeline-item">
+            <strong>Evidence-Mapped</strong>
+            <span>
+              TA-14 has mapped the submitted evidence against the admissible-execution chain and identified
+              where evidence exists, is partial, is missing, or is not reviewable.
+            </span>
+          </div>
+
+          <div class="timeline-item">
+            <strong>Gap-Identified</strong>
+            <span>
+              TA-14 has identified the evidence, authority, continuity, binding, commit, execution, or outcome
+              gaps that prevent stronger readiness language.
+            </span>
+          </div>
+
+          <div class="timeline-item">
+            <strong>Certification-Ready</strong>
+            <span>
+              The submitted route appears capable of being advanced toward certification-readiness review,
+              subject to evidence package, controls, test conditions, and written scope.
+            </span>
+          </div>
+
+          <div class="timeline-item">
+            <strong>Route-Certified Later</strong>
+            <span>
+              Full route certification should only be used when TA-14 has finalized certification criteria,
+              reviewer controls, issuance rules, evidence standards, misuse controls, and appeal boundaries.
+            </span>
+          </div>
+        </div>
+
+        <div class="boundary-note">
+          <strong>Boundary:</strong>
+          The Governance Review Desk is an intake and routing layer. It does not create blanket certification,
+          legal advice, security certification, or production approval by itself.
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="what-happens-next">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-kicker">What happens after submission</p>
+
+          <h2>A request becomes reviewable only when the route is clear enough to scope.</h2>
+
+          <p>
+            The Review Desk makes TA-14 easier to enter without turning the architecture into free consulting.
+            It gives prospects a professional route while preserving the no-build-before-boundary rule.
+          </p>
+        </div>
+
+        <div class="grid four">
+          <article class="card">
+            <span class="code">A</span>
+            <h3>Initial fit check</h3>
+            <p>
+              TA-14 determines whether the request belongs in public-material review, evidence gap review,
+              governance-system review, runtime gate review, partner review, or environmental integrity review.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="code">B</span>
+            <h3>Scope boundary</h3>
+            <p>
+              TA-14 identifies what can be reviewed, what cannot be claimed, and where deeper analysis requires
+              written scope, payment, partnership, or reciprocal value.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="code">C</span>
+            <h3>Evidence package</h3>
+            <p>
+              The submitter is asked for the records, logs, policies, authority evidence, route diagrams,
+              outcomes, or other materials needed for the review lane.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="code">D</span>
+            <h3>Review finding</h3>
+            <p>
+              TA-14 provides a route-specific finding, readiness class, gap direction, or next-step evidence
+              requirement depending on the scope.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="section-inner">
+        <div class="dark-panel">
+          <p class="eyebrow">Submit through the desk</p>
+
+          <h2>Have a system, workflow, governance architecture, or consequence-bearing route that needs review?</h2>
+
+          <p>
+            Submit the five intake items. TA-14 will determine whether the route is reviewable,
+            what review lane applies, and what evidence is required before any stronger readiness or
+            admissibility finding can be made.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="/request-evaluation">Submit Review Request</a>
+            <a class="button secondary" href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Governance%20Review%20Desk%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20submit%20a%20request%20through%20the%20TA-14%20Governance%20Review%20Desk.%0A%0A1.%20What%20system%2C%20workflow%2C%20evidence%20process%2C%20or%20architecture%20should%20be%20reviewed%3A%0A%0A2.%20What%20consequence-bearing%20action%2C%20reliance%2C%20intervention%2C%20or%20decision%20may%20occur%3A%0A%0A3.%20What%20evidence%20currently%20supports%20that%20action%3A%0A%0A4.%20Who%20or%20what%20relies%20on%20the%20evidence%3A%0A%0A5.%20Where%20authority%2C%20binding%2C%20commit%2C%20execution%2C%20and%20outcome%20records%20appear%3A%0A%0AThank%20you.">Email Review Desk Request</a>
+            <a class="button secondary" href="/">Return Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>TA-14 Governance Review Desk</strong><br />
+        Inquiry → Route Classification → Evidence Intake → Review Scope → Finding
+      </div>
+
+      <div>
+        <a href="/">Home</a> ·
+        <a href="/governance-review">Governance Review</a> ·
+        <a href="/architecture">Architecture</a> ·
+        <a href="/partners">Partner Review Network</a> ·
+        <a href="/request-evaluation">Request</a> ·
+        <a href="mailto:ta14admissibleexecution@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+```
