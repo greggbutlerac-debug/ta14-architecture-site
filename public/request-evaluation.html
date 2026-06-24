@@ -24,14 +24,10 @@
       --soft: #f8fafc;
       --line: #dbe4f0;
       --muted: #64748b;
-      --muted-dark: #475569;
       --white: #ffffff;
       --shadow: 0 34px 90px rgba(15, 23, 42, 0.16);
       --shadow-soft: 0 18px 48px rgba(15, 23, 42, 0.08);
-      --max: 1180px;
-      --radius-xl: 46px;
-      --radius-lg: 34px;
-      --radius-md: 26px;
+      --max: 1280px;
     }
 
     * {
@@ -65,37 +61,11 @@
       text-decoration: none;
     }
 
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible,
-    select:focus-visible {
-      outline: 3px solid #38bdf8;
-      outline-offset: 4px;
-      border-radius: 12px;
-    }
-
     h1,
     h2,
     h3,
     p {
       margin: 0;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: 16px;
-      z-index: 999;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: #020617;
-      color: #ffffff;
-      font-weight: 900;
-    }
-
-    .skip-link:focus {
-      left: 16px;
     }
 
     .site-header {
@@ -110,7 +80,7 @@
     .nav-wrap {
       max-width: 1480px;
       margin: 0 auto;
-      padding: 28px 34px 24px;
+      padding: 24px 34px;
       display: grid;
       grid-template-columns: 330px 1fr;
       gap: 34px;
@@ -124,8 +94,8 @@
 
     .brand-title {
       display: block;
-      font-size: 1.45rem;
-      line-height: 1.35;
+      font-size: 1.35rem;
+      line-height: 1.25;
       letter-spacing: -0.04em;
       font-weight: 950;
     }
@@ -135,8 +105,8 @@
       max-width: 285px;
       margin-top: 5px;
       color: #64748b;
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 0.98rem;
+      line-height: 1.5;
       font-weight: 760;
     }
 
@@ -159,24 +129,9 @@
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.72);
       color: #44546a;
-      font-size: 1rem;
+      font-size: 0.96rem;
       line-height: 1;
       font-weight: 870;
-      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
-      transition:
-        transform 150ms ease,
-        background 150ms ease,
-        border-color 150ms ease,
-        color 150ms ease,
-        box-shadow 150ms ease;
-    }
-
-    .nav-pills a:hover {
-      transform: translateY(-1px);
-      border-color: #bfdbfe;
-      background: #ffffff;
-      color: #0f172a;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
     }
 
     .nav-pills a.request {
@@ -190,28 +145,18 @@
       overflow: hidden;
     }
 
-    .eyebrow,
-    .section-kicker {
-      color: #2563eb;
-      text-transform: uppercase;
-      letter-spacing: 0.17em;
-      font-size: 0.78rem;
-      line-height: 1.4;
-      font-weight: 950;
-    }
-
     .hero-section {
-      padding: 94px 34px 54px;
+      padding: 88px 34px 54px;
     }
 
-    .hero-panel,
-    .request-panel,
-    .boundary-panel {
+    .hero-panel {
       position: relative;
       overflow: hidden;
       max-width: var(--max);
       margin: 0 auto;
-      border-radius: var(--radius-xl);
+      min-height: 560px;
+      padding: 76px 82px;
+      border-radius: 46px;
       color: #ffffff;
       background:
         linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
@@ -223,16 +168,23 @@
       box-shadow: var(--shadow);
     }
 
-    .hero-panel {
-      min-height: 520px;
-      padding: 76px 82px;
-      display: grid;
-      gap: 34px;
-      align-items: center;
+    .eyebrow,
+    .section-kicker {
+      color: #7dd3fc;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      font-weight: 950;
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      color: #2563eb;
     }
 
     .hero-title {
-      max-width: 930px;
+      max-width: 990px;
       color: #ffffff;
       font-size: clamp(4rem, 7vw, 7.4rem);
       line-height: 0.9;
@@ -241,11 +193,11 @@
     }
 
     .hero-lede {
-      max-width: 920px;
+      max-width: 940px;
       margin-top: 30px;
       color: #dbeafe;
       font-size: clamp(1.12rem, 1.5vw, 1.38rem);
-      line-height: 1.7;
+      line-height: 1.72;
       font-weight: 570;
     }
 
@@ -261,24 +213,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
+      min-height: 54px;
+      padding: 0 24px;
       border-radius: 999px;
       border: 0;
       font-size: 1rem;
       font-weight: 920;
       font-family: inherit;
       cursor: pointer;
-      transition:
-        transform 150ms ease,
-        box-shadow 150ms ease,
-        background 150ms ease,
-        border-color 150ms ease;
-    }
-
-    .button:hover,
-    button[type="submit"]:hover {
-      transform: translateY(-1px);
     }
 
     .button.primary,
@@ -370,11 +312,6 @@
       line-height: 1.7;
     }
 
-    .card ol {
-      margin: 12px 0 0;
-      padding-left: 20px;
-    }
-
     .number {
       display: inline-flex;
       width: fit-content;
@@ -392,12 +329,26 @@
       box-shadow: inset 0 0 0 1px #dbeafe;
     }
 
-    .request-panel,
-    .boundary-panel {
-      padding: 52px;
+    .soft-section {
+      background: rgba(248, 250, 252, 0.86);
+      border-top: 1px solid rgba(226, 232, 240, 0.75);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
     }
 
-    .request-panel h2,
+    .form-panel,
+    .boundary-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 52px;
+      border-radius: 46px;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(125, 211, 252, 0.18), transparent 34%),
+        linear-gradient(135deg, #07183d, #120f2b 64%, #302155);
+      box-shadow: var(--shadow);
+    }
+
+    .form-panel h2,
     .boundary-panel h2 {
       max-width: 1020px;
       margin-top: 12px;
@@ -408,7 +359,7 @@
       font-weight: 950;
     }
 
-    .request-panel p,
+    .form-panel p,
     .boundary-panel p {
       margin-top: 20px;
       max-width: 1060px;
@@ -417,49 +368,8 @@
       line-height: 1.8;
     }
 
-    .request-list {
-      margin-top: 28px;
-      padding: 26px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .request-list h3 {
-      margin-bottom: 12px;
-      color: #ffffff;
-      font-size: 1.25rem;
-      letter-spacing: -0.025em;
-    }
-
-    .request-list ol {
-      padding-left: 24px;
-      display: grid;
-      gap: 10px;
-      color: #dbeafe;
-    }
-
-    .request-list li {
-      padding-left: 4px;
-      color: #dbeafe;
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    .chain-band {
-      margin-top: 28px;
-      padding: 26px;
-      border-radius: 28px;
-      background: #07111f;
-      color: #ffffff;
-      text-align: center;
-      font-size: clamp(1rem, 2vw, 1.35rem);
-      letter-spacing: -0.02em;
-      font-weight: 950;
-    }
-
     .form-shell {
-      margin-top: 26px;
+      margin-top: 30px;
       padding: 30px;
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 30px;
@@ -509,6 +419,18 @@
       line-height: 1.65 !important;
     }
 
+    .chain-band {
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 28px;
+      background: #07111f;
+      color: #ffffff;
+      text-align: center;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      letter-spacing: -0.02em;
+      font-weight: 950;
+    }
+
     .direct-contact {
       margin-top: 22px !important;
       color: #e2e8f0 !important;
@@ -519,12 +441,6 @@
       font-weight: 900;
       text-decoration: underline;
       text-underline-offset: 4px;
-    }
-
-    .soft-section {
-      background: rgba(248, 250, 252, 0.86);
-      border-top: 1px solid rgba(226, 232, 240, 0.75);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
     }
 
     footer {
@@ -603,7 +519,7 @@
       }
 
       .hero-panel,
-      .request-panel,
+      .form-panel,
       .boundary-panel {
         padding: 38px 24px;
         border-radius: 32px;
@@ -635,8 +551,6 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-
   <header class="site-header">
     <div class="nav-wrap">
       <a class="brand" href="/" aria-label="TA-14 homepage">
@@ -664,40 +578,39 @@
     </div>
   </header>
 
-  <main id="main">
+  <main>
     <section class="hero-section">
       <div class="hero-panel">
-        <div>
-          <p class="eyebrow">TA-14 Review Request</p>
+        <p class="eyebrow">TA-14 Review Request</p>
 
-          <h1 class="hero-title">
-            Request a TA-14 admissible-execution review.
-          </h1>
+        <h1 class="hero-title">
+          Request a TA-14 admissible-execution review.
+        </h1>
 
-          <p class="hero-lede">
-            Use this page to submit a system, workflow, evidence process, governance architecture,
-            environmental integrity route, partner-review candidate, or other consequence-bearing
-            route for TA-14 review consideration.
-          </p>
+        <p class="hero-lede">
+          Use this page to submit a system, workflow, evidence process, governance architecture,
+          environmental integrity route, partner-review candidate, or other consequence-bearing
+          route for TA-14 review consideration.
+        </p>
 
-          <p class="hero-lede">
-            The form submit button sends the completed intake to Netlify Forms. The email button
-            remains as a direct fallback.
-          </p>
+        <p class="hero-lede">
+          TA-14 review asks whether a route has enough evidence, continuity, authority,
+          admissibility, binding discipline, commit control, execution governance, and outcome
+          accountability before it creates consequence.
+        </p>
 
-          <div class="hero-actions">
-            <a class="button primary" href="#intake-form">
-              Start Form
-            </a>
+        <div class="hero-actions">
+          <a class="button primary" href="#intake-form">
+            Start Review Intake
+          </a>
 
-            <a class="button secondary" href="/review-desk">
-              Open Governance Review Desk
-            </a>
+          <a class="button secondary" href="/review-desk">
+            Open Governance Review Desk
+          </a>
 
-            <a class="button secondary" href="/pricing">
-              View Fixed-Fee Pricing
-            </a>
-          </div>
+          <a class="button secondary" href="/pricing">
+            View Fixed-Fee Pricing
+          </a>
         </div>
       </div>
     </section>
@@ -747,14 +660,15 @@
 
     <section id="intake-form">
       <div class="section-inner">
-        <div class="request-panel">
+        <div class="form-panel">
           <p class="eyebrow">Submit review request</p>
 
           <h2>Complete the TA-14 review intake form.</h2>
 
           <p>
-            The Submit TA-14 Review Request button below is configured for Netlify Forms.
-            After a successful submission, the visitor is sent to /thank-you.
+            The Submit TA-14 Review Request button is configured for Netlify Forms.
+            After a successful submission, the completed intake should appear in your Netlify
+            Forms dashboard and the visitor should land on the confirmation page.
           </p>
 
           <div class="form-shell">
@@ -764,7 +678,7 @@
               data-netlify="true"
               netlify
               netlify-honeypot="bot-field"
-              action="/thank-you"
+              action="/thank-you.html"
             >
               <input type="hidden" name="form-name" value="ta14-review-request" />
 
@@ -847,7 +761,7 @@
 
                 <a
                   class="button secondary"
-                  href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0A1.%20What%20system%2C%20workflow%2C%20evidence%20process%2C%20or%20architecture%20should%20be%20reviewed%3A%0A%0A2.%20What%20consequence-bearing%20action%2C%20reliance%2C%20intervention%2C%20or%20decision%20may%20occur%3A%0A%0A3.%20What%20evidence%20currently%20supports%20that%20action%3A%0A%0A4.%20Who%20or%20what%20relies%20on%20the%20evidence%3A%0A%0A5.%20Where%20authority%2C%20binding%2C%20commit%2C%20execution%2C%20and%20outcome%20records%20appear%3A%0A%0A6.%20Relevant%20links%2C%20materials%2C%20repositories%2C%20or%20notes%3A%0A%0AThank%20you."
+                  href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request"
                 >
                   Email Instead
                 </a>
@@ -855,7 +769,7 @@
 
               <p class="form-note">
                 Form submissions are captured in Netlify Forms after form detection is enabled
-                and the site has been redeployed. The email option is a direct fallback.
+                and the site has been redeployed. The email option remains as a direct fallback.
               </p>
             </form>
           </div>
