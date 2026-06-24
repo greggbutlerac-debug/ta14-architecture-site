@@ -1,5 +1,3 @@
-```html
-<!-- public/request-evaluation.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,487 +7,829 @@
   <title>Request TA-14 Review | TA-14 Admissible Execution Architecture</title>
   <meta
     name="description"
-    content="Request a TA-14 admissible-execution review for a system, workflow, evidence process, or architecture."
+    content="Request a TA-14 admissible-execution review by email. TA-14 reviews systems, workflows, evidence processes, governance architectures, and consequence-bearing routes."
   />
+  <meta name="author" content="Greggory Don Butler" />
+  <meta name="robots" content="index, follow" />
 
   <style>
     :root {
-      --ink: #020617;
-      --muted: #475569;
-      --line: #cbd5e1;
+      --ink: #050816;
+      --navy: #07183d;
+      --navy-deep: #050b22;
+      --purple: #302155;
+      --blue: #7dd3fc;
+      --soft-blue: #eaf4ff;
       --soft: #f8fafc;
-      --panel: #ffffff;
-      --accent: #0f172a;
+      --line: #dbe4f0;
+      --muted: #64748b;
+      --muted-dark: #475569;
+      --white: #ffffff;
+      --shadow: 0 34px 90px rgba(15, 23, 42, 0.16);
+      --shadow-soft: 0 18px 48px rgba(15, 23, 42, 0.08);
+      --max: 1180px;
+      --radius-xl: 46px;
+      --radius-lg: 34px;
+      --radius-md: 26px;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f8fafc;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
       color: var(--ink);
-      line-height: 1.55;
+      background:
+        radial-gradient(circle at 6% 7%, rgba(186, 230, 253, 0.56), transparent 30%),
+        radial-gradient(circle at 94% 17%, rgba(233, 213, 255, 0.55), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
+      line-height: 1.6;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid #e2e8f0;
-      backdrop-filter: blur(10px);
-    }
-
-    .nav {
-      max-width: 1230px;
-      margin: 0 auto;
-      padding: 14px 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .brand {
+    a {
+      color: inherit;
       text-decoration: none;
-      color: var(--ink);
-      font-weight: 900;
-      font-size: 20px;
-      line-height: 1.2;
     }
 
-    .brand span {
-      display: block;
-      color: #64748b;
-      font-size: 14px;
-      font-weight: 700;
-      margin-top: 4px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #475569;
-      font-weight: 800;
-      font-size: 15px;
-    }
-
-    nav a.cta {
-      color: #ffffff;
-      background: var(--accent);
-      padding: 12px 18px;
+    a:focus-visible {
+      outline: 3px solid #38bdf8;
+      outline-offset: 4px;
       border-radius: 999px;
     }
 
-    main {
-      max-width: 1230px;
-      margin: 0 auto;
-      padding: 56px 22px 90px;
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
     }
 
-    .hero {
-      margin-bottom: 42px;
-    }
-
-    .eyebrow {
-      color: #64748b;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.24em;
-      font-size: 13px;
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      font-size: clamp(42px, 7vw, 82px);
-      line-height: 0.98;
-      margin: 0 0 22px;
-      letter-spacing: -0.06em;
-    }
-
-    h2 {
-      font-size: clamp(32px, 4vw, 58px);
-      line-height: 1.05;
-      letter-spacing: -0.045em;
-      margin: 0 0 18px;
-    }
-
-    h3 {
-      margin-top: 0;
-      font-size: 24px;
-    }
-
-    .lead {
-      max-width: 980px;
-      font-size: 22px;
-      color: #334155;
-      margin-bottom: 26px;
-    }
-
-    .chain {
-      display: inline-block;
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 16px;
+      z-index: 999;
+      padding: 10px 14px;
+      border-radius: 999px;
       background: #020617;
       color: #ffffff;
-      padding: 16px 20px;
-      border-radius: 16px;
       font-weight: 900;
-      margin-top: 10px;
     }
 
-    .panel {
-      background: var(--panel);
-      border: 1px solid #e2e8f0;
-      border-radius: 28px;
-      padding: clamp(24px, 4vw, 44px);
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
-      margin-bottom: 48px;
+    .skip-link:focus {
+      left: 16px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+    }
+
+    .nav-wrap {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 28px 34px 24px;
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .brand {
+      display: block;
+      color: var(--ink);
+    }
+
+    .brand-title {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1.35;
+      letter-spacing: -0.04em;
+      font-weight: 950;
+    }
+
+    .brand-subtitle {
+      display: block;
+      max-width: 285px;
+      margin-top: 5px;
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.6;
+      font-weight: 760;
+    }
+
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .nav-pills a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: #44546a;
+      font-size: 1rem;
+      line-height: 1;
+      font-weight: 870;
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
+      transition:
+        transform 150ms ease,
+        background 150ms ease,
+        border-color 150ms ease,
+        color 150ms ease,
+        box-shadow 150ms ease;
+    }
+
+    .nav-pills a:hover {
+      transform: translateY(-1px);
+      border-color: #bfdbfe;
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .nav-pills a.request {
+      background: #020617;
+      color: #ffffff;
+      border-color: #020617;
+      box-shadow: 0 12px 28px rgba(2, 6, 23, 0.18);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      font-weight: 950;
+    }
+
+    .hero-section {
+      padding: 94px 34px 54px;
+    }
+
+    .hero-panel,
+    .request-panel,
+    .boundary-panel {
+      position: relative;
+      overflow: hidden;
+      max-width: var(--max);
+      margin: 0 auto;
+      border-radius: var(--radius-xl);
+      color: #ffffff;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        radial-gradient(circle at 13% 52%, rgba(29, 78, 216, 0.36), transparent 42%),
+        radial-gradient(circle at 86% 18%, rgba(124, 58, 237, 0.34), transparent 38%),
+        linear-gradient(115deg, #081a43 0%, #071028 46%, #2d235c 100%);
+      background-size: 72px 72px, 72px 72px, auto, auto, auto;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel {
+      min-height: 520px;
+      padding: 76px 82px;
+      display: grid;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero-title {
+      max-width: 930px;
+      color: #ffffff;
+      font-size: clamp(4rem, 7vw, 7.4rem);
+      line-height: 0.9;
+      letter-spacing: -0.085em;
+      font-weight: 950;
+    }
+
+    .hero-lede {
+      max-width: 920px;
+      margin-top: 30px;
+      color: #dbeafe;
+      font-size: clamp(1.12rem, 1.5vw, 1.38rem);
+      line-height: 1.7;
+      font-weight: 570;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 920;
+      transition:
+        transform 150ms ease,
+        box-shadow 150ms ease,
+        background 150ms ease,
+        border-color 150ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: #ffffff;
+      color: #020617;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+    }
+
+    .button.secondary {
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .button.dark {
+      background: #020617;
+      color: #ffffff;
+      box-shadow: 0 16px 36px rgba(2, 6, 23, 0.16);
+    }
+
+    section:not(.hero-section) {
+      padding: 64px 34px;
+    }
+
+    .section-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 980px;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      margin-top: 12px;
+      color: #07111f;
+      font-size: clamp(2.2rem, 4vw, 4.1rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      font-weight: 950;
+    }
+
+    .section-head p {
+      margin-top: 18px;
+      color: #475569;
+      font-size: 1.14rem;
+      line-height: 1.75;
+      font-weight: 520;
     }
 
     .grid {
       display: grid;
+      gap: 20px;
+    }
+
+    .grid.two {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
     }
 
-    label {
-      display: block;
-      font-weight: 900;
-      margin: 0 0 8px;
-      color: #020617;
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    input,
-    textarea,
-    select {
-      width: 100%;
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
       border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px 16px;
-      font-size: 16px;
-      font-family: inherit;
+      border-radius: 28px;
       background: #ffffff;
-      color: #020617;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.055);
     }
 
-    textarea {
-      min-height: 130px;
-      resize: vertical;
+    .card h3 {
+      margin-bottom: 10px;
+      color: #07111f;
+      font-size: 1.24rem;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      font-weight: 950;
     }
 
-    .full {
-      grid-column: 1 / -1;
+    .card p,
+    .card li {
+      color: #52637a;
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
-    .actions {
-      display: flex;
+    .card ol {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .number {
+      display: inline-flex;
+      width: fit-content;
+      min-width: 44px;
+      height: 44px;
+      padding: 0 13px;
       align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-    }
-
-    button,
-    .button {
-      border: 0;
-      cursor: pointer;
-      display: inline-block;
-      text-decoration: none;
-      background: #020617;
-      color: #ffffff;
-      padding: 16px 26px;
+      justify-content: center;
+      margin-bottom: 20px;
       border-radius: 999px;
-      font-size: 17px;
-      font-weight: 900;
-      font-family: inherit;
+      background: #eef6ff;
+      color: #1d4ed8;
+      font-weight: 950;
+      font-size: 0.92rem;
+      box-shadow: inset 0 0 0 1px #dbeafe;
     }
 
-    .button.secondary {
-      background: #020617;
+    .request-panel,
+    .boundary-panel {
+      padding: 52px;
+    }
+
+    .request-panel h2,
+    .boundary-panel h2 {
+      max-width: 1020px;
+      margin-top: 12px;
       color: #ffffff;
+      font-size: clamp(2.35rem, 4.4vw, 4.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      font-weight: 950;
     }
 
-    .note {
-      color: #334155;
-      font-size: 16px;
-      margin-top: 18px;
+    .request-panel p,
+    .boundary-panel p {
+      margin-top: 20px;
+      max-width: 1060px;
+      color: #dbeafe;
+      font-size: 1.14rem;
+      line-height: 1.8;
     }
 
-    .checklist {
+    .request-list {
+      margin-top: 28px;
+      padding: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .request-list h3 {
+      margin-bottom: 12px;
+      color: #ffffff;
+      font-size: 1.25rem;
+      letter-spacing: -0.025em;
+    }
+
+    .request-list ol {
+      padding-left: 24px;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 10px;
+      color: #dbeafe;
     }
 
-    .item {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 22px;
-      padding: 22px;
+    .request-list li {
+      padding-left: 4px;
+      color: #dbeafe;
+      font-size: 1rem;
+      line-height: 1.65;
     }
 
-    .item strong {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 8px;
+    .chain-band {
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 28px;
+      background: #07111f;
+      color: #ffffff;
+      text-align: center;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      letter-spacing: -0.02em;
+      font-weight: 950;
     }
 
-    .item p {
-      margin: 0;
-      color: #475569;
+    .direct-contact {
+      margin-top: 22px !important;
+      color: #e2e8f0 !important;
+    }
+
+    .direct-contact a {
+      color: #ffffff;
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .soft-section {
+      background: rgba(248, 250, 252, 0.86);
+      border-top: 1px solid rgba(226, 232, 240, 0.75);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
     }
 
     footer {
-      border-top: 1px solid #e2e8f0;
-      padding: 32px 22px;
-      color: #64748b;
-      text-align: center;
+      padding: 32px 34px;
       background: #ffffff;
+      border-top: 1px solid var(--line);
+      color: #64748b;
     }
 
-    @media (max-width: 760px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
+    .footer-inner {
+      max-width: 1480px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 0.96rem;
+    }
 
-      nav {
-        gap: 12px;
-      }
+    footer strong {
+      color: #07111f;
+      font-weight: 950;
+    }
 
-      .grid,
-      .checklist {
+    footer a {
+      color: #334155;
+      font-weight: 850;
+    }
+
+    @media (max-width: 1180px) {
+      .nav-wrap {
         grid-template-columns: 1fr;
       }
 
-      h1 {
-        font-size: 46px;
+      .nav-pills {
+        justify-content: flex-start;
+      }
+
+      .grid.two,
+      .grid.three {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        padding: 62px 48px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-wrap {
+        padding: 20px;
+      }
+
+      .brand-title {
+        font-size: 1.18rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.92rem;
+      }
+
+      .nav-pills {
+        gap: 8px;
+      }
+
+      .nav-pills a {
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 0.88rem;
+      }
+
+      .hero-section {
+        padding: 44px 18px 48px;
+      }
+
+      .hero-panel,
+      .request-panel,
+      .boundary-panel {
+        padding: 38px 24px;
+        border-radius: 32px;
+      }
+
+      .hero-title {
+        font-size: clamp(3.2rem, 17vw, 5.1rem);
+      }
+
+      section:not(.hero-section) {
+        padding: 54px 18px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="nav">
-      <a class="brand" href="/">
-        TA-14 Admissible Execution Architecture
-        <span>Proof-bound governance before consequence</span>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="/" aria-label="TA-14 homepage">
+        <span class="brand-title">TA-14 Admissible Execution Architecture</span>
+        <span class="brand-subtitle">Proof-bound governance before consequence</span>
       </a>
 
-      <nav aria-label="Primary navigation">
-        <a href="/start-here.html">Start Here</a>
-        <a href="/architecture.html">Architecture</a>
-        <a href="/services.html">Services</a>
-        <a href="/use-cases.html">Use Cases</a>
-        <a href="/resources.html">Resources</a>
-        <a class="cta" href="/request-evaluation.html">Request Review</a>
+      <nav class="nav-pills" aria-label="Primary navigation">
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/governance-review">Governance Review</a>
+        <a href="/review-desk">Governance Review Desk</a>
+        <a href="/services">Services</a>
+        <a href="/certification-readiness">Certification Readiness</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/resources">Resources</a>
+        <a href="/founder">Founder / Author</a>
+        <a href="/positioning">Positioning</a>
+        <a href="/public-record">Public Record</a>
+        <a href="/evidence">Evidence Integrity</a>
+        <a href="/partners">Partner Review Network</a>
+        <a
+          class="request"
+          href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request"
+        >
+          Request Review
+        </a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="eyebrow">Request Review</div>
+  <main id="main">
+    <section class="hero-section">
+      <div class="hero-panel">
+        <div>
+          <p class="eyebrow">TA-14 Review Request</p>
 
-      <h1>Request a TA-14 admissible-execution review.</h1>
+          <h1 class="hero-title">
+            Request a TA-14 admissible-execution review.
+          </h1>
 
-      <p class="lead">
-        Use this intake page to request review of a system, workflow, evidence process,
-        AI governance architecture, partner-review pathway, environmental integrity process,
-        or other consequence-bearing execution structure.
-      </p>
+          <p class="hero-lede">
+            This page has been simplified to remove the broken form-submit route.
+            Review requests now go directly by email so visitors do not get sent to
+            a missing thank-you page or 404 route.
+          </p>
 
-      <div class="chain">
-        Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
-      </div>
-    </section>
+          <p class="hero-lede">
+            Use the email request button below to submit a system, workflow, evidence process,
+            governance architecture, environmental integrity route, partner-review candidate,
+            or other consequence-bearing route for TA-14 review consideration.
+          </p>
 
-    <section class="panel" aria-labelledby="intake-form">
-      <h2 id="intake-form">TA-14 review request form</h2>
+          <div class="hero-actions">
+            <a
+              class="button primary"
+              href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0A1.%20What%20system%2C%20workflow%2C%20evidence%20process%2C%20or%20architecture%20should%20be%20reviewed%3A%0A%0A2.%20What%20consequence-bearing%20action%2C%20reliance%2C%20intervention%2C%20or%20decision%20may%20occur%3A%0A%0A3.%20What%20evidence%20currently%20supports%20that%20action%3A%0A%0A4.%20Who%20or%20what%20relies%20on%20the%20evidence%3A%0A%0A5.%20Where%20authority%2C%20binding%2C%20commit%2C%20execution%2C%20and%20outcome%20records%20appear%3A%0A%0A6.%20Relevant%20links%2C%20materials%2C%20repositories%2C%20or%20notes%3A%0A%0AThank%20you."
+            >
+              Email TA-14 Review Request
+            </a>
 
-      <p class="lead">
-        Submit enough information to determine whether the matter is appropriate for a
-        TA-14 review, gap review, evidence review, partner-review pathway, or scoped
-        admissible-execution assessment.
-      </p>
+            <a class="button secondary" href="/review-desk">
+              Open Governance Review Desk
+            </a>
 
-      <form
-        name="ta14-review-request"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        action="/review-request-received.html"
-      >
-        <input type="hidden" name="form-name" value="ta14-review-request" />
-
-        <p hidden>
-          <label>
-            Do not fill this out:
-            <input name="bot-field" />
-          </label>
-        </p>
-
-        <div class="grid">
-          <div>
-            <label for="name">Your name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
-          </div>
-
-          <div>
-            <label for="email">Email address</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
-          </div>
-
-          <div>
-            <label for="organization">Organization / project</label>
-            <input id="organization" name="organization" type="text" />
-          </div>
-
-          <div>
-            <label for="review-type">Requested review type</label>
-            <select id="review-type" name="review-type">
-              <option value="">Select one</option>
-              <option>Public-material gap review</option>
-              <option>Operational evidence review</option>
-              <option>Partner-review pathway</option>
-              <option>Route-complete admissibility review</option>
-              <option>Environmental / atmospheric integrity review</option>
-              <option>Other / not sure yet</option>
-            </select>
-          </div>
-
-          <div class="full">
-            <label for="system">What system, workflow, architecture, or evidence process should TA-14 review?</label>
-            <textarea id="system" name="system" required></textarea>
-          </div>
-
-          <div class="full">
-            <label for="consequence">What consequence-bearing action, decision, reliance, or execution does it support?</label>
-            <textarea id="consequence" name="consequence" required></textarea>
-          </div>
-
-          <div class="full">
-            <label for="evidence">What evidence exists before action, reliance, binding, commit, or execution?</label>
-            <textarea id="evidence" name="evidence"></textarea>
-          </div>
-
-          <div class="full">
-            <label for="authority">What authority, permission, scope, or decision right controls the action?</label>
-            <textarea id="authority" name="authority"></textarea>
-          </div>
-
-          <div class="full">
-            <label for="binding">Where does reliance, binding, commit, execution, or irreversible consequence occur?</label>
-            <textarea id="binding" name="binding"></textarea>
-          </div>
-
-          <div class="full">
-            <label for="failure">What could go wrong if the evidence is wrong, stale, incomplete, unauthorized, or out of scope?</label>
-            <textarea id="failure" name="failure"></textarea>
-          </div>
-
-          <div class="full">
-            <label for="links">Relevant links, public materials, repositories, files, or notes</label>
-            <textarea id="links" name="links"></textarea>
+            <a class="button secondary" href="/pricing">
+              View Fixed-Fee Pricing
+            </a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="actions">
-          <button type="submit">
-            Submit TA-14 Review Request
-          </button>
-
-          <a
-            class="button secondary"
-            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request"
-          >
-            Email Instead
-          </a>
+    <section class="soft-section">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-kicker">What to include</p>
+          <h2>Send enough information to classify the review route.</h2>
+          <p>
+            TA-14 does not need unlimited background at intake. It needs enough information
+            to identify the consequence-bearing route, the evidence being relied on, and the
+            point where reliance, binding, commit, execution, or outcome may occur.
+          </p>
         </div>
 
-        <p class="note">
-          If the form does not submit in your deployment environment, use the email button.
-          Direct contact: ta14admissibleexecution@gmail.com
-        </p>
-      </form>
-    </section>
+        <div class="grid three">
+          <article class="card">
+            <span class="number">1</span>
+            <h3>What should be reviewed?</h3>
+            <p>
+              Name the system, workflow, evidence process, governance architecture,
+              environmental integrity route, partner-review candidate, or other structure.
+            </p>
+          </article>
 
-    <section class="hero">
-      <div class="eyebrow">Evidence Checklist</div>
-      <h2>What TA-14 looks for during review</h2>
-    </section>
+          <article class="card">
+            <span class="number">2</span>
+            <h3>What consequence may occur?</h3>
+            <p>
+              Identify the action, reliance, decision, intervention, routing, publication,
+              transaction, refusal, escalation, or outcome that could affect the real world.
+            </p>
+          </article>
 
-    <section class="checklist">
-      <div class="item">
-        <strong>Reality</strong>
-        <p>What real-world condition, source state, event, or operating fact is being relied on?</p>
-      </div>
-
-      <div class="item">
-        <strong>Record</strong>
-        <p>What record proves the condition existed before action or reliance?</p>
-      </div>
-
-      <div class="item">
-        <strong>Continuity</strong>
-        <p>Can the evidence remain connected across time, tools, actors, systems, and handoffs?</p>
-      </div>
-
-      <div class="item">
-        <strong>Admissibility</strong>
-        <p>Is the evidence sufficient, current, authorized, and usable before consequence forms?</p>
-      </div>
-
-      <div class="item">
-        <strong>Binding</strong>
-        <p>Where does the system convert evidence into a claim, decision, reliance, or permission?</p>
-      </div>
-
-      <div class="item">
-        <strong>Commit</strong>
-        <p>Where does the system become committed to a course of action or irreversible path?</p>
-      </div>
-
-      <div class="item">
-        <strong>Execution</strong>
-        <p>What action, automation, intervention, publication, transaction, or operational effect occurs?</p>
-      </div>
-
-      <div class="item">
-        <strong>Outcome</strong>
-        <p>What changed after execution, and how is that outcome recorded and accountable?</p>
+          <article class="card">
+            <span class="number">3</span>
+            <h3>What evidence supports it?</h3>
+            <p>
+              Include public links, documents, records, logs, screenshots, repositories,
+              claims, operating materials, or evidence packets that support review.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="panel" style="margin-top: 48px;">
-      <h2>Review boundary</h2>
+    <section>
+      <div class="section-inner">
+        <div class="request-panel">
+          <p class="eyebrow">Email intake checklist</p>
 
-      <p>
-        A TA-14 review is an architecture-facing admissible-execution review. It is not a legal
-        opinion, security audit, financial audit, regulatory certification, production validation,
-        endorsement, or guarantee.
-      </p>
+          <h2>Use the email button instead of the broken form-submit route.</h2>
 
-      <p>
-        Public-material reviews are limited to publicly available or submitted materials. A visible
-        gap does not prove private capability is absent unless private capability is reviewed within
-        a defined evidence scope.
-      </p>
+          <p>
+            The prior form action was routing visitors to a missing thank-you page. This
+            replacement page removes the form submit button completely and uses a direct
+            email intake request instead.
+          </p>
+
+          <div class="request-list" aria-label="TA-14 review request checklist">
+            <h3>To request a TA-14 review, include:</h3>
+
+            <ol>
+              <li>What system, workflow, evidence process, or architecture should be reviewed.</li>
+              <li>What consequence-bearing action, reliance, intervention, or decision may occur.</li>
+              <li>What evidence currently supports that action.</li>
+              <li>Who or what relies on the evidence.</li>
+              <li>Where authority, binding, commit, execution, and outcome records appear.</li>
+              <li>Relevant links, materials, repositories, files, or notes.</li>
+            </ol>
+          </div>
+
+          <div class="hero-actions">
+            <a
+              class="button primary"
+              href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0A1.%20What%20system%2C%20workflow%2C%20evidence%20process%2C%20or%20architecture%20should%20be%20reviewed%3A%0A%0A2.%20What%20consequence-bearing%20action%2C%20reliance%2C%20intervention%2C%20or%20decision%20may%20occur%3A%0A%0A3.%20What%20evidence%20currently%20supports%20that%20action%3A%0A%0A4.%20Who%20or%20what%20relies%20on%20the%20evidence%3A%0A%0A5.%20Where%20authority%2C%20binding%2C%20commit%2C%20execution%2C%20and%20outcome%20records%20appear%3A%0A%0A6.%20Relevant%20links%2C%20materials%2C%20repositories%2C%20or%20notes%3A%0A%0AThank%20you."
+            >
+              Email TA-14 Review Request
+            </a>
+
+            <a class="button secondary" href="/review-desk">
+              Open Governance Review Desk
+            </a>
+
+            <a class="button secondary" href="/governance-review">
+              Open Governance Review
+            </a>
+          </div>
+
+          <p class="direct-contact">
+            Direct contact:
+            <a href="mailto:ta14admissibleexecution@gmail.com">
+              ta14admissibleexecution@gmail.com
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-kicker">TA-14 chain</p>
+          <h2>Review is mapped against the admissible-execution chain.</h2>
+          <p>
+            TA-14 review looks for evidence, continuity, authority, admissibility,
+            binding discipline, commit control, execution governance, and outcome accountability.
+          </p>
+        </div>
+
+        <div class="chain-band">
+          Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+        </div>
+
+        <div class="grid two" style="margin-top: 24px;">
+          <article class="card">
+            <h3>Before consequence</h3>
+            <p>
+              TA-14 asks whether the evidence was sufficient, current, authorized,
+              preserved, and scope-bound before reliance, binding, commit, or execution.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>After execution</h3>
+            <p>
+              TA-14 asks whether the outcome is recorded, accountable, reviewable,
+              and connected back to the route that allowed consequence to occur.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <div class="boundary-panel">
+          <p class="eyebrow">Review boundary</p>
+
+          <h2>A TA-14 request is an intake step, not a certification.</h2>
+
+          <p>
+            A TA-14 review is an architecture-facing admissible-execution review. It is not
+            a legal opinion, security audit, financial audit, regulatory certification,
+            production validation, endorsement, or guarantee.
+          </p>
+
+          <p>
+            Public-material reviews are limited to public or submitted materials. A visible
+            gap does not prove private capability is absent unless private capability is
+            reviewed within a defined evidence scope.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="button primary"
+              href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request"
+            >
+              Contact TA-14
+            </a>
+
+            <a class="button secondary" href="/">
+              Return Home
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    TA-14 Admissible Execution Architecture — Proof-bound governance before consequence.
+    <div class="footer-inner">
+      <div>
+        <strong>TA-14 Admissible Execution Architecture</strong><br />
+        Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+      </div>
+
+      <div>
+        <a href="/">Home</a> ·
+        <a href="/review-desk">Governance Review Desk</a> ·
+        <a href="/certification-readiness">Certification Readiness</a> ·
+        <a href="/pricing">Pricing</a> ·
+        <a href="/governance-review">Governance Review</a> ·
+        <a href="/architecture">Architecture</a> ·
+        <a href="/founder">Founder / Author</a> ·
+        <a href="/public-record">Public Record</a> ·
+        <a href="/evidence">Evidence Integrity</a> ·
+        <a href="/partners">Partner Review Network</a> ·
+        <a href="mailto:ta14admissibleexecution@gmail.com">Contact</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
-```
