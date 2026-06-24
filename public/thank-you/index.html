@@ -12,18 +12,6 @@
   />
 
   <style>
-    :root {
-      --ink: #050816;
-      --line: #dbe4f0;
-      --muted: #64748b;
-      --white: #ffffff;
-      --shadow: 0 34px 90px rgba(15, 23, 42, 0.16);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family:
@@ -34,11 +22,11 @@
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
-      color: var(--ink);
       background:
         radial-gradient(circle at 6% 7%, rgba(186, 230, 253, 0.56), transparent 30%),
         radial-gradient(circle at 94% 17%, rgba(233, 213, 255, 0.55), transparent 32%),
         linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
+      color: #050816;
       line-height: 1.6;
     }
 
@@ -47,48 +35,13 @@
       text-decoration: none;
     }
 
-    .site-header {
-      background: rgba(255, 255, 255, 0.92);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.22);
-    }
-
-    .nav-wrap {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 28px 34px 24px;
-    }
-
-    .brand {
-      display: block;
-      color: var(--ink);
-    }
-
-    .brand-title {
-      display: block;
-      font-size: 1.45rem;
-      line-height: 1.35;
-      letter-spacing: -0.04em;
-      font-weight: 950;
-    }
-
-    .brand-subtitle {
-      display: block;
-      max-width: 420px;
-      margin-top: 5px;
-      color: #64748b;
-      font-size: 1rem;
-      line-height: 1.6;
-      font-weight: 760;
-    }
-
     main {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 92px 34px;
+      padding: 90px 34px;
     }
 
     .panel {
-      position: relative;
       overflow: hidden;
       padding: 72px;
       border-radius: 46px;
@@ -100,13 +53,13 @@
         radial-gradient(circle at 86% 18%, rgba(124, 58, 237, 0.34), transparent 38%),
         linear-gradient(115deg, #081a43 0%, #071028 46%, #2d235c 100%);
       background-size: 72px 72px, 72px 72px, auto, auto, auto;
-      box-shadow: var(--shadow);
+      box-shadow: 0 34px 90px rgba(15, 23, 42, 0.16);
     }
 
     .eyebrow {
-      color: #b7f2ff;
+      color: #7dd3fc;
       text-transform: uppercase;
-      letter-spacing: 0.17em;
+      letter-spacing: 0.18em;
       font-size: 0.78rem;
       line-height: 1.4;
       font-weight: 950;
@@ -154,8 +107,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
+      min-height: 54px;
+      padding: 0 24px;
       border-radius: 999px;
       font-size: 1rem;
       font-weight: 920;
@@ -171,19 +124,6 @@
       color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.22);
       background: rgba(255, 255, 255, 0.09);
-    }
-
-    footer {
-      padding: 32px 34px;
-      background: #ffffff;
-      border-top: 1px solid var(--line);
-      color: #64748b;
-      text-align: center;
-    }
-
-    footer strong {
-      color: #07111f;
-      font-weight: 950;
     }
 
     @media (max-width: 760px) {
@@ -212,15 +152,6 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="/" aria-label="TA-14 homepage">
-        <span class="brand-title">TA-14 Admissible Execution Architecture</span>
-        <span class="brand-subtitle">Proof-bound governance before consequence</span>
-      </a>
-    </div>
-  </header>
-
   <main>
     <section class="panel">
       <p class="eyebrow">Request received</p>
@@ -241,11 +172,6 @@
         security audit, production validation, or guarantee. It begins a review intake process.
       </p>
 
-      <p>
-        If the form submission did not include all relevant materials, you may send supporting
-        links or documents by email.
-      </p>
-
       <div class="actions">
         <a class="button primary" href="/">
           Return Home
@@ -264,11 +190,6 @@
       </div>
     </section>
   </main>
-
-  <footer>
-    <strong>TA-14 Admissible Execution Architecture</strong><br />
-    Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
-  </footer>
 </body>
 </html>
 ```
