@@ -3,1261 +3,476 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Resources | TA-14 Admissible Execution Architecture</title>
-
-  <meta
-    name="description"
-    content="TA-14 public resources, DOI records, Google Sites, GitHub repositories, Medium chronology anchors, AutomatedBuildings publications, environmental integrity references, and public record links."
-  />
-
+  <meta name="description" content="TA-14 Admissible Execution Architecture public resources, clickable DOI records, software repositories, public doctrine articles, Google Sites pages, books, applied architecture anchors, and request-review pathways." />
   <style>
     :root {
-      --black: #020617;
-      --ink: #0f172a;
-      --muted: #475569;
-      --light-muted: #64748b;
-      --line: #e2e8f0;
-      --soft: #f8fafc;
-      --white: #ffffff;
-      --blue: #2563eb;
-      --cyan: #06b6d4;
-      --violet: #7c3aed;
-      --emerald: #10b981;
-      --amber: #f59e0b;
-      --rose: #f43f5e;
-      --max: 1200px;
-      --radius: 30px;
-      --shadow: 0 30px 90px rgba(15, 23, 42, 0.18);
-      --soft-shadow: 0 18px 55px rgba(15, 23, 42, 0.10);
-      --warning-bg: #fff7ed;
-      --warning: #7c2d12;
-      --green-bg: #ecfdf5;
-      --green: #064e3b;
-      --blue-bg: #eff6ff;
-      --blue-text: #1e3a8a;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.65;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 15% 0%, rgba(37, 99, 235, 0.16), transparent 34rem),
-        radial-gradient(circle at 85% 5%, rgba(124, 58, 237, 0.13), transparent 34rem),
-        radial-gradient(circle at 50% 45%, rgba(6, 182, 212, 0.08), transparent 42rem),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
-    }
-
-    a { color: inherit; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid rgba(226, 232, 240, 0.88);
-      background: rgba(255, 255, 255, 0.90);
-      backdrop-filter: blur(16px);
-    }
-
-    .nav {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 15px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      text-decoration: none;
-      min-width: 260px;
-    }
-
-    .brand strong {
-      font-size: 1.02rem;
-      font-weight: 900;
-      letter-spacing: -0.035em;
-      color: var(--black);
-    }
-
-    .brand span {
-      font-size: 0.88rem;
-      color: var(--light-muted);
-      font-weight: 700;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 800;
-    }
-
-    .nav-links a:hover { color: var(--black); }
-
-    .nav-links .nav-cta {
-      color: #ffffff;
-      background: var(--black);
-      padding: 10px 15px;
-      border-radius: 999px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
-    }
-
-    main {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 72px 24px 92px;
-    }
-
-    section { margin-top: 88px; }
-
-    .hero {
-      margin-top: 0;
-      padding: 22px 0 30px;
-    }
-
-    .hero-shell {
-      position: relative;
-      overflow: hidden;
-      border-radius: 44px;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.42), transparent 28rem),
-        radial-gradient(circle at 85% 18%, rgba(124, 58, 237, 0.35), transparent 28rem),
-        radial-gradient(circle at 50% 90%, rgba(6, 182, 212, 0.22), transparent 28rem),
-        linear-gradient(135deg, #020617 0%, #0f172a 48%, #111827 100%);
-      color: #ffffff;
-      padding: clamp(32px, 6vw, 64px);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.18));
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 38px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      margin: 0 0 18px;
-      color: var(--light-muted);
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .hero .eyebrow { color: #bae6fd; }
-
-    h1 {
-      max-width: 1080px;
-      margin: 0 0 26px;
-      color: var(--black);
-      font-size: clamp(3.2rem, 8vw, 7.15rem);
-      line-height: 0.88;
-      letter-spacing: -0.085em;
-    }
-
-    .hero h1 {
-      color: #ffffff;
-      text-wrap: balance;
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      color: var(--black);
-      font-size: clamp(2rem, 4vw, 3.35rem);
-      line-height: 1.02;
-      letter-spacing: -0.06em;
-    }
-
-    h3 {
-      margin: 0 0 10px;
-      color: var(--black);
-      font-size: 1.35rem;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    p { margin: 0 0 18px; }
-
-    .lead {
-      max-width: 930px;
-      color: #334155;
-      font-size: clamp(1.16rem, 2vw, 1.42rem);
-      line-height: 1.72;
-    }
-
-    .hero .lead { color: #dbeafe; }
-
-    .hero-actions,
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin: 32px 0 14px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 14px 22px;
-      border: 1px solid var(--black);
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 900;
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-    }
-
-    .button:hover { transform: translateY(-2px); }
-
-    .button-primary {
-      background: #ffffff;
-      color: var(--black);
-      border-color: #ffffff;
-      box-shadow: 0 16px 40px rgba(255, 255, 255, 0.14);
-    }
-
-    .button-secondary {
-      background: transparent;
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.38);
-    }
-
-    .button-dark {
-      background: var(--black);
-      color: #ffffff;
-      border-color: var(--black);
-      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
-    }
-
-    .direct {
-      margin-top: 12px;
-      color: #cbd5e1;
-      font-weight: 700;
-    }
-
-    .direct a {
-      color: #ffffff;
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    .hero-panel {
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 34px;
-      padding: 28px;
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-panel h2 {
-      color: #ffffff;
-      font-size: clamp(2rem, 4vw, 3.1rem);
-      letter-spacing: -0.06em;
-    }
-
-    .chain-line {
-      margin-top: 20px;
-      color: #e0f2fe;
-      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-      font-weight: 900;
-    }
-
-    .signal-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .signal {
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 18px;
-      padding: 16px;
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .signal strong {
-      display: block;
-      color: #ffffff;
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .signal span {
-      color: #cbd5e1;
-      font-size: 0.93rem;
-    }
-
-    .mini-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 34px;
-    }
-
-    .mini-nav a {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 9px 13px;
-      color: var(--muted);
-      background: #ffffff;
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 800;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
-    }
-
-    .mini-nav a:hover {
-      color: var(--black);
-      border-color: var(--black);
-    }
-
-    .grid {
-      display: grid;
-      gap: 20px;
-      margin-top: 28px;
-    }
-
-    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-      background: rgba(255, 255, 255, 0.94);
-      box-shadow: var(--soft-shadow);
-      text-decoration: none;
-      display: block;
-    }
-
-    .card.alt { background: rgba(248, 250, 252, 0.96); }
-
-    .card.dark {
-      background:
-        radial-gradient(circle at top right, rgba(37, 99, 235, 0.20), transparent 18rem),
-        var(--black);
-      color: #ffffff;
-      border-color: var(--black);
-      box-shadow: var(--shadow);
-    }
-
-    .card.dark h2,
-    .card.dark h3,
-    .card.dark p,
-    .card.dark li {
-      color: #ffffff;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      transition: transform 160ms ease;
-    }
-
-    .number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      margin-bottom: 16px;
-      border-radius: 50%;
-      background: var(--black);
-      color: #ffffff;
-      font-weight: 900;
-      font-size: 0.92rem;
-    }
-
-    .number.blue { background: linear-gradient(135deg, var(--blue), var(--cyan)); }
-    .number.violet { background: linear-gradient(135deg, var(--violet), var(--rose)); }
-    .number.green { background: linear-gradient(135deg, var(--emerald), var(--cyan)); }
-    .number.amber { background: linear-gradient(135deg, var(--amber), var(--rose)); }
-
-    .quote-panel {
-      border-radius: 36px;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.22), transparent 24rem),
-        radial-gradient(circle at 95% 15%, rgba(124, 58, 237, 0.22), transparent 24rem),
-        var(--black);
-      color: #ffffff;
-      padding: 42px;
-      margin-top: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .quote-panel h2,
-    .quote-panel p { color: #ffffff; }
-
-    .quote-panel p.big {
-      margin: 0;
-      font-size: clamp(1.65rem, 3.2vw, 2.85rem);
-      line-height: 1.12;
-      letter-spacing: -0.045em;
-      font-weight: 900;
-    }
-
-    .library {
-      border: 1px solid var(--line);
-      border-radius: 38px;
-      background: #ffffff;
-      padding: 40px;
-      box-shadow: var(--shadow);
-      margin-top: 32px;
-    }
-
-    .record-card {
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 22px;
-      background: #ffffff;
-      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.06);
-      text-decoration: none;
-      display: block;
-      min-height: 190px;
-    }
-
-    .record-card:hover {
-      transform: translateY(-2px);
-      transition: transform 160ms ease;
-    }
-
-    .record-card strong {
-      display: block;
-      color: var(--black);
-      font-size: 1.08rem;
-      line-height: 1.25;
-      margin-bottom: 8px;
-    }
-
-    .record-card span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .record-card .meta {
-      margin-top: 14px;
-      color: var(--light-muted);
-      font-size: 0.86rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .doi-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .doi-card::after {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      right: -30px;
-      bottom: -30px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.16), transparent 70%);
-    }
-
-    .warning {
-      border: 1px solid #fed7aa;
-      border-radius: 22px;
-      background: var(--warning-bg);
-      color: var(--warning);
-      padding: 28px;
-      margin-top: 28px;
-    }
-
-    .warning h3,
-    .warning p,
-    .warning li { color: var(--warning); }
-
-    .green-box {
-      border: 1px solid #a7f3d0;
-      border-radius: 22px;
-      background: var(--green-bg);
-      color: var(--green);
-      padding: 28px;
-      margin-top: 28px;
-    }
-
-    .green-box h3,
-    .green-box p,
-    .green-box li { color: var(--green); }
-
-    .blue-box {
-      border: 1px solid #bfdbfe;
-      border-radius: 22px;
-      background: var(--blue-bg);
-      color: var(--blue-text);
-      padding: 28px;
-      margin-top: 28px;
-    }
-
-    .blue-box h3,
-    .blue-box p,
-    .blue-box li { color: var(--blue-text); }
-
-    .cta-panel {
-      padding: 42px;
-      border-radius: 38px;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.24), transparent 24rem),
-        radial-gradient(circle at 90% 10%, rgba(244, 63, 94, 0.18), transparent 24rem),
-        var(--black);
-      color: #ffffff;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-panel h2,
-    .cta-panel p { color: #ffffff; }
-
-    .cta-panel p {
-      max-width: 860px;
-      color: #e2e8f0;
-      font-size: 1.16rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      background: #ffffff;
-      color: var(--muted);
-      padding: 34px 24px;
-    }
-
-    .footer-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    footer strong { color: var(--black); }
-
-    footer a {
-      color: var(--black);
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    @media (max-width: 980px) {
-      .hero-inner,
-      .grid.two,
-      .grid.three,
-      .grid.four {
-        grid-template-columns: 1fr;
-      }
-
-      h1 { letter-spacing: -0.06em; }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links { justify-content: flex-start; }
-
-      main { padding-top: 48px; }
-
-      .hero-shell,
-      .card,
-      .quote-panel,
-      .library,
-      .cta-panel {
-        padding: 24px;
-        border-radius: 28px;
-      }
-
-      .signal-grid { grid-template-columns: 1fr; }
-    }
+      --black:#020617; --ink:#0f172a; --muted:#475569; --light:#64748b; --line:#dbe3ef; --soft:#f8fafc; --white:#fff;
+      --blue:#2563eb; --cyan:#06b6d4; --violet:#7c3aed; --rose:#f43f5e; --emerald:#10b981; --amber:#f59e0b;
+      --max:1220px; --radius:30px; --shadow:0 30px 90px rgba(15,23,42,.18); --soft-shadow:0 18px 55px rgba(15,23,42,.10);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,Helvetica,sans-serif;line-height:1.65;color:var(--ink);background:radial-gradient(circle at 10% 0%,rgba(37,99,235,.16),transparent 34rem),radial-gradient(circle at 90% 4%,rgba(124,58,237,.14),transparent 34rem),linear-gradient(180deg,#fff 0%,#f8fafc 45%,#fff 100%);}
+    a{color:inherit} .site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(226,232,240,.88);background:rgba(255,255,255,.91);backdrop-filter:blur(16px)}
+    .nav{max-width:var(--max);margin:0 auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px} .brand{display:flex;flex-direction:column;gap:2px;text-decoration:none;min-width:280px} .brand strong{font-size:1.02rem;font-weight:950;letter-spacing:-.035em;color:var(--black)} .brand span{font-size:.88rem;color:var(--light);font-weight:800}
+    .nav-links{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:flex-end} .nav-links a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:900} .nav-links a:hover{color:var(--black)} .nav-cta{color:#fff!important;background:var(--black);padding:10px 15px;border-radius:999px;box-shadow:0 10px 24px rgba(15,23,42,.16)}
+    main{max-width:var(--max);margin:0 auto;padding:72px 24px 92px} section{margin-top:92px} .hero{margin-top:0;padding:22px 0 30px} .hero-shell{position:relative;overflow:hidden;border-radius:46px;background:radial-gradient(circle at 15% 18%,rgba(37,99,235,.45),transparent 30rem),radial-gradient(circle at 85% 18%,rgba(124,58,237,.35),transparent 30rem),radial-gradient(circle at 50% 100%,rgba(6,182,212,.24),transparent 32rem),linear-gradient(135deg,#020617 0%,#0f172a 48%,#111827 100%);color:#fff;padding:clamp(34px,6vw,70px);box-shadow:var(--shadow)} .hero-shell:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.16));pointer-events:none}
+    .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:38px;align-items:center} .eyebrow{display:inline-flex;margin:0 0 18px;color:var(--light);font-size:.8rem;font-weight:950;letter-spacing:.15em;text-transform:uppercase} .hero .eyebrow,.dark-panel .eyebrow{color:#bae6fd}
+    h1{max-width:1050px;margin:0 0 24px;color:var(--black);font-size:clamp(3.1rem,7.5vw,6.8rem);line-height:.9;letter-spacing:-.085em} .hero h1{color:#fff;text-wrap:balance} h2{margin:0 0 18px;color:var(--black);font-size:clamp(2rem,4vw,3.35rem);line-height:1.02;letter-spacing:-.06em} h3{margin:0 0 10px;color:var(--black);font-size:1.35rem;line-height:1.2;letter-spacing:-.025em} p{margin:0 0 18px} .lead{max-width:930px;color:#334155;font-size:clamp(1.12rem,2vw,1.36rem);line-height:1.72} .hero .lead{color:#dbeafe}
+    .hero-actions,.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin:32px 0 14px} .button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 22px;border:1px solid var(--black);border-radius:999px;text-decoration:none;font-weight:950;transition:transform .16s ease,box-shadow .16s ease,background .16s ease} .button:hover{transform:translateY(-2px)} .button-primary{background:#fff;color:var(--black);border-color:#fff;box-shadow:0 16px 40px rgba(255,255,255,.14)} .button-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.38)} .button-dark{background:var(--black);color:#fff;border-color:var(--black);box-shadow:0 14px 34px rgba(15,23,42,.18)} .direct{margin-top:12px;color:#cbd5e1;font-weight:800} .direct a{color:#fff;font-weight:950;text-decoration:none}
+    .hero-panel{border:1px solid rgba(255,255,255,.14);border-radius:34px;padding:28px;background:rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);backdrop-filter:blur(10px)} .hero-panel h2{color:#fff;font-size:clamp(2rem,4vw,3rem)} .chain-line{margin-top:20px;color:#e0f2fe;font-size:clamp(1.02rem,1.8vw,1.22rem);font-weight:950} .signal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px} .signal{border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:16px;background:rgba(255,255,255,.07)} .signal strong{display:block;color:#fff;font-size:1rem;margin-bottom:4px} .signal span{color:#cbd5e1;font-size:.93rem}
+    .mini-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px} .mini-nav a{border:1px solid var(--line);border-radius:999px;padding:9px 13px;color:var(--muted);background:#fff;text-decoration:none;font-size:.92rem;font-weight:900;box-shadow:0 10px 28px rgba(15,23,42,.04)} .mini-nav a:hover{color:var(--black);border-color:var(--black)}
+    .section-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:28px} .section-head p{max-width:760px;color:var(--muted)} .count-pill{border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:#fff;color:var(--muted);font-weight:950;box-shadow:0 10px 28px rgba(15,23,42,.06);white-space:nowrap}
+    .grid{display:grid;gap:20px;margin-top:28px} .grid.two{grid-template-columns:repeat(2,minmax(0,1fr))} .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))} .grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .band{border:1px solid var(--line);border-radius:42px;background:rgba(255,255,255,.82);box-shadow:var(--shadow);padding:34px} .band.soft{background:linear-gradient(180deg,#fff,#f8fafc)} .dark-panel{border-radius:42px;background:radial-gradient(circle at 10% 10%,rgba(37,99,235,.26),transparent 24rem),radial-gradient(circle at 90% 20%,rgba(244,63,94,.18),transparent 24rem),var(--black);color:#fff;padding:40px;box-shadow:var(--shadow)} .dark-panel h2,.dark-panel h3,.dark-panel p{color:#fff} .dark-panel .lead{color:#e2e8f0}
+    .record-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:26px;padding:22px;background:rgba(255,255,255,.96);box-shadow:0 12px 36px rgba(15,23,42,.07);text-decoration:none;display:flex;flex-direction:column;min-height:216px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease} .record-card:hover{transform:translateY(-4px);box-shadow:0 22px 55px rgba(15,23,42,.13);border-color:#94a3b8} .record-card:after{content:"";position:absolute;width:110px;height:110px;right:-34px;bottom:-34px;border-radius:999px;background:radial-gradient(circle,rgba(37,99,235,.15),transparent 70%);pointer-events:none} .record-card strong{display:block;color:var(--black);font-size:1.08rem;line-height:1.25;margin:14px 0 10px} .record-card span{display:block;color:var(--muted);font-size:.95rem} .record-card .meta{margin-top:auto;padding-top:18px;color:var(--light);font-size:.82rem;font-weight:950;letter-spacing:.045em;text-transform:uppercase} .card-top{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:25px} .badge{display:inline-flex!important;width:auto;color:#0f172a!important;background:#eef2ff;border:1px solid #c7d2fe;border-radius:999px;padding:4px 10px;font-size:.74rem!important;font-weight:950;text-transform:uppercase;letter-spacing:.05em} .arrow{color:#64748b!important;font-weight:950;font-size:.82rem!important;white-space:nowrap} .record-card.feature{background:radial-gradient(circle at 100% 0%,rgba(37,99,235,.15),transparent 15rem),#fff} .record-card.dark-card{background:radial-gradient(circle at top right,rgba(37,99,235,.24),transparent 17rem),var(--black);border-color:var(--black)} .record-card.dark-card strong,.record-card.dark-card span{color:#fff} .record-card.dark-card .meta,.record-card.dark-card .arrow{color:#cbd5e1!important} .record-card.dark-card .badge{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff!important}
+    .quote-panel{border-radius:36px;background:radial-gradient(circle at 10% 20%,rgba(37,99,235,.22),transparent 24rem),radial-gradient(circle at 95% 15%,rgba(124,58,237,.22),transparent 24rem),var(--black);color:#fff;padding:42px;margin-top:34px;box-shadow:var(--shadow)} .quote-panel p.big{margin:0;font-size:clamp(1.65rem,3.2vw,2.85rem);line-height:1.12;letter-spacing:-.045em;font-weight:950;color:#fff}
+    .warning{border:1px solid #fed7aa;border-radius:24px;background:#fff7ed;color:#7c2d12;padding:28px;margin-top:28px} .warning h3,.warning p,.warning li{color:#7c2d12} .green-box{border:1px solid #a7f3d0;border-radius:24px;background:#ecfdf5;color:#064e3b;padding:28px;margin-top:28px} .green-box h3,.green-box p,.green-box li{color:#064e3b} .blue-box{border:1px solid #bfdbfe;border-radius:24px;background:#eff6ff;color:#1e3a8a;padding:28px;margin-top:28px} .blue-box h3,.blue-box p,.blue-box li{color:#1e3a8a}
+    footer{border-top:1px solid var(--line);background:#fff;color:var(--muted);padding:34px 24px} .footer-inner{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px} footer strong{color:var(--black)} footer a{color:var(--black);font-weight:950;text-decoration:none}
+    @media(max-width:980px){.hero-inner,.grid.two,.grid.three,.grid.four,.section-head{grid-template-columns:1fr} h1{letter-spacing:-.06em} .count-pill{justify-self:start}} @media(max-width:760px){.nav{align-items:flex-start;flex-direction:column} .nav-links{justify-content:flex-start} main{padding-top:48px} .hero-shell,.band,.dark-panel,.quote-panel{padding:24px;border-radius:28px} .signal-grid{grid-template-columns:1fr}}
   </style>
 </head>
-
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="/">
-        <strong>TA-14 Admissible Execution Architecture</strong>
-        <span>Proof-bound governance before consequence</span>
-      </a>
-
+      <a class="brand" href="/"><strong>TA-14 Admissible Execution Architecture</strong><span>Proof-bound governance before consequence</span></a>
       <div class="nav-links">
-        <a href="/start-here">Start Here</a>
-        <a href="/architecture">Architecture</a>
-        <a href="/services">Services</a>
-        <a href="/use-cases">Use Cases</a>
-        <a href="/resources">Resources</a>
-        <a class="nav-cta" href="/request-evaluation">Request Review</a>
+        <a href="/start-here">Start Here</a><a href="/architecture">Architecture</a><a href="/services">Services</a><a href="/use-cases">Use Cases</a><a href="/resources">Resources</a><a class="nav-cta" href="/request-evaluation">Request Review</a>
       </div>
     </nav>
   </header>
-
   <main>
-    <section class="hero">
+    <section class="hero" id="top">
       <div class="hero-shell">
         <div class="hero-inner">
           <div>
-            <p class="eyebrow">Resources</p>
-
+            <p class="eyebrow">Resources / Software / Public Record</p>
             <h1>The TA-14 public record room.</h1>
-
-            <p class="lead">
-              A centralized resource hub for TA-14 Admissible Execution Architecture:
-              DOI records, Google Sites, GitHub repositories, Medium chronology anchors,
-              AutomatedBuildings publications, environmental integrity records, public proof
-              pages, and review pathways.
-            </p>
-
-            <div class="hero-actions">
-              <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
-              <a class="button button-secondary" href="#doi-library">Open DOI Library</a>
-            </div>
-
-            <p class="direct">
-              Direct contact:
-              <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
-            </p>
+            <p class="lead">A centralized, clickable resource hub for TA-14 Admissible Execution Architecture: software repositories, Zenodo and DOI records, public doctrine articles, Google Sites anchors, architecture-site pages, books, applied examples, and review pathways.</p>
+            <div class="hero-actions"><a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a><a class="button button-secondary" href="#doi-library">Open DOI Library</a></div>
+            <p class="direct">Direct contact: <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a></p>
           </div>
-
           <aside class="hero-panel">
             <p class="eyebrow">Resource Principle</p>
             <h2>Public records support chronology. Review evidence supports findings.</h2>
-            <p>
-              These links preserve the public corpus. They do not automatically certify, endorse,
-              approve, or validate any third-party system.
-            </p>
-
-            <div class="chain-line">
-              Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
-            </div>
-
-            <div class="signal-grid">
-              <div class="signal">
-                <strong>DOIs</strong>
-                <span>Preserved publication records</span>
-              </div>
-
-              <div class="signal">
-                <strong>Sites</strong>
-                <span>Public architecture anchors</span>
-              </div>
-
-              <div class="signal">
-                <strong>GitHub</strong>
-                <span>Reference implementation surfaces</span>
-              </div>
-
-              <div class="signal">
-                <strong>Articles</strong>
-                <span>Chronology and public doctrine</span>
-              </div>
-            </div>
+            <p>These links preserve the public corpus. They do not automatically certify, endorse, approve, validate, or production-clear any third-party system.</p>
+            <div class="chain-line">Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome</div>
+            <div class="signal-grid"><div class="signal"><strong>Software</strong><span>Gate, website, repositories</span></div><div class="signal"><strong>DOIs</strong><span>Preserved architecture records</span></div><div class="signal"><strong>Doctrine</strong><span>Articles and public pages</span></div><div class="signal"><strong>Review</strong><span>Intake and evaluation pathways</span></div></div>
           </aside>
         </div>
       </div>
+      <div class="mini-nav"><a href="#software">Software</a><a href="#doi-library">DOI Library</a><a href="#sites">Google Sites</a><a href="#articles">Articles</a><a href="#site-pages">Site Pages</a><a href="#books">Books</a><a href="#applied">Applied Examples</a><a href="#boundaries">Boundaries</a><a href="#request">Request Review</a></div>
+    </section>
 
-      <div class="mini-nav">
-        <a href="#doi-library">DOI Library</a>
-        <a href="#github">GitHub</a>
-        <a href="#google-sites">Google Sites</a>
-        <a href="#medium">Medium</a>
-        <a href="#automated-buildings">AutomatedBuildings</a>
-        <a href="#site-pages">Site Pages</a>
-        <a href="#boundaries">Boundaries</a>
-        <a href="#request">Request Review</a>
+    <section id="software">
+      <div class="section-head"><div><p class="eyebrow">Software and repositories</p><h2>Executable surfaces and public code anchors.</h2><p>These resources point to the live site, reference repositories, gate surface, and software release record connected to the TA-14 Admissible Execution Architecture public system.</p></div><span class="count-pill">5 clickable software records</span></div>
+      <div class="grid three">
+          <a class="record-card feature" href="https://github.com/greggbutlerac-debug/ta14-admissible-execution-gate" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Software</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 Admissible Execution Gate</strong>
+            <span>Public reference MVP demonstrating admissibility-gated execution, baseline preservation, continuity verification, authority verification, threshold validation, and refusal / escalation / hold behavior.</span>
+            <span class="meta">GitHub repository</span>
+          </a>
+          <a class="record-card " href="https://github.com/greggbutlerac-debug/ta14-architecture-site" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Website repo</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 Architecture Site</strong>
+            <span>Public website repository for TA-14 Admissible Execution Architecture, review pathways, resources, request intake, and architecture-site materials.</span>
+            <span class="meta">GitHub repository</span>
+          </a>
+          <a class="record-card " href="https://zenodo.org/search?q=ta14-architecture-site-v1.1.0" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Software release</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 Architecture Site v1.1.0</strong>
+            <span>Zenodo-preserved software release for unified navigation, Gate page, Parent Architecture Positioning page, restored homepage, Founder page, Resources behavior, and request-evaluation pathway.</span>
+            <span class="meta">Zenodo software release index</span>
+          </a>
+          <a class="record-card " href="https://github.com/greggbutlerac-debug" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Repository index</span><span class="arrow">Open ↗</span></div>
+            <strong>Greggory Butler GitHub Profile</strong>
+            <span>Repository index for public TA-14 code surfaces, reference implementations, architecture-site materials, and future admissible-execution tooling.</span>
+            <span class="meta">GitHub profile</span>
+          </a>
+          <a class="record-card " href="https://ta14-architecture.netlify.app/" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Live site</span><span class="arrow">Open ↗</span></div>
+            <strong>Live TA-14 Architecture Site</strong>
+            <span>Public front door for TA-14 Admissible Execution Architecture, public pages, review pathways, and resource navigation.</span>
+            <span class="meta">Live website</span>
+          </a>
       </div>
     </section>
 
     <section id="doi-library">
-      <p class="eyebrow">DOI and publication library</p>
-
-      <div class="quote-panel">
-        <p class="big">
-          TA-14 is being preserved as a public architecture corpus, not a loose set of claims.
-        </p>
-
-        <div class="chain-line">
-          DOI records → repository records → public chronology → review evidence → admissible findings
-        </div>
-      </div>
-
-      <div class="library">
-        <h2>TA-14 DOI / Publication Index</h2>
-
-        <p class="lead">
-          This section links to verified public DOI, Zenodo, or DOI-indexed publication records
-          for the TA-14 corpus. Every card below is clickable.
-        </p>
-
+      <div class="quote-panel"><p class="big">TA-14 is preserved as a public architecture corpus, not a loose set of claims.</p><div class="chain-line">DOI records → repository records → public chronology → review evidence → admissible findings</div></div>
+      <div class="band soft">
+        <div class="section-head"><div><p class="eyebrow">DOI and Zenodo architecture corpus</p><h2>Clickable DOI records from parent architecture through Admissible Reality.</h2><p>Every card links directly to its DOI resolver. The sequence preserves the architecture family that governs evidence, reliance, authority, consequence, binding, commit, execution, outcome, new reality, and recursive reality governance.</p></div><span class="count-pill">20 DOI cards</span></div>
         <div class="grid three">
-          <a class="record-card doi-card" href="https://doi.org/10.5281/zenodo.20463927" target="_blank" rel="noopener noreferrer">
+          <a class="record-card feature" href="https://doi.org/10.5281/zenodo.20463927" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Parent</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-001 — TA-14 Admissible Execution Architecture: Volume 1 Foundational Monograph v1.2</strong>
-            <span>Foundational parent publication for TA-14 Admissible Execution Architecture.</span>
+            <span>Foundational parent publication for the TA-14 corpus and the full admissible-execution chain.</span>
             <span class="meta">10.5281/zenodo.20463927</span>
           </a>
-
-          <a class="record-card doi-card" href="https://doi.org/10.5281/zenodo.20463926" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20463926" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Concept</span><span class="arrow">Open ↗</span></div>
             <strong>Concept DOI — TA-14 Volume 1 Publication Family</strong>
-            <span>Concept DOI associated with the DOI-001 Zenodo publication family.</span>
+            <span>Concept DOI associated with the DOI-001 Zenodo publication family and version lineage.</span>
             <span class="meta">10.5281/zenodo.20463926</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7162854229" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Admissible Execution Architecture: Volume 1 Foundational Monograph v1.2</strong>
-            <span>Indexed public record for the TA-14 Volume 1 foundational monograph.</span>
-            <span class="meta">Scilynk / Zenodo indexed record</span>
-          </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7162878775" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20466835" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Evidence</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-002 — TA-14 Evidence Governance Architecture</strong>
-            <span>Foundational reference monograph for the upstream Evidence Governance architecture family.</span>
-            <span class="meta">Scilynk / Zenodo indexed record</span>
+            <span>Upstream architecture governing what must be true of evidence before admissibility can exist.</span>
+            <span class="meta">10.5281/zenodo.20466835</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7162861600" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20467543" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Admissibility</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-003 — TA-14 Admissible Evidence Architecture</strong>
-            <span>The upstream foundation of admissible execution: when governed evidence becomes admissible evidence.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+            <span>The upstream foundation for when governed evidence becomes admissible evidence.</span>
+            <span class="meta">10.5281/zenodo.20467543</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7162875915" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20467871" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Reliance</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-004 — TA-14 Reliance Governance Architecture</strong>
-            <span>The governance of reliance before consequence-bearing execution.</span>
-            <span class="meta">Scilynk / Zenodo indexed record</span>
+            <span>Governance of reliance before consequence-bearing purposes may depend on evidence.</span>
+            <span class="meta">10.5281/zenodo.20467871</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7162935005" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20479707" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Corpus</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-005 — TA-14 Corpus Self-Governance Architecture</strong>
-            <span>The governance of governance before the TA-14 corpus continues, publishes, extends, cites, reviews, or authorizes its own doctrine.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+            <span>Governance of governance before the TA-14 corpus continues, publishes, extends, cites, reviews, or authorizes its doctrine.</span>
+            <span class="meta">10.5281/zenodo.20479707</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7162943441" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20480271" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Authority</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-006 — TA-14 Authority Governance Architecture</strong>
-            <span>The governance of legitimate authority before binding, commit, and execution.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+            <span>Governance of legitimate authority before binding, commit, and execution.</span>
+            <span class="meta">10.5281/zenodo.20480271</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7162948908" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20480776" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Legitimacy</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-007 — TA-14 Legitimacy Governance Architecture</strong>
-            <span>The governance of legitimate authority before consequence formation, attachment, binding, commit, execution, and outcome.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+            <span>Governance of legitimate authority before consequence formation, attachment, binding, commit, execution, and outcome.</span>
+            <span class="meta">10.5281/zenodo.20480776</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7162955934" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20481403" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Consequence</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-008 — TA-14 Consequence Formation Governance Architecture</strong>
-            <span>The governance of consequence before attachment, binding, commit, execution, and outcome.</span>
-            <span class="meta">Scilynk / Zenodo indexed record</span>
+            <span>Governance of consequence before attachment, binding, commit, execution, and outcome.</span>
+            <span class="meta">10.5281/zenodo.20481403</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7163001892" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20481402" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Attachment</span><span class="arrow">Open ↗</span></div>
+            <strong>DOI-009A — TA-14 Attachment / Assent Governance Architecture</strong>
+            <span>Governance of attachment and assent before controlling force may form.</span>
+            <span class="meta">10.5281/zenodo.20481402</span>
+          </a>
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20481693" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Binding Reality</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-009B — TA-14 Binding Reality Governance Architecture</strong>
-            <span>The governance of boundary-time reality verification before binding, commit reality, commit, execution, and outcome.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+            <span>Boundary-time reality verification before an attached state may become binding, controlling, commit-ready, executable, or outcome-accountable.</span>
+            <span class="meta">10.5281/zenodo.20481693</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7162988387" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20482374" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Binding</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-010 — TA-14 Binding Governance Architecture</strong>
-            <span>The governance of controlling force before commit reality, commit, execution, and outcome.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+            <span>Governance of controlling force before commit reality, commit, execution, and outcome.</span>
+            <span class="meta">10.5281/zenodo.20482374</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7163055086" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20490828" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Commit Reality</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-011 — TA-14 Commit Reality Governance Architecture</strong>
-            <span>The governance of reality at the commitment boundary before commit, execution, and outcome.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+            <span>Governance of reality at the commitment boundary before a bound state may become committed, hard to reverse, executable, or outcome-accountable.</span>
+            <span class="meta">10.5281/zenodo.20490828</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7163053697" target="_blank" rel="noopener noreferrer">
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20492036" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Commit</span><span class="arrow">Open ↗</span></div>
             <strong>DOI-012 — TA-14 Commit Governance Architecture</strong>
-            <span>The governance of entry into the hard-to-reverse path before execution reality, execution, outcome reality, and outcome.</span>
-            <span class="meta">Scilynk / Zenodo indexed record</span>
+            <span>Governance of entry into the hard-to-reverse path before execution reality, execution, outcome reality, and outcome.</span>
+            <span class="meta">10.5281/zenodo.20492036</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7163015392" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Execution Reality Governance Architecture</strong>
-            <span>The governance of present reality at the execution boundary before a committed state may become action.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20493898" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Execution Reality</span><span class="arrow">Open ↗</span></div>
+            <strong>DOI-013 — TA-14 Execution Reality Governance Architecture</strong>
+            <span>Present-reality verification at the execution boundary before a committed state may become action.</span>
+            <span class="meta">10.5281/zenodo.20493898</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7162992071" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Execution Governance Architecture</strong>
-            <span>The governance of consequence-bearing action before outcome reality, outcome, and new reality.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20494346" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Execution</span><span class="arrow">Open ↗</span></div>
+            <strong>DOI-014 — TA-14 Execution Governance Architecture</strong>
+            <span>Governance of consequence-bearing action before outcome reality, outcome, and new reality.</span>
+            <span class="meta">10.5281/zenodo.20494346</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7163012880" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Outcome Reality Governance Architecture</strong>
-            <span>The governance of reality verification after execution and before outcome, new reality, and the next chain.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20495466" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Outcome Reality</span><span class="arrow">Open ↗</span></div>
+            <strong>DOI-015 — TA-14 Outcome Reality Governance Architecture</strong>
+            <span>Reality verification after execution and before outcome, new reality, and the next chain.</span>
+            <span class="meta">10.5281/zenodo.20495466</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7161428741" target="_blank" rel="noopener noreferrer">
-            <strong>Environmental Integrity Governance</strong>
-            <span>Admissible atmospheric evidence, continuity governance, and proof-bound environmental execution.</span>
-            <span class="meta">Scilynk / Zenodo indexed record</span>
+          <a class="record-card " href="https://doi.org/10.5281/zenodo.20496217" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Outcome</span><span class="arrow">Open ↗</span></div>
+            <strong>DOI-016 — TA-14 Outcome Governance Architecture</strong>
+            <span>Governance of verified, attributed, preserved, and accountable outcome before New Reality inheritance.</span>
+            <span class="meta">10.5281/zenodo.20496217</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7161494305" target="_blank" rel="noopener noreferrer">
-            <strong>Atmospheric Integrity Records</strong>
-            <span>Append-only atmospheric continuity records for operational, institutional, environmental, and human consequence.</span>
-            <span class="meta">Scilynk indexed record</span>
+          <a class="record-card feature" href="https://doi.org/10.5281/zenodo.20496936" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">New Reality</span><span class="arrow">Open ↗</span></div>
+            <strong>DOI-017 — TA-14 New Reality Governance Architecture</strong>
+            <span>Governance of outcome-created reality before Record, Continuity, and the next admissible chain.</span>
+            <span class="meta">10.5281/zenodo.20496936</span>
           </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7161491324" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Canonical Architecture Diagrams</strong>
-            <span>Admissibility-before-execution, the eight-stage chain, and consequence-governance visual architecture plates.</span>
-            <span class="meta">Scilynk / Zenodo indexed record</span>
-          </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7161510410" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Reality Doctrine</strong>
-            <span>Captured reality, pre-interpretive state, and the foundation of consequence governance.</span>
-            <span class="meta">Scilynk / Zenodo indexed record</span>
-          </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7161482931" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Record Doctrine</strong>
-            <span>Admissible records, preserved chronology, and record governance within the TA-14 chain.</span>
-            <span class="meta">Scilynk indexed record</span>
-          </a>
-
-          <a class="record-card doi-card" href="https://www.scilynk.com/paper/W7161477999" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Commit Doctrine</strong>
-            <span>The governed execution boundary of admissible systems.</span>
-            <span class="meta">Scilynk / DOI indexed record</span>
+          <a class="record-card feature" href="https://doi.org/10.5281/zenodo.20498238" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Admissible Reality</span><span class="arrow">Open ↗</span></div>
+            <strong>DOI-018 — TA-14 Admissible Reality Architecture</strong>
+            <span>Recursive governance of reality before, during, after, and between consequence-bearing execution chains.</span>
+            <span class="meta">10.5281/zenodo.20498238</span>
           </a>
         </div>
-
-        <div class="green-box">
-          <h3>Corrected DOI behavior</h3>
-          <p>
-            Every card in this DOI / publication library links to a real public DOI, Zenodo, or Scilynk-indexed publication page.
-            No fake placeholder DOI cards remain.
-          </p>
-        </div>
+        <div class="green-box"><h3>Clickable DOI behavior</h3><p>Every DOI card above uses a public <strong>https://doi.org/</strong> link. No dead placeholder DOI cards are intentionally left in this library.</p></div>
       </div>
     </section>
 
-    <section id="github">
-      <p class="eyebrow">GitHub repositories</p>
-      <h2>Public code, reference surfaces, and repository anchors.</h2>
-
+    <section id="sites">
+      <div class="section-head"><div><p class="eyebrow">Google Sites anchors</p><h2>Public doctrine, chronology, authorship, and preservation pages.</h2><p>These are external public pages used as architecture anchors, public chronology records, authorship references, and preserved doctrine surfaces.</p></div><span class="count-pill">9 public site anchors</span></div>
       <div class="grid three">
-        <a class="record-card" href="https://github.com/greggbutlerac-debug/ta14-admissible-execution-gate" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Admissible Execution Gate</strong>
-          <span>Public reference MVP demonstrating admissibility-gated execution: baseline preservation, continuity verification, authority verification, threshold validation, and refusal / escalation / hold behavior.</span>
-          <span class="meta">Small gate repository</span>
-        </a>
-
-        <a class="record-card" href="https://github.com/greggbutlerac-debug/ta14-architecture-site" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Architecture Site</strong>
-          <span>Public website repository for TA-14 Admissible Execution Architecture, public pages, review pathways, resources, and site materials.</span>
-          <span class="meta">Public website repository</span>
-        </a>
-
-        <a class="record-card" href="https://github.com/greggbutlerac-debug" target="_blank" rel="noopener noreferrer">
-          <strong>Greggory Butler GitHub Profile</strong>
-          <span>Public GitHub profile where additional TA-14 repositories and architecture materials may be maintained.</span>
-          <span class="meta">Repository index</span>
-        </a>
-      </div>
+          <a class="record-card " href="https://sites.google.com/view/ta-14-admissible-execution-arc/home" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Primary</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 Admissible Execution Architecture</strong>
+            <span>Canonical public Google Sites entry point for the proof-bound Admissible Execution Architecture.</span>
+            <span class="meta">Primary Google Site</span>
+          </a>
+          <a class="record-card " href="https://sites.google.com/view/ta-14-admissible-execution-arc/ta-14-public-chronology" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Chronology</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 Public Chronology</strong>
+            <span>Public chronology page preserving origin, sequence, public architecture development, and priority posture.</span>
+            <span class="meta">Chronology anchor</span>
+          </a>
+          <a class="record-card " href="https://sites.google.com/view/ta-14-admissible-execution-arc/about-the-inventor-greggory-don-butler" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Author</span><span class="arrow">Open ↗</span></div>
+            <strong>About the Inventor — Greggory Don Butler</strong>
+            <span>Authorship and inventor page connected to the TA-14 public architecture site.</span>
+            <span class="meta">Authorship anchor</span>
+          </a>
+          <a class="record-card " href="https://sites.google.com/view/ta-14-volume-1-preservation-ed/home" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Preservation</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 Volume 1 Preservation</strong>
+            <span>Preservation anchor for Volume 1, institutional memory, doctrine preservation, and admissibility-state architecture.</span>
+            <span class="meta">Volume 1 preservation</span>
+          </a>
+          <a class="record-card " href="https://sites.google.com/view/ta-14admissibleexecutionintegr/home" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Integrity</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 Admissible Execution Integrity Governance</strong>
+            <span>Proof-bound execution governance site centered on admissible reality at execution.</span>
+            <span class="meta">Execution integrity site</span>
+          </a>
+          <a class="record-card " href="https://sites.google.com/view/ta14admissibleexecutionstandar/home" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Standard</span><span class="arrow">Open ↗</span></div>
+            <strong>TA14 — Admissible Execution Standard</strong>
+            <span>Public standard page explaining the boundary between evidence and action.</span>
+            <span class="meta">Standard site</span>
+          </a>
+          <a class="record-card " href="https://sites.google.com/view/ta-14academy/agentic-ai-admissible-execution" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Agentic AI</span><span class="arrow">Open ↗</span></div>
+            <strong>Agentic AI &amp; Admissible Execution</strong>
+            <span>TA-14 Academy page applying admissible execution to agentic AI systems, included here only as an AI-governance architecture anchor.</span>
+            <span class="meta">AI governance anchor</span>
+          </a>
+          <a class="record-card " href="https://sites.google.com/view/ta-14-governing-truth-before-e/publications-patents-public-canon" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Canon</span><span class="arrow">Open ↗</span></div>
+            <strong>Publications, Patents &amp; Public Canon</strong>
+            <span>Public record page preserving TA-14 authorship, architecture, publications, filings, and canonical reference points.</span>
+            <span class="meta">Public canon</span>
+          </a>
+          <a class="record-card " href="https://sites.google.com/view/safe-matterta-14chronologydocu/home" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Chronology</span><span class="arrow">Open ↗</span></div>
+            <strong>SAFE-Matter / TA-14 Chronology Documentation</strong>
+            <span>Chronology documentation preserving TA-14 / SAFE-Matter context and admissibility-centered governance language.</span>
+            <span class="meta">Chronology documentation</span>
+          </a></div>
     </section>
 
-    <section id="google-sites">
-      <p class="eyebrow">Google Sites anchors</p>
-      <h2>Public doctrine, preservation, authorship, and environmental integrity sites.</h2>
-
+    <section id="articles">
+      <div class="section-head"><div><p class="eyebrow">Public doctrine articles</p><h2>Articles that explain the category, boundary, and architecture.</h2><p>This section is intentionally limited to admissible execution, admissible reality, boundary positioning, diagnostic truth, and public doctrine relevant to the architecture.</p></div><span class="count-pill">5 clickable article records</span></div>
       <div class="grid three">
-        <a class="record-card" href="https://sites.google.com/view/ta-14-admissible-execution-arc/home" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Admissible Execution Architecture</strong>
-          <span>Canonical public Google Sites entry point for the original proof-bound Admissible Execution Architecture.</span>
-          <span class="meta">Primary TA-14 site</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/ta-14-admissible-execution-arc/ta-14-public-chronology" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Public Chronology</strong>
-          <span>Public chronology page preserving origin, sequence, public architecture development, and priority posture.</span>
-          <span class="meta">Chronology anchor</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/ta-14-admissible-execution-arc/about-the-inventor-greggory-don-butler" target="_blank" rel="noopener noreferrer">
-          <strong>About the Inventor — Greggory Don Butler</strong>
-          <span>Authorship and inventor page connected to the TA-14 public architecture site.</span>
-          <span class="meta">Authorship anchor</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/ta-14-volume-1-preservation-ed/home" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Volume 1 Preservation</strong>
-          <span>Public preservation anchor for Volume 1, institutional memory, doctrine preservation, and admissibility-state architecture.</span>
-          <span class="meta">Volume 1 preservation</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/ta-14admissibleexecutionintegr/home" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Admissible Execution Integrity Governance</strong>
-          <span>Public proof-bound execution governance site centered on admissible reality at execution.</span>
-          <span class="meta">Execution integrity site</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/ta14admissibleexecutionstandar/home" target="_blank" rel="noopener noreferrer">
-          <strong>TA14 — Admissible Execution Standard</strong>
-          <span>Public standard page explaining the boundary between evidence and action.</span>
-          <span class="meta">Standard site</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/ta-14academy/home" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Academy</strong>
-          <span>Public educational and standards institution built around consequence-bearing systems and admissible execution education.</span>
-          <span class="meta">Education / standards</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/ta-14academy/agentic-ai-admissible-execution" target="_blank" rel="noopener noreferrer">
-          <strong>Agentic AI & Admissible Execution</strong>
-          <span>TA-14 Academy page applying admissible execution to agentic AI systems.</span>
-          <span class="meta">AI governance anchor</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/environmental-integrity-gover/home" target="_blank" rel="noopener noreferrer">
-          <strong>Environmental Integrity Governance</strong>
-          <span>Public entry point for atmospheric and environmental evidence governance.</span>
-          <span class="meta">Environmental integrity</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/environmental-integrity-gover/reference/greggory-don-butler" target="_blank" rel="noopener noreferrer">
-          <strong>Greggory Don Butler — Environmental Integrity Reference</strong>
-          <span>Reference page identifying Greggory Don Butler as originator of Environmental Integrity Governance and Atmospheric Integrity Records.</span>
-          <span class="meta">Environmental authorship</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/atmosphericintegrityrecordairc/home" target="_blank" rel="noopener noreferrer">
-          <strong>Atmospheric Integrity Records / AIRC</strong>
-          <span>Public entry point for atmospheric evidence and environmental record continuity.</span>
-          <span class="meta">AIRC / AIR</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/pair-personal-atmospheric-inte/author-greggory-don-butler" target="_blank" rel="noopener noreferrer">
-          <strong>PAIR — Personal Atmospheric Integrity Record</strong>
-          <span>Author page for PAIR, Personal Atmospheric Integrity Records, and personal environmental exposure continuity.</span>
-          <span class="meta">PAIR</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/greggorydonbutlerfounderofenvi/home" target="_blank" rel="noopener noreferrer">
-          <strong>Greggory Don Butler — Founder of Environmental Integrity Governance, AIR, AEA, and TA14</strong>
-          <span>Public founder page for Environmental Integrity Governance and related TA-14 architecture families.</span>
-          <span class="meta">Founder page</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/ta-14-governing-truth-before-e/publications-patents-public-canon" target="_blank" rel="noopener noreferrer">
-          <strong>Publications, Patents & Public Canon</strong>
-          <span>Public record page preserving TA-14 authorship, architecture, publications, filings, and canonical reference points.</span>
-          <span class="meta">Public canon</span>
-        </a>
-
-        <a class="record-card" href="https://sites.google.com/view/safe-matterta-14chronologydocu/home" target="_blank" rel="noopener noreferrer">
-          <strong>SAFE-Matter / TA-14 Chronology Documentation</strong>
-          <span>Public chronology documentation preserving TA-14 / SAFE-Matter context and admissibility-centered governance language.</span>
-          <span class="meta">Chronology documentation</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="medium">
-      <p class="eyebrow">Medium articles</p>
-      <h2>Public writing, chronology, and doctrine development.</h2>
-
-      <div class="grid three">
-        <a class="record-card" href="https://medium.com/@greggbutlerac/ta-14-and-the-rise-of-admissible-execution-governance-2f4bc889294a" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 and the Rise of Admissible Execution Governance</strong>
-          <span>Core public category article explaining TA-14 as Admissible Execution Architecture for consequence-bearing systems.</span>
-          <span class="meta">Medium / TA-14</span>
-        </a>
-
-        <a class="record-card" href="https://medium.com/@greggbutlerac/admissible-execution-the-missing-layer-in-ai-and-system-governance-already-solved-a5bece7af3bd" target="_blank" rel="noopener noreferrer">
-          <strong>Admissible Execution: The Missing Layer in AI and System Governance</strong>
-          <span>Public explanation of admissible execution as the missing layer in AI and system governance.</span>
-          <span class="meta">Medium / AI governance</span>
-        </a>
-
-        <a class="record-card" href="https://medium.com/@greggbutlerac/ta-14-vs-care-why-an-execution-boundary-claim-is-not-the-same-as-ta-14-execution-integrity-dd4e3dec2b9e" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 vs. CARE</strong>
-          <span>Boundary article distinguishing a commit / execution-boundary claim from full TA-14 execution integrity governance.</span>
-          <span class="meta">Medium / boundary positioning</span>
-        </a>
-
-        <a class="record-card" href="https://medium.com/@greggbutlerac/ta-14-admissible-reality-architecture-why-reality-itself-must-be-governed-before-ai-execution-or-c49f85287a93" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Admissible Reality Architecture</strong>
-          <span>Public article explaining why reality itself must be governed before AI, execution, or outcome.</span>
-          <span class="meta">Medium / admissible reality</span>
-        </a>
-
-        <a class="record-card" href="https://medium.com/@greggbutlerac/greggory-don-butler-and-the-origin-of-environmental-integrity-governance-09f651f7867b" target="_blank" rel="noopener noreferrer">
-          <strong>Greggory Don Butler and the Origin of Environmental Integrity Governance</strong>
-          <span>Public origin article for Environmental Integrity Governance and Atmospheric Integrity Records.</span>
-          <span class="meta">Medium / environmental origin</span>
-        </a>
-
-        <a class="record-card" href="https://medium.com/@greggbutlerac/atmospheric-integrity-records-the-missing-infrastructure-of-intelligent-buildings-7e13a925f929" target="_blank" rel="noopener noreferrer">
-          <strong>Atmospheric Integrity Records: The Missing Infrastructure of Intelligent Buildings</strong>
-          <span>Public article on AIR as admissible, time-bounded environmental evidence infrastructure.</span>
-          <span class="meta">Medium / AIR</span>
-        </a>
-
-        <a class="record-card" href="https://medium.com/@greggbutlerac/the-atmosphere-should-not-be-punished-by-default-a09e0b839ba5" target="_blank" rel="noopener noreferrer">
-          <strong>The Atmosphere Should Not Be Punished by Default</strong>
-          <span>Public article on refrigerant-side intervention, preventable emissions, and evidence-before-intervention logic.</span>
-          <span class="meta">Medium / refrigerant governance</span>
-        </a>
-
-        <a class="record-card" href="https://medium.com/@greggbutlerac/when-the-indoor-air-governance-answer-entered-the-room-e5a63fd830ea" target="_blank" rel="noopener noreferrer">
-          <strong>When the Indoor Air Governance Answer Entered the Room</strong>
-          <span>Public article on Environmental Integrity Governance, Atmospheric Integrity Records, and TA-14 in indoor air governance context.</span>
-          <span class="meta">Medium / indoor air governance</span>
-        </a>
-
-        <a class="record-card" href="https://medium.com/@greggbutlerac/the-moment-indoor-air-governance-became-real-they-cut-the-microphone-dc0ab3c8e56b" target="_blank" rel="noopener noreferrer">
-          <strong>The Moment Indoor Air Governance Became Real, They Cut the Microphone</strong>
-          <span>Public article preserving a chronology moment around indoor air governance and atmospheric evidence.</span>
-          <span class="meta">Medium / chronology</span>
-        </a>
-
-        <a class="record-card" href="https://medium.com/@greggbutlerac/for-the-first-time-in-history-diagnostic-truth-has-been-defined-correctly-82f9119e6cae" target="_blank" rel="noopener noreferrer">
-          <strong>For the First Time in History, Diagnostic Truth Has Been Defined Correctly</strong>
-          <span>Public article around diagnostic truth, record integrity, and TA-14 Authority chronology.</span>
-          <span class="meta">Medium / diagnostic truth</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="automated-buildings">
-      <p class="eyebrow">AutomatedBuildings.com</p>
-      <h2>Building automation, HVACDR, IAQ, and environmental integrity publications.</h2>
-
-      <div class="grid three">
-        <a class="record-card" href="https://www.automatedbuildings.com/author/butler/" target="_blank" rel="noopener noreferrer">
-          <strong>Greggory Don Butler — AutomatedBuildings Author Archive</strong>
-          <span>Author archive for Environmental Integrity Governance work in automated buildings.</span>
-          <span class="meta">Author archive</span>
-        </a>
-
-        <a class="record-card" href="https://www.automatedbuildings.com/2026/06/when-filters-coatings-and-dashboards-are-not-enough/" target="_blank" rel="noopener noreferrer">
-          <strong>When Filters, Coatings, and Dashboards Are Not Enough</strong>
-          <span>Why indoor air quality needs Atmospheric Evidence Governance.</span>
-          <span class="meta">June 2026</span>
-        </a>
-
-        <a class="record-card" href="https://www.automatedbuildings.com/2026/03/from-one-question-to-a-homeowner-to-building-atmospheric-accountability/" target="_blank" rel="noopener noreferrer">
-          <strong>From One Question to a Homeowner to Building Atmospheric Accountability</strong>
-          <span>Field origins of Environmental Integrity Governance.</span>
-          <span class="meta">March 2026</span>
-        </a>
-
-        <a class="record-card" href="https://www.automatedbuildings.com/2026/02/before-the-dashboard/" target="_blank" rel="noopener noreferrer">
-          <strong>Before the Dashboard</strong>
-          <span>Measurement completeness, procedural discipline, and separation of evidence from interpretation.</span>
-          <span class="meta">February 2026</span>
-        </a>
-
-        <a class="record-card" href="https://www.automatedbuildings.com/2026/02/from-time-based-hvac-to-evidence-based-reality/" target="_blank" rel="noopener noreferrer">
-          <strong>From Time-Based HVAC to Evidence-Based Reality</strong>
-          <span>Shift from time-based HVAC practice to evidence-based environmental accountability.</span>
-          <span class="meta">February 2026</span>
-        </a>
-      </div>
+          <a class="record-card " href="https://medium.com/@greggbutlerac/ta-14-and-the-rise-of-admissible-execution-governance-2f4bc889294a" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Medium</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 and the Rise of Admissible Execution Governance</strong>
+            <span>Core public category article explaining TA-14 as Admissible Execution Architecture for consequence-bearing systems.</span>
+            <span class="meta">Medium / TA-14</span>
+          </a>
+          <a class="record-card " href="https://medium.com/@greggbutlerac/admissible-execution-the-missing-layer-in-ai-and-system-governance-already-solved-a5bece7af3bd" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Medium</span><span class="arrow">Open ↗</span></div>
+            <strong>Admissible Execution: The Missing Layer in AI and System Governance</strong>
+            <span>Public explanation of admissible execution as the missing layer in AI and system governance.</span>
+            <span class="meta">Medium / AI governance</span>
+          </a>
+          <a class="record-card " href="https://medium.com/@greggbutlerac/ta-14-vs-care-why-an-execution-boundary-claim-is-not-the-same-as-ta-14-execution-integrity-dd4e3dec2b9e" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Medium</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 vs. CARE</strong>
+            <span>Boundary article distinguishing a commit / execution-boundary claim from full TA-14 execution integrity governance.</span>
+            <span class="meta">Medium / boundary positioning</span>
+          </a>
+          <a class="record-card " href="https://medium.com/@greggbutlerac/ta-14-admissible-reality-architecture-why-reality-itself-must-be-governed-before-ai-execution-or-c49f85287a93" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Medium</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 Admissible Reality Architecture</strong>
+            <span>Public article explaining why reality itself must be governed before AI, execution, or outcome.</span>
+            <span class="meta">Medium / admissible reality</span>
+          </a>
+          <a class="record-card " href="https://medium.com/@greggbutlerac/for-the-first-time-in-history-diagnostic-truth-has-been-defined-correctly-82f9119e6cae" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Medium</span><span class="arrow">Open ↗</span></div>
+            <strong>For the First Time in History, Diagnostic Truth Has Been Defined Correctly</strong>
+            <span>Public doctrine article around diagnostic truth, record integrity, and TA-14 Authority chronology.</span>
+            <span class="meta">Medium / diagnostic truth</span>
+          </a></div>
     </section>
 
     <section id="site-pages">
-      <p class="eyebrow">TA-14 site pages</p>
-      <h2>Internal public portal navigation.</h2>
-
+      <div class="section-head"><div><p class="eyebrow">TA-14 architecture-site pages</p><h2>Internal public portal navigation.</h2><p>These are the core live pages on the TA-14 Architecture Site that visitors should use to understand the architecture, request review, and distinguish boundaries.</p></div><span class="count-pill">11 internal pages</span></div>
       <div class="grid three">
-        <a class="record-card" href="/start-here">
-          <strong>Start Here</strong>
-          <span>Plain-language orientation to TA-14, what it is, why it matters, and who needs it.</span>
-          <span class="meta">Orientation</span>
-        </a>
+          <a class="record-card " href="/start-here">
+            <div class="card-top"><span class="badge">Orientation</span><span class="arrow">Open →</span></div>
+            <strong>Start Here</strong>
+            <span>Plain-language orientation to TA-14, what it is, why it matters, and who needs it.</span>
+            <span class="meta">Internal page</span>
+          </a>
+          <a class="record-card " href="/architecture">
+            <div class="card-top"><span class="badge">Parent Architecture</span><span class="arrow">Open →</span></div>
+            <strong>Architecture</strong>
+            <span>Full-chain architecture explanation from Reality through Outcome.</span>
+            <span class="meta">Internal page</span>
+          </a>
+          <a class="record-card " href="/services">
+            <div class="card-top"><span class="badge">Review Services</span><span class="arrow">Open →</span></div>
+            <strong>Services</strong>
+            <span>Review lanes for public-material review, evidence gap review, partner alignment, environmental integrity, and readiness.</span>
+            <span class="meta">Internal page</span>
+          </a>
+          <a class="record-card " href="/use-cases">
+            <div class="card-top"><span class="badge">Use Cases</span><span class="arrow">Open →</span></div>
+            <strong>Use Cases</strong>
+            <span>AI workflows, institutional decisions, runtime pressure cases, partner architectures, and consequence-bearing pathways.</span>
+            <span class="meta">Internal page</span>
+          </a>
+          <a class="record-card " href="/request-evaluation">
+            <div class="card-top"><span class="badge">Intake</span><span class="arrow">Open →</span></div>
+            <strong>Request Review</strong>
+            <span>Submit a system, workflow, evidence process, partner architecture, or consequence-bearing pathway for TA-14 review.</span>
+            <span class="meta">Internal page</span>
+          </a>
+          <a class="record-card " href="/founder">
+            <div class="card-top"><span class="badge">Founder</span><span class="arrow">Open →</span></div>
+            <strong>Founder / Author</strong>
+            <span>Greggory Don Butler authorship, origin, and public architecture authority.</span>
+            <span class="meta">Internal page</span>
+          </a>
+          <a class="record-card " href="/gate">
+            <div class="card-top"><span class="badge">Gate</span><span class="arrow">Open →</span></div>
+            <strong>Runtime Admissibility Gate</strong>
+            <span>The TA-14 admissible execution gate and reference implementation surface.</span>
+            <span class="meta">Internal page</span>
+          </a>
+          <a class="record-card " href="/positioning">
+            <div class="card-top"><span class="badge">Positioning</span><span class="arrow">Open →</span></div>
+            <strong>Parent Architecture Positioning</strong>
+            <span>TA-14 category position, boundaries, and adjacent architecture distinctions.</span>
+            <span class="meta">Internal page</span>
+          </a>
+          <a class="record-card " href="/public-record">
+            <div class="card-top"><span class="badge">Public Record</span><span class="arrow">Open →</span></div>
+            <strong>Public Record</strong>
+            <span>Formal public record and chronology register for the architecture corpus.</span>
+            <span class="meta">Internal page</span>
+          </a>
+          <a class="record-card " href="/evidence-integrity">
+            <div class="card-top"><span class="badge">Upstream Evidence</span><span class="arrow">Open →</span></div>
+            <strong>Evidence Integrity</strong>
+            <span>Evidence Governance, Evidence Integrity, and admissible evidence architecture as upstream architecture for execution.</span>
+            <span class="meta">Internal page</span>
+          </a>
+          <a class="record-card " href="/no-build-before-boundary">
+            <div class="card-top"><span class="badge">Boundary</span><span class="arrow">Open →</span></div>
+            <strong>No Build Before Boundary</strong>
+            <span>Commercial boundaries, protected scope, and partner-review limitations.</span>
+            <span class="meta">Internal page</span>
+          </a></div>
+    </section>
 
-        <a class="record-card" href="/architecture">
-          <strong>Architecture</strong>
-          <span>Full-chain architecture explanation from Reality through Outcome.</span>
-          <span class="meta">Parent architecture</span>
-        </a>
+    <section id="books">
+      <div class="section-head"><div><p class="eyebrow">Architecture books and public publications</p><h2>Only the admissible-execution-oriented book records.</h2><p>This section excludes TA-14 Academy HVAC, EPA 608, and general technician-training titles. It keeps only public books directly tied to admissible execution, admissible reality, proof before action, and evidence integrity.</p></div><span class="count-pill">4 Amazon records</span></div>
+      <div class="grid four">
+          <a class="record-card " href="https://www.amazon.com/dp/B0H6TF88B7" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Book</span><span class="arrow">Open ↗</span></div>
+            <strong>TA-14 Admissible Execution</strong>
+            <span>Public book entry for the full-chain TA-14 architecture for governing AI, evidence, reality, environment, and consequence before execution.</span>
+            <span class="meta">Amazon / ASIN B0H6TF88B7</span>
+          </a>
+          <a class="record-card " href="https://www.amazon.com/dp/B0H3RDC8M9" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Book</span><span class="arrow">Open ↗</span></div>
+            <strong>Admissible Reality</strong>
+            <span>Book entry for why AI governance fails before execution when reality itself is not governed.</span>
+            <span class="meta">Amazon / ASIN B0H3RDC8M9</span>
+          </a>
+          <a class="record-card " href="https://www.amazon.com/dp/B0H5G44623" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Book</span><span class="arrow">Open ↗</span></div>
+            <strong>Proof Before Action</strong>
+            <span>TA-14, the EU AI Act, and full-chain architecture for admissible AI execution.</span>
+            <span class="meta">Amazon / ASIN B0H5G44623</span>
+          </a>
+          <a class="record-card " href="https://www.amazon.com/dp/B0H6V21NM8" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Book</span><span class="arrow">Open ↗</span></div>
+            <strong>Evidence Integrity Governance</strong>
+            <span>Architecture-facing book entry on Reality → Record → Evidence → Admissible Execution.</span>
+            <span class="meta">Amazon / ASIN B0H6V21NM8</span>
+          </a></div>
+    </section>
 
-        <a class="record-card" href="/services">
-          <strong>Services</strong>
-          <span>Review lanes for public-material review, evidence gap review, partner alignment, environmental integrity, and readiness.</span>
-          <span class="meta">Review services</span>
-        </a>
-
-        <a class="record-card" href="/use-cases">
-          <strong>Use Cases</strong>
-          <span>AI workflows, environmental integrity, partner architectures, institutional decisions, and runtime pressure cases.</span>
-          <span class="meta">Use cases</span>
-        </a>
-
-        <a class="record-card" href="/request-evaluation">
-          <strong>Request Review</strong>
-          <span>Submit a system, workflow, evidence process, partner architecture, or consequence-bearing pathway for review.</span>
-          <span class="meta">Intake</span>
-        </a>
-
-        <a class="record-card" href="/founder">
-          <strong>Founder / Author</strong>
-          <span>Greggory Don Butler authorship, origin, and public architecture authority.</span>
-          <span class="meta">Founder</span>
-        </a>
-
-        <a class="record-card" href="/gate">
-          <strong>Gate</strong>
-          <span>The TA-14 admissible execution gate and reference implementation surface.</span>
-          <span class="meta">Gate</span>
-        </a>
-
-        <a class="record-card" href="/positioning">
-          <strong>Positioning</strong>
-          <span>TA-14 category position, boundaries, and adjacent architecture distinctions.</span>
-          <span class="meta">Positioning</span>
-        </a>
-
-        <a class="record-card" href="/public-record">
-          <strong>Public Record</strong>
-          <span>Formal public record and chronology register.</span>
-          <span class="meta">Public record</span>
-        </a>
-
-        <a class="record-card" href="/environmental-integrity">
-          <strong>Environmental Integrity</strong>
-          <span>TA-14 Environmental Integrity Governance and atmospheric evidence.</span>
-          <span class="meta">Environmental integrity</span>
-        </a>
-
-        <a class="record-card" href="/evidence-integrity">
-          <strong>Evidence Integrity</strong>
-          <span>Evidence Governance, Evidence Integrity, and admissible evidence architecture.</span>
-          <span class="meta">Evidence integrity</span>
-        </a>
-
-        <a class="record-card" href="/no-build-before-boundary">
-          <strong>No Build Before Boundary</strong>
-          <span>Commercial boundaries, protected scope, and partner-review limitations.</span>
-          <span class="meta">Boundary</span>
-        </a>
+    <section id="applied">
+      <div class="dark-panel">
+        <p class="eyebrow">Applied architecture examples</p>
+        <h2>Kept small on purpose.</h2>
+        <p class="lead">Environmental Integrity Governance is not the center of this page. It appears here only as an applied domain where TA-14 admissible-execution logic governs evidence, reliance, consequence, intervention, and outcome.</p>
+        <div class="grid three">
+          <a class="record-card dark-card" href="https://sites.google.com/view/environmental-integrity-gover/home" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Applied</span><span class="arrow">Open ↗</span></div>
+            <strong>Environmental Integrity Governance</strong>
+            <span>Applied domain example where TA-14 admissible execution logic governs environmental evidence, reliance, consequence, intervention, and outcome.</span>
+            <span class="meta">Applied architecture example</span>
+          </a>
+          <a class="record-card dark-card" href="https://sites.google.com/view/atmosphericintegrityrecordairc/home" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Applied</span><span class="arrow">Open ↗</span></div>
+            <strong>Atmospheric Integrity Records / AIRC</strong>
+            <span>Applied environmental record-continuity example connected to evidence preservation and governed environmental reliance.</span>
+            <span class="meta">Applied record layer</span>
+          </a>
+          <a class="record-card dark-card" href="https://sites.google.com/view/environmental-integrity-gover/reference/greggory-don-butler" target="_blank" rel="noopener noreferrer">
+            <div class="card-top"><span class="badge">Applied</span><span class="arrow">Open ↗</span></div>
+            <strong>Greggory Don Butler — Environmental Integrity Reference</strong>
+            <span>Authorship and origin reference for Environmental Integrity Governance and Atmospheric Integrity Records, kept as an applied TA-14 architecture anchor.</span>
+            <span class="meta">Applied authorship anchor</span>
+          </a></div>
       </div>
     </section>
 
     <section id="boundaries">
-      <p class="eyebrow">Resource boundary</p>
-
-      <div class="card dark">
+      <div class="dark-panel">
+        <p class="eyebrow">Resource boundary</p>
         <h2>Public resources are evidence anchors, not automatic approval.</h2>
-
-        <p class="lead" style="color:#e2e8f0;">
-          Public links, DOI records, GitHub repositories, Google Sites, Medium articles, and publication
-          pages support chronology, authorship, preservation, public doctrine, and category clarity. They
-          do not automatically certify, endorse, validate, approve, or production-clear any system.
-        </p>
-
+        <p class="lead">Public links, DOI records, GitHub repositories, Google Sites, Medium articles, Amazon records, and publication pages support chronology, authorship, preservation, public doctrine, and category clarity. They do not automatically certify, endorse, validate, approve, or production-clear any system.</p>
         <div class="grid three">
-          <article class="card" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.14); box-shadow:none;">
-            <h3 style="color:#ffffff;">Public-material review</h3>
-            <p style="color:#cbd5e1;">Public resources can support a public-material architecture review.</p>
-          </article>
-
-          <article class="card" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.14); box-shadow:none;">
-            <h3 style="color:#ffffff;">Evidence review</h3>
-            <p style="color:#cbd5e1;">Operational evidence must be reviewed separately for stronger findings.</p>
-          </article>
-
-          <article class="card" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.14); box-shadow:none;">
-            <h3 style="color:#ffffff;">Claim control</h3>
-            <p style="color:#cbd5e1;">Review, alignment, readiness, certification, endorsement, and validation are separate claim categories.</p>
-          </article>
+          <article class="record-card dark-card"><div class="card-top"><span class="badge">Review</span></div><strong>Public-material review</strong><span>Public resources can support a public-material architecture review.</span><span class="meta">Claim boundary</span></article>
+          <article class="record-card dark-card"><div class="card-top"><span class="badge">Evidence</span></div><strong>Evidence review</strong><span>Operational evidence must be reviewed separately for stronger findings.</span><span class="meta">Claim boundary</span></article>
+          <article class="record-card dark-card"><div class="card-top"><span class="badge">Control</span></div><strong>Claim control</strong><span>Review, alignment, readiness, certification, endorsement, and validation are separate claim categories.</span><span class="meta">Claim boundary</span></article>
         </div>
       </div>
     </section>
 
     <section id="request">
-      <div class="cta-panel">
+      <div class="dark-panel">
         <p class="eyebrow">Request review</p>
-        <h2>Need TA-14 review of a system, workflow, or evidence pathway?</h2>
-
-        <p>
-          Send the system, workflow, evidence process, AI pathway, environmental integrity process,
-          partner architecture, or institutional decision route you want reviewed. Include what action
-          may occur, what evidence exists, who relies on it, where authority comes from, and where binding
-          or commit happens.
-        </p>
-
-        <div class="cta-row">
-          <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
-          <a
-            class="button button-secondary"
-            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Resource%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0ASystem%20or%20workflow%20to%20be%20reviewed%3A%0A%0ARelevant%20public%20resources%20or%20links%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%20output%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AThank%20you."
-          >
-            Email TA-14 Review Request
-          </a>
-        </div>
-
-        <p style="margin-top: 18px;">
-          Direct contact: ta14admissibleexecution@gmail.com
-        </p>
+        <h2>Need TA-14 review of a system, workflow, software surface, or evidence pathway?</h2>
+        <p class="lead">Send the system, workflow, evidence process, AI pathway, partner architecture, repository, or institutional decision route you want reviewed. Include what action may occur, what evidence exists, who relies on it, where authority comes from, and where binding or commit happens.</p>
+        <div class="cta-row"><a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a><a class="button button-secondary" href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Resource%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0ASystem%20or%20workflow%20to%20be%20reviewed%3A%0A%0ARelevant%20public%20resources%20or%20links%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%20output%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AThank%20you.">Email TA-14 Review Request</a></div>
+        <p style="margin-top:18px;">Direct contact: ta14admissibleexecution@gmail.com</p>
       </div>
     </section>
   </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <strong>TA-14 Admissible Execution Architecture</strong><br />
-        Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
-      </div>
-
-      <div>
-        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
-      </div>
-    </div>
-  </footer>
+  <footer><div class="footer-inner"><div><strong>TA-14 Admissible Execution Architecture</strong><br />Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome</div><div><a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a></div></div></footer>
 </body>
 </html>
