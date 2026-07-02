@@ -408,12 +408,11 @@
     }
 
     .dark-panel h2,
-    .dark-panel h3,
-    .dark-panel p{
+    .dark-panel > h3,
+    .dark-panel > p,
+    .dark-panel .lead{
       color:#fff;
     }
-
-    .dark-panel .lead{color:#e2e8f0}
 
     .card{
       position:relative;
@@ -448,6 +447,21 @@
       position:relative;
       z-index:1;
       color:var(--muted);
+    }
+
+    .dark-panel .card h3,
+    .dark-panel .card strong{
+      color:var(--black);
+    }
+
+    .dark-panel .card p,
+    .dark-panel .card li,
+    .dark-panel .card ul{
+      color:var(--muted);
+    }
+
+    .dark-panel .card .price{
+      color:var(--black);
     }
 
     .card-number{
@@ -595,21 +609,6 @@
     .safe p,
     .safe li{
       color:#1e3a8a;
-    }
-
-    .green{
-      border:1px solid #a7f3d0;
-      border-radius:24px;
-      background:#ecfdf5;
-      color:#064e3b;
-      padding:24px;
-      margin-top:24px;
-    }
-
-    .green h3,
-    .green p,
-    .green li{
-      color:#064e3b;
     }
 
     footer{
@@ -1044,66 +1043,6 @@
         <article class="card"><h3>No fail-closed proof</h3><p>Vendor cannot prove what happens under contradiction, missing evidence, invalid authority, drift, or uncertainty.</p></article>
         <article class="card"><h3>No prevention record</h3><p>Vendor cannot preserve why the system did not act or what harm was prevented.</p></article>
         <article class="card"><h3>No memory governance</h3><p>Vendor cannot govern what residues, precedents, new realities, or memories carry forward.</p></article>
-      </div>
-    </section>
-
-    <section id="scoring">
-      <div class="band">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">RFP scoring matrix</p>
-            <h2>Separate claims from reviewable evidence.</h2>
-            <p>
-              This scoring is not certification. It is a buyer-side readiness screen that converts vendor
-              answers into scope, evidence demand, and next review path.
-            </p>
-          </div>
-          <span class="count-pill">0 to 5 readiness screen</span>
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Score</th>
-                <th>Procurement Meaning</th>
-                <th>Buyer Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>0 — Not Provided</strong></td>
-                <td>Vendor did not address the requirement.</td>
-                <td>Treat as missing evidence.</td>
-              </tr>
-              <tr>
-                <td><strong>1 — Claimed</strong></td>
-                <td>Vendor claims the control exists but provides no reviewable evidence object.</td>
-                <td>Request proof; do not rely on claim.</td>
-              </tr>
-              <tr>
-                <td><strong>2 — Described</strong></td>
-                <td>Vendor describes policy or process but does not provide lineage, logs, authority map, or failure behavior.</td>
-                <td>Conditional only.</td>
-              </tr>
-              <tr>
-                <td><strong>3 — Evidence Provided</strong></td>
-                <td>Vendor provides reviewable evidence but route completeness or edge cases remain unclear.</td>
-                <td>Proceed with limited scope or evidence gap review.</td>
-              </tr>
-              <tr>
-                <td><strong>4 — Route-Mapped</strong></td>
-                <td>Vendor maps evidence, reliance, authority, formation, failure, outcome, and memory across the route.</td>
-                <td>Proceed to procurement finding.</td>
-              </tr>
-              <tr>
-                <td><strong>5 — Review Ready</strong></td>
-                <td>Vendor provides enough structure for a full TA-14 procurement-facing review.</td>
-                <td>Route to Procurement Admissibility Review or Route-Complete Review.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </section>
 
