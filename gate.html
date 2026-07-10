@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="The TA-14 Admissible Execution Gate is the proof-bound gate layer for determining whether a consequence-bearing route has enough admissible evidence before binding, commit, execution, and outcome."
+    content="The TA-14 Admissible Execution Gate is a proof-bound pre-execution control architecture with a live public API, OpenAPI specification, deterministic evaluation routes, and a defined pathway to evidence-connected production implementation."
   />
 
   <style>
@@ -777,11 +777,13 @@
 
             <p class="lead">
               It is the practical expression of the doctrine: if the evidence chain is not admissible enough,
-              execution must not proceed as normal. The route must pass, hold, refuse, or escalate.
+              consequence-bearing execution must not proceed as normal. The route must be classified as
+              ALLOW, HOLD, DENY, or ESCALATE before consequence attaches.
             </p>
 
             <div class="hero-actions">
-              <a class="button button-primary" href="https://github.com/greggbutlerac-debug/ta14-admissible-execution-gate" target="_blank" rel="noopener noreferrer">View Gate on GitHub</a>
+              <a class="button button-primary" href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs" target="_blank" rel="noopener noreferrer">Test the Live API</a>
+              <a class="button button-secondary" href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/openapi.json" target="_blank" rel="noopener noreferrer">View OpenAPI Contract</a>
               <a class="button button-secondary" href="/request-evaluation">Request Gate Review</a>
             </div>
 
@@ -835,11 +837,13 @@
 
       <div class="mini-nav">
         <a href="#what">What It Is</a>
+        <a href="#api">Live API</a>
         <a href="#logic">Gate Logic</a>
         <a href="#decisions">Decisions</a>
         <a href="#objects">Evidence Objects</a>
         <a href="#repo">GitHub</a>
         <a href="#proves">What It Proves</a>
+        <a href="#production">Production Scope</a>
         <a href="#limits">Limits</a>
         <a href="#request">Request Review</a>
       </div>
@@ -897,6 +901,77 @@
       </div>
     </section>
 
+    <section id="api">
+      <p class="eyebrow">Live public API</p>
+      <h2>The Gate is publicly testable and machine-readable.</h2>
+
+      <p class="lead">
+        TA-14 now exposes a live public reference API with an OpenAPI contract, interactive Swagger testing,
+        deterministic decision classes, machine-readable chain specifications, and six evaluation routes.
+        This is not merely a written-review offer. It is a developer-facing decision surface for testing how
+        proposed routes are classified before execution.
+      </p>
+
+      <div class="cta-row">
+        <a class="button button-dark" href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs" target="_blank" rel="noopener noreferrer">Open Interactive API</a>
+        <a class="button button-dark" href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/openapi.json" target="_blank" rel="noopener noreferrer">OpenAPI 3.1 Contract</a>
+        <a class="button button-dark" href="https://github.com/greggbutlerac-debug/ta14-admissible-execution-gate" target="_blank" rel="noopener noreferrer">View Gate Repository</a>
+      </div>
+
+      <div class="grid three">
+        <article class="card">
+          <div class="number blue">01</div>
+          <h3>Evaluate execution</h3>
+          <p><code>POST /v1/evaluate-execution</code></p>
+          <p>Classifies a proposed consequence-bearing route against declared reality, evidence, continuity, authority, binding, commit, and outcome conditions.</p>
+        </article>
+
+        <article class="card alt">
+          <div class="number green">02</div>
+          <h3>Evaluate evidence</h3>
+          <p><code>POST /v1/evaluate-evidence</code></p>
+          <p>Tests whether submitted evidence conditions are sufficient, current, continuous, attributable, and fit for governed reliance.</p>
+        </article>
+
+        <article class="card">
+          <div class="number violet">03</div>
+          <h3>Check authority</h3>
+          <p><code>POST /v1/check-authority</code></p>
+          <p>Tests whether identity, delegated authority, scope, legitimacy, and the proposed action are properly aligned.</p>
+        </article>
+
+        <article class="card alt">
+          <div class="number amber">04</div>
+          <h3>Validate continuity</h3>
+          <p><code>POST /v1/validate-continuity</code></p>
+          <p>Tests whether sequence, lineage, custody, timing, and material continuity remain preserved across the route.</p>
+        </article>
+
+        <article class="card">
+          <div class="number red">05</div>
+          <h3>Create a reviewability record</h3>
+          <p><code>POST /v1/reviewability-record</code></p>
+          <p>Produces a structured record showing what was submitted, what failed, what warnings remain, and what should happen next.</p>
+        </article>
+
+        <article class="card alt">
+          <div class="number blue">06</div>
+          <h3>Screen AI procurement</h3>
+          <p><code>POST /v1/procurement-screen</code></p>
+          <p>Tests whether an AI product, vendor, pilot, or proposed deployment exposes unresolved evidence, authority, runtime, reliance, or consequence gaps.</p>
+        </article>
+      </div>
+
+      <div class="blue-box">
+        <h3>Structured outputs, not a generic score</h3>
+        <p>
+          Public evaluations return a bounded decision — <strong>ALLOW, HOLD, DENY, or ESCALATE</strong> — together with
+          failed links, warnings, reasons, next steps, request identifiers, timestamps, API version information,
+          public-boundary language, and the TA-14 chain.
+        </p>
+      </div>
+    </section>
+
     <section id="logic">
       <p class="eyebrow">Gate logic</p>
       <h2>The gate evaluates the route before consequence can attach.</h2>
@@ -949,7 +1024,7 @@
 
     <section id="decisions">
       <p class="eyebrow">Decision states</p>
-      <h2>PASS, HOLD, REFUSE, or ESCALATE.</h2>
+      <h2>ALLOW, HOLD, DENY, or ESCALATE.</h2>
 
       <p class="lead">
         The gate does not collapse all uncertainty into yes or no. It classifies execution readiness based on
@@ -958,7 +1033,7 @@
 
       <div class="decision-grid">
         <article class="decision pass">
-          <h3>PASS</h3>
+          <h3>ALLOW</h3>
           <p>
             The route has enough evidence, continuity, authority, scope, threshold satisfaction, commit control,
             and outcome accountability to proceed.
@@ -974,7 +1049,7 @@
         </article>
 
         <article class="decision refuse">
-          <h3>REFUSE</h3>
+          <h3>DENY</h3>
           <p>
             The route should not proceed. Evidence is inadmissible, authority is invalid, scope is exceeded,
             continuity is broken, or the action would create unsupported consequence.
@@ -1052,7 +1127,7 @@ binding_status: controlled
 commit_status: receipt_required
 execution_status: gated
 outcome_record: required
-gate_decision: PASS | HOLD | REFUSE | ESCALATE
+gate_decision: ALLOW | HOLD | DENY | ESCALATE
       </div>
     </section>
 
@@ -1061,9 +1136,9 @@ gate_decision: PASS | HOLD | REFUSE | ESCALATE
       <h2>The gate has a public reference repository.</h2>
 
       <p class="lead">
-        The public TA-14 Admissible Execution Gate repository gives the gate a reference surface. It is not the
-        whole TA-14 architecture. It is a working demonstration of the key operational idea: evidence must be
-        checked before execution is allowed.
+        The public TA-14 Admissible Execution Gate repository and live API give the architecture a reference
+        implementation surface. They are not the whole TA-14 architecture. Together, they demonstrate the key
+        operational principle: a consequence-bearing route should be evaluated before execution is allowed.
       </p>
 
       <div class="grid three">
@@ -1073,10 +1148,10 @@ gate_decision: PASS | HOLD | REFUSE | ESCALATE
           <span class="meta">GitHub repository</span>
         </a>
 
-        <a class="record-card" href="/resources">
-          <strong>TA-14 Resource Hub</strong>
-          <span>DOI records, public sites, GitHub links, Medium articles, AutomatedBuildings references, and public record anchors.</span>
-          <span class="meta">Public resource index</span>
+        <a class="record-card" href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs" target="_blank" rel="noopener noreferrer">
+          <strong>Live TA-14 API Sandbox</strong>
+          <span>Interactive Swagger interface for testing the public reference evaluation routes.</span>
+          <span class="meta">Developer testing surface</span>
         </a>
 
         <a class="record-card" href="/request-evaluation">
@@ -1128,14 +1203,62 @@ gate_decision: PASS | HOLD | REFUSE | ESCALATE
       </div>
     </section>
 
+    <section id="production">
+      <p class="eyebrow">Public reference versus production scope</p>
+      <h2>The sandbox demonstrates the decision surface. Production binds it to evidence.</h2>
+
+      <p class="lead">
+        The public sandbox evaluates route conditions submitted by the caller. A submitted value such as
+        <code>authority_in_scope</code>, <code>evidence_sufficient</code>, or <code>continuity_preserved</code> is a declared
+        condition supplied for reference evaluation. The sandbox does not claim that every declaration has already
+        been independently authenticated against an external source.
+      </p>
+
+      <div class="grid two">
+        <article class="card">
+          <div class="number blue">P</div>
+          <h3>Public reference API</h3>
+          <ul>
+            <li>Interactive Swagger testing</li>
+            <li>OpenAPI machine-readable contract</li>
+            <li>Typed request and response structures</li>
+            <li>Deterministic ALLOW, HOLD, DENY, or ESCALATE classification</li>
+            <li>Failed-link, warning, reason, and next-step outputs</li>
+            <li>Public chain and decision specifications</li>
+          </ul>
+        </article>
+
+        <article class="card dark">
+          <div class="number green">E</div>
+          <h3>Evidence-connected production implementation</h3>
+          <ul>
+            <li>Authenticated identity and delegated-authority records</li>
+            <li>Source-bound evidence objects and evidence hashes</li>
+            <li>System, policy, model, and ruleset version identifiers</li>
+            <li>Sequence, lineage, custody, and continuity validation</li>
+            <li>Subject-action binding and commit-point controls</li>
+            <li>Signed decision receipts and persistent audit storage</li>
+            <li>Expiration, re-evaluation, escalation, and resolution records</li>
+            <li>Client-specific rules, risk classes, integrations, and security review</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="quote-panel">
+        <p class="big">
+          Submitted assertion → referenced evidence → verified chain state → signed decision receipt → governed execution → preserved outcome.
+        </p>
+      </div>
+    </section>
+
     <section id="limits">
       <p class="eyebrow">What the gate does not claim</p>
       <h2>The gate is powerful because its claims are controlled.</h2>
 
       <p class="lead">
-        The TA-14 Gate is a reference surface and review tool. It should not be overstated. Its purpose is to
-        demonstrate and support admissible-execution review, not to claim universal certification or production
-        clearance by itself.
+        The public TA-14 Gate and sandbox are reference implementation and evaluation surfaces. They should not be
+        overstated as universal certification or automatic production clearance. Their controlled public boundary
+        protects the distinction between reference classification and evidence-connected institutional reliance.
       </p>
 
       <div class="grid three">
@@ -1180,16 +1303,17 @@ gate_decision: PASS | HOLD | REFUSE | ESCALATE
         <h2>Need a TA-14 Gate review for your system?</h2>
 
         <p>
-          Request a review of an AI workflow, environmental evidence process, partner architecture,
-          institutional decision route, or execution pathway. The review can identify whether the route is
-          ready to pass, should hold, must refuse, or requires escalation before consequence-bearing execution.
+          Test the public API, request an API Readiness Check, or submit an AI workflow, environmental evidence
+          process, partner architecture, procurement route, institutional decision path, or execution pathway for
+          scoped review and production-readiness mapping.
         </p>
 
         <div class="cta-row">
-          <a class="button button-primary" href="/request-evaluation">Request a TA-14 Gate Review</a>
+          <a class="button button-primary" href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs" target="_blank" rel="noopener noreferrer">Test the Live API</a>
+          <a class="button button-secondary" href="/request-evaluation">Request API Readiness or Gate Review</a>
           <a
             class="button button-secondary"
-            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Gate%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20Gate%20review.%0A%0ASystem%20or%20workflow%20to%20be%20reviewed%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AWhat%20should%20the%20gate%20allow%2C%20hold%2C%20refuse%2C%20or%20escalate%3A%0A%0ARelevant%20links%20or%20materials%3A%0A%0AThank%20you."
+            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Gate%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20Gate%20review.%0A%0ASystem%20or%20workflow%20to%20be%20reviewed%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AWhat%20should%20the%20gate%20allow%2C%20hold%2C%20deny%2C%20or%20escalate%3A%0A%0ARelevant%20links%20or%20materials%3A%0A%0AThank%20you."
           >
             Email Gate Review Request
           </a>
