@@ -1,305 +1,264 @@
-
-The Criteria That Drifted
-RAVI SHANKAR NRK
-RAVI SHANKAR NRK
-COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
-
-
-July 9, 2026
-On why every seat can stay live, every policy current, every check green—and the governance has already failed
-
-This is the sixth piece in a series on governance runtime architecture. The first five established that authority needs a traceable source, that a seat holding authority can lapse, that the situation justifying a decision can shift before it is acted on, that standing must be re-proven at the moment consequence becomes irreversible, and that a delegation chain must carry proof of standing across every transfer. All five assumed, quietly, that the standard under which every seat reads every rule stays put. This piece removes that assumption.
-
-A Vignette
-Consider a regional bank with a concentration limit: no single counterparty may exceed fifteen percent of the lending book. The limit is encoded in policy v2.3. The risk officer, Officer Chen, holds a live seat with current mandate and accreditation. The situation — the counterparty's financials, the sector outlook, the macro stress scenario — supports an exception. The systems that will execute it are available. The criteria attestation, recorded at decision time, references risk appetite statement v1.4, reaffirmed by the Board Risk Committee within its review period.
-
-The exception is granted. The trade is queued for settlement.
-
-Between decision and settlement, nothing changes in anything the runtime watches. Officer Chen's seat remains live. Policy v2.3 is not superseded. The counterparty's financials are stable. The rails are operational.
-
-But during that gap, the Board Risk Committee restates the bank's risk appetite in narrative form — not a policy change, not a version bump, nothing that would trigger an alert. The concentration limit is still fifteen percent, but what counts as a justified exception has narrowed. The assumptions embedded in the original approval — that the sector exposure was acceptable, that the stress scenario was bounded — are no longer assumed. Cases that qualified near the old boundary are no longer inside the new one.
-
-At settlement, every check passes. The policy is current, the officer is live, the situation is stable, the systems are up, the attestation is within tolerance. The trade binds. The consequence forms. And the governance has already failed.
-
-This is not a failure of detection. Every signal the runtime monitors is green. This is a failure of calibration: the standard against which every signal is evaluated has shifted, and the shift is invisible to any predicate calibrated inside the drifted standard. The runtime keeps enforcing coherence against a standard that no longer holds.
-
-A New Category of Drift
-Machine learning already has a rich vocabulary of drift, so it is worth being precise about why this is not a familiar concern wearing new clothes:
-
-Article content
-Every row above the last one has a detector. Data and model drift are caught by model risk management; policy drift by version control; and governance drift by delegation chains and access review. Criteria drift has no detector by construction: every instrument that could catch it is calibrated inside the standard that drifted. That is what makes it a second-order problem — not another thing that fails, but drift in the standard used to decide whether anything has failed.
-
-How It Fails in Practice
-Five recurring signatures:
-
-Silent reparameterization: Risk appetite is restated without a policy version change; the rules read differently while every rule check still passes.
-Interpretive succession: A successor re-qualifies a decision against a reconstructed standard rather than an inherited one; authority and context checks pass while the reading standard has changed.
-Tacit assumption decay: Assumptions embedded in the original approval quietly cease to hold, without any observable shift large enough to trip a context check.
-Boundary migration: The line between qualified and unqualified moves gradually; cases approved near the old line are stranded outside the new one.
-Monitoring decay: The set of things being watched no longer covers the failure classes that matter; everything watched stays green while an unwatched class quietly exhausts viability.
-
-In every one of these, the audit trail is impeccable, and the outcome is wrong.
-
-Governing Criteria
-The governing criteria of a regime, at any moment, consist of four things: the organization's declared risk appetite, the interpretive framework under which rules are read onto cases, the tacit assumptions embedded in qualifications, and the decision boundary separating qualified from unqualified cases.
-
-The criteria are not the rule. They are the conditions under which the rule is read. A decision made at some moment carries the conclusion of a reading; without a record of the criteria in force at that moment, it does not carry the standard that shaped the reading. A successor re-qualifying without that record is reconstructing the standard, not inheriting it. The formal treatment—the criteria tuple, the drift function, and its tolerance schema—lives in the Criteria Validity—Technical Companion.
-
-The Fifth Field in the Chain of Custody
-The architectural response is simple to state. At decision time, the runtime records not only the policy version, the authority token, the context qualification, and the resource reservation but also a fifth field: an attestation of the governing criteria used to interpret them. If those criteria materially change before the commitment binds, the decision becomes structurally stale and must be re-qualified under the new standard.
-
-The attestation converts the governing criteria from an ambient assumption into a governed, versioned, auditable object. Its validity rests on three conditions: the attestation exists; the criteria have not drifted beyond a tolerance the criteria-owning seat declared; and that seat has re-affirmed the standard within a defined period—an active statement that the standard is still the standard, not merely an absence of change notices. This is checked periodically and whenever the criteria change, so the check at the moment of binding stays cheap.
-
-The same pattern extends one layer up. Whatever governs the validity of the system description itself—the preceding question of whether this is still the right description of the world to govern within—publishes versioned attestations too. The runtime never evaluates their content. It only guarantees that no decision binds under a standard, criteria, or description that it was not qualified against.
-
-This induces a strict dependency: criteria validity underwrites qualification validity, which underwrites binding validity. A qualification is only as valid as the criteria under which it was made; a binding is only as valid as the qualification it commits. Second-order drift breaks the chain at its first link—which is precisely why no amount of first-order rechecking can detect it.
-
-The Path Between Two Green Snapshots
-One subtlety deserves a paragraph even in a conceptual treatment. Two snapshots of a decision's standing can both look fully admissible while the trajectory between them has quietly spent its room to continue. The floor held throughout; every seat stayed live—and the standing room shrank anyway. That narrowing is a property of the path, not of either endpoint, so no present-state check, however green, can see it. Only a monitor built to read the path can.
-
-And the choice of what to monitor is itself a judgment—one that can drift in exactly the same second-order way. The monitor set, therefore, joins the governing criteria as a fifth element—the tuple extends from the four named above to five—and changing it is a criteria event, attested like any other.
-
-The Stack, in One View
-
-
-Article content
-The criteria layer sits above everything else because it is evaluated against everything below it—including the terms on which the basin itself was parameterized. Whether the system description remains valid is the still-higher question, consumed as an attestation, never computed within the runtime.
-
-The Result
-A determination is not a single event, not even a chain of seats. It is a lifecycle governed at every stage by criteria whose own validity must be attested, versioned, and re-proven before consequence forms. The historical signature is genuine but insufficient. The present standing at commitment is what matters. And the criteria under which both were evaluated must themselves remain valid across the interval—or every predicate passes while the governance has already failed.
-
-The architecture does not merely authorize action. It authorizes the commitment of action: re-proving the base invariants at the moment commitment becomes irreversible, within the structural floor the basin provides, against criteria whose own validity is attested, with evidence, with escalation, and with a seat that can still answer.
-
-The chain of custody does not end at the signature. It ends where someone can still answer for every link, at every gate, under a standard that is still the standard when the consequence becomes irreversible.
-
-— Commander Ravi Shankar NRK (Retd.), AI Strategy, Governance & Risk
-
-The formal specification—the criteria tuple, the drift function and tolerance schema, the attestation record format, the standing states, and worked algorithms and failure semantics—lives in the Criteria Validity—Technical Companion. Implementers, reviewers, and architects may DM me.
-
-
-
-Comments
-likeloveinsightful
-11
-22 comments
-
-Photo of Greggory Don Butler
-
-like
-Like
-
-Comment
-
-Share
-
-
-Add a comment…
-Open Emoji Keyboard
-
-Current selected sort order is Most recent
-Most recent
-View RAVI SHANKAR NRK’s  graphic link
-RAVI SHANKAR NRK
- 
-Author
-COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
-7h
-
-With thanks to the practitioners from whom I have learnt their ways of approaching the seams Diana Jose, Sharon Licqurish PhD , Bal Bhandal Ricardo Muro, Simon D., Michal Harcej, Sue Broughton, Tobias Plowman, Guillaume Heinerth, Dean Chapman, Chris Perkins Frederick Redditt Max Barzenkov Cara Tonucci Timothy Gough Greggory Don Butler Dr M Maruf Hossain, PhD, GAICD Dana Louw MBA, 
-…more
-
-Like
-like
-1
-
-Reply
-12 replies
-12 Replies on RAVI SHANKAR NRK’s comment
-
-See previous replies
-View RAVI SHANKAR NRK’s  graphic link
-RAVI SHANKAR NRK
- 
-Author
-COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
-5h
-
-Chris Perkins I am ready to share if some one asks for it in DM
-
-Like
-
-Reply
-View RAVI SHANKAR NRK’s  graphic link
-RAVI SHANKAR NRK
- 
-Author
-COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
-7h
-
-With thanks to practitioners who had helped me to think differently Margaret Stokes Philip Pinol AB SAHOO 
-
-Like
-like
-1
-
-Reply
-View RAVI SHANKAR NRK’s  graphic link
-RAVI SHANKAR NRK
- 
-Author
-COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
-7h
-
-With thanks to the practitioners who have taught me their own ways of approaching the seams, Kristina Vayo Huck Huckaby Greggory Don Butler Brad Wolfe @Mark A Christopher Gaither Adriana Adria Arvind SR Arash Aghlara Dasha Gorovenco-Gillespie Adam S., Rob Caswell Custor 28 Nikunj Dugar , Paul M. Paul Roman Grigori Korotkikh Dani Danwin Dan Lionello Stephane Hoareau Ilya Bubelo Cyril Fautrai Robert Hensley Steve Tuthill Michael Kozloff Christof Schumann Jennifer L. DiMotta Sue Eze Aaron Sempf John Oluwafemi Jegede Nick Mabe Dr. Srinath Naidu New Trend Computer Networks L.L.C Adriana Adria Virendra Vaishnav Jesper Jensen Afsar Ahmed Mohammed Mohamed Adam Aurélie Jacquet Anas Nuvy Christopher Caruso Lilian Crawford James Stokes. S. Brady Alliy Nalam Sriya Jane Pollard Digvijay Parmar 🦩 Rebecca Horrocks Thierry Zedda Swetha Gupta AdeptiveAI Akhilesh Warik Nick Vejle De Yu Chou Shabina Abba Noormohamed
-…more
-
-Like
-
-Reply
-1 reply
-1 Comment on RAVI SHANKAR NRK’s comment
-View New Trend Computer Networks L.L.C’s profile
-New Trend Computer Networks L.L.C
-6,150 followers
-3h
-
-Thankyou. lets connect.
-
-Like
-
-Reply
-View Greggory Don Butler’s  graphic link
-Greggory Don Butler
-   • You
-Founder, TA-14 | Architect of Admissible Execution Architecture, Environmental Integrity Governance & Atmospheric Integrity Records
-14m
-
-RAVI SHANKAR NRK This is a strong next move.
-
-Criteria drift is dangerous because it can leave every visible control green while the standard underneath the control has already moved.
-
-That matters deeply for admissibility.
-
-A decision may have been valid under the criteria that existed at approval. But if the criteria used to interpret authority, risk, scope, qualification, or consequence shifts before binding, the original decision cannot simply travel forward as if nothing changed.
-
-From a TA-14 perspective, this is why the chain cannot only preserve records.
-
-It has to preserve the standard under which the record became meaningful.
-
-Reality, record, continuity, evidence, authority, legitimacy, binding, commit, execution, outcome, and reviewability all depend on the governing criteria still being valid when consequence forms.
-
-A green check is not enough if the standard behind the check drifted.
-
-No valid endpoint proves a valid route.
-
-No admissible chain.
-
-No admissible execution.
-…more
-
-Like
-
-Reply
-View Sue Eze’s  graphic link
-Sue Eze
-   • 2nd
-AI Governance & Technology Risk Lead | ISO/IEC 42001 | EU AI Act | Runtime Risk & Model Assurance | ISMS (ISO 27001)
-5h
-
-A very important point. Calibration drift often invisible because every control still measuring against yesterday’s assumptions. For me, governance isn’t just about detecting whether signals remain within thresholds; it’s also about continuously validating whether those thresholds, assumptions, ownership, and decision criteria are still appropriate for today’s operational environment. Otherwise, every control can report “green” while the organisation has already drifted away from its intended risk appetite.
-…more
-
-Like
-
-Reply
-1 reply
-1 Comment on Sue Eze’s comment
-View RAVI SHANKAR NRK’s  graphic link
-RAVI SHANKAR NRK
- 
-Author
-COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
-5h
-
-Sue Eze - Precisely — and that is why the companion treats the criteria tuple K(t) = (ρ, ι, τ, β, μ) as a governed object in its own right, not merely a parameter of the controls. The reaffirmation period π forces the criteria-owning seat to actively re-attest that the standard is still the standard, independent of whether any control has tripped. Without that active reaffirmation, criteria standing lapses to LAPSED, and every dependent determination goes structurally stale—even if every downstream signal remains green. The controls cannot save you if the standard they are calibrated against has silently shifted.
-…more
-
-Like
-
-Reply
-View Javier Ángel Martínez Rodríguez’s  graphic link
-Javier Ángel Martínez Rodríguez
-   • 2nd
-Lead Enterprise & Cloud Architect | AI Governance, ISO 42001, EU AI Act | Enterprise Architecture (TOGAF 10), Data & IAM & Security
-5h
-
-Criteria drift is the right name for it, and it's the failure mode that hides in plain sight — every instrument reads green because they're all calibrated against the drifted standard. Detection can't catch it because detection is downstream of the criteria. The only defense I've seen is making the standard itself a versioned, auditable object with its own revalidation trigger, so drift in the criteria surfaces as a first-class signal rather than being silently inherited by everything measured against it.
-…more
-
-Like
-
-Reply
-1 reply
-1 Comment on Javier Ángel Martínez Rodríguez’s comment
-View RAVI SHANKAR NRK’s  graphic link
-RAVI SHANKAR NRK
- 
-Author
-COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
-5h
-
-Javier Ángel Martínez Rodríguez - Exactly right—and the companion formalizes precisely that defense. The criteria attestation record converts the standard from ambient assumption into a versioned, signed, auditable object with a cryptographic digest that makes drift detectable by comparison rather than by self-assessment. The drift function δ and declared tolerance ε make divergence a first-class signal with three composed states—CURRENT, DRIFTING, and LAPSED—so the runtime never silently inherits a drifted standard. The O(1) cached standing check at binding gates means this is not theoretical overhead; it is the structural floor that lets everything above it remain trustworthy.
-…more
-
-Like
-
-Reply
-View Sundeep Khatri’s  graphic link
-Sundeep Khatri
-   • 2nd
-Operations Leader | Blinkit & Amazon | Logistics Strategy | Distribution Centers| Military Veteran | Program & Project Execution Management | Inventory Strategy | Cost & Compliance Management
-43m
-
-Well shared. Strong governance frameworks combined with technology can help organizations manage risks more effectively.
-
-Like
-
-Reply
- 
-Load more comments
-RAVI SHANKAR NRK
-RAVI SHANKAR NRK
-
-COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
-
-
-Followed by Brad and Masoud
-
-Following
-About
-Accessibility
-Talent Solutions
-Professional Community Policies
-Careers
-Marketing Solutions
-
-Privacy & Terms 
-Ad Choices
-Advertising
-Sales Solutions
-Mobile
-Small Business
-Safety Center
-Questions?
-Visit our Help Center.
-
-Manage your account and privacy
-Go to your Settings.
-
-Recommendation transparency
-Learn more about Recommended Content.
-
-Select Language
-
-English (English)
-LinkedIn Corporation © 2026
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <strong>TA-14 Admissible Execution Architecture</strong>
+        <span>Proof-bound governance before consequence</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/start-here">Start Here</a>
+        <a href="/architecture">Architecture</a>
+        <a class="active" href="/services">Services</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/gate">Gate</a>
+        <a href="/resources">Resources</a>
+        <a class="nav-cta" href="/request-evaluation">Request Scope</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-shell">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">TA-14 Services</p>
+
+            <h1>Start with the smallest defensible scope. Advance only when the evidence requires it.</h1>
+
+            <p class="lead">
+              TA-14 helps organizations determine whether an AI system, automated workflow,
+              environmental process, governance architecture, procurement decision, partner platform,
+              or institutional route is admissible enough to create consequence.
+            </p>
+
+            <p class="lead">
+              The public architecture, live API sandbox, interactive documentation, OpenAPI contract,
+              repositories, DOI records, and public resources are available for the world to study.
+              Structured review, private evidence analysis, runtime design, partner integration,
+              and institutional deployment require written scope.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="/request-evaluation">
+                Request the Right Scope
+              </a>
+
+              <a class="button button-secondary" href="/pricing">
+                View Pricing
+              </a>
+
+              <a class="button button-secondary" href="/gate">
+                Open the Live Gate
+              </a>
+            </div>
+
+            <p class="direct">
+              Direct contact:
+              <a href="mailto:ta14admissibleexecution@gmail.com">
+                ta14admissibleexecution@gmail.com
+              </a>
+            </p>
+          </div>
+
+          <aside class="hero-panel">
+            <p class="eyebrow">The TA-14 Pathway</p>
+
+            <h2>Reviewability before readiness. Readiness before implementation.</h2>
+
+            <p>
+              Every engagement begins by identifying the system, consequence, evidence,
+              authority, reliance point, binding point, commit boundary, and desired outcome.
+            </p>
+
+            <div class="chain-line">
+              Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+            </div>
+
+            <div class="signal-grid">
+              <div class="signal">
+                <strong>Public</strong>
+                <span>Architecture, Gate, API, documentation, and records</span>
+              </div>
+
+              <div class="signal">
+                <strong>Review</strong>
+                <span>Evidence, route, readiness, and procurement findings</span>
+              </div>
+
+              <div class="signal">
+                <strong>Integration</strong>
+                <span>Private rules, fields, receipts, and partner APIs</span>
+              </div>
+
+              <div class="signal">
+                <strong>Institutional</strong>
+                <span>Multi-system deployment and consequence governance</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="mini-nav">
+        <a href="#free">Free Public Access</a>
+        <a href="#services">Service Ladder</a>
+        <a href="#deliverables">What You Receive</a>
+        <a href="#routing">How Scope Is Chosen</a>
+        <a href="#boundaries">Boundaries</a>
+        <a href="#request">Request Scope</a>
+      </div>
+    </section>
+
+    <section id="free">
+      <p class="eyebrow">Free Public Access</p>
+
+      <h2>TA-14 makes the public architecture visible before asking anyone to purchase a service.</h2>
+
+      <p class="lead">
+        The public system exists so builders, institutions, researchers, buyers,
+        and governance leaders can understand the category, examine the decision surface,
+        and test the reference implementation.
+      </p>
+
+      <div class="grid three">
+        <article class="card">
+          <h3>TA-14 Architecture</h3>
+          <p>
+            Study the eight-stage operational spine and the expanded dependency chain
+            governing evidence, reliance, authority, legitimacy, consequence, execution,
+            outcome, memory, and future-chain inheritance.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Live API Sandbox</h3>
+          <p>
+            Test structured requests against the public reference API and receive
+            ALLOW, HOLD, DENY, or ESCALATE responses.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Interactive Documentation</h3>
+          <p>
+            Review the OpenAPI contract, route schemas, request fields,
+            response structures, and public API reference.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Public Gate</h3>
+          <p>
+            Examine how TA-14 evaluates execution, evidence, authority,
+            continuity, reviewability, and procurement conditions.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Repositories and DOI Records</h3>
+          <p>
+            Review the public source repositories, preservation records,
+            architecture publications, chronology, and DOI corpus.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <h3>Books and Public Doctrine</h3>
+          <p>
+            Access the public books, articles, environmental-governance resources,
+            and architecture explanations that establish the TA-14 body of work.
+          </p>
+        </article>
+      </div>
+
+      <div class="callout">
+        <h3>Free access does not mean free implementation.</h3>
+
+        <p>
+          Public resources demonstrate the architecture and decision surface.
+          They do not include private rulesets, custom schemas, evidence bindings,
+          signed-receipt systems, production integrations, institutional route design,
+          or unrestricted use of TA-14 status language.
+        </p>
+      </div>
+    </section>
+
+    <section id="services">
+      <p class="eyebrow">The TA-14 Service Ladder</p>
+
+      <h2>Eight lanes from first review to institutional deployment.</h2>
+
+      <p class="lead">
+        Each service answers a different question. TA-14 does not force a small inquiry
+        into a large engagement, and a low-cost review is not presented as production validation.
+      </p>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-number">01</div>
+
+          <p class="service-price">$49</p>
+
+          <h3>Reviewability Check</h3>
+
+          <p>
+            Determines whether the available materials are sufficient
+            to support a meaningful TA-14 review.
+          </p>
+
+          <h4>Best for</h4>
+
+          <ul>
+            <li>Websites, public claims, diagrams, repositories, and early concepts</li>
+            <li>Builders unsure which TA-14 lane applies</li>
+            <li>Initial evidence and route visibility</li>
+          </ul>
+
+          <h4>Includes</h4>
+
+          <ul>
+            <li>Reviewability finding</li>
+            <li>Immediate blind spots</li>
+            <li>Recommended next scope</li>
+          </ul>
+
+          <div class="service-note">
+            The $49 fee is credited toward the $250 API Readiness Check
+            when the client advances into that scope.
+          </div>
+        </article>
+
+        <article class="service-card featured">
+          <div class="service-number">02</div>
+
+          <p class="service-price">$250</p>
+
+          <h3>API Readiness Check</h3>
+
+          <p>
+            Determines whether a system or route can be represented
+            through the TA-14 public API structure.
+          </p>
+
+          <h4>Best for</h4>
+
+          <ul>
+            <li>AI agents and automated workflows</li>
+            <li>Runtime, policy, evidence, or trust systems</li>
+            <li>Builders preparing to test the public sandbox</li>
+          </ul>
+
+          <h4>Includes</h4>
+
+          <ul>
+            <li>Field and route mapping</li>
+            <li>Submission-readiness findings</li>
+            <li>Relevant endpoint identification</li>
+            <li>Missing-input analysis</li>
+          </ul>
+
+          <div class="service-note">
+            When the $49 credit
