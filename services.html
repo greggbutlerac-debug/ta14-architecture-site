@@ -1,12 +1,976 @@
-<body>
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="/">
+<body class="services-page">
+
+  <style>
+    .services-page {
+      --ta-black: #020617;
+      --ta-navy: #071329;
+      --ta-blue: #2563eb;
+      --ta-cyan: #22d3ee;
+      --ta-violet: #8b5cf6;
+      --ta-emerald: #10b981;
+      --ta-amber: #f59e0b;
+      --ta-white: #ffffff;
+      --ta-soft: #f8fafc;
+      --ta-muted: #64748b;
+      --ta-line: rgba(148, 163, 184, 0.22);
+      --ta-max: 1380px;
+
+      margin: 0;
+      color: #0f172a;
+      background:
+        radial-gradient(circle at 5% 2%, rgba(37, 99, 235, 0.15), transparent 30rem),
+        radial-gradient(circle at 95% 12%, rgba(139, 92, 246, 0.14), transparent 34rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 45%, #ffffff 100%);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    .services-page * {
+      box-sizing: border-box;
+    }
+
+    .services-page a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .services-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--ta-line);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(18px);
+    }
+
+    .services-nav {
+      max-width: var(--ta-max);
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .services-brand {
+      display: flex;
+      flex-direction: column;
+      min-width: 280px;
+    }
+
+    .services-brand strong {
+      color: var(--ta-black);
+      font-size: 1rem;
+      font-weight: 950;
+      letter-spacing: -0.035em;
+    }
+
+    .services-brand span {
+      color: var(--ta-muted);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .services-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .services-links a {
+      padding: 9px 12px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: #475569;
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+
+    .services-links a:hover,
+    .services-links a.active {
+      color: var(--ta-black);
+      border-color: #cbd5e1;
+      background: var(--ta-white);
+    }
+
+    .services-links a.request {
+      color: var(--ta-white);
+      background: var(--ta-black);
+      box-shadow: 0 12px 30px rgba(2, 6, 23, 0.18);
+    }
+
+    .services-main {
+      overflow: hidden;
+    }
+
+    .services-wrap {
+      width: min(calc(100% - 40px), var(--ta-max));
+      margin: 0 auto;
+    }
+
+    .services-hero {
+      padding: 42px 0 84px;
+    }
+
+    .services-hero-shell {
+      position: relative;
+      overflow: hidden;
+      min-height: 700px;
+      border-radius: 46px;
+      padding: clamp(34px, 6vw, 80px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+      align-items: center;
+      gap: 56px;
+      color: var(--ta-white);
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+        radial-gradient(circle at 10% 15%, rgba(37, 99, 235, 0.46), transparent 30rem),
+        radial-gradient(circle at 88% 12%, rgba(139, 92, 246, 0.38), transparent 31rem),
+        radial-gradient(circle at 75% 90%, rgba(34, 211, 238, 0.18), transparent 28rem),
+        linear-gradient(135deg, #020617 0%, #071329 52%, #16132f 100%);
+      background-size: 48px 48px, 48px 48px, auto, auto, auto, auto;
+      box-shadow: 0 42px 120px rgba(15, 23, 42, 0.28);
+    }
+
+    .services-hero-shell::after {
+      content: "";
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      right: -180px;
+      bottom: -220px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 70px rgba(255,255,255,.025),
+        0 0 0 140px rgba(255,255,255,.018);
+    }
+
+    .services-hero-copy,
+    .services-hero-visual {
+      position: relative;
+      z-index: 2;
+    }
+
+    .services-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 20px;
+      color: #bae6fd;
+      font-size: 0.8rem;
+      font-weight: 950;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .services-kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--ta-cyan), var(--ta-violet));
+    }
+
+    .services-hero h1 {
+      max-width: 880px;
+      margin: 0;
+      font-size: clamp(3.6rem, 7.2vw, 7.9rem);
+      line-height: 0.87;
+      letter-spacing: -0.085em;
+      text-wrap: balance;
+    }
+
+    .services-hero-lead {
+      max-width: 790px;
+      margin: 30px 0 0;
+      color: #dbeafe;
+      font-size: clamp(1.1rem, 1.65vw, 1.34rem);
+      line-height: 1.72;
+    }
+
+    .services-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 34px;
+    }
+
+    .services-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 950;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .services-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .services-button.primary {
+      color: var(--ta-black);
+      background: var(--ta-white);
+      box-shadow: 0 18px 44px rgba(255,255,255,.14);
+    }
+
+    .services-button.ghost {
+      color: var(--ta-white);
+      border: 1px solid rgba(255,255,255,.24);
+      background: rgba(255,255,255,.07);
+    }
+
+    .services-direct {
+      margin-top: 22px;
+      color: #94a3b8;
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    .services-direct a {
+      color: var(--ta-white);
+      font-weight: 900;
+    }
+
+    .services-orbit {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+    }
+
+    .services-core {
+      position: relative;
+      z-index: 3;
+      width: 230px;
+      height: 230px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 32px;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.17), transparent 36%),
+        linear-gradient(145deg, rgba(37,99,235,.62), rgba(124,58,237,.38));
+      box-shadow:
+        0 30px 90px rgba(0,0,0,.34),
+        inset 0 1px 0 rgba(255,255,255,.18);
+    }
+
+    .services-core strong {
+      display: block;
+      font-size: 1.5rem;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .services-core span {
+      display: block;
+      margin-top: 11px;
+      color: #dbeafe;
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 50%;
+    }
+
+    .orbit-ring.one {
+      width: 340px;
+      height: 340px;
+    }
+
+    .orbit-ring.two {
+      width: 470px;
+      height: 470px;
+    }
+
+    .orbit-node {
+      position: absolute;
+      z-index: 4;
+      width: 150px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 20px;
+      background: rgba(2, 6, 23, 0.78);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 42px rgba(0,0,0,.24);
+    }
+
+    .orbit-node strong {
+      display: block;
+      color: var(--ta-white);
+      font-size: 0.92rem;
+    }
+
+    .orbit-node span {
+      display: block;
+      margin-top: 3px;
+      color: #94a3b8;
+      font-size: 0.76rem;
+    }
+
+    .node-one { top: 35px; left: 8px; }
+    .node-two { top: 52px; right: 0; }
+    .node-three { bottom: 44px; left: 0; }
+    .node-four { bottom: 24px; right: 10px; }
+
+    .services-strip {
+      position: relative;
+      z-index: 5;
+      width: min(calc(100% - 80px), 1180px);
+      margin: -48px auto 0;
+      padding: 18px;
+      border: 1px solid var(--ta-line);
+      border-radius: 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 70px rgba(15,23,42,.13);
+    }
+
+    .services-stat {
+      padding: 19px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fff, #f8fafc);
+    }
+
+    .services-stat strong {
+      display: block;
+      color: var(--ta-black);
+      font-size: 1.15rem;
+      letter-spacing: -0.035em;
+    }
+
+    .services-stat span {
+      color: var(--ta-muted);
+      font-size: 0.83rem;
+      font-weight: 700;
+    }
+
+    .services-section {
+      padding: 100px 0;
+    }
+
+    .services-section-head {
+      max-width: 930px;
+      margin-bottom: 44px;
+    }
+
+    .services-section-head.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .services-section-head h2 {
+      margin: 10px 0 0;
+      color: var(--ta-black);
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      text-wrap: balance;
+    }
+
+    .services-section-head p {
+      margin: 22px 0 0;
+      color: #475569;
+      font-size: 1.14rem;
+      line-height: 1.75;
+    }
+
+    .services-open-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-template-rows: auto auto;
+      gap: 18px;
+    }
+
+    .open-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+      border: 1px solid var(--ta-line);
+      border-radius: 30px;
+      padding: 28px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 18px 50px rgba(15,23,42,.07);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .open-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 70px rgba(15,23,42,.12);
+    }
+
+    .open-card.featured {
+      grid-row: span 2;
+      min-height: 540px;
+      color: var(--ta-white);
+      background:
+        radial-gradient(circle at 10% 5%, rgba(34,211,238,.22), transparent 22rem),
+        radial-gradient(circle at 90% 10%, rgba(139,92,246,.28), transparent 24rem),
+        linear-gradient(145deg, #06152f, #12152f 60%, #28184b);
+    }
+
+    .open-card.featured h3,
+    .open-card.featured p {
+      color: var(--ta-white);
+    }
+
+    .open-card .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 34px;
+      color: var(--ta-white);
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--ta-blue), var(--ta-violet));
+      box-shadow: 0 12px 26px rgba(37,99,235,.22);
+    }
+
+    .open-card h3 {
+      margin: 0;
+      color: var(--ta-black);
+      font-size: 1.45rem;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .open-card p {
+      margin: 14px 0 0;
+      color: var(--ta-muted);
+    }
+
+    .open-card .arrow {
+      position: absolute;
+      right: 24px;
+      bottom: 20px;
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+
+    .open-chain {
+      margin-top: 90px;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 26px;
+      background: rgba(255,255,255,.07);
+    }
+
+    .open-chain strong {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+    }
+
+    .open-chain span {
+      color: #bae6fd;
+      font-size: 1.02rem;
+      font-weight: 850;
+    }
+
+    .services-divider {
+      padding: 54px;
+      border-radius: 38px;
+      color: var(--ta-white);
+      background:
+        radial-gradient(circle at 0 50%, rgba(37,99,235,.35), transparent 28rem),
+        radial-gradient(circle at 100% 20%, rgba(139,92,246,.32), transparent 28rem),
+        var(--ta-black);
+      box-shadow: 0 34px 90px rgba(15,23,42,.22);
+    }
+
+    .services-divider p {
+      margin: 0;
+      max-width: 1160px;
+      font-size: clamp(2rem, 4.5vw, 4.7rem);
+      line-height: 1.02;
+      letter-spacing: -0.065em;
+      font-weight: 950;
+    }
+
+    .services-divider small {
+      display: block;
+      margin-top: 24px;
+      color: #94a3b8;
+      font-size: 1rem;
+      font-weight: 750;
+    }
+
+    .services-roadmap {
+      position: relative;
+      padding-left: 76px;
+    }
+
+    .services-roadmap::before {
+      content: "";
+      position: absolute;
+      left: 27px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(
+        180deg,
+        var(--ta-blue),
+        var(--ta-violet),
+        var(--ta-emerald),
+        var(--ta-amber)
+      );
+    }
+
+    .service-stage {
+      position: relative;
+      margin-bottom: 34px;
+      border: 1px solid var(--ta-line);
+      border-radius: 34px;
+      background: rgba(255,255,255,.95);
+      box-shadow: 0 20px 60px rgba(15,23,42,.08);
+    }
+
+    .service-stage::before {
+      content: "";
+      position: absolute;
+      left: -62px;
+      top: 40px;
+      width: 22px;
+      height: 22px;
+      border: 6px solid #fff;
+      border-radius: 50%;
+      background: var(--ta-blue);
+      box-shadow: 0 0 0 1px var(--ta-line);
+    }
+
+    .service-stage.stage-two::before { background: var(--ta-violet); }
+    .service-stage.stage-three::before { background: var(--ta-emerald); }
+    .service-stage.stage-four::before { background: var(--ta-amber); }
+
+    .service-stage-inner {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+    }
+
+    .service-stage-label {
+      padding: 34px;
+      border-right: 1px solid var(--ta-line);
+      border-radius: 34px 0 0 34px;
+      background: linear-gradient(145deg, #f8fafc, #fff);
+    }
+
+    .service-stage-label span {
+      color: var(--ta-blue);
+      font-size: .75rem;
+      font-weight: 950;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .service-stage-label h3 {
+      margin: 11px 0 0;
+      color: var(--ta-black);
+      font-size: 1.75rem;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .service-stage-label p {
+      margin: 12px 0 0;
+      color: var(--ta-muted);
+      font-size: .92rem;
+    }
+
+    .service-stage-content {
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .service-stage-content.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .service-stage-content.cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-offer {
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+      padding: 26px;
+      border: 1px solid var(--ta-line);
+      border-radius: 24px;
+      background: var(--ta-white);
+    }
+
+    .service-offer.highlight {
+      color: var(--ta-white);
+      border-color: transparent;
+      background:
+        radial-gradient(circle at top right, rgba(139,92,246,.28), transparent 16rem),
+        linear-gradient(145deg, #071329, #17152f);
+      box-shadow: 0 22px 56px rgba(15,23,42,.2);
+    }
+
+    .service-offer.highlight h4,
+    .service-offer.highlight p,
+    .service-offer.highlight li {
+      color: var(--ta-white);
+    }
+
+    .offer-price {
+      color: var(--ta-blue);
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -0.055em;
+    }
+
+    .highlight .offer-price {
+      color: #bae6fd;
+    }
+
+    .service-offer h4 {
+      margin: 15px 0 0;
+      color: var(--ta-black);
+      font-size: 1.25rem;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+    }
+
+    .service-offer p {
+      margin: 11px 0 0;
+      color: var(--ta-muted);
+      font-size: .93rem;
+    }
+
+    .service-offer ul {
+      margin: 17px 0 0;
+      padding-left: 18px;
+      color: #475569;
+      font-size: .88rem;
+    }
+
+    .service-offer li {
+      margin-bottom: 6px;
+    }
+
+    .offer-link {
+      display: inline-flex;
+      margin-top: 20px;
+      color: var(--ta-blue);
+      font-weight: 900;
+      font-size: .9rem;
+    }
+
+    .highlight .offer-link {
+      color: #bae6fd;
+    }
+
+    .credit-banner {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border: 1px solid #bfdbfe;
+      border-radius: 18px;
+      color: #1e3a8a;
+      background: #eff6ff;
+      font-weight: 850;
+      font-size: .92rem;
+    }
+
+    .services-world {
+      position: relative;
+      overflow: hidden;
+      padding: 70px;
+      border-radius: 42px;
+      color: var(--ta-white);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(34,211,238,.2), transparent 30rem),
+        radial-gradient(circle at 85% 20%, rgba(139,92,246,.28), transparent 32rem),
+        linear-gradient(140deg, #020617, #0b1530 58%, #241341);
+      box-shadow: 0 38px 100px rgba(15,23,42,.25);
+    }
+
+    .services-world h2 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(2.7rem, 5.5vw, 6rem);
+      line-height: .94;
+      letter-spacing: -0.075em;
+    }
+
+    .services-world > p {
+      max-width: 860px;
+      margin: 24px 0 0;
+      color: #cbd5e1;
+      font-size: 1.15rem;
+    }
+
+    .world-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 42px;
+    }
+
+    .world-card {
+      min-height: 190px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(12px);
+    }
+
+    .world-card strong {
+      display: block;
+      color: var(--ta-white);
+      font-size: 1.1rem;
+    }
+
+    .world-card span {
+      display: block;
+      margin-top: 9px;
+      color: #94a3b8;
+      font-size: .9rem;
+    }
+
+    .services-boundary-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .boundary-statement {
+      padding: 42px;
+      border-radius: 34px;
+      color: var(--ta-white);
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.28), transparent 20rem),
+        var(--ta-black);
+    }
+
+    .boundary-statement h2 {
+      margin: 0;
+      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      line-height: .98;
+      letter-spacing: -0.065em;
+    }
+
+    .boundary-statement p {
+      margin: 20px 0 0;
+      color: #cbd5e1;
+    }
+
+    .boundary-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .boundary-item {
+      padding: 20px 22px;
+      border: 1px solid var(--ta-line);
+      border-radius: 21px;
+      background: rgba(255,255,255,.95);
+      box-shadow: 0 12px 34px rgba(15,23,42,.05);
+    }
+
+    .boundary-item strong {
+      display: block;
+      color: var(--ta-black);
+      font-size: 1rem;
+    }
+
+    .boundary-item span {
+      display: block;
+      margin-top: 4px;
+      color: var(--ta-muted);
+      font-size: .89rem;
+    }
+
+    .services-cta {
+      padding: 68px;
+      border-radius: 42px;
+      color: var(--ta-white);
+      text-align: center;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(37,99,235,.42), transparent 26rem),
+        radial-gradient(circle at 90% 10%, rgba(139,92,246,.38), transparent 26rem),
+        var(--ta-black);
+      box-shadow: 0 38px 100px rgba(15,23,42,.25);
+    }
+
+    .services-cta h2 {
+      max-width: 930px;
+      margin: 0 auto;
+      font-size: clamp(2.8rem, 5.4vw, 5.8rem);
+      line-height: .93;
+      letter-spacing: -0.075em;
+    }
+
+    .services-cta p {
+      max-width: 820px;
+      margin: 24px auto 0;
+      color: #cbd5e1;
+      font-size: 1.12rem;
+    }
+
+    .services-cta .services-actions {
+      justify-content: center;
+    }
+
+    .services-footer {
+      margin-top: 100px;
+      padding: 34px 24px;
+      border-top: 1px solid var(--ta-line);
+      background: #fff;
+    }
+
+    .services-footer-inner {
+      max-width: var(--ta-max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--ta-muted);
+      font-size: .92rem;
+    }
+
+    .services-footer strong,
+    .services-footer a {
+      color: var(--ta-black);
+      font-weight: 900;
+    }
+
+    @media (max-width: 1080px) {
+      .services-nav,
+      .services-hero-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .services-nav {
+        align-items: flex-start;
+      }
+
+      .services-links {
+        justify-content: flex-start;
+      }
+
+      .services-orbit {
+        min-height: 500px;
+      }
+
+      .services-strip,
+      .world-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-open-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .open-card.featured {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        min-height: 440px;
+      }
+
+      .service-stage-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .service-stage-label {
+        border-right: 0;
+        border-bottom: 1px solid var(--ta-line);
+        border-radius: 34px 34px 0 0;
+      }
+
+      .service-stage-content.cols-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .services-boundary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .services-links {
+        display: none;
+      }
+
+      .services-wrap {
+        width: min(calc(100% - 24px), var(--ta-max));
+      }
+
+      .services-hero-shell,
+      .services-world,
+      .services-cta,
+      .services-divider {
+        padding: 28px;
+        border-radius: 28px;
+      }
+
+      .services-orbit {
+        min-height: 430px;
+        transform: scale(.82);
+      }
+
+      .services-strip {
+        width: calc(100% - 24px);
+        grid-template-columns: 1fr;
+        margin-top: -28px;
+      }
+
+      .services-section {
+        padding: 72px 0;
+      }
+
+      .services-open-grid,
+      .service-stage-content.cols-2,
+      .world-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-roadmap {
+        padding-left: 0;
+      }
+
+      .services-roadmap::before,
+      .service-stage::before {
+        display: none;
+      }
+
+      .service-stage-content {
+        padding: 16px;
+      }
+    }
+  </style>
+
+  <header class="services-header">
+    <nav class="services-nav" aria-label="Main navigation">
+      <a class="services-brand" href="/">
         <strong>TA-14 Admissible Execution Architecture</strong>
-        <span>No admissible chain. No admissible execution.</span>
+        <span>Proof-bound governance before consequence</span>
       </a>
 
-      <div class="nav-links">
+      <div class="services-links">
         <a href="/start-here">Start Here</a>
         <a href="/architecture">Architecture</a>
         <a class="active" href="/services">Services</a>
@@ -14,58 +978,45 @@
         <a href="/use-cases">Use Cases</a>
         <a href="/gate">Gate</a>
         <a href="/resources">Resources</a>
-        <a class="nav-cta" href="/request-evaluation">Enter the Review Desk</a>
+        <a class="request" href="/request-evaluation">Request Scope</a>
       </div>
     </nav>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-shell">
-        <div class="hero-inner">
-          <div>
-            <p class="eyebrow">TA-14 Services</p>
+  <main class="services-main">
+
+    <section class="services-hero">
+      <div class="services-wrap">
+        <div class="services-hero-shell">
+          <div class="services-hero-copy">
+            <p class="services-kicker">TA-14 Services</p>
 
             <h1>
-              The world can see the architecture.
-              Serious systems can now enter it.
+              The architecture is open. The consequence boundary is governed.
             </h1>
 
-            <p class="lead">
-              TA-14 governs the chain beneath consequence.
-              We determine whether the reality, evidence, continuity, reliance,
-              authority, legitimacy, binding, commit, execution, and outcome
-              are admissible enough for action to be allowed to matter.
+            <p class="services-hero-lead">
+              TA-14 gives the world a public architecture, live Gate, API sandbox,
+              machine-readable contract, repositories, publications, and preserved record.
+              Paid work begins when a real system must be reviewed, mapped, governed,
+              integrated, purchased, or deployed.
             </p>
 
-            <p class="lead">
-              The public architecture is open. The live Gate is open.
-              The API sandbox, documentation, repositories, DOI corpus,
-              and public record are open.
-            </p>
-
-            <p class="lead">
-              Professional findings, private evidence review, runtime specifications,
-              procurement decisions, partner integrations, and institutional deployment
-              require written scope.
-            </p>
-
-            <div class="hero-actions">
-              <a class="button button-primary" href="/request-evaluation">
-                Find My TA-14 Path
+            <div class="services-actions">
+              <a class="services-button primary" href="/request-evaluation">
+                Find My Starting Point
               </a>
 
-              <a class="button button-secondary" href="/gate">
-                Enter the Live Gate
+              <a class="services-button ghost" href="/gate">
+                Open the Live Gate
               </a>
 
-              <a class="button button-secondary" href="/pricing">
-                See the Full Ladder
+              <a class="services-button ghost" href="/pricing">
+                View Exact Pricing
               </a>
             </div>
 
-            <p class="direct">
+            <p class="services-direct">
               Direct contact:
               <a href="mailto:ta14admissibleexecution@gmail.com">
                 ta14admissibleexecution@gmail.com
@@ -73,1001 +1024,508 @@
             </p>
           </div>
 
-          <aside class="hero-panel">
-            <p class="eyebrow">The Governing Question</p>
+          <div class="services-hero-visual" aria-label="TA-14 service architecture">
+            <div class="services-orbit">
+              <div class="orbit-ring one"></div>
+              <div class="orbit-ring two"></div>
 
-            <h2>Should this system be allowed to create consequence?</h2>
-
-            <p>
-              Not merely: Can it act?
-              Not merely: Is it authorized?
-              Not merely: Did it follow policy?
-            </p>
-
-            <p>
-              TA-14 asks whether the entire dependency chain is admissible
-              at the moment consequence is about to form.
-            </p>
-
-            <div class="chain-line">
-              Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
-            </div>
-
-            <div class="signal-grid">
-              <div class="signal">
-                <strong>OPEN</strong>
-                <span>Architecture, Gate, API, documentation, public corpus</span>
+              <div class="services-core">
+                <div>
+                  <strong>Admissibility Before Execution</strong>
+                  <span>The governing layer beneath consequence</span>
+                </div>
               </div>
 
-              <div class="signal">
-                <strong>$49</strong>
-                <span>The first paid trust event</span>
+              <div class="orbit-node node-one">
+                <strong>Review</strong>
+                <span>Can the route be proven?</span>
               </div>
 
-              <div class="signal">
-                <strong>$1,500+</strong>
-                <span>Runtime and execution-boundary readiness</span>
+              <div class="orbit-node node-two">
+                <strong>Runtime</strong>
+                <span>Should the action proceed?</span>
               </div>
 
-              <div class="signal">
-                <strong>$25,000+</strong>
-                <span>Institutional admissibility architecture</span>
+              <div class="orbit-node node-three">
+                <strong>Integration</strong>
+                <span>How does TA-14 attach?</span>
+              </div>
+
+              <div class="orbit-node node-four">
+                <strong>Institution</strong>
+                <span>How is consequence governed?</span>
               </div>
             </div>
-          </aside>
+          </div>
         </div>
-      </div>
 
-      <div class="mini-nav">
-        <a href="#category">The Category</a>
-        <a href="#open">What Is Open</a>
-        <a href="#path">Choose Your Path</a>
-        <a href="#reviews">Review Services</a>
-        <a href="#runtime">Runtime & Procurement</a>
-        <a href="#integration">Partner & Enterprise</a>
-        <a href="#boundary">Boundaries</a>
-        <a href="#request">Start Here</a>
-      </div>
-    </section>
-
-    <!-- CATEGORY STATEMENT -->
-    <section id="category">
-      <div class="quote-panel">
-        <p class="eyebrow">The Category TA-14 Created</p>
-
-        <p class="big">
-          Controls decide whether a system can act.
-          TA-14 determines whether that action is admissible enough
-          to become consequence.
-        </p>
-
-        <div class="chain-line">
-          Authorization is not admissibility.
-          Enforcement is not legitimacy.
-          Logging is not proof.
-        </div>
-      </div>
-
-      <div class="grid three">
-        <article class="card">
-          <div class="number blue">01</div>
-          <h3>Before execution</h3>
-          <p>
-            TA-14 examines the evidence and authority beneath action
-            before the system crosses the consequence boundary.
-          </p>
-        </article>
-
-        <article class="card alt">
-          <div class="number violet">02</div>
-          <h3>At the commit point</h3>
-          <p>
-            TA-14 makes the moment of binding and commitment visible,
-            reviewable, and subject to hold, denial, or escalation.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="number green">03</div>
-          <h3>After the outcome</h3>
-          <p>
-            TA-14 preserves what happened, what was prevented,
-            and what the next chain is allowed to inherit.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- OPEN PUBLIC SYSTEM -->
-    <section id="open">
-      <div class="feature-panel">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Open Public Infrastructure</p>
-
-            <h2>We made the front door visible to everyone.</h2>
-
-            <p>
-              TA-14 does not require the public to believe a slogan.
-              The architecture, decision surface, software references,
-              publications, chronology, and boundaries are available to inspect.
-            </p>
+        <div class="services-strip">
+          <div class="services-stat">
+            <strong>Free Public System</strong>
+            <span>Architecture, Gate, API, documentation, repositories</span>
           </div>
 
-          <span class="count-pill">Public access · $0</span>
+          <div class="services-stat">
+            <strong>$49 Front Door</strong>
+            <span>Reviewability before deeper scope</span>
+          </div>
+
+          <div class="services-stat">
+            <strong>8 Paid Lanes</strong>
+            <span>Review through institutional deployment</span>
+          </div>
+
+          <div class="services-stat">
+            <strong>4 Decision States</strong>
+            <span>ALLOW · HOLD · DENY · ESCALATE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <div class="services-wrap">
+        <div class="services-section-head">
+          <p class="services-kicker">Open to the World</p>
+          <h2>See the architecture before you buy the work.</h2>
+          <p>
+            TA-14 makes the public layer visible so builders, buyers, partners,
+            institutions, researchers, and governance leaders can inspect the category,
+            test the decision surface, and understand the boundary.
+          </p>
         </div>
 
-        <div class="grid three">
-          <a class="card page-card" href="/architecture">
-            <div>
-              <div class="number blue">A</div>
-              <h3>Architecture</h3>
-              <p>
-                The eight-stage operating spine and expanded 24-link dependency chain.
-              </p>
+        <div class="services-open-grid">
+          <a class="open-card featured" href="/architecture">
+            <div class="icon">24</div>
+            <h3>The complete admissible-execution architecture</h3>
+            <p>
+              Examine the operational spine and expanded 24-link dependency chain governing
+              reality, records, continuity, evidence, truth, reliance, authority, legitimacy,
+              binding, commit, execution, prevention, outcome, memory, and future-chain inheritance.
+            </p>
+
+            <div class="open-chain">
+              <strong>The public spine</strong>
+              <span>
+                Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
+              </span>
             </div>
-            <span>Study the chain →</span>
+
+            <span class="arrow">↗</span>
           </a>
 
-          <a class="card page-card alt" href="/gate">
-            <div>
-              <div class="number violet">G</div>
-              <h3>Runtime Gate</h3>
-              <p>
-                The public decision boundary for ALLOW, HOLD, DENY, and ESCALATE.
-              </p>
-            </div>
-            <span>Open the Gate →</span>
+          <a class="open-card" href="/gate">
+            <div class="icon">G</div>
+            <h3>Runtime Admissibility Gate</h3>
+            <p>
+              See the public decision boundary separating capability from consequence.
+            </p>
+            <span class="arrow">→</span>
           </a>
 
           <a
-            class="card page-card"
+            class="open-card"
             href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div>
-              <div class="number green">API</div>
-              <h3>Interactive API</h3>
-              <p>
-                Test execution, evidence, authority, continuity,
-                reviewability, and procurement routes.
-              </p>
-            </div>
-            <span>Test the API ↗</span>
+            <div class="icon">API</div>
+            <h3>Live API Sandbox</h3>
+            <p>
+              Test evidence, authority, continuity, execution, reviewability, and procurement routes.
+            </p>
+            <span class="arrow">↗</span>
           </a>
 
-          <a class="card page-card alt" href="/resources">
-            <div>
-              <div class="number amber">R</div>
-              <h3>Public Record</h3>
-              <p>
-                Repositories, DOI records, articles, books,
-                chronology, and preservation anchors.
-              </p>
-            </div>
-            <span>Enter the resource hub →</span>
+          <a class="open-card" href="/resources">
+            <div class="icon">R</div>
+            <h3>Public Record</h3>
+            <p>
+              Repositories, DOI records, books, articles, chronology, and preserved doctrine.
+            </p>
+            <span class="arrow">→</span>
           </a>
 
-          <a class="card page-card" href="/use-cases">
-            <div>
-              <div class="number blue">U</div>
-              <h3>Use Cases</h3>
-              <p>
-                AI agents, runtime systems, environmental integrity,
-                procurement, partners, and institutions.
-              </p>
-            </div>
-            <span>Find your use case →</span>
-          </a>
-
-          <a class="card page-card alt" href="/start-here">
-            <div>
-              <div class="number violet">S</div>
-              <h3>Start Here</h3>
-              <p>
-                A plain-language orientation to the architecture,
-                the Gate, the API, and the service pathway.
-              </p>
-            </div>
-            <span>Begin with orientation →</span>
+          <a class="open-card" href="/use-cases">
+            <div class="icon">U</div>
+            <h3>Use Cases</h3>
+            <p>
+              AI agents, runtime systems, procurement, environmental integrity, partners, and institutions.
+            </p>
+            <span class="arrow">→</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- COMMERCIAL DIVIDE -->
-    <section>
-      <div class="grid two">
-        <article class="card dark">
-          <p class="eyebrow">What the World Receives Freely</p>
+    <section class="services-section">
+      <div class="services-wrap">
+        <div class="services-divider">
+          <p>
+            Free access explains the architecture. Paid scope applies it to evidence,
+            reliance, runtime, procurement, integration, and institutional consequence.
+          </p>
 
-          <h2>Visibility, language, reference architecture, and public testing.</h2>
-
-          <ul>
-            <li>The TA-14 architecture and public chain</li>
-            <li>The public Runtime Admissibility Gate</li>
-            <li>The live API sandbox</li>
-            <li>Interactive Swagger documentation</li>
-            <li>The machine-readable OpenAPI contract</li>
-            <li>Public repositories and implementation references</li>
-            <li>DOI records, books, articles, and chronology</li>
-            <li>Public API and claim boundaries</li>
-          </ul>
-        </article>
-
-        <article class="problem">
-          <p class="eyebrow">What Requires Written Scope</p>
-
-          <h2>Application, findings, reliance, integration, and deployment.</h2>
-
-          <ul>
-            <li>Professional written findings</li>
-            <li>Private evidence examination</li>
-            <li>Client-specific route and field mapping</li>
-            <li>Custom rulesets and risk classes</li>
-            <li>Authenticated identity and authority binding</li>
-            <li>Signed receipts and persistent records</li>
-            <li>Runtime specification and Gate placement</li>
-            <li>Procurement reliance and vendor screening</li>
-            <li>Partner API integration</li>
-            <li>Enterprise and institutional deployment</li>
-          </ul>
-        </article>
+          <small>
+            Public visibility is not private implementation. Sandbox evaluation is not production approval.
+          </small>
+        </div>
       </div>
     </section>
 
-    <!-- PATH SELECTOR -->
-    <section id="path">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Choose the Question You Need Answered</p>
-
-          <h2>You do not buy “TA-14.” You enter at the question your system must answer.</h2>
-
+    <section class="services-section">
+      <div class="services-wrap">
+        <div class="services-section-head center">
+          <p class="services-kicker">The Commercial Pathway</p>
+          <h2>Enter at the question your system must answer.</h2>
           <p>
-            Every service lane exists because reviewability, evidence,
-            route completion, runtime readiness, procurement, integration,
-            and institutional deployment are not the same problem.
+            Every lane is bounded. TA-14 starts with the smallest defensible scope
+            and expands only when the evidence, consequence, or implementation burden requires it.
           </p>
         </div>
 
-        <span class="count-pill">Eight bounded lanes</span>
-      </div>
+        <div class="services-roadmap">
 
-      <div class="grid four">
-        <a class="card page-card" href="#reviewability">
-          <div>
-            <div class="number blue">01</div>
-            <h3>Can this be reviewed?</h3>
-            <p>$49 Reviewability Check</p>
-          </div>
-          <span>Enter through reviewability →</span>
-        </a>
-
-        <a class="card page-card alt" href="#api-readiness">
-          <div>
-            <div class="number violet">02</div>
-            <h3>Can this enter the API structure?</h3>
-            <p>$250 API Readiness Check</p>
-          </div>
-          <span>Map the route →</span>
-        </a>
-
-        <a class="card page-card" href="#evidence-review">
-          <div>
-            <div class="number green">03</div>
-            <h3>Can the evidence support reliance?</h3>
-            <p>$450+ Evidence Gap Review</p>
-          </div>
-          <span>Examine the proof →</span>
-        </a>
-
-        <a class="card page-card alt" href="#route-review">
-          <div>
-            <div class="number amber">04</div>
-            <h3>Does the full route hold?</h3>
-            <p>$950 Route-Complete Review</p>
-          </div>
-          <span>Review the chain →</span>
-        </a>
-
-        <a class="card page-card alt" href="#runtime">
-          <div>
-            <div class="number blue">05</div>
-            <h3>Can this operate at runtime?</h3>
-            <p>$1,500+ Runtime Readiness</p>
-          </div>
-          <span>Govern the boundary →</span>
-        </a>
-
-        <a class="card page-card" href="#procurement">
-          <div>
-            <div class="number violet">06</div>
-            <h3>Should this be purchased?</h3>
-            <p>$750–$2,500+ Procurement</p>
-          </div>
-          <span>Protect the buyer →</span>
-        </a>
-
-        <a class="card page-card alt" href="#partner-api">
-          <div>
-            <div class="number green">07</div>
-            <h3>Should TA-14 be integrated?</h3>
-            <p>$5,000+ Partner API Scope</p>
-          </div>
-          <span>Define the integration →</span>
-        </a>
-
-        <a class="card page-card" href="#enterprise">
-          <div>
-            <div class="number amber">08</div>
-            <h3>Should this become institutional?</h3>
-            <p>$25,000+ Enterprise Scope</p>
-          </div>
-          <span>Architect the institution →</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- REVIEWABILITY -->
-    <section id="reviews">
-      <div id="reviewability" class="feature-panel">
-        <div class="grid two">
-          <div>
-            <p class="eyebrow">Lane 01 · The Front Door</p>
-
-            <h2>TA-14 Reviewability Check</h2>
-
-            <div class="price">$49</div>
-
-            <p class="lead">
-              Before asking whether a system is admissible,
-              TA-14 first determines whether enough of the system,
-              claim, evidence, and consequence route is visible to review.
-            </p>
-
-            <div class="tag-row">
-              <span class="tag">Website</span>
-              <span class="tag">Repository</span>
-              <span class="tag">Architecture claim</span>
-              <span class="tag">AI workflow</span>
-              <span class="tag">Evidence process</span>
-              <span class="tag">Public materials</span>
-            </div>
-          </div>
-
-          <article class="card dark">
-            <p class="eyebrow">You Receive</p>
-
-            <h3>A real front-door finding.</h3>
-
-            <ul>
-              <li>Reviewability status</li>
-              <li>Visible review surface</li>
-              <li>Immediate blind spots</li>
-              <li>Submitted-material limitations</li>
-              <li>Recommended TA-14 lane</li>
-            </ul>
-
-            <div class="chain-line">
-              The $49 is credited toward the $250 API Readiness Check
-              for the same agreed surface.
-            </div>
-          </article>
-        </div>
-
-        <div class="cta-row">
-          <a class="button button-dark" href="/request-evaluation">
-            Start the $49 Reviewability Check
-          </a>
-
-          <a class="button button-light-outline" href="/pricing">
-            Read the Pricing Boundary
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- API + EVIDENCE -->
-    <section>
-      <div class="grid two">
-        <article id="api-readiness" class="card">
-          <div class="number violet">02</div>
-
-          <p class="eyebrow">Structured Entry</p>
-
-          <h2>API Readiness Check</h2>
-
-          <div class="price">$250</div>
-
-          <p>
-            Determines whether the system can be represented through
-            one or more TA-14 API routes without hiding critical chain conditions.
-          </p>
-
-          <h4>TA-14 maps</h4>
-
-          <ul>
-            <li>The appropriate API route</li>
-            <li>Required request fields</li>
-            <li>Evidence and continuity inputs</li>
-            <li>Identity and authority inputs</li>
-            <li>Potential failed links</li>
-            <li>Likely decision states</li>
-          </ul>
-
-          <h4>You receive</h4>
-
-          <ul>
-            <li>API readiness finding</li>
-            <li>Route and field map</li>
-            <li>Missing-input analysis</li>
-            <li>Public sandbox testing path</li>
-          </ul>
-
-          <div class="callout">
-            Completed the $49 Check?
-            The remaining balance is <strong>$201</strong>
-            when the credit applies.
-          </div>
-
-          <a class="button button-dark" href="/request-evaluation">
-            Request API Readiness
-          </a>
-        </article>
-
-        <article id="evidence-review" class="card alt">
-          <div class="number green">03</div>
-
-          <p class="eyebrow">Upstream Proof</p>
-
-          <h2>Evidence Gap Review</h2>
-
-          <div class="price">$450+</div>
-
-          <p>
-            Examines whether the information being used to justify action
-            has actually become admissible evidence capable of supporting reliance.
-          </p>
-
-          <h4>TA-14 examines</h4>
-
-          <ul>
-            <li>Source and provenance</li>
-            <li>Record completeness</li>
-            <li>Chronology and continuity</li>
-            <li>Currency and relevance</li>
-            <li>Evidence capacity</li>
-            <li>Evidence-to-reliance transition</li>
-          </ul>
-
-          <h4>You receive</h4>
-
-          <ul>
-            <li>Evidence dependency map</li>
-            <li>Continuity-break findings</li>
-            <li>Reliance limitations</li>
-            <li>Evidence requirements for stronger review</li>
-          </ul>
-
-          <a class="button button-dark" href="/request-evaluation">
-            Request Evidence Review
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- ROUTE COMPLETE -->
-    <section id="route-review">
-      <div class="quote-panel">
-        <p class="eyebrow">Lane 04 · Route-Complete Review</p>
-
-        <p class="big">
-          A system can pass every local check
-          and still fail the consequence route.
-        </p>
-
-        <div class="chain-line">
-          Strong components do not automatically create an admissible chain.
-        </div>
-      </div>
-
-      <div class="feature-panel">
-        <div class="grid two">
-          <div>
-            <p class="eyebrow">Full-Chain Determination</p>
-
-            <h2>Route-Complete Review</h2>
-
-            <div class="price">$950</div>
-
-            <p class="lead">
-              TA-14 reviews one defined consequence-bearing route
-              from represented reality through outcome and future-chain inheritance.
-            </p>
-
-            <p>
-              This is where TA-14 stops asking whether individual controls exist
-              and begins asking whether the entire route should be allowed to hold.
-            </p>
-          </div>
-
-          <article class="card">
-            <h3>The route under review</h3>
-
-            <div class="chain-line" style="color:#0f172a;">
-              Evidence → Reliance → Authority → Legitimacy → Binding → Commit → Execution → Outcome
-            </div>
-
-            <ul>
-              <li>Route inventory</li>
-              <li>Evidence and continuity findings</li>
-              <li>Reliance and authority analysis</li>
-              <li>Binding and commit-point visibility</li>
-              <li>Misexecution pressure findings</li>
-              <li>Outcome and memory requirements</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="grid three">
-          <article class="card">
-            <h3>Technical success</h3>
-            <p>
-              Did the system perform the operation it was designed to perform?
-            </p>
-          </article>
-
-          <article class="card alt">
-            <h3>Governance compliance</h3>
-            <p>
-              Did the system follow its policies, approvals, controls, and procedures?
-            </p>
-          </article>
-
-          <article class="card dark">
-            <h3>TA-14 admissibility</h3>
-            <p>
-              Should the route have been allowed to create consequence at all?
-            </p>
-          </article>
-        </div>
-
-        <div class="cta-row">
-          <a class="button button-dark" href="/request-evaluation">
-            Request Route-Complete Review
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- RUNTIME -->
-    <section id="runtime">
-      <div class="problem">
-        <div class="grid two">
-          <div>
-            <p class="eyebrow">Lane 05 · Live Consequence</p>
-
-            <h2>Runtime Readiness Review</h2>
-
-            <div class="price">$1,500+</div>
-
-            <p class="lead">
-              Before a system enforces, refuses, routes, authorizes,
-              pauses, or executes, TA-14 evaluates whether the runtime
-              has enough admissible structure to govern live consequence.
-            </p>
-          </div>
-
-          <article class="card dark">
-            <p class="eyebrow">Runtime States</p>
-
-            <h3>More than allow or deny.</h3>
-
-            <div class="signal-grid">
-              <div class="signal">
-                <strong>ALLOW</strong>
-                <span>The required chain conditions hold.</span>
+          <article class="service-stage stage-one">
+            <div class="service-stage-inner">
+              <div class="service-stage-label">
+                <span>Stage One</span>
+                <h3>Discover</h3>
+                <p>Find the review surface and determine whether the evidence can enter the chain.</p>
               </div>
 
-              <div class="signal">
-                <strong>HOLD</strong>
-                <span>The route may be valid, but proof is incomplete.</span>
+              <div class="service-stage-content cols-3">
+                <div class="service-offer">
+                  <div class="offer-price">$49</div>
+                  <h4>Reviewability Check</h4>
+                  <p>
+                    Determines whether the submitted system, claim, workflow,
+                    repository, or architecture can support meaningful TA-14 review.
+                  </p>
+                  <ul>
+                    <li>Reviewability finding</li>
+                    <li>Immediate blind spots</li>
+                    <li>Recommended next lane</li>
+                  </ul>
+                  <a class="offer-link" href="/request-evaluation">Start here →</a>
+                </div>
+
+                <div class="service-offer highlight">
+                  <div class="offer-price">$250</div>
+                  <h4>API Readiness Check</h4>
+                  <p>
+                    Maps the route into the TA-14 public API structure and identifies
+                    required fields, missing inputs, and the correct evaluation surface.
+                  </p>
+                  <ul>
+                    <li>Route mapping</li>
+                    <li>Field readiness</li>
+                    <li>Sandbox pathway</li>
+                  </ul>
+                  <a class="offer-link" href="/request-evaluation">Map the route →</a>
+                </div>
+
+                <div class="service-offer">
+                  <div class="offer-price">$450+</div>
+                  <h4>Evidence Gap Review</h4>
+                  <p>
+                    Examines whether records, provenance, continuity,
+                    and evidence capacity can support reliance.
+                  </p>
+                  <ul>
+                    <li>Evidence dependency map</li>
+                    <li>Continuity findings</li>
+                    <li>Reliance limitations</li>
+                  </ul>
+                  <a class="offer-link" href="/request-evaluation">Review the evidence →</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="credit-banner">
+              No lost $49: when the same review surface advances into the $250 API Readiness Check,
+              the $49 is credited and the remaining balance is $201.
+            </div>
+          </article>
+
+          <article class="service-stage stage-two">
+            <div class="service-stage-inner">
+              <div class="service-stage-label">
+                <span>Stage Two</span>
+                <h3>Prove</h3>
+                <p>Determine whether the full consequence-bearing route actually holds.</p>
               </div>
 
-              <div class="signal">
-                <strong>DENY</strong>
-                <span>The route fails authority, scope, continuity, or admissibility.</span>
-              </div>
+              <div class="service-stage-content cols-2">
+                <div class="service-offer highlight">
+                  <div class="offer-price">$950</div>
+                  <h4>Route-Complete Review</h4>
+                  <p>
+                    Reviews one defined route from represented reality through evidence,
+                    reliance, authority, binding, commit, execution, outcome, and memory.
+                  </p>
+                  <ul>
+                    <li>Full route inventory</li>
+                    <li>Authority and reliance analysis</li>
+                    <li>Binding and commit-point findings</li>
+                    <li>Misexecution pressure analysis</li>
+                  </ul>
+                  <a class="offer-link" href="/request-evaluation">Review the full route →</a>
+                </div>
 
-              <div class="signal">
-                <strong>ESCALATE</strong>
-                <span>Human or institutional review is required.</span>
+                <div class="service-offer">
+                  <div class="offer-price">The Question</div>
+                  <h4>Should this route be allowed to matter?</h4>
+                  <p>
+                    Technical success, policy compliance, and complete logging
+                    do not prove that the underlying consequence was admissible.
+                  </p>
+                  <ul>
+                    <li>Was the evidence sufficient?</li>
+                    <li>Was reliance justified?</li>
+                    <li>Was authority legitimate and in scope?</li>
+                    <li>Was commit controlled before irreversibility?</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </article>
-        </div>
 
-        <div class="review-grid">
-          <article class="review-step">
-            <div class="number blue">1</div>
-            <strong>Route inventory</strong>
-            <span>Actor, tool, evidence, authority, action, commit point, and consequence.</span>
+          <article class="service-stage stage-three">
+            <div class="service-stage-inner">
+              <div class="service-stage-label">
+                <span>Stage Three</span>
+                <h3>Govern</h3>
+                <p>Control live execution and protect buyers before institutional reliance forms.</p>
+              </div>
+
+              <div class="service-stage-content cols-2">
+                <div class="service-offer highlight">
+                  <div class="offer-price">$1,500+</div>
+                  <h4>Runtime Readiness Review</h4>
+                  <p>
+                    Evaluates whether an agent, policy engine, workflow,
+                    or automation route can support admissible runtime decisions.
+                  </p>
+                  <ul>
+                    <li>Route inventory</li>
+                    <li>Gate placement</li>
+                    <li>ALLOW / HOLD / DENY / ESCALATE logic</li>
+                    <li>Receipt and re-evaluation requirements</li>
+                  </ul>
+                  <a class="offer-link" href="/request-evaluation">Govern the runtime →</a>
+                </div>
+
+                <div class="service-offer">
+                  <div class="offer-price">$750–$2,500+</div>
+                  <h4>AI Procurement Screening</h4>
+                  <p>
+                    Gives buyers an independent way to screen a product,
+                    vendor, pilot, or proposed deployment before purchase or reliance.
+                  </p>
+                  <ul>
+                    <li>Vendor claim screen</li>
+                    <li>Buyer-side question set</li>
+                    <li>Pilot-entry conditions</li>
+                    <li>Deployment restrictions</li>
+                  </ul>
+                  <a class="offer-link" href="/request-evaluation">Protect the buyer →</a>
+                </div>
+              </div>
+            </div>
           </article>
 
-          <article class="review-step">
-            <div class="number violet">2</div>
-            <strong>Gate placement</strong>
-            <span>Where the route must stop before binding or irreversibility.</span>
+          <article class="service-stage stage-four">
+            <div class="service-stage-inner">
+              <div class="service-stage-label">
+                <span>Stage Four</span>
+                <h3>Integrate</h3>
+                <p>Move from public architecture into private product and institutional infrastructure.</p>
+              </div>
+
+              <div class="service-stage-content cols-2">
+                <div class="service-offer">
+                  <div class="offer-price">$5,000+</div>
+                  <h4>Partner API Scope</h4>
+                  <p>
+                    Maps TA-14 logic into a partner product, workflow,
+                    private API, evidence layer, or execution-control surface.
+                  </p>
+                  <ul>
+                    <li>Private field mapping</li>
+                    <li>Decision-state logic</li>
+                    <li>Evidence and authority binding</li>
+                    <li>Signed receipt requirements</li>
+                    <li>Approved public claim boundary</li>
+                  </ul>
+                  <a class="offer-link" href="/request-evaluation">Define the integration →</a>
+                </div>
+
+                <div class="service-offer highlight">
+                  <div class="offer-price">$25,000+</div>
+                  <h4>Enterprise / Institutional Scope</h4>
+                  <p>
+                    Designs admissible-execution governance across multiple systems,
+                    identities, evidence sources, vendors, departments, and routes.
+                  </p>
+                  <ul>
+                    <li>Institutional route architecture</li>
+                    <li>Cross-system evidence continuity</li>
+                    <li>Private rules and risk classes</li>
+                    <li>Runtime Gate placement</li>
+                    <li>Outcome records and institutional memory</li>
+                  </ul>
+                  <a class="offer-link" href="/request-evaluation">Architect the institution →</a>
+                </div>
+              </div>
+            </div>
           </article>
 
-          <article class="review-step">
-            <div class="number green">3</div>
-            <strong>Decision logic</strong>
-            <span>The conditions for allow, hold, deny, and escalation.</span>
-          </article>
-
-          <article class="review-step">
-            <div class="number amber">4</div>
-            <strong>Receipt design</strong>
-            <span>What reason, evidence, warning, rule, and outcome must remain.</span>
-          </article>
-        </div>
-
-        <div class="cta-row">
-          <a class="button button-dark" href="/request-evaluation">
-            Request Runtime Readiness
-          </a>
-
-          <a class="button button-light-outline" href="/gate">
-            Review the Gate
-          </a>
         </div>
       </div>
     </section>
 
-    <!-- PROCUREMENT -->
-    <section id="procurement">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Lane 06 · Buyer-Side Protection</p>
+    <section class="services-section">
+      <div class="services-wrap">
+        <div class="services-world">
+          <p class="services-kicker">What the World Gains</p>
 
-          <h2>Do not purchase the claim. Review the consequence route.</h2>
+          <h2>
+            Governance that can explain why consequence was allowed,
+            held, denied, escalated, or prevented.
+          </h2>
 
           <p>
-            AI Procurement Screening gives buyers an independent way
-            to examine whether a vendor, platform, pilot, or deployment
-            has enough evidence and governance to enter institutional reliance.
+            TA-14 is not another trust label, policy document, dashboard,
+            or after-the-fact explanation. It creates a governed path
+            from represented reality to accountable outcome.
           </p>
+
+          <div class="world-grid">
+            <div class="world-card">
+              <strong>Builders</strong>
+              <span>A chain to implement before autonomous action reaches the world.</span>
+            </div>
+
+            <div class="world-card">
+              <strong>Buyers</strong>
+              <span>A way to test the evidence and route behind vendor claims.</span>
+            </div>
+
+            <div class="world-card">
+              <strong>Partners</strong>
+              <span>An independent second-layer architecture without absorption.</span>
+            </div>
+
+            <div class="world-card">
+              <strong>Institutions</strong>
+              <span>A preserved record of why action was permitted or stopped.</span>
+            </div>
+          </div>
         </div>
-
-        <span class="count-pill">$750–$2,500+</span>
       </div>
+    </section>
 
-      <div class="grid three">
-        <article class="card">
-          <div class="number blue">$750</div>
+    <section class="services-section">
+      <div class="services-wrap">
+        <div class="services-boundary-grid">
+          <div class="boundary-statement">
+            <p class="services-kicker">The Boundary</p>
+            <h2>TA-14 will not sell certainty the evidence cannot support.</h2>
+            <p>
+              Every finding, recommendation, integration, and institutional pathway
+              is limited by the materials reviewed and the written scope agreed.
+            </p>
+          </div>
 
-          <h3>Procurement Addendum</h3>
+          <div class="boundary-list">
+            <div class="boundary-item">
+              <strong>Not automatic certification</strong>
+              <span>
+                Review does not create regulatory approval, legal compliance certification,
+                safety certification, or production clearance.
+              </span>
+            </div>
+
+            <div class="boundary-item">
+              <strong>Not blanket endorsement</strong>
+              <span>
+                A finding does not endorse an entire company, product,
+                deployment, or unreviewed route.
+              </span>
+            </div>
+
+            <div class="boundary-item">
+              <strong>Not legal or cybersecurity advice</strong>
+              <span>
+                TA-14 does not replace legal counsel, penetration testing,
+                forensic analysis, SOC review, or cybersecurity certification.
+              </span>
+            </div>
+
+            <div class="boundary-item">
+              <strong>Not production proof from public materials</strong>
+              <span>
+                Websites, diagrams, demonstrations, repositories,
+                and public claims do not prove private implementation.
+              </span>
+            </div>
+
+            <div class="boundary-item">
+              <strong>No build before boundary</strong>
+              <span>
+                Private schemas, rulesets, receipts, integrations,
+                and implementation design require written scope.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <div class="services-wrap">
+        <div class="services-cta">
+          <p class="services-kicker">Enter the TA-14 Review Desk</p>
+
+          <h2>
+            Bring the system. Bring the evidence. Bring the consequence.
+          </h2>
 
           <p>
-            A focused TA-14 screen added to an existing buyer,
-            RFP, pilot, or vendor-review process.
+            You do not need to choose the correct service yourself.
+            Submit the system, route, evidence source, authority basis,
+            reliance point, commit boundary, failure exposure, desired outcome,
+            budget, and timeline. TA-14 will identify the smallest defensible place to begin.
           </p>
 
-          <ul>
-            <li>Targeted consequence question</li>
-            <li>Focused evidence screen</li>
-            <li>Buyer-side conditions</li>
-          </ul>
-        </article>
+          <div class="services-actions">
+            <a class="services-button primary" href="/request-evaluation">
+              Find My Starting Point
+            </a>
 
-        <article class="card dark">
-          <div class="number violet">$1.5K</div>
+            <a class="services-button ghost" href="/pricing">
+              View Exact Pricing
+            </a>
 
-          <h3>Buyer-Side Vendor Screen</h3>
-
-          <p>
-            A structured screen of vendor evidence, authority,
-            route logic, refusal behavior, and outcome accountability.
-          </p>
-
-          <ul>
-            <li>Vendor claim map</li>
-            <li>Evidence questions</li>
-            <li>Pilot-entry conditions</li>
-            <li>Risk and escalation findings</li>
-          </ul>
-        </article>
-
-        <article class="card alt">
-          <div class="number green">$2.5K+</div>
-
-          <h3>Procurement Admissibility Review</h3>
-
-          <p>
-            A broader review for higher-risk products,
-            institutional pilots, autonomous workflows, or regulated use.
-          </p>
-
-          <ul>
-            <li>Route-complete procurement review</li>
-            <li>Deployment restrictions</li>
-            <li>Receipt and evidence requirements</li>
-            <li>ALLOW, HOLD, DENY, or ESCALATE recommendation</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="cta-row">
-        <a class="button button-dark" href="/request-evaluation">
-          Request Procurement Screening
-        </a>
-      </div>
-    </section>
-
-    <!-- PARTNER + ENTERPRISE -->
-    <section id="integration">
-      <div class="quote-panel">
-        <p class="eyebrow">Integration and Institutionalization</p>
-
-        <p class="big">
-          Review tells you where the chain breaks.
-          Integration creates the governed surface that must hold.
-        </p>
-      </div>
-
-      <div class="grid two">
-        <article id="partner-api" class="feature-panel">
-          <p class="eyebrow">Lane 07 · Partner API Scope</p>
-
-          <h2>TA-14 inside a real product or workflow.</h2>
-
-          <div class="price">$5,000+</div>
-
-          <p class="lead">
-            For runtime platforms, evidence systems, policy engines,
-            governance frameworks, trust layers, and operational products
-            that need a written TA-14 integration boundary.
-          </p>
-
-          <div class="grid two">
-            <article class="card">
-              <h3>Input architecture</h3>
-              <p>Private fields, evidence bindings, identity, authority, and route context.</p>
-            </article>
-
-            <article class="card alt">
-              <h3>Decision architecture</h3>
-              <p>Rulesets, risk classes, ALLOW, HOLD, DENY, and ESCALATE behavior.</p>
-            </article>
-
-            <article class="card alt">
-              <h3>Receipt architecture</h3>
-              <p>Reason codes, failed links, warnings, signatures, and persistent records.</p>
-            </article>
-
-            <article class="card">
-              <h3>Claim architecture</h3>
-              <p>Written control over integration, review, readiness, and public TA-14 language.</p>
-            </article>
-          </div>
-
-          <div class="callout">
-            Partner integration is not merger, certification,
-            endorsement, ownership, or absorption.
-          </div>
-
-          <a class="button button-dark" href="/request-evaluation">
-            Request Partner API Scope
-          </a>
-        </article>
-
-        <article id="enterprise" class="card dark">
-          <p class="eyebrow">Lane 08 · Enterprise / Institutional</p>
-
-          <h2>Govern consequence across the institution.</h2>
-
-          <div class="price">$25,000+</div>
-
-          <p class="lead" style="color:#e2e8f0;">
-            For organizations that need admissibility across multiple systems,
-            vendors, identities, evidence sources, departments, agents,
-            environments, approval structures, and execution routes.
-          </p>
-
-          <h4>Institutional scope may include</h4>
-
-          <ul>
-            <li>Enterprise route inventory</li>
-            <li>Cross-system continuity architecture</li>
-            <li>Identity and delegated-authority governance</li>
-            <li>Private risk classes and rulesets</li>
-            <li>Gate placement across workflows</li>
-            <li>Vendor and procurement controls</li>
-            <li>Signed receipts and audit storage</li>
-            <li>Outcome records and institutional memory</li>
-            <li>Phased implementation roadmap</li>
-          </ul>
-
-          <div class="chain-line">
-            Institution-wide consequence requires institution-wide admissibility.
-          </div>
-
-          <a class="button button-primary" href="/request-evaluation">
-            Discuss Institutional Scope
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- BENEFIT -->
-    <section>
-      <div class="feature-panel">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">What the World Gains</p>
-
-            <h2>TA-14 turns governance from language into a consequence boundary.</h2>
-
-            <p>
-              The benefit is not another badge, dashboard, policy document,
-              or promise of trust. The benefit is a governed reason why action
-              was allowed, held, denied, escalated, or prevented.
-            </p>
-          </div>
-
-          <span class="count-pill">Governance before consequence</span>
-        </div>
-
-        <div class="grid four">
-          <article class="card">
-            <h3>Builders</h3>
-            <p>
-              Receive a chain to implement and a boundary to test
-              before autonomous action reaches the world.
-            </p>
-          </article>
-
-          <article class="card alt">
-            <h3>Buyers</h3>
-            <p>
-              Receive a way to evaluate the evidence and consequence route
-              behind a vendor’s claims.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Partners</h3>
-            <p>
-              Receive an independent second-layer architecture
-              without losing their own identity.
-            </p>
-          </article>
-
-          <article class="card alt">
-            <h3>Institutions</h3>
-            <p>
-              Receive a preserved record of why consequence
-              was permitted, delayed, refused, or escalated.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- HARD BOUNDARY -->
-    <section id="boundary">
-      <div class="problem">
-        <p class="eyebrow">The TA-14 Boundary</p>
-
-        <h2>We will not sell certainty the evidence cannot support.</h2>
-
-        <p class="lead">
-          Every finding, recommendation, integration, and institutional pathway
-          is bounded by the evidence reviewed and the written scope agreed.
-        </p>
-
-        <div class="boundary-list">
-          <div class="boundary-item">
-            <strong>Not automatic certification</strong>
-            <p>
-              Review does not create regulatory approval,
-              legal compliance certification, safety certification, or production clearance.
-            </p>
-          </div>
-
-          <div class="boundary-item">
-            <strong>Not blanket endorsement</strong>
-            <p>
-              A positive or partial finding does not endorse
-              an entire company, product, deployment, or unreviewed route.
-            </p>
-          </div>
-
-          <div class="boundary-item">
-            <strong>Not legal or cybersecurity advice</strong>
-            <p>
-              TA-14 does not replace legal counsel, penetration testing,
-              SOC review, forensic analysis, or cybersecurity certification.
-            </p>
-          </div>
-
-          <div class="boundary-item">
-            <strong>Not production proof from public materials</strong>
-            <p>
-              Websites, diagrams, demonstrations, repositories,
-              and policy claims do not prove private operational capability.
-            </p>
-          </div>
-
-          <div class="boundary-item">
-            <strong>No build before boundary</strong>
-            <p>
-              Private schemas, rulesets, proof objects, test matrices,
-              integrations, receipts, and implementation guidance require written scope.
-            </p>
+            <a
+              class="services-button ghost"
+              href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Test the Public API
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section id="request">
-      <div class="cta-panel">
-        <p class="eyebrow">Enter the TA-14 Review Desk</p>
-
-        <h2>Bring the system. Bring the evidence. Bring the consequence.</h2>
-
-        <p>
-          You do not need to diagnose your own service lane.
-          Submit the system, route, evidence source, authority basis,
-          reliance point, binding and commit boundary, failure exposure,
-          desired outcome, budget, and timeline.
-        </p>
-
-        <p>
-          TA-14 will identify the smallest defensible place to begin.
-        </p>
-
-        <div class="cta-row">
-          <a class="button button-primary" href="/request-evaluation">
-            Find My Starting Point
-          </a>
-
-          <a class="button button-secondary" href="/pricing">
-            Review Exact Pricing
-          </a>
-
-          <a
-            class="button button-secondary"
-            href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Test the Public API
-          </a>
-
-          <a
-            class="button button-secondary"
-            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Service%20Scope%20Inquiry"
-          >
-            Email TA-14
-          </a>
-        </div>
-
-        <div class="chain-line">
-          The public boundary is open.
-          The production boundary is disciplined.
-          The consequence boundary is governed.
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer>
-    <div class="footer-inner">
+  <footer class="services-footer">
+    <div class="services-footer-inner">
       <div>
         <strong>TA-14 Admissible Execution Architecture</strong><br />
         No admissible evidence. No admissible execution.
@@ -1079,10 +1537,9 @@
         <a href="/pricing">Pricing</a> ·
         <a href="/resources">Resources</a> ·
         <a href="/request-evaluation">Request Scope</a> ·
-        <a href="mailto:ta14admissibleexecution@gmail.com">
-          ta14admissibleexecution@gmail.com
-        </a>
+        <a href="mailto:ta14admissibleexecution@gmail.com">Contact</a>
       </div>
     </div>
   </footer>
+
 </body>
