@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="A deep architecture explanation of TA-14 Admissible Execution Architecture: Reality, Record, Continuity, Admissibility, Binding, Commit, Execution, Outcome, Evidence Governance, Reliance Governance, and production admissibility."
+    content="TA-14 architecture explained: the eight-stage operational spine, the expanded 24-link dependency chain, the Admissible Execution Gate, the public API decision surface, production implementation, and service attachment points."
   />
 
   <style>
@@ -599,7 +599,9 @@
         <a href="/services">Services</a>
         <a href="/use-cases">Use Cases</a>
         <a href="/resources">Resources</a>
-        <a class="nav-cta" href="/request-evaluation">Request Review</a>
+        <a href="/gate">Gate</a>
+        <a href="/pricing">Pricing</a>
+        <a class="nav-cta" href="/request-evaluation">Request</a>
       </div>
     </nav>
   </header>
@@ -608,18 +610,25 @@
     <section class="hero">
       <p class="eyebrow">Architecture</p>
 
-      <h1>The full-chain architecture for deciding whether execution should be allowed.</h1>
+      <h1>The architecture behind admissible consequence.</h1>
 
       <p class="lead">
-        TA-14 Admissible Execution Architecture is a proof-bound governance architecture for
-        consequence-bearing systems. It asks whether the entire route from real-world condition
-        to outcome is evidenced, continuous, authorized, bounded, admissible, and accountable
-        before action creates consequence.
+        TA-14 Admissible Execution Architecture governs the dependency chain beneath consequence-bearing action.
+        It connects real-world conditions, records, continuity, evidence, reliance, authority, legitimacy,
+        binding, commit, execution, outcome, memory, and future-chain inheritance before action is allowed to matter.
+      </p>
+
+      <p class="lead">
+        The architecture has four public views: an eight-stage operational spine, an expanded 24-link dependency map,
+        a Gate that classifies proposed routes, and a public API that exposes the decision surface.
+        Production implementation connects that surface to authenticated evidence, authority, controls, receipts, and records.
       </p>
 
       <div class="hero-actions">
-        <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
-        <a class="button button-secondary" href="/services">View Review Services</a>
+        <a class="button button-primary" href="/gate">Open the Gate</a>
+        <a class="button button-secondary" href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs" target="_blank" rel="noopener noreferrer">Test the Live API</a>
+        <a class="button button-secondary" href="/services">View Services</a>
+        <a class="button button-secondary" href="/request-evaluation">Request Scope</a>
       </div>
 
       <p class="direct">
@@ -629,14 +638,13 @@
 
       <div class="mini-nav">
         <a href="#definition">Definition</a>
-        <a href="#problem">Problem</a>
-        <a href="#chain">Chain</a>
-        <a href="#layers">Layers</a>
-        <a href="#misexecution">Misexecution</a>
-        <a href="#evidence-governance">Evidence Governance</a>
-        <a href="#reliance-governance">Reliance</a>
-        <a href="#public-record">Public Record</a>
-        <a href="#review-use">Review Use</a>
+        <a href="#views">Four Architecture Views</a>
+        <a href="#operational-spine">Eight-Stage Spine</a>
+        <a href="#expanded-chain">24-Link Chain</a>
+        <a href="#gate-api">Gate & API</a>
+        <a href="#production">Production</a>
+        <a href="#services-map">Service Map</a>
+        <a href="#boundaries">Boundaries</a>
       </div>
     </section>
 
@@ -645,7 +653,7 @@
 
       <div class="quote-panel">
         <p class="big">
-          TA-14 governs whether a system should be allowed to bind, commit, execute, or create reliance based on the evidence available right now.
+          TA-14 governs whether a system should be allowed to bind, commit, execute, or create reliance based on the chain state that exists now.
         </p>
 
         <div class="chain-line">
@@ -654,468 +662,384 @@
       </div>
 
       <div class="callout">
-        <h2>TA-14 is not just a gate.</h2>
+        <h2>TA-14 is not one control.</h2>
         <p>
-          A gate can stop or allow an action at one boundary. TA-14 governs the whole route that produced
-          the proposed action: the reality being represented, the evidence record, the preservation of
-          continuity, the admissibility threshold, the binding point, the commit boundary, the execution
-          event, and the outcome record.
+          It is the architecture that determines whether the controls, evidence, authority, reliance, decision,
+          and outcome belong to one admissible consequence-bearing route.
         </p>
       </div>
     </section>
 
-    <section id="problem">
-      <p class="eyebrow">The problem</p>
+    <section id="views">
+      <p class="eyebrow">Four architecture views</p>
+      <h2>One architecture, shown at four levels of depth.</h2>
 
-      <h2>Modern systems can create consequence faster than evidence can govern it.</h2>
-
-      <p class="lead">
-        AI systems, institutional workflows, environmental evidence systems, partner architectures,
-        automated recommendations, and operational decision routes can produce outputs, trigger actions,
-        and create reliance before anyone proves that the underlying evidence is still valid. Monitoring,
-        logging, policy language, dashboards, or after-the-fact reports may help, but they do not prove
-        that consequence-bearing execution was admissible before it happened.
-      </p>
-
-      <div class="grid three">
+      <div class="grid four">
         <article class="card">
-          <h3>Monitoring is not governance</h3>
+          <div class="number">1</div>
+          <h3>Operational spine</h3>
           <p>
-            Monitoring may show conditions, events, or status. TA-14 asks whether the records behind
-            action are preserved, continuous, thresholded, admissible, authorized, and accountable.
+            The eight-stage public chain used for orientation, review scoping, operational discussion, and service mapping.
           </p>
         </article>
 
         <article class="card alt">
-          <h3>Logging is not admissibility</h3>
+          <div class="number">2</div>
+          <h3>Expanded dependency chain</h3>
           <p>
-            Audit logs may describe what happened. TA-14 asks whether the evidence chain should have
-            allowed the action before execution created consequence.
+            The 24-link map that exposes evidence governance, admissible truth, reliance, authority, legitimacy,
+            non-occurrence, prevention, memory, and future-chain inheritance.
           </p>
         </article>
 
         <article class="card">
-          <h3>Technical success is not execution legitimacy</h3>
+          <div class="number">3</div>
+          <h3>Gate and API</h3>
           <p>
-            A system can perform exactly as designed and still misexecute if it acted on stale evidence,
-            invalid authority, weak continuity, or an ungoverned commit boundary.
+            The operational decision surface that classifies proposed routes as ALLOW, HOLD, DENY, or ESCALATE.
+          </p>
+        </article>
+
+        <article class="card alt">
+          <div class="number">4</div>
+          <h3>Production implementation</h3>
+          <p>
+            The evidence-connected layer that binds identity, delegated authority, source records, hashes,
+            rulesets, receipts, persistence, integrations, and outcome memory.
           </p>
         </article>
       </div>
-
-      <div class="warning">
-        <h3>Core TA-14 risk condition</h3>
-        <p>
-          A system may remain monitored, logged, policy-aligned, explainable, and technically functional while
-          the admissible basis for consequence has already degraded. TA-14 exists to detect and govern that gap
-          before action attaches consequence.
-        </p>
-      </div>
     </section>
 
-    <section id="chain">
-      <p class="eyebrow">The governing stream</p>
-      <h2>The TA-14 chain</h2>
+    <section id="operational-spine">
+      <p class="eyebrow">Eight-stage operational spine</p>
+      <h2>The short chain shows the major consequence stages.</h2>
 
       <p class="lead">
-        TA-14 treats execution as the visible endpoint of a deeper evidentiary chain. Before a system acts,
-        something was treated as real, recorded, preserved, relied upon, bound, committed, and executed.
-        Each stage must remain admissible enough for the next stage to proceed.
+        The operational spine is the clearest public representation of TA-14. It shows the major stages
+        through which reality becomes evidence, evidence becomes reliance, reliance becomes commitment,
+        and commitment becomes consequence.
       </p>
 
       <div class="chain-grid">
         <article class="chain-step">
           <div class="number">1</div>
           <strong>Reality</strong>
-          <span>The real-world condition, event, environment, obligation, or operational fact the system claims to represent.</span>
+          <span>The real condition, event, environment, obligation, subject, or operational fact being represented.</span>
         </article>
 
         <article class="chain-step">
           <div class="number">2</div>
           <strong>Record</strong>
-          <span>The captured evidence, source document, log, sensor reading, model output, diagnostic, or determination.</span>
+          <span>The source document, log, sensor reading, diagnostic, model output, determination, or other captured evidence.</span>
         </article>
 
         <article class="chain-step">
           <div class="number">3</div>
           <strong>Continuity</strong>
-          <span>The preserved connection between reality and record across time, transfer, transformation, review, and use.</span>
+          <span>The preserved connection between reality and record across time, transfer, transformation, custody, and use.</span>
         </article>
 
         <article class="chain-step">
           <div class="number">4</div>
           <strong>Admissibility</strong>
-          <span>The threshold finding that evidence is sufficient, current, scoped, authoritative, and reliable enough for reliance.</span>
+          <span>The threshold finding that the evidence and route are fit for the reliance and consequence being proposed.</span>
         </article>
 
         <article class="chain-step">
           <div class="number">5</div>
           <strong>Binding</strong>
-          <span>The moment where information becomes reliance, reliance becomes obligation, or a determination constrains action.</span>
+          <span>The point where information becomes reliance, reliance becomes obligation, or a determination constrains action.</span>
         </article>
 
         <article class="chain-step">
           <div class="number">6</div>
           <strong>Commit</strong>
-          <span>The controlled boundary where a person, system, workflow, agent, or institution commits to a consequence-bearing route.</span>
+          <span>The controlled boundary where a person, system, workflow, agent, or institution enters a consequence-bearing route.</span>
         </article>
 
         <article class="chain-step">
           <div class="number">7</div>
           <strong>Execution</strong>
-          <span>The action, intervention, release, refusal, escalation, routing, transaction, or decision that produces consequence.</span>
+          <span>The action, refusal, escalation, intervention, release, routing, transaction, or decision that produces consequence.</span>
         </article>
 
         <article class="chain-step">
           <div class="number">8</div>
           <strong>Outcome</strong>
-          <span>The resulting state, consequence, verification record, accountability object, or new reality created by execution.</span>
+          <span>The resulting state, verification record, accountability object, or new reality created by execution.</span>
         </article>
       </div>
     </section>
 
-    <section id="layers">
-      <p class="eyebrow">Architecture layers</p>
-      <h2>TA-14 is an architecture family, not a single control.</h2>
+    <section id="expanded-chain">
+      <p class="eyebrow">Expanded 24-link dependency chain</p>
+      <h2>The long chain shows what must hold inside and between the major stages.</h2>
 
       <p class="lead">
-        TA-14 includes the parent admissible-execution chain and multiple supporting architecture families.
-        These layers explain why TA-14 is broader than an audit trail, dashboard, compliance checklist,
-        runtime gate, or safety policy.
+        The 24-link chain does not replace the operational spine. It decomposes it. It makes visible the dependencies
+        that ordinary execution models compress or skip: evidence governance, admissible truth, reliance, authority,
+        legitimacy, consequence formation, non-occurrence, prevention, outcome reality, memory, and future-chain inheritance.
       </p>
 
       <div class="map">
         <div class="map-row">
-          <div class="map-label">Parent Admissible Execution Chain</div>
+          <div class="map-label">01–07 · Upstream proof</div>
           <div class="map-body">
-            Governs the full stream from Reality through Outcome. This is the core spine of TA-14.
+            Reality → Record → Continuity → Evidence Governance → Admissible Evidence → Admissible Truth → Reliance
           </div>
         </div>
 
         <div class="map-row">
-          <div class="map-label">Evidence Governance</div>
+          <div class="map-label">08–15 · Permission and attachment</div>
           <div class="map-body">
-            Governs whether information can become evidence, whether evidence remains healthy and continuous,
-            and whether it can support admissibility before reliance.
+            Authority → Legitimacy → Consequence Formation → Attachment / Assent → Binding Reality → Binding → Commit Reality → Commit
           </div>
         </div>
 
         <div class="map-row">
-          <div class="map-label">Reliance Governance</div>
+          <div class="map-label">16–21 · Boundary and consequence</div>
           <div class="map-body">
-            Governs what must be true before evidence, outputs, records, or determinations can be relied upon.
-            Core principle: no admissible reliance, no admissible execution.
+            Execution Reality → Admissible Non-Occurrence → Prevented Consequence → Execution → Outcome Reality → Outcome
           </div>
         </div>
 
         <div class="map-row">
-          <div class="map-label">Authority Governance</div>
+          <div class="map-label">22–24 · Inheritance</div>
           <div class="map-body">
-            Separates technical ability from admissible authority. A system may be able to act without having
-            authority to create consequence.
-          </div>
-        </div>
-
-        <div class="map-row">
-          <div class="map-label">Binding and Commit Governance</div>
-          <div class="map-body">
-            Identifies where evidence becomes reliance, where reliance becomes binding, and where binding moves
-            into consequence-bearing commit.
-          </div>
-        </div>
-
-        <div class="map-row">
-          <div class="map-label">Execution Governance</div>
-          <div class="map-body">
-            Controls whether action proceeds, narrows, pauses, escalates, refuses, or fails closed before consequence
-            attaches.
-          </div>
-        </div>
-
-        <div class="map-row">
-          <div class="map-label">Outcome Accountability</div>
-          <div class="map-body">
-            Preserves the result of execution, verifies post-action state, and records the new reality produced
-            by action.
-          </div>
-        </div>
-
-        <div class="map-row">
-          <div class="map-label">Institutional Memory</div>
-          <div class="map-body">
-            Preserves doctrine, review findings, lineage, changes, supersession, and publication boundaries so
-            the TA-14 corpus remains governable over time.
+            New Reality → Memory → Future Chain
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="misexecution">
-      <p class="eyebrow">Misexecution</p>
-      <h2>A system can work and still misexecute.</h2>
-
-      <p class="lead">
-        TA-14 distinguishes ordinary technical failure from inadmissible consequence. A system can produce
-        the expected output, follow its rules, pass a local check, and leave a log while still creating a
-        consequence that should not have been allowed.
-      </p>
-
-      <div class="grid two">
-        <article class="card">
-          <h3>Technical failure</h3>
-          <p>
-            The system malfunctioned, crashed, violated a rule, produced an incorrect output, or failed
-            to perform as designed.
-          </p>
-        </article>
-
-        <article class="card alt">
-          <h3>Misexecution</h3>
-          <p>
-            The system acted or created reliance when the evidence, continuity, authority, scope, binding basis,
-            commit decision, execution control, or outcome accountability was not admissible.
-          </p>
-        </article>
-      </div>
-
-      <div class="callout">
-        <h3>The TA-14 question is not only “did the system work?”</h3>
+      <div class="green">
+        <h3>The relationship between the two chain views</h3>
         <p>
-          The deeper question is: should the system have been allowed to act, bind, commit, or create consequence
-          on the evidence available at that moment?
+          The eight-stage chain shows the spine. The 24-link chain shows the dependency tissue,
+          permission states, prevention states, and inheritance states that make the spine admissible.
         </p>
       </div>
     </section>
 
-    <section id="evidence-governance">
-      <p class="eyebrow">Evidence Governance</p>
-      <h2>Information is not evidence until it is governed.</h2>
+    <section id="gate-api">
+      <p class="eyebrow">Gate and API</p>
+      <h2>The Gate is where the architecture becomes a decision surface.</h2>
 
       <p class="lead">
-        A log, sensor reading, model output, report, diagnostic, checklist, document, or human statement does
-        not automatically become admissible evidence merely because it exists. TA-14 treats evidence as governed
-        infrastructure. It must be classified, preserved, connected, scoped, evaluated, and protected before it
-        can support reliance.
+        The TA-14 Gate sits before consequence-bearing execution. It evaluates whether the submitted route has enough
+        evidence, continuity, authority, scope, binding control, commit control, and outcome accountability to proceed.
+      </p>
+
+      <div class="grid four">
+        <article class="card">
+          <h3>ALLOW</h3>
+          <p>The route satisfies the required conditions for its declared scope and risk class.</p>
+        </article>
+
+        <article class="card alt">
+          <h3>HOLD</h3>
+          <p>The route may become admissible, but evidence, continuity, authority, or threshold conditions remain incomplete.</p>
+        </article>
+
+        <article class="card">
+          <h3>DENY</h3>
+          <p>The route is outside scope, lacks legitimate authority, breaks continuity, or fails admissibility.</p>
+        </article>
+
+        <article class="card alt">
+          <h3>ESCALATE</h3>
+          <p>The route requires higher authority, human review, expert review, or an approved exception process.</p>
+        </article>
+      </div>
+
+      <div class="map">
+        <div class="map-row">
+          <div class="map-label">POST /v1/evaluate-execution</div>
+          <div class="map-body">Classifies a proposed consequence-bearing action route.</div>
+        </div>
+        <div class="map-row">
+          <div class="map-label">POST /v1/evaluate-evidence</div>
+          <div class="map-body">Tests whether submitted evidence is sufficient, current, continuous, attributable, and fit for reliance.</div>
+        </div>
+        <div class="map-row">
+          <div class="map-label">POST /v1/check-authority</div>
+          <div class="map-body">Tests identity, delegated authority, scope, legitimacy, and subject-action alignment.</div>
+        </div>
+        <div class="map-row">
+          <div class="map-label">POST /v1/validate-continuity</div>
+          <div class="map-body">Tests sequence, lineage, custody, timing, and material continuity.</div>
+        </div>
+        <div class="map-row">
+          <div class="map-label">POST /v1/reviewability-record</div>
+          <div class="map-body">Creates a structured record of submitted conditions, failed links, warnings, and next steps.</div>
+        </div>
+        <div class="map-row">
+          <div class="map-label">POST /v1/procurement-screen</div>
+          <div class="map-body">Screens AI products, vendors, pilots, and proposed deployments for unresolved route gaps.</div>
+        </div>
+      </div>
+
+      <div class="warning">
+        <h3>The public API boundary</h3>
+        <p>
+          The public sandbox evaluates route conditions submitted by the caller. It demonstrates the decision surface,
+          but it does not claim that every submitted assertion has already been independently authenticated.
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs" target="_blank" rel="noopener noreferrer">Open Interactive API</a>
+        <a class="button button-secondary" href="/gate">Read the Gate Page</a>
+      </div>
+    </section>
+
+    <section id="production">
+      <p class="eyebrow">Production implementation</p>
+      <h2>The sandbox demonstrates the decision surface. Production binds it to evidence.</h2>
+
+      <p class="lead">
+        Production implementation connects the TA-14 decision surface to real evidence and institutional controls.
+        That is where submitted declarations become authenticated chain states and signed decisions become governed execution.
       </p>
 
       <div class="grid three">
         <article class="card">
-          <h3>Evidence continuity</h3>
-          <p>
-            Can the evidence still be traced back to the real condition, event, or source it claims to represent?
-          </p>
+          <h3>Evidence connection</h3>
+          <p>Source-bound evidence objects, evidence hashes, input hashes, timestamps, versions, lineage, and continuity validation.</p>
         </article>
 
         <article class="card alt">
-          <h3>Evidence health</h3>
-          <p>
-            Is the evidence complete, current, coherent, uncorrupted, and suitable for the consequence involved?
-          </p>
+          <h3>Authority connection</h3>
+          <p>Authenticated identity, delegated authority records, subject-action binding, scope validation, and legitimacy controls.</p>
         </article>
 
         <article class="card">
-          <h3>Evidence capacity</h3>
-          <p>
-            Is the evidence strong enough to support the level of reliance, binding, commit, or execution being proposed?
-          </p>
+          <h3>Decision persistence</h3>
+          <p>Signed decision receipts, persistent audit storage, expiration, re-evaluation, escalation, resolution, and outcome records.</p>
         </article>
 
         <article class="card alt">
-          <h3>Evidence survivability</h3>
-          <p>
-            Does the evidence remain admissible under runtime pressure, latency, drift, uncertainty, or changing conditions?
-          </p>
+          <h3>Rules and risk</h3>
+          <p>Client-specific rules, risk classes, policy versions, model versions, system versions, and controlled exceptions.</p>
         </article>
 
         <article class="card">
-          <h3>Evidence-to-admissibility transition</h3>
-          <p>
-            At what point does evidence become strong enough to support admissible reliance?
-          </p>
+          <h3>Integration</h3>
+          <p>APIs, webhooks, workflows, procurement systems, runtime platforms, evidence stores, partner systems, and institutional controls.</p>
         </article>
 
         <article class="card alt">
-          <h3>Evidence outrun condition</h3>
-          <p>
-            Has the system moved faster than its evidence can safely govern?
-          </p>
+          <h3>Outcome memory</h3>
+          <p>Preserved outcome state, new reality, institutional memory, and future-chain inheritance after execution.</p>
         </article>
       </div>
     </section>
 
-    <section id="reliance-governance">
-      <p class="eyebrow">Reliance Governance</p>
-      <h2>No admissible reliance. No admissible execution.</h2>
+    <section id="services-map">
+      <p class="eyebrow">Where services attach</p>
+      <h2>Each TA-14 service attaches to a different architecture depth.</h2>
 
-      <p class="lead">
-        Evidence Governance asks what must be true before information can become admissible evidence.
-        Reliance Governance asks what must be true before that evidence can be relied upon by a person,
-        system, institution, workflow, partner architecture, or downstream process.
-      </p>
+      <div class="map">
+        <div class="map-row">
+          <div class="map-label">$49 Reviewability Check</div>
+          <div class="map-body">Determines whether enough of the route is visible to support meaningful review.</div>
+        </div>
 
-      <div class="grid two">
-        <article class="green">
-          <h3>Admissible reliance requires more than available data.</h3>
-          <ul>
-            <li>The evidence must be current enough for the decision.</li>
-            <li>The authority must be valid for the scope of action.</li>
-            <li>The binding point must be visible and reviewable.</li>
-            <li>The commit boundary must be controlled.</li>
-            <li>The outcome must be accountable.</li>
-          </ul>
-        </article>
+        <div class="map-row">
+          <div class="map-label">$250 API Readiness Check</div>
+          <div class="map-body">Maps available fields and route conditions to the public API decision surface.</div>
+        </div>
 
-        <article class="warning">
-          <h3>Reliance failure can happen before technical failure.</h3>
-          <p>
-            A system can operate exactly as designed while a user, institution, or downstream process relies on
-            evidence that is not strong enough to support the consequence being created.
-          </p>
-        </article>
+        <div class="map-row">
+          <div class="map-label">$450+ Evidence Gap Review</div>
+          <div class="map-body">Attaches primarily to Reality, Record, Continuity, Evidence Governance, and Admissibility.</div>
+        </div>
+
+        <div class="map-row">
+          <div class="map-label">$950 Route-Complete Review</div>
+          <div class="map-body">Attaches across the full operational spine from Reality through Outcome.</div>
+        </div>
+
+        <div class="map-row">
+          <div class="map-label">$1,500+ Runtime Readiness</div>
+          <div class="map-body">Attaches to decision classes, authority, binding, commit, execution control, refusal, escalation, and receipts.</div>
+        </div>
+
+        <div class="map-row">
+          <div class="map-label">$750–$2,500+ Procurement</div>
+          <div class="map-body">Attaches to vendor claims, pilot-entry conditions, authority, evidence, runtime controls, reliance, and deployment boundaries.</div>
+        </div>
+
+        <div class="map-row">
+          <div class="map-label">$5,000+ Partner API Scope</div>
+          <div class="map-body">Attaches to private rulesets, integration boundaries, response structures, versioning, and partner claim controls.</div>
+        </div>
+
+        <div class="map-row">
+          <div class="map-label">$25,000+ Enterprise / Institutional</div>
+          <div class="map-body">Attaches across the architecture, systems, authority structures, evidence stores, decision controls, receipts, and deployment pathway.</div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="/services">View Service Details</a>
+        <a class="button button-secondary" href="/pricing">View Pricing</a>
+        <a class="button button-secondary" href="/request-evaluation">Request the Right Scope</a>
       </div>
     </section>
 
     <section id="boundaries">
-      <p class="eyebrow">Boundaries</p>
-      <h2>What TA-14 is not</h2>
-
-      <p class="lead">
-        TA-14 needs clear public boundaries because it can be misread if forced into familiar categories.
-        These distinctions protect the architecture from being reduced to ordinary monitoring, audit logging,
-        policy dashboards, or one-time execution gates.
-      </p>
+      <p class="eyebrow">Architecture boundaries</p>
+      <h2>TA-14 must not be reduced to familiar but narrower categories.</h2>
 
       <div class="grid two">
         <article class="card">
-          <h3>TA-14 is not ordinary monitoring</h3>
-          <p>
-            Monitoring observes activity. TA-14 governs whether the evidentiary basis for action is admissible
-            before consequence-bearing execution occurs.
-          </p>
+          <h3>Not ordinary monitoring</h3>
+          <p>Monitoring observes conditions. TA-14 governs whether those conditions and records are admissible enough for action.</p>
         </article>
 
         <article class="card alt">
-          <h3>TA-14 is not audit logging</h3>
-          <p>
-            Logs may show what happened. TA-14 asks whether what happened should have been allowed at all.
-          </p>
+          <h3>Not authorization alone</h3>
+          <p>Authorization says who may access or invoke. TA-14 asks whether the specific consequence-bearing route is legitimate and admissible now.</p>
         </article>
 
         <article class="card">
-          <h3>TA-14 is not a policy dashboard</h3>
-          <p>
-            Dashboards may display controls, obligations, or risk signals. TA-14 governs the chain through which
-            evidence becomes reliance, commit, execution, and outcome.
-          </p>
+          <h3>Not audit logging</h3>
+          <p>Logs preserve what happened. TA-14 asks whether what happened should have been allowed at all.</p>
         </article>
 
         <article class="card alt">
-          <h3>TA-14 is not only an execution gate</h3>
-          <p>
-            TA-14 includes execution-boundary governance, but its scope begins at reality and continues through outcome.
-          </p>
+          <h3>Not a gate by itself</h3>
+          <p>The Gate is an implementation surface inside TA-14. The architecture begins at reality and continues through outcome, memory, and future chain.</p>
         </article>
       </div>
-    </section>
 
-    <section id="public-record">
-      <div class="public-record">
-        <p class="eyebrow">Public record anchors</p>
-        <h2>TA-14 is built as a preserved public architecture record.</h2>
-
-        <p class="lead">
-          The architecture is supported by public preservation, publication, repository, and site anchors.
-          These anchors do not replace review, certification, or private operational evidence, but they help
-          establish the public corpus, chronology, and reference materials for TA-14.
+      <div class="warning">
+        <h3>No build before boundary</h3>
+        <p>
+          Public doctrine, public chain views, and the reference API explain the architecture.
+          Private rules, protected mechanics, test matrices, evidence-object design, signed receipts,
+          client-specific integrations, security review, and production deployment require written scope.
         </p>
-
-        <div class="link-list">
-          <a href="https://doi.org/10.5281/zenodo.20463927" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Volume 1 Foundational Monograph v1.2 — DOI Record</strong>
-            <span>DOI: 10.5281/zenodo.20463927</span>
-          </a>
-
-          <a href="https://doi.org/10.5281/zenodo.20463926" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Volume 1 Concept DOI</strong>
-            <span>Concept DOI: 10.5281/zenodo.20463926</span>
-          </a>
-
-          <a href="https://github.com/greggbutlerac-debug/ta14-admissible-execution-gate" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 GitHub Repository</strong>
-            <span>Public repository for TA-14 admissible-execution architecture materials.</span>
-          </a>
-
-          <a href="https://sites.google.com/view/ta-14-volume-1-preservation-ed/home" target="_blank" rel="noopener noreferrer">
-            <strong>TA-14 Volume 1 Preservation Page</strong>
-            <span>Public preservation anchor for TA-14 Volume 1 and admissibility-state architecture development.</span>
-          </a>
-
-          <a href="https://sites.google.com/view/environmental-integrity-gover/home" target="_blank" rel="noopener noreferrer">
-            <strong>Environmental Integrity Governance</strong>
-            <span>Public entry point for TA-14 environmental integrity governance materials.</span>
-          </a>
-
-          <a href="https://sites.google.com/view/atmosphericintegrityrecordairc/home" target="_blank" rel="noopener noreferrer">
-            <strong>Atmospheric Integrity Records / AIRC</strong>
-            <span>Public entry point for atmospheric evidence and environmental record continuity.</span>
-          </a>
-        </div>
       </div>
     </section>
 
-    <section id="review-use">
-      <p class="eyebrow">Review use</p>
-      <h2>How TA-14 is used in review</h2>
-
-      <p class="lead">
-        TA-14 reviews map systems, workflows, public materials, evidence packages, partner architectures,
-        environmental processes, and institutional decision routes against the admissible-execution chain.
-        The review posture is evidence-first, chronology-first, continuity-first, and strengths-plus-gaps.
-      </p>
-
-      <div class="grid three">
-        <article class="card">
-          <h3>Public-material architecture review</h3>
-          <p>
-            Maps public documentation, sites, repositories, claims, demos, and visible design evidence against
-            the TA-14 chain without making unsupported claims about private capability.
-          </p>
-        </article>
-
-        <article class="card alt">
-          <h3>Evidence gap review</h3>
-          <p>
-            Identifies missing records, continuity breaks, unclear authority, weak reliance basis, incomplete commit
-            proof, or absent outcome verification before action or institutional reliance.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Production-readiness review</h3>
-          <p>
-            Evaluates whether consequence-bearing routes are governed from live reality through record, continuity,
-            admissibility, binding, commit, execution, and outcome.
-          </p>
-        </article>
-      </div>
-
-      <div class="cta-panel" style="margin-top: 36px;">
-        <h2>Need to test whether a system is admissible enough to act?</h2>
+    <section id="request">
+      <div class="cta-panel">
+        <h2>Need to determine where your system sits in the TA-14 architecture?</h2>
 
         <p>
-          Request a TA-14 review for an AI workflow, environmental evidence process, partner architecture,
-          institutional decision route, or other consequence-bearing execution pathway.
+          Test the public API, review the service pathway, or submit the system, route, evidence process,
+          procurement decision, partner architecture, or institutional deployment for TA-14 scoping.
         </p>
 
         <div class="cta-row">
-          <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
-          <a
-            class="button button-secondary"
-            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Architecture%20Review%20Inquiry"
-          >
-            Email TA-14
-          </a>
+          <a class="button button-primary" href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs" target="_blank" rel="noopener noreferrer">Test the Live API</a>
+          <a class="button button-secondary" href="/services">View Services</a>
+          <a class="button button-secondary" href="/request-evaluation">Request TA-14 Scope</a>
         </div>
+
+        <p style="margin-top:18px;">Direct contact: ta14admissibleexecution@gmail.com</p>
       </div>
     </section>
   </main>
