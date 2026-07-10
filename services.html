@@ -1,1132 +1,305 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Services | TA-14 Admissible Execution Architecture</title>
-
-  <meta
-    name="description"
-    content="TA-14 review services for public-material architecture review, evidence gap review, partner alignment review, environmental integrity review, and production-readiness admissible-execution review."
-  />
-
-  <style>
-    :root {
-      --black: #020617;
-      --ink: #0f172a;
-      --muted: #475569;
-      --light-muted: #64748b;
-      --line: #e2e8f0;
-      --soft: #f8fafc;
-      --soft-2: #f1f5f9;
-      --white: #ffffff;
-      --max: 1180px;
-      --radius: 28px;
-      --shadow: 0 26px 80px rgba(15, 23, 42, 0.14);
-      --soft-shadow: 0 16px 50px rgba(15, 23, 42, 0.08);
-      --warning-bg: #fff7ed;
-      --warning: #7c2d12;
-      --green-bg: #ecfdf5;
-      --green: #064e3b;
-      --blue-bg: #eff6ff;
-      --blue: #1e3a8a;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.65;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(15, 23, 42, 0.10), transparent 34rem),
-        radial-gradient(circle at top right, rgba(15, 23, 42, 0.06), transparent 30rem),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 44%, #ffffff 100%);
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid rgba(226, 232, 240, 0.92);
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(14px);
-    }
-
-    .nav {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      text-decoration: none;
-    }
-
-    .brand strong {
-      font-size: 1.04rem;
-      font-weight: 900;
-      letter-spacing: -0.035em;
-      color: var(--black);
-    }
-
-    .brand span {
-      font-size: 0.9rem;
-      color: var(--light-muted);
-      font-weight: 700;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 800;
-    }
-
-    .nav-links a:hover {
-      color: var(--black);
-    }
-
-    .nav-links .nav-cta {
-      color: #ffffff;
-      background: var(--black);
-      padding: 10px 15px;
-      border-radius: 999px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
-    }
-
-    main {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 72px 24px 92px;
-    }
-
-    section {
-      margin-top: 84px;
-    }
-
-    .hero {
-      margin-top: 0;
-      padding: 28px 0 22px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      margin: 0 0 18px;
-      color: var(--light-muted);
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 1080px;
-      margin: 0 0 26px;
-      color: var(--black);
-      font-size: clamp(3.2rem, 8vw, 7.15rem);
-      line-height: 0.9;
-      letter-spacing: -0.082em;
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      color: var(--black);
-      font-size: clamp(2rem, 4vw, 3.35rem);
-      line-height: 1.02;
-      letter-spacing: -0.06em;
-    }
-
-    h3 {
-      margin: 0 0 10px;
-      color: var(--black);
-      font-size: 1.35rem;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    h4 {
-      margin: 20px 0 8px;
-      color: var(--black);
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    p {
-      margin: 0 0 18px;
-    }
-
-    ul {
-      margin: 10px 0 0;
-      padding-left: 22px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .lead {
-      max-width: 930px;
-      color: #334155;
-      font-size: clamp(1.16rem, 2vw, 1.42rem);
-      line-height: 1.72;
-    }
-
-    .hero-actions,
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin: 32px 0 14px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 14px 22px;
-      border: 1px solid var(--black);
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 900;
-      transition: transform 160ms ease, box-shadow 160ms ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button-primary {
-      background: var(--black);
-      color: #ffffff;
-      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
-    }
-
-    .button-secondary {
-      background: #ffffff;
-      color: var(--black);
-    }
-
-    .direct {
-      margin-top: 10px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .direct a {
-      color: var(--black);
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    .mini-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 34px;
-    }
-
-    .mini-nav a {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 9px 13px;
-      color: var(--muted);
-      background: #ffffff;
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 800;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
-    }
-
-    .mini-nav a:hover {
-      color: var(--black);
-      border-color: var(--black);
-    }
-
-    .grid {
-      display: grid;
-      gap: 20px;
-      margin-top: 28px;
-    }
-
-    .grid.two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .grid.three {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .grid.four {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-      background: rgba(255, 255, 255, 0.94);
-      box-shadow: var(--soft-shadow);
-      text-decoration: none;
-      display: block;
-    }
-
-    .card.alt {
-      background: rgba(248, 250, 252, 0.96);
-    }
-
-    .card.dark {
-      background: var(--black);
-      color: #ffffff;
-      border-color: var(--black);
-      box-shadow: var(--shadow);
-    }
-
-    .card.dark h2,
-    .card.dark h3,
-    .card.dark p,
-    .card.dark li {
-      color: #ffffff;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      transition: transform 160ms ease;
-    }
-
-    .number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      margin-bottom: 16px;
-      border-radius: 50%;
-      background: var(--black);
-      color: #ffffff;
-      font-weight: 900;
-    }
-
-    .quote-panel {
-      border-radius: 34px;
-      background: var(--black);
-      color: #ffffff;
-      padding: 40px;
-      margin-top: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .quote-panel h2,
-    .quote-panel p {
-      color: #ffffff;
-    }
-
-    .quote-panel p.big {
-      margin: 0;
-      font-size: clamp(1.55rem, 3.2vw, 2.75rem);
-      line-height: 1.12;
-      letter-spacing: -0.045em;
-      font-weight: 900;
-    }
-
-    .chain-line {
-      margin-top: 20px;
-      color: #e2e8f0;
-      font-size: clamp(1.05rem, 1.9vw, 1.34rem);
-      font-weight: 900;
-    }
-
-    .service-card {
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      padding: 34px;
-      background: #ffffff;
-      box-shadow: var(--shadow);
-      margin-top: 28px;
-    }
-
-    .service-top {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .service-code {
-      display: inline-flex;
-      width: 86px;
-      height: 86px;
-      border-radius: 26px;
-      background: var(--black);
-      color: #ffffff;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.7rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-    }
-
-    .service-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 18px 0 0;
-    }
-
-    .tag {
-      display: inline-flex;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 10px;
-      background: var(--soft);
-      color: var(--muted);
-      font-size: 0.88rem;
-      font-weight: 800;
-    }
-
-    .included {
-      margin-top: 26px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .included div {
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px;
-      background: var(--soft);
-    }
-
-    .included strong {
-      display: block;
-      color: var(--black);
-      margin-bottom: 6px;
-    }
-
-    .included span {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .process {
-      counter-reset: process;
-    }
-
-    .process-step {
-      position: relative;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 26px;
-      background: #ffffff;
-      box-shadow: var(--soft-shadow);
-    }
-
-    .process-step::before {
-      counter-increment: process;
-      content: counter(process);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      margin-bottom: 16px;
-      border-radius: 50%;
-      background: var(--black);
-      color: #ffffff;
-      font-weight: 900;
-    }
-
-    .warning {
-      border: 1px solid #fed7aa;
-      border-radius: 22px;
-      background: var(--warning-bg);
-      color: var(--warning);
-      padding: 28px;
-      margin-top: 28px;
-    }
-
-    .warning h3,
-    .warning p,
-    .warning li {
-      color: var(--warning);
-    }
-
-    .green {
-      border: 1px solid #a7f3d0;
-      border-radius: 22px;
-      background: var(--green-bg);
-      color: var(--green);
-      padding: 28px;
-      margin-top: 28px;
-    }
-
-    .green h3,
-    .green p,
-    .green li {
-      color: var(--green);
-    }
-
-    .blue {
-      border: 1px solid #bfdbfe;
-      border-radius: 22px;
-      background: var(--blue-bg);
-      color: var(--blue);
-      padding: 28px;
-      margin-top: 28px;
-    }
-
-    .blue h3,
-    .blue p,
-    .blue li {
-      color: var(--blue);
-    }
-
-    .link-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .link-list a {
-      display: block;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      background: #ffffff;
-      text-decoration: none;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-    }
-
-    .link-list strong {
-      display: block;
-      color: var(--black);
-      margin-bottom: 4px;
-    }
-
-    .link-list span {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .cta-panel {
-      padding: 40px;
-      border-radius: 36px;
-      background: var(--black);
-      color: #ffffff;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-panel h2,
-    .cta-panel p {
-      color: #ffffff;
-    }
-
-    .cta-panel p {
-      max-width: 860px;
-      color: #e2e8f0;
-      font-size: 1.16rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      background: #ffffff;
-      color: var(--muted);
-      padding: 34px 24px;
-    }
-
-    .footer-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    footer strong {
-      color: var(--black);
-    }
-
-    footer a {
-      color: var(--black);
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    @media (max-width: 980px) {
-      .grid.two,
-      .grid.three,
-      .grid.four,
-      .included,
-      .service-top {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        letter-spacing: -0.06em;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
-
-      main {
-        padding-top: 48px;
-      }
-
-      .card,
-      .quote-panel,
-      .cta-panel,
-      .service-card {
-        padding: 24px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="/">
-        <strong>TA-14 Admissible Execution Architecture</strong>
-        <span>Proof-bound governance before consequence</span>
-      </a>
-
-      <div class="nav-links">
-        <a href="/start-here">Start Here</a>
-        <a href="/architecture">Architecture</a>
-        <a href="/services">Services</a>
-        <a href="/use-cases">Use Cases</a>
-        <a href="/resources">Resources</a>
-        <a class="nav-cta" href="/request-evaluation">Request Review</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <p class="eyebrow">Services</p>
-
-      <h1>TA-14 reviews for systems that need proof before consequence.</h1>
-
-      <p class="lead">
-        TA-14 review services evaluate whether a system, workflow, evidence process, partner architecture,
-        AI pathway, environmental integrity process, or institutional decision route has enough admissible
-        evidence, continuity, authority, scope, binding discipline, commit control, execution governance,
-        and outcome accountability before it creates consequence.
-      </p>
-
-      <div class="hero-actions">
-        <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
-        <a class="button button-secondary" href="#review-lanes">View Review Lanes</a>
-      </div>
-
-      <p class="direct">
-        Direct contact:
-        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
-      </p>
-
-      <div class="mini-nav">
-        <a href="#what-you-get">What You Get</a>
-        <a href="#review-lanes">Review Lanes</a>
-        <a href="#process">Process</a>
-        <a href="#partner-network">Partner Network</a>
-        <a href="#boundaries">Boundaries</a>
-        <a href="#public-record">Public Record</a>
-        <a href="#request">Request Review</a>
-      </div>
-    </section>
-
-    <section id="what-you-get">
-      <p class="eyebrow">What TA-14 delivers</p>
-
-      <div class="quote-panel">
-        <p class="big">
-          TA-14 does not sell reassurance. TA-14 sells structured admissible-execution review.
-        </p>
-
-        <div class="chain-line">
-          Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
-        </div>
-      </div>
-
-      <div class="grid three">
-        <article class="card">
-          <h3>Architecture clarity</h3>
-          <p>
-            A clear map of where the system sits in the admissible-execution stream and where evidence,
-            reliance, authority, binding, commit, execution, and outcome are visible or incomplete.
-          </p>
-        </article>
-
-        <article class="card alt">
-          <h3>Evidence gap findings</h3>
-          <p>
-            Identification of missing proof, weak records, continuity breaks, stale evidence, unclear authority,
-            incomplete commit controls, or absent outcome accountability.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Review-ready language</h3>
-          <p>
-            Neutral strengths-plus-gaps findings that can be used for internal review, client communication,
-            partner scoping, public-material positioning, or readiness planning.
-          </p>
-        </article>
-      </div>
-
-      <div class="green">
-        <h3>Core service principle</h3>
-        <p>
-          The stronger the evidence package, the stronger the TA-14 review can be. Public materials can support
-          a public-material review. Operational evidence can support deeper readiness review. Route-complete evidence
-          can support stronger admissible-execution findings.
-        </p>
-      </div>
-    </section>
-
-    <section id="review-lanes">
-      <p class="eyebrow">Review lanes</p>
-      <h2>Choose the review depth that matches the evidence available.</h2>
-
-      <article class="service-card">
-        <div class="service-top">
-          <div class="service-code">01</div>
-          <div>
-            <h2>Public-Material Architecture Review</h2>
-            <p class="lead">
-              A neutral review of publicly available materials: websites, documentation, repositories,
-              papers, demos, decks, public claims, public records, and visible architecture evidence.
-            </p>
-
-            <div class="service-meta">
-              <span class="tag">Best for early architecture positioning</span>
-              <span class="tag">No private capability assumptions</span>
-              <span class="tag">Strengths-plus-gaps posture</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="included">
-          <div>
-            <strong>Maps public claims</strong>
-            <span>Reviews visible materials against the TA-14 chain without overclaiming private implementation.</span>
-          </div>
-
-          <div>
-            <strong>Identifies visible strengths</strong>
-            <span>Recognizes serious architecture, evidence surfaces, governance controls, and useful adjacent capabilities.</span>
-          </div>
-
-          <div>
-            <strong>Defines public gaps</strong>
-            <span>Separates missing public proof from proof that private capability is absent.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="service-card">
-        <div class="service-top">
-          <div class="service-code">02</div>
-          <div>
-            <h2>Evidence Gap Review</h2>
-            <p class="lead">
-              A targeted review of whether evidence is strong enough to support reliance, binding,
-              commit, execution, or outcome accountability.
-            </p>
-
-            <div class="service-meta">
-              <span class="tag">Evidence before reliance</span>
-              <span class="tag">Continuity and chronology</span>
-              <span class="tag">Gap-to-readiness mapping</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="included">
-          <div>
-            <strong>Evidence sufficiency</strong>
-            <span>Checks whether records, logs, sensor data, determinations, baselines, thresholds, or documents support the action.</span>
-          </div>
-
-          <div>
-            <strong>Continuity survivability</strong>
-            <span>Reviews whether evidence remains connected, current, preserved, and reviewable under operational pressure.</span>
-          </div>
-
-          <div>
-            <strong>Reliance boundary</strong>
-            <span>Identifies where evidence becomes reliance and whether that transition is admissibly supported.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="service-card">
-        <div class="service-top">
-          <div class="service-code">03</div>
-          <div>
-            <h2>Partner Alignment Review</h2>
-            <p class="lead">
-              A review lane for adjacent governance systems, evidence systems, runtime gates, audit systems,
-              policy engines, refusal layers, partner architectures, and specialized assessment frameworks.
-            </p>
-
-            <div class="service-meta">
-              <span class="tag">Independent architecture preserved</span>
-              <span class="tag">Second-layer TA-14 review</span>
-              <span class="tag">Written boundary required</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="included">
-          <div>
-            <strong>Role mapping</strong>
-            <span>Maps where the partner architecture sits inside or alongside the TA-14 admissible-execution stream.</span>
-          </div>
-
-          <div>
-            <strong>Claim boundary</strong>
-            <span>Separates alignment, review, partnership, readiness, endorsement, and certification language.</span>
-          </div>
-
-          <div>
-            <strong>Partner review lane</strong>
-            <span>Defines how partner specialization and TA-14 second-layer review can work together without merger or misuse.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="service-card">
-        <div class="service-top">
-          <div class="service-code">04</div>
-          <div>
-            <h2>Environmental Integrity Review</h2>
-            <p class="lead">
-              A review lane for atmospheric evidence, IAQ, HVACDR, refrigeration, filtration, diagnostics,
-              intervention decisions, sensor records, post-intervention proof, and environmental reliance.
-            </p>
-
-            <div class="service-meta">
-              <span class="tag">Atmospheric evidence</span>
-              <span class="tag">Evidence before intervention</span>
-              <span class="tag">Outcome proof</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="included">
-          <div>
-            <strong>Environmental record continuity</strong>
-            <span>Reviews whether atmospheric, diagnostic, or operational records remain admissible from condition through outcome.</span>
-          </div>
-
-          <div>
-            <strong>Intervention threshold</strong>
-            <span>Tests whether evidence supports action before invasive or consequence-bearing intervention occurs.</span>
-          </div>
-
-          <div>
-            <strong>Post-intervention proof</strong>
-            <span>Looks for records that prove the outcome after action, not merely the decision before action.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="service-card">
-        <div class="service-top">
-          <div class="service-code">05</div>
-          <div>
-            <h2>Production-Readiness Admissible-Execution Review</h2>
-            <p class="lead">
-              A deeper review for systems moving toward deployment, institutional reliance, client-facing review,
-              regulated consequence, partner pathway, or operational readiness.
-            </p>
-
-            <div class="service-meta">
-              <span class="tag">Route-complete evidence</span>
-              <span class="tag">Fail-closed expectations</span>
-              <span class="tag">Outcome accountability</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="included">
-          <div>
-            <strong>Full-chain readiness</strong>
-            <span>Reviews evidence from live reality through record, continuity, admissibility, binding, commit, execution, and outcome.</span>
-          </div>
-
-          <div>
-            <strong>Misexecution pressure</strong>
-            <span>Tests whether action can proceed when evidence, authority, scope, or continuity degrade under pressure.</span>
-          </div>
-
-          <div>
-            <strong>Readiness finding</strong>
-            <span>Classifies the review posture without overclaiming certification, legal conclusion, or production validation.</span>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <section id="process">
-      <p class="eyebrow">Review process</p>
-      <h2>A simple process with serious evidentiary discipline.</h2>
-
-      <div class="grid four process">
-        <article class="process-step">
-          <h3>Intake</h3>
-          <p>
-            Identify the system, workflow, evidence process, partner architecture, or environmental pathway to review.
-          </p>
-        </article>
-
-        <article class="process-step">
-          <h3>Evidence basis</h3>
-          <p>
-            Define what materials are being reviewed: public materials, private evidence, logs, records, diagrams,
-            operational examples, or route demonstrations.
-          </p>
-        </article>
-
-        <article class="process-step">
-          <h3>TA-14 mapping</h3>
-          <p>
-            Map the available evidence against Reality, Record, Continuity, Admissibility, Binding, Commit,
-            Execution, and Outcome.
-          </p>
-        </article>
-
-        <article class="process-step">
-          <h3>Findings</h3>
-          <p>
-            Produce a strengths-plus-gaps review with clear boundaries, admissibility concerns, and next-step evidence requirements.
-          </p>
-        </article>
-      </div>
-
-      <div class="blue">
-        <h3>Typical review materials</h3>
-        <ul>
-          <li>Public website, documentation, whitepaper, GitHub repository, demo, or architecture description.</li>
-          <li>Evidence records, logs, source documents, sensor data, diagnostic determinations, or output samples.</li>
-          <li>Workflow diagrams showing where reliance, binding, commit, execution, refusal, escalation, or outcome occurs.</li>
-          <li>Known limitations, failure cases, refusal examples, audit trails, intervention records, or post-action proof.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="partner-network">
-      <p class="eyebrow">Partner Review Network</p>
-      <h2>Independent architectures can stay independent while TA-14 reviews the execution chain.</h2>
-
-      <p class="lead">
-        TA-14 partner-review work is not a merger, takeover, endorsement, or private self-certification.
-        The partner keeps its architecture and specialization. TA-14 provides second-layer admissible-execution
-        review across the full chain where the partner architecture intersects consequence-bearing action.
-      </p>
-
-      <div class="grid three">
-        <article class="card">
-          <h3>Partner keeps its system</h3>
-          <p>
-            Specialized architectures, runtime gates, evidence tools, refusal layers, and governance frameworks
-            preserve their own identity and expertise.
-          </p>
-        </article>
-
-        <article class="card alt">
-          <h3>TA-14 reviews the chain</h3>
-          <p>
-            TA-14 evaluates whether consequence-bearing execution is supported across evidence, authority,
-            reliance, binding, commit, execution, and outcome.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Claims stay bounded</h3>
-          <p>
-            No partner may claim TA-14 certification, endorsement, backing, alignment, or review status without
-            written scope and approved language.
-          </p>
-        </article>
-      </div>
-
-      <div class="warning">
-        <h3>No build-before-boundary</h3>
-        <p>
-          Deep architecture shaping, implementation guidance, proof-object design, test matrices, maturity roadmaps,
-          certification-readiness language, and partner enablement materials require a written scope, paid engagement,
-          reciprocal evidence exchange, or approved partner-review framework.
-        </p>
-      </div>
-    </section>
-
-    <section id="boundaries">
-      <p class="eyebrow">Review boundaries</p>
-      <h2>Clear boundaries protect the review.</h2>
-
-      <p class="lead">
-        TA-14 review findings are architecture and admissible-execution findings. They are not a substitute
-        for legal advice, regulatory approval, cybersecurity testing, safety certification, engineering signoff,
-        medical advice, financial advice, or production validation unless expressly stated in a separate written scope.
-      </p>
-
-      <div class="grid three">
-        <article class="card">
-          <h3>Not a legal opinion</h3>
-          <p>
-            TA-14 may identify evidence, authority, continuity, reliance, or consequence issues, but it does not
-            provide legal conclusions.
-          </p>
-        </article>
-
-        <article class="card alt">
-          <h3>Not a security audit</h3>
-          <p>
-            TA-14 may review governance, evidence, and execution readiness, but it is not a penetration test,
-            code audit, or vulnerability assessment.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Not certification by default</h3>
-          <p>
-            Review, alignment, readiness, certification-readiness, certification, endorsement, and production validation
-            are separate claim categories.
-          </p>
-        </article>
-      </div>
-
-      <div class="green">
-        <h3>Safe review posture</h3>
-        <p>
-          TA-14 reviews use evidence-first, chronology-first, continuity-first, strengths-plus-gaps language.
-          Serious adjacent systems are treated seriously. Public-material gaps are not framed as proof that private
-          capability is absent.
-        </p>
-      </div>
-    </section>
-
-    <section id="public-record">
-      <p class="eyebrow">Public record anchors</p>
-      <h2>Review services are grounded in a preserved TA-14 public architecture record.</h2>
-
-      <p class="lead">
-        These public anchors support chronology, reference, and corpus continuity. They do not replace engagement-specific
-        evidence, but they help identify the public foundation for TA-14 Admissible Execution Architecture.
-      </p>
-
-      <div class="link-list">
-        <a href="https://doi.org/10.5281/zenodo.20463927" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Volume 1 Foundational Monograph v1.2 — DOI Record</strong>
-          <span>DOI: 10.5281/zenodo.20463927</span>
-        </a>
-
-        <a href="https://doi.org/10.5281/zenodo.20463926" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Volume 1 Concept DOI</strong>
-          <span>Concept DOI: 10.5281/zenodo.20463926</span>
-        </a>
-
-        <a href="https://github.com/greggbutlerac-debug/ta14-admissible-execution-gate" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 GitHub Repository</strong>
-          <span>Public repository for TA-14 admissible-execution architecture materials.</span>
-        </a>
-
-        <a href="https://sites.google.com/view/ta-14-volume-1-preservation-ed/home" target="_blank" rel="noopener noreferrer">
-          <strong>TA-14 Volume 1 Preservation Page</strong>
-          <span>Public preservation anchor for Volume 1, institutional memory, and admissibility-state architecture.</span>
-        </a>
-
-        <a href="https://sites.google.com/view/environmental-integrity-gover/home" target="_blank" rel="noopener noreferrer">
-          <strong>Environmental Integrity Governance</strong>
-          <span>Public entry point for TA-14 environmental integrity governance materials.</span>
-        </a>
-
-        <a href="https://sites.google.com/view/atmosphericintegrityrecordairc/home" target="_blank" rel="noopener noreferrer">
-          <strong>Atmospheric Integrity Records / AIRC</strong>
-          <span>Public entry point for atmospheric evidence and environmental record continuity.</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="request">
-      <div class="cta-panel">
-        <h2>Ready to request a TA-14 review?</h2>
-
-        <p>
-          Send the system, workflow, evidence process, partner architecture, environmental pathway, or institutional
-          decision route you want reviewed. Include what action may occur, what evidence exists, who relies on it,
-          where authority comes from, and where binding or commit happens.
-        </p>
-
-        <div class="cta-row">
-          <a class="button button-primary" href="/request-evaluation">Request a TA-14 Review</a>
-          <a
-            class="button button-secondary"
-            href="mailto:ta14admissibleexecution@gmail.com?subject=TA-14%20Review%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20TA-14%20review.%0A%0ASystem%20or%20workflow%20to%20be%20reviewed%3A%0A%0AConsequence-bearing%20action%20involved%3A%0A%0AWho%20or%20what%20relies%20on%20the%20system%20output%3A%0A%0AWhat%20evidence%20exists%20before%20action%3A%0A%0AWhat%20authority%20allows%20the%20action%3A%0A%0AWhere%20binding%20or%20commit%20occurs%3A%0A%0AWhat%20happens%20if%20the%20system%20is%20wrong%3A%0A%0ARequested%20review%20type%3A%0A%0AThank%20you."
-          >
-            Email TA-14 Review Request
-          </a>
-        </div>
-
-        <p style="margin-top: 18px;">
-          Direct contact: ta14admissibleexecution@gmail.com
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <strong>TA-14 Admissible Execution Architecture</strong><br />
-        Reality → Record → Continuity → Admissibility → Binding → Commit → Execution → Outcome
-      </div>
-
-      <div>
-        <a href="mailto:ta14admissibleexecution@gmail.com">ta14admissibleexecution@gmail.com</a>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
+
+The Criteria That Drifted
+RAVI SHANKAR NRK
+RAVI SHANKAR NRK
+COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
+
+
+July 9, 2026
+On why every seat can stay live, every policy current, every check green—and the governance has already failed
+
+This is the sixth piece in a series on governance runtime architecture. The first five established that authority needs a traceable source, that a seat holding authority can lapse, that the situation justifying a decision can shift before it is acted on, that standing must be re-proven at the moment consequence becomes irreversible, and that a delegation chain must carry proof of standing across every transfer. All five assumed, quietly, that the standard under which every seat reads every rule stays put. This piece removes that assumption.
+
+A Vignette
+Consider a regional bank with a concentration limit: no single counterparty may exceed fifteen percent of the lending book. The limit is encoded in policy v2.3. The risk officer, Officer Chen, holds a live seat with current mandate and accreditation. The situation — the counterparty's financials, the sector outlook, the macro stress scenario — supports an exception. The systems that will execute it are available. The criteria attestation, recorded at decision time, references risk appetite statement v1.4, reaffirmed by the Board Risk Committee within its review period.
+
+The exception is granted. The trade is queued for settlement.
+
+Between decision and settlement, nothing changes in anything the runtime watches. Officer Chen's seat remains live. Policy v2.3 is not superseded. The counterparty's financials are stable. The rails are operational.
+
+But during that gap, the Board Risk Committee restates the bank's risk appetite in narrative form — not a policy change, not a version bump, nothing that would trigger an alert. The concentration limit is still fifteen percent, but what counts as a justified exception has narrowed. The assumptions embedded in the original approval — that the sector exposure was acceptable, that the stress scenario was bounded — are no longer assumed. Cases that qualified near the old boundary are no longer inside the new one.
+
+At settlement, every check passes. The policy is current, the officer is live, the situation is stable, the systems are up, the attestation is within tolerance. The trade binds. The consequence forms. And the governance has already failed.
+
+This is not a failure of detection. Every signal the runtime monitors is green. This is a failure of calibration: the standard against which every signal is evaluated has shifted, and the shift is invisible to any predicate calibrated inside the drifted standard. The runtime keeps enforcing coherence against a standard that no longer holds.
+
+A New Category of Drift
+Machine learning already has a rich vocabulary of drift, so it is worth being precise about why this is not a familiar concern wearing new clothes:
+
+Article content
+Every row above the last one has a detector. Data and model drift are caught by model risk management; policy drift by version control; and governance drift by delegation chains and access review. Criteria drift has no detector by construction: every instrument that could catch it is calibrated inside the standard that drifted. That is what makes it a second-order problem — not another thing that fails, but drift in the standard used to decide whether anything has failed.
+
+How It Fails in Practice
+Five recurring signatures:
+
+Silent reparameterization: Risk appetite is restated without a policy version change; the rules read differently while every rule check still passes.
+Interpretive succession: A successor re-qualifies a decision against a reconstructed standard rather than an inherited one; authority and context checks pass while the reading standard has changed.
+Tacit assumption decay: Assumptions embedded in the original approval quietly cease to hold, without any observable shift large enough to trip a context check.
+Boundary migration: The line between qualified and unqualified moves gradually; cases approved near the old line are stranded outside the new one.
+Monitoring decay: The set of things being watched no longer covers the failure classes that matter; everything watched stays green while an unwatched class quietly exhausts viability.
+
+In every one of these, the audit trail is impeccable, and the outcome is wrong.
+
+Governing Criteria
+The governing criteria of a regime, at any moment, consist of four things: the organization's declared risk appetite, the interpretive framework under which rules are read onto cases, the tacit assumptions embedded in qualifications, and the decision boundary separating qualified from unqualified cases.
+
+The criteria are not the rule. They are the conditions under which the rule is read. A decision made at some moment carries the conclusion of a reading; without a record of the criteria in force at that moment, it does not carry the standard that shaped the reading. A successor re-qualifying without that record is reconstructing the standard, not inheriting it. The formal treatment—the criteria tuple, the drift function, and its tolerance schema—lives in the Criteria Validity—Technical Companion.
+
+The Fifth Field in the Chain of Custody
+The architectural response is simple to state. At decision time, the runtime records not only the policy version, the authority token, the context qualification, and the resource reservation but also a fifth field: an attestation of the governing criteria used to interpret them. If those criteria materially change before the commitment binds, the decision becomes structurally stale and must be re-qualified under the new standard.
+
+The attestation converts the governing criteria from an ambient assumption into a governed, versioned, auditable object. Its validity rests on three conditions: the attestation exists; the criteria have not drifted beyond a tolerance the criteria-owning seat declared; and that seat has re-affirmed the standard within a defined period—an active statement that the standard is still the standard, not merely an absence of change notices. This is checked periodically and whenever the criteria change, so the check at the moment of binding stays cheap.
+
+The same pattern extends one layer up. Whatever governs the validity of the system description itself—the preceding question of whether this is still the right description of the world to govern within—publishes versioned attestations too. The runtime never evaluates their content. It only guarantees that no decision binds under a standard, criteria, or description that it was not qualified against.
+
+This induces a strict dependency: criteria validity underwrites qualification validity, which underwrites binding validity. A qualification is only as valid as the criteria under which it was made; a binding is only as valid as the qualification it commits. Second-order drift breaks the chain at its first link—which is precisely why no amount of first-order rechecking can detect it.
+
+The Path Between Two Green Snapshots
+One subtlety deserves a paragraph even in a conceptual treatment. Two snapshots of a decision's standing can both look fully admissible while the trajectory between them has quietly spent its room to continue. The floor held throughout; every seat stayed live—and the standing room shrank anyway. That narrowing is a property of the path, not of either endpoint, so no present-state check, however green, can see it. Only a monitor built to read the path can.
+
+And the choice of what to monitor is itself a judgment—one that can drift in exactly the same second-order way. The monitor set, therefore, joins the governing criteria as a fifth element—the tuple extends from the four named above to five—and changing it is a criteria event, attested like any other.
+
+The Stack, in One View
+
+
+Article content
+The criteria layer sits above everything else because it is evaluated against everything below it—including the terms on which the basin itself was parameterized. Whether the system description remains valid is the still-higher question, consumed as an attestation, never computed within the runtime.
+
+The Result
+A determination is not a single event, not even a chain of seats. It is a lifecycle governed at every stage by criteria whose own validity must be attested, versioned, and re-proven before consequence forms. The historical signature is genuine but insufficient. The present standing at commitment is what matters. And the criteria under which both were evaluated must themselves remain valid across the interval—or every predicate passes while the governance has already failed.
+
+The architecture does not merely authorize action. It authorizes the commitment of action: re-proving the base invariants at the moment commitment becomes irreversible, within the structural floor the basin provides, against criteria whose own validity is attested, with evidence, with escalation, and with a seat that can still answer.
+
+The chain of custody does not end at the signature. It ends where someone can still answer for every link, at every gate, under a standard that is still the standard when the consequence becomes irreversible.
+
+— Commander Ravi Shankar NRK (Retd.), AI Strategy, Governance & Risk
+
+The formal specification—the criteria tuple, the drift function and tolerance schema, the attestation record format, the standing states, and worked algorithms and failure semantics—lives in the Criteria Validity—Technical Companion. Implementers, reviewers, and architects may DM me.
+
+
+
+Comments
+likeloveinsightful
+11
+22 comments
+
+Photo of Greggory Don Butler
+
+like
+Like
+
+Comment
+
+Share
+
+
+Add a comment…
+Open Emoji Keyboard
+
+Current selected sort order is Most recent
+Most recent
+View RAVI SHANKAR NRK’s  graphic link
+RAVI SHANKAR NRK
+ 
+Author
+COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
+7h
+
+With thanks to the practitioners from whom I have learnt their ways of approaching the seams Diana Jose, Sharon Licqurish PhD , Bal Bhandal Ricardo Muro, Simon D., Michal Harcej, Sue Broughton, Tobias Plowman, Guillaume Heinerth, Dean Chapman, Chris Perkins Frederick Redditt Max Barzenkov Cara Tonucci Timothy Gough Greggory Don Butler Dr M Maruf Hossain, PhD, GAICD Dana Louw MBA, 
+…more
+
+Like
+like
+1
+
+Reply
+12 replies
+12 Replies on RAVI SHANKAR NRK’s comment
+
+See previous replies
+View RAVI SHANKAR NRK’s  graphic link
+RAVI SHANKAR NRK
+ 
+Author
+COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
+5h
+
+Chris Perkins I am ready to share if some one asks for it in DM
+
+Like
+
+Reply
+View RAVI SHANKAR NRK’s  graphic link
+RAVI SHANKAR NRK
+ 
+Author
+COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
+7h
+
+With thanks to practitioners who had helped me to think differently Margaret Stokes Philip Pinol AB SAHOO 
+
+Like
+like
+1
+
+Reply
+View RAVI SHANKAR NRK’s  graphic link
+RAVI SHANKAR NRK
+ 
+Author
+COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
+7h
+
+With thanks to the practitioners who have taught me their own ways of approaching the seams, Kristina Vayo Huck Huckaby Greggory Don Butler Brad Wolfe @Mark A Christopher Gaither Adriana Adria Arvind SR Arash Aghlara Dasha Gorovenco-Gillespie Adam S., Rob Caswell Custor 28 Nikunj Dugar , Paul M. Paul Roman Grigori Korotkikh Dani Danwin Dan Lionello Stephane Hoareau Ilya Bubelo Cyril Fautrai Robert Hensley Steve Tuthill Michael Kozloff Christof Schumann Jennifer L. DiMotta Sue Eze Aaron Sempf John Oluwafemi Jegede Nick Mabe Dr. Srinath Naidu New Trend Computer Networks L.L.C Adriana Adria Virendra Vaishnav Jesper Jensen Afsar Ahmed Mohammed Mohamed Adam Aurélie Jacquet Anas Nuvy Christopher Caruso Lilian Crawford James Stokes. S. Brady Alliy Nalam Sriya Jane Pollard Digvijay Parmar 🦩 Rebecca Horrocks Thierry Zedda Swetha Gupta AdeptiveAI Akhilesh Warik Nick Vejle De Yu Chou Shabina Abba Noormohamed
+…more
+
+Like
+
+Reply
+1 reply
+1 Comment on RAVI SHANKAR NRK’s comment
+View New Trend Computer Networks L.L.C’s profile
+New Trend Computer Networks L.L.C
+6,150 followers
+3h
+
+Thankyou. lets connect.
+
+Like
+
+Reply
+View Greggory Don Butler’s  graphic link
+Greggory Don Butler
+   • You
+Founder, TA-14 | Architect of Admissible Execution Architecture, Environmental Integrity Governance & Atmospheric Integrity Records
+14m
+
+RAVI SHANKAR NRK This is a strong next move.
+
+Criteria drift is dangerous because it can leave every visible control green while the standard underneath the control has already moved.
+
+That matters deeply for admissibility.
+
+A decision may have been valid under the criteria that existed at approval. But if the criteria used to interpret authority, risk, scope, qualification, or consequence shifts before binding, the original decision cannot simply travel forward as if nothing changed.
+
+From a TA-14 perspective, this is why the chain cannot only preserve records.
+
+It has to preserve the standard under which the record became meaningful.
+
+Reality, record, continuity, evidence, authority, legitimacy, binding, commit, execution, outcome, and reviewability all depend on the governing criteria still being valid when consequence forms.
+
+A green check is not enough if the standard behind the check drifted.
+
+No valid endpoint proves a valid route.
+
+No admissible chain.
+
+No admissible execution.
+…more
+
+Like
+
+Reply
+View Sue Eze’s  graphic link
+Sue Eze
+   • 2nd
+AI Governance & Technology Risk Lead | ISO/IEC 42001 | EU AI Act | Runtime Risk & Model Assurance | ISMS (ISO 27001)
+5h
+
+A very important point. Calibration drift often invisible because every control still measuring against yesterday’s assumptions. For me, governance isn’t just about detecting whether signals remain within thresholds; it’s also about continuously validating whether those thresholds, assumptions, ownership, and decision criteria are still appropriate for today’s operational environment. Otherwise, every control can report “green” while the organisation has already drifted away from its intended risk appetite.
+…more
+
+Like
+
+Reply
+1 reply
+1 Comment on Sue Eze’s comment
+View RAVI SHANKAR NRK’s  graphic link
+RAVI SHANKAR NRK
+ 
+Author
+COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
+5h
+
+Sue Eze - Precisely — and that is why the companion treats the criteria tuple K(t) = (ρ, ι, τ, β, μ) as a governed object in its own right, not merely a parameter of the controls. The reaffirmation period π forces the criteria-owning seat to actively re-attest that the standard is still the standard, independent of whether any control has tripped. Without that active reaffirmation, criteria standing lapses to LAPSED, and every dependent determination goes structurally stale—even if every downstream signal remains green. The controls cannot save you if the standard they are calibrated against has silently shifted.
+…more
+
+Like
+
+Reply
+View Javier Ángel Martínez Rodríguez’s  graphic link
+Javier Ángel Martínez Rodríguez
+   • 2nd
+Lead Enterprise & Cloud Architect | AI Governance, ISO 42001, EU AI Act | Enterprise Architecture (TOGAF 10), Data & IAM & Security
+5h
+
+Criteria drift is the right name for it, and it's the failure mode that hides in plain sight — every instrument reads green because they're all calibrated against the drifted standard. Detection can't catch it because detection is downstream of the criteria. The only defense I've seen is making the standard itself a versioned, auditable object with its own revalidation trigger, so drift in the criteria surfaces as a first-class signal rather than being silently inherited by everything measured against it.
+…more
+
+Like
+
+Reply
+1 reply
+1 Comment on Javier Ángel Martínez Rodríguez’s comment
+View RAVI SHANKAR NRK’s  graphic link
+RAVI SHANKAR NRK
+ 
+Author
+COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
+5h
+
+Javier Ángel Martínez Rodríguez - Exactly right—and the companion formalizes precisely that defense. The criteria attestation record converts the standard from ambient assumption into a versioned, signed, auditable object with a cryptographic digest that makes drift detectable by comparison rather than by self-assessment. The drift function δ and declared tolerance ε make divergence a first-class signal with three composed states—CURRENT, DRIFTING, and LAPSED—so the runtime never silently inherits a drifted standard. The O(1) cached standing check at binding gates means this is not theoretical overhead; it is the structural floor that lets everything above it remain trustworthy.
+…more
+
+Like
+
+Reply
+View Sundeep Khatri’s  graphic link
+Sundeep Khatri
+   • 2nd
+Operations Leader | Blinkit & Amazon | Logistics Strategy | Distribution Centers| Military Veteran | Program & Project Execution Management | Inventory Strategy | Cost & Compliance Management
+43m
+
+Well shared. Strong governance frameworks combined with technology can help organizations manage risks more effectively.
+
+Like
+
+Reply
+ 
+Load more comments
+RAVI SHANKAR NRK
+RAVI SHANKAR NRK
+
+COO · Head of Operations & Strategy · P&L Leader | Scaled SBU 2.5x to ₹108 Cr ($13M) in 12 months | Target Operating Model · Lean Six Sigma · Cross-Functional Leadership | ex-Commander, Indian Navy
+
+
+Followed by Brad and Masoud
+
+Following
+About
+Accessibility
+Talent Solutions
+Professional Community Policies
+Careers
+Marketing Solutions
+
+Privacy & Terms 
+Ad Choices
+Advertising
+Sales Solutions
+Mobile
+Small Business
+Safety Center
+Questions?
+Visit our Help Center.
+
+Manage your account and privacy
+Go to your Settings.
+
+Recommendation transparency
+Learn more about Recommended Content.
+
+Select Language
+
+English (English)
+LinkedIn Corporation © 2026
