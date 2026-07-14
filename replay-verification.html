@@ -652,11 +652,39 @@
             <h1>Verify the route, not the dashboard.</h1>
 
             <p class="lead">
-              Upload a conforming TA-14 Independent Route Replay package.
-              The verifier checks package integrity, signatures, route identity,
-              receipt dependencies, ledger continuity, execution correspondence,
-              and outcome correspondence without relying on the originating interface.
+              Independent Replay Verification allows anyone to verify a TA-14 replay
+              package without relying on the originating dashboard or operator. The
+              verifier checks preserved package integrity, cryptographic signatures,
+              route identity, receipt dependencies, ledger continuity, execution
+              correspondence, and outcome correspondence against the published standard.
             </p>
+
+            <div class="actions">
+              <a
+                class="btn btn-primary"
+                href="#verify"
+              >
+                Verify a Replay Package
+              </a>
+
+              <a
+                class="btn btn-secondary"
+                href="https://github.com/greggbutlerac-debug/greggbutlerac-debug-ta14-api-sandbox/blob/main/TA14_INDEPENDENT_ROUTE_REPLAY_STANDARD.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Published Standard
+              </a>
+
+              <a
+                class="btn btn-secondary"
+                href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open API Documentation
+              </a>
+            </div>
           </div>
 
           <aside class="panel">
@@ -690,8 +718,38 @@
           <h2>Upload one replay ZIP package.</h2>
           <p>
             Your file is transmitted to the live TA-14 replay-verification endpoint
-            for processing. The page does not retain the package after the request ends.
+            for processing. The package is written to isolated temporary storage,
+            independently checked, and removed when processing ends.
           </p>
+        </div>
+
+        <div class="card" style="margin-bottom:20px;">
+          <p class="eyebrow">Try the verifier</p>
+          <h2>Sample replay packages</h2>
+          <p>
+            Public sample packages will allow visitors to test a verified route and
+            compare it against intentionally altered packages. The sample-package
+            buttons below are reserved for the next release and will become active
+            when the files are published.
+          </p>
+
+          <div class="actions">
+            <button class="btn btn-secondary" type="button" disabled>
+              Valid Replay Package — Coming Next
+            </button>
+
+            <button class="btn btn-secondary" type="button" disabled>
+              Tampered Package — Coming Next
+            </button>
+
+            <button class="btn btn-secondary" type="button" disabled>
+              Broken Ledger Package — Coming Next
+            </button>
+
+            <button class="btn btn-secondary" type="button" disabled>
+              Wrong Signature Package — Coming Next
+            </button>
+          </div>
         </div>
 
         <div class="verifier-grid">
@@ -790,6 +848,79 @@
             regulatory certification, safety certification, production clearance,
             or a guarantee that every external source was truthful.
           </p>
+        </div>
+
+        <div class="verifier-grid">
+          <article class="card">
+            <h3>Verification can establish</h3>
+            <div class="boundary-list">
+              <div class="boundary-item">
+                <strong>Preserved package integrity</strong>
+                <span>The included files match the digests declared by the package.</span>
+              </div>
+              <div class="boundary-item">
+                <strong>Signature correspondence</strong>
+                <span>The preserved records correspond to the included public keys and signatures.</span>
+              </div>
+              <div class="boundary-item">
+                <strong>Route and ledger continuity</strong>
+                <span>The route identity, receipt dependencies, and hash-linked ledger remain coherent.</span>
+              </div>
+              <div class="boundary-item">
+                <strong>Execution and outcome correspondence</strong>
+                <span>The preserved execution and outcome correspond to the committed route records.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Verification does not automatically establish</h3>
+            <div class="boundary-list">
+              <div class="boundary-item">
+                <strong>External source truth</strong>
+                <span>An unauthenticated outside source may still have supplied false information.</span>
+              </div>
+              <div class="boundary-item">
+                <strong>Legal or regulatory approval</strong>
+                <span>The verifier is not a court, regulator, licensing body, or certification authority.</span>
+              </div>
+              <div class="boundary-item">
+                <strong>Universal operational safety</strong>
+                <span>A verified record does not eliminate every possible real-world failure mode.</span>
+              </div>
+              <div class="boundary-item">
+                <strong>Production clearance</strong>
+                <span>Enterprise deployment still requires written scope, security review, and implementation controls.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="actions">
+          <a
+            class="btn btn-primary"
+            href="https://github.com/greggbutlerac-debug/greggbutlerac-debug-ta14-api-sandbox/blob/main/TA14_INDEPENDENT_ROUTE_REPLAY_STANDARD.md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read the Full Replay Standard
+          </a>
+
+          <a
+            class="btn btn-secondary"
+            href="https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/docs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore the Live API
+          </a>
+
+          <a
+            class="btn btn-secondary"
+            href="/request-review.html"
+          >
+            Request a TA-14 Review
+          </a>
         </div>
       </section>
     </main>
