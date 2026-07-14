@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Upload and independently verify a TA-14 Independent Route Replay package."
+  />
+  <title>Verify a TA-14 Replay Package</title>
+
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: rgba(15, 23, 42, 0.78);
+      --panel-strong: rgba(15, 23, 42, 0.96);
+      --line: rgba(148, 163, 184, 0.22);
+      --text: #e5eefc;
+      --muted: #94a3b8;
+      --white: #ffffff;
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --violet: #7c3aed;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --radius-lg: 34px;
+      --radius-md: 22px;
+      --shadow: 0 30px 100px rgba(0, 0, 0, 0.38);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.35), transparent 32rem),
+        radial-gradient(circle at 90% 4%, rgba(124, 58, 237, 0.28), transparent 32rem),
+        radial-gradient(circle at 50% 70%, rgba(6, 182, 212, 0.12), transparent 40rem),
+        linear-gradient(135deg, #020617 0%, #0f172a 55%, #111827 100%);
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+      padding: 24px 0 70px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 6px 0 26px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand strong {
+      color: var(--white);
+      font-size: 1.04rem;
+      font-weight: 950;
+      letter-spacing: -0.035em;
+    }
+
+    .brand span {
+      color: #93c5fd;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 9px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.055);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: 0.87rem;
+      font-weight: 850;
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: 42px;
+      padding: clamp(28px, 6vw, 68px);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.34), transparent 28rem),
+        radial-gradient(circle at 88% 12%, rgba(124, 58, 237, 0.26), transparent 30rem),
+        rgba(255, 255, 255, 0.05);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      right: -250px;
+      top: -250px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.14), transparent 64%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(186, 230, 253, 0.2);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: #bae6fd;
+      background: rgba(14, 165, 233, 0.1);
+      font-size: 0.75rem;
+      font-weight: 950;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin: 0 0 17px;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65); }
+      70% { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: var(--white);
+      font-size: clamp(3rem, 7vw, 6.4rem);
+      line-height: 0.9;
+      letter-spacing: -0.078em;
+      text-wrap: balance;
+    }
+
+    h2 {
+      color: var(--white);
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      color: var(--white);
+      font-size: 1.08rem;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: #dbeafe;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    .panel,
+    .card,
+    .result-box {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.23);
+      backdrop-filter: blur(14px);
+    }
+
+    .panel {
+      border-radius: 30px;
+      padding: 25px;
+    }
+
+    .panel p,
+    .card p {
+      color: #cbd5e1;
+    }
+
+    .live-row {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .live-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.055);
+      border-radius: 17px;
+      padding: 13px 15px;
+    }
+
+    .live-item span {
+      color: var(--muted);
+    }
+
+    .live-item strong {
+      color: #86efac;
+    }
+
+    section {
+      margin-top: 64px;
+    }
+
+    .section-head {
+      max-width: 850px;
+      margin-bottom: 23px;
+    }
+
+    .section-head p {
+      color: #cbd5e1;
+      font-size: 1.04rem;
+    }
+
+    .verifier-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      padding: clamp(22px, 4vw, 34px);
+    }
+
+    .drop-zone {
+      min-height: 290px;
+      border: 2px dashed rgba(147, 197, 253, 0.45);
+      border-radius: 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 28px;
+      cursor: pointer;
+      background:
+        radial-gradient(circle at center, rgba(37, 99, 235, 0.13), transparent 22rem),
+        rgba(2, 6, 23, 0.38);
+      transition:
+        transform 0.16s ease,
+        border-color 0.16s ease,
+        background 0.16s ease;
+    }
+
+    .drop-zone:hover,
+    .drop-zone.dragging {
+      transform: translateY(-2px);
+      border-color: #93c5fd;
+      background:
+        radial-gradient(circle at center, rgba(37, 99, 235, 0.2), transparent 22rem),
+        rgba(2, 6, 23, 0.48);
+    }
+
+    .drop-icon {
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      margin-bottom: 17px;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      font-size: 2rem;
+      box-shadow: 0 18px 42px rgba(37, 99, 235, 0.28);
+    }
+
+    .drop-zone strong {
+      color: var(--white);
+      font-size: 1.18rem;
+      margin-bottom: 7px;
+    }
+
+    .drop-zone span {
+      color: var(--muted);
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .selected-file {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: none;
+      justify-content: space-between;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .selected-file.visible {
+      display: flex;
+    }
+
+    .selected-file strong {
+      display: block;
+      color: var(--white);
+      overflow-wrap: anywhere;
+    }
+
+    .selected-file span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      min-height: 50px;
+      padding: 13px 20px;
+      font-weight: 950;
+      cursor: pointer;
+      transition:
+        transform 0.16s ease,
+        opacity 0.16s ease;
+    }
+
+    .btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.48;
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      box-shadow: 0 18px 42px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-secondary {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--line);
+    }
+
+    .boundary-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .boundary-item {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .boundary-item strong {
+      display: block;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .boundary-item span {
+      color: #cbd5e1;
+      font-size: 0.94rem;
+    }
+
+    .result-box {
+      display: none;
+      margin-top: 20px;
+      border-radius: var(--radius-lg);
+      padding: clamp(22px, 4vw, 34px);
+    }
+
+    .result-box.visible {
+      display: block;
+    }
+
+    .result-banner {
+      border-radius: 24px;
+      padding: 22px;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+    }
+
+    .result-banner.verified {
+      background: rgba(34, 197, 94, 0.11);
+      border-color: rgba(134, 239, 172, 0.35);
+    }
+
+    .result-banner.failed {
+      background: rgba(239, 68, 68, 0.11);
+      border-color: rgba(252, 165, 165, 0.35);
+    }
+
+    .result-banner.processing {
+      background: rgba(37, 99, 235, 0.11);
+      border-color: rgba(147, 197, 253, 0.35);
+    }
+
+    .result-label {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 950;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .result-title {
+      color: var(--white);
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      font-weight: 1000;
+      letter-spacing: -0.065em;
+      overflow-wrap: anywhere;
+    }
+
+    .result-message {
+      color: #dbeafe;
+      margin: 12px 0 0;
+    }
+
+    .checks {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .check {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .check strong {
+      display: block;
+      color: var(--white);
+      margin-bottom: 4px;
+      overflow-wrap: anywhere;
+    }
+
+    .check span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      overflow-wrap: anywhere;
+    }
+
+    .raw-details {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .raw-details summary {
+      cursor: pointer;
+      padding: 15px 17px;
+      color: var(--white);
+      font-weight: 900;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    pre {
+      margin: 0;
+      padding: 18px;
+      max-height: 520px;
+      overflow: auto;
+      color: #dbeafe;
+      background: rgba(2, 6, 23, 0.78);
+      font-size: 0.86rem;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .notice {
+      margin-top: 18px;
+      border-left: 4px solid var(--amber);
+      border-radius: 16px;
+      padding: 15px 17px;
+      color: #fde68a;
+      background: rgba(245, 158, 11, 0.09);
+    }
+
+    .footer {
+      margin-top: 68px;
+      padding-top: 25px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .footer strong {
+      color: var(--white);
+    }
+
+    .footer a {
+      color: #dbeafe;
+      text-decoration: none;
+      font-weight: 850;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .verifier-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        border-radius: 30px;
+        padding: 25px;
+      }
+
+      h1 {
+        letter-spacing: -0.06em;
+      }
+
+      .checks {
+        grid-template-columns: 1fr;
+      }
+
+      .selected-file {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="/">
+        <strong>TA-14 Authority Governance Institution</strong>
+        <span>No admissible evidence. No admissible execution.</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/architecture.html">Architecture</a>
+        <a href="/services.html">Services</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/request-review.html">Request Review</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">
+              <span class="pulse"></span>
+              Live independent verification
+            </p>
+
+            <h1>Verify the route, not the dashboard.</h1>
+
+            <p class="lead">
+              Upload a conforming TA-14 Independent Route Replay package.
+              The verifier checks package integrity, signatures, route identity,
+              receipt dependencies, ledger continuity, execution correspondence,
+              and outcome correspondence without relying on the originating interface.
+            </p>
+          </div>
+
+          <aside class="panel">
+            <p class="eyebrow">Public verifier status</p>
+            <h2>Independent replay is live.</h2>
+            <p>
+              The verification service is exposed through the public TA-14 API sandbox.
+            </p>
+
+            <div class="live-row">
+              <div class="live-item">
+                <span>Standard</span>
+                <strong>TA14-IRRS-1.0.0</strong>
+              </div>
+              <div class="live-item">
+                <span>Signature</span>
+                <strong>Ed25519</strong>
+              </div>
+              <div class="live-item">
+                <span>Digest</span>
+                <strong>SHA-256</strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="verify">
+        <div class="section-head">
+          <p class="eyebrow">Replay verification desk</p>
+          <h2>Upload one replay ZIP package.</h2>
+          <p>
+            Your file is transmitted to the live TA-14 replay-verification endpoint
+            for processing. The page does not retain the package after the request ends.
+          </p>
+        </div>
+
+        <div class="verifier-grid">
+          <article class="card">
+            <label class="drop-zone" id="dropZone" for="packageInput">
+              <span class="drop-icon" aria-hidden="true">⇧</span>
+              <strong>Choose or drop a replay package</strong>
+              <span>Accepted format: .zip · Maximum size: 25 MB</span>
+            </label>
+
+            <input
+              class="file-input"
+              id="packageInput"
+              type="file"
+              accept=".zip,application/zip,application/x-zip-compressed"
+            />
+
+            <div class="selected-file" id="selectedFile">
+              <div>
+                <strong id="selectedFileName">No package selected</strong>
+                <span id="selectedFileSize"></span>
+              </div>
+              <button class="btn btn-secondary" id="removeFileButton" type="button">
+                Remove
+              </button>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn-primary" id="verifyButton" type="button" disabled>
+                Verify Replay Package
+              </button>
+
+              <button class="btn btn-secondary" id="resetButton" type="button">
+                Reset
+              </button>
+            </div>
+
+            <div class="notice">
+              Verification establishes the integrity and correspondence of preserved
+              records. It does not automatically prove the truth of an unauthenticated
+              external source.
+            </div>
+          </article>
+
+          <aside class="card">
+            <p class="eyebrow">What the verifier checks</p>
+            <h2>Preserved proof across the route.</h2>
+
+            <div class="boundary-list">
+              <div class="boundary-item">
+                <strong>Package and file integrity</strong>
+                <span>Confirms preserved files match the declared package digests.</span>
+              </div>
+
+              <div class="boundary-item">
+                <strong>Cryptographic signatures</strong>
+                <span>Checks included public-key correspondence and Ed25519 signatures.</span>
+              </div>
+
+              <div class="boundary-item">
+                <strong>Ledger and dependency continuity</strong>
+                <span>Checks the hash-linked ledger and receipt dependency chain.</span>
+              </div>
+
+              <div class="boundary-item">
+                <strong>Execution and outcome correspondence</strong>
+                <span>Checks whether the preserved execution and outcome match their authorized route.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="result-box" id="resultBox" aria-live="polite">
+          <div class="result-banner processing" id="resultBanner">
+            <div class="result-label">Verification status</div>
+            <div class="result-title" id="resultTitle">Ready</div>
+            <p class="result-message" id="resultMessage"></p>
+          </div>
+
+          <div class="checks" id="checks"></div>
+
+          <details class="raw-details" id="rawDetails">
+            <summary>View complete verification response</summary>
+            <pre id="rawResponse"></pre>
+          </details>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <p class="eyebrow">Public claim boundary</p>
+          <h2>What a successful verification means.</h2>
+          <p>
+            A conforming TA-14 replay package can be verified without trusting
+            the originating dashboard or operator. Verification is not legal approval,
+            regulatory certification, safety certification, production clearance,
+            or a guarantee that every external source was truthful.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>TA-14 Independent Route Replay Verifier</strong><br />
+        Reality → Record → Continuity → Admissibility → Binding → Commit →
+        Execution → Outcome → Preserved Proof
+      </div>
+
+      <div>
+        <a href="mailto:ta14admissibleexecution@gmail.com">
+          ta14admissibleexecution@gmail.com
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    "use strict";
+
+    const VERIFY_ENDPOINT =
+      "https://greggbutlerac-debug-ta14-api-sandbox.onrender.com/v1/replay/verify";
+
+    const MAX_PACKAGE_BYTES = 25 * 1024 * 1024;
+
+    const packageInput = document.getElementById("packageInput");
+    const dropZone = document.getElementById("dropZone");
+    const selectedFile = document.getElementById("selectedFile");
+    const selectedFileName = document.getElementById("selectedFileName");
+    const selectedFileSize = document.getElementById("selectedFileSize");
+    const removeFileButton = document.getElementById("removeFileButton");
+    const verifyButton = document.getElementById("verifyButton");
+    const resetButton = document.getElementById("resetButton");
+    const resultBox = document.getElementById("resultBox");
+    const resultBanner = document.getElementById("resultBanner");
+    const resultTitle = document.getElementById("resultTitle");
+    const resultMessage = document.getElementById("resultMessage");
+    const checks = document.getElementById("checks");
+    const rawResponse = document.getElementById("rawResponse");
+
+    let activeFile = null;
+
+    function formatBytes(bytes) {
+      if (!Number.isFinite(bytes) || bytes <= 0) {
+        return "0 bytes";
+      }
+
+      const units = ["bytes", "KB", "MB", "GB"];
+      const index = Math.min(
+        Math.floor(Math.log(bytes) / Math.log(1024)),
+        units.length - 1
+      );
+
+      const value = bytes / Math.pow(1024, index);
+      return `${value.toFixed(index === 0 ? 0 : 2)} ${units[index]}`;
+    }
+
+    function setFile(file) {
+      if (!file) {
+        clearFile();
+        return;
+      }
+
+      if (!file.name.toLowerCase().endsWith(".zip")) {
+        showError("Invalid file", "Replay packages must use the .zip file extension.");
+        clearFile();
+        return;
+      }
+
+      if (file.size > MAX_PACKAGE_BYTES) {
+        showError(
+          "Package too large",
+          `The selected package is ${formatBytes(file.size)}. The maximum is 25 MB.`
+        );
+        clearFile();
+        return;
+      }
+
+      activeFile = file;
+      selectedFileName.textContent = file.name;
+      selectedFileSize.textContent = formatBytes(file.size);
+      selectedFile.classList.add("visible");
+      verifyButton.disabled = false;
+    }
+
+    function clearFile() {
+      activeFile = null;
+      packageInput.value = "";
+      selectedFile.classList.remove("visible");
+      selectedFileName.textContent = "No package selected";
+      selectedFileSize.textContent = "";
+      verifyButton.disabled = true;
+    }
+
+    function resetAll() {
+      clearFile();
+      resultBox.classList.remove("visible");
+      checks.innerHTML = "";
+      rawResponse.textContent = "";
+      resultTitle.textContent = "Ready";
+      resultMessage.textContent = "";
+      resultBanner.className = "result-banner processing";
+    }
+
+    function showProcessing() {
+      resultBox.classList.add("visible");
+      resultBanner.className = "result-banner processing";
+      resultTitle.textContent = "VERIFYING";
+      resultMessage.textContent =
+        "The package is being checked against the TA-14 Independent Route Replay Standard.";
+      checks.innerHTML = "";
+      rawResponse.textContent = "";
+      resultBox.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function showError(title, message, data = null) {
+      resultBox.classList.add("visible");
+      resultBanner.className = "result-banner failed";
+      resultTitle.textContent = title.toUpperCase();
+      resultMessage.textContent = message;
+      checks.innerHTML = "";
+
+      if (data) {
+        rawResponse.textContent = JSON.stringify(data, null, 2);
+      } else {
+        rawResponse.textContent = "";
+      }
+    }
+
+    function addCheck(name, value) {
+      const item = document.createElement("div");
+      item.className = "check";
+
+      const heading = document.createElement("strong");
+      heading.textContent = name;
+
+      const description = document.createElement("span");
+      description.textContent =
+        typeof value === "string" ? value : JSON.stringify(value);
+
+      item.appendChild(heading);
+      item.appendChild(description);
+      checks.appendChild(item);
+    }
+
+    function collectSummaryChecks(data) {
+      const verification = data?.verification || {};
+      const summary = data?.summary;
+
+      addCheck(
+        "Independently replayable",
+        verification.independently_replayable === true ? "YES" : "NO"
+      );
+
+      if (verification.overall_status !== undefined) {
+        addCheck("Overall status", String(verification.overall_status));
+      }
+
+      if (verification.route_id !== undefined) {
+        addCheck("Route ID", String(verification.route_id));
+      }
+
+      if (verification.decision !== undefined) {
+        addCheck("Determination", String(verification.decision));
+      }
+
+      if (data.standard_id) {
+        addCheck("Standard", String(data.standard_id));
+      }
+
+      if (data.verifier_version) {
+        addCheck("Verifier version", String(data.verifier_version));
+      }
+
+      if (data.upload?.filename) {
+        addCheck("Uploaded package", String(data.upload.filename));
+      }
+
+      if (summary) {
+        addCheck(
+          "Verification summary",
+          typeof summary === "string" ? summary : JSON.stringify(summary)
+        );
+      }
+
+      const candidateGroups = [
+        verification.checks,
+        verification.results,
+        verification.categories,
+        verification.verification_results
+      ];
+
+      for (const group of candidateGroups) {
+        if (group && typeof group === "object" && !Array.isArray(group)) {
+          for (const [key, value] of Object.entries(group)) {
+            addCheck(key.replaceAll("_", " "), value);
+          }
+          break;
+        }
+      }
+
+      if (!checks.children.length) {
+        addCheck("Result", "Verification response received.");
+      }
+    }
+
+    function showVerificationResult(response, data) {
+      const replayable = data?.verification?.independently_replayable === true;
+
+      resultBox.classList.add("visible");
+      resultBanner.className = replayable
+        ? "result-banner verified"
+        : "result-banner failed";
+
+      resultTitle.textContent = replayable ? "VERIFIED" : "NOT VERIFIED";
+
+      resultMessage.textContent = replayable
+        ? "The package satisfied the independent replay-verification checks returned by the live TA-14 verifier."
+        : "The package was processed but did not satisfy every condition required for independently replayable status.";
+
+      checks.innerHTML = "";
+      collectSummaryChecks(data);
+      rawResponse.textContent = JSON.stringify(data, null, 2);
+
+      if (!response.ok && replayable) {
+        resultMessage.textContent =
+          "The server returned an unexpected HTTP status even though the report marked the package independently replayable.";
+      }
+    }
+
+    function extractErrorMessage(data, fallback) {
+      const detail = data?.detail;
+
+      if (typeof detail === "string") {
+        return detail;
+      }
+
+      if (detail && typeof detail.message === "string") {
+        return detail.message;
+      }
+
+      if (typeof data?.error === "string") {
+        return data.error;
+      }
+
+      return fallback;
+    }
+
+    async function verifyPackage() {
+      if (!activeFile) {
+        showError("No package", "Choose a replay ZIP package before verification.");
+        return;
+      }
+
+      showProcessing();
+      verifyButton.disabled = true;
+      verifyButton.textContent = "Verifying…";
+
+      const formData = new FormData();
+      formData.append("package", activeFile, activeFile.name);
+
+      try {
+        const response = await fetch(VERIFY_ENDPOINT, {
+          method: "POST",
+          body: formData,
+          cache: "no-store"
+        });
+
+        let data;
+
+        try {
+          data = await response.json();
+        } catch {
+          throw new Error(
+            `The verifier returned HTTP ${response.status} without a readable JSON response.`
+          );
+        }
+
+        if (response.status === 200 || response.status === 422) {
+          showVerificationResult(response, data);
+          return;
+        }
+
+        showError(
+          "Verification error",
+          extractErrorMessage(
+            data,
+            `The verifier rejected the request with HTTP ${response.status}.`
+          ),
+          data
+        );
+      } catch (error) {
+        showError(
+          "Connection failed",
+          error instanceof Error
+            ? error.message
+            : "The replay-verification service could not be reached."
+        );
+      } finally {
+        verifyButton.disabled = !activeFile;
+        verifyButton.textContent = "Verify Replay Package";
+      }
+    }
+
+    packageInput.addEventListener("change", () => {
+      setFile(packageInput.files?.[0] || null);
+    });
+
+    removeFileButton.addEventListener("click", clearFile);
+    resetButton.addEventListener("click", resetAll);
+    verifyButton.addEventListener("click", verifyPackage);
+
+    ["dragenter", "dragover"].forEach((eventName) => {
+      dropZone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        dropZone.classList.add("dragging");
+      });
+    });
+
+    ["dragleave", "drop"].forEach((eventName) => {
+      dropZone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        dropZone.classList.remove("dragging");
+      });
+    });
+
+    dropZone.addEventListener("drop", (event) => {
+      const file = event.dataTransfer?.files?.[0] || null;
+      setFile(file);
+    });
+  </script>
+</body>
+</html>
