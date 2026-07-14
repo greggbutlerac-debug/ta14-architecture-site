@@ -727,28 +727,50 @@
           <p class="eyebrow">Try the verifier</p>
           <h2>Sample replay packages</h2>
           <p>
-            Public sample packages will allow visitors to test a verified route and
-            compare it against intentionally altered packages. The sample-package
-            buttons below are reserved for the next release and will become active
-            when the files are published.
+            Public sample replay packages are now available. Download the valid
+            package or one of the intentionally altered examples, then upload it
+            directly into the verifier below to compare verified integrity against
+            package tampering, broken ledger continuity, and invalid key correspondence.
           </p>
 
           <div class="actions">
-            <button class="btn btn-secondary" type="button" disabled>
-              Valid Replay Package — Coming Next
-            </button>
+            <a
+              class="btn btn-primary"
+              href="https://github.com/greggbutlerac-debug/greggbutlerac-debug-ta14-api-sandbox/raw/main/samples/ta14-valid-allow.zip"
+              download
+            >
+              Download Valid Replay Package
+            </a>
 
-            <button class="btn btn-secondary" type="button" disabled>
-              Tampered Package — Coming Next
-            </button>
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/greggbutlerac-debug/greggbutlerac-debug-ta14-api-sandbox/raw/main/samples/ta14-tampered-package.zip"
+              download
+            >
+              Download Tampered Package
+            </a>
 
-            <button class="btn btn-secondary" type="button" disabled>
-              Broken Ledger Package — Coming Next
-            </button>
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/greggbutlerac-debug/greggbutlerac-debug-ta14-api-sandbox/raw/main/samples/ta14-broken-ledger.zip"
+              download
+            >
+              Download Broken Ledger Package
+            </a>
 
-            <button class="btn btn-secondary" type="button" disabled>
-              Wrong Signature Package — Coming Next
-            </button>
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/greggbutlerac-debug/greggbutlerac-debug-ta14-api-sandbox/raw/main/samples/ta14-wrong-signature.zip"
+              download
+            >
+              Download Wrong Signature Package
+            </a>
+          </div>
+
+          <div class="notice">
+            The valid sample should return VERIFIED. The altered samples are expected
+            to fail for different integrity reasons so visitors can observe the
+            verifier detecting specific forms of replay-package divergence.
           </div>
         </div>
 
